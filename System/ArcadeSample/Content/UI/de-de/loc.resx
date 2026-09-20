@@ -1,0 +1,1075 @@
+﻿<root>
+	<data name="GameConnectScene.scnGameConnect.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.btnBack.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.btnBack.Text">
+		<value>[de-de]Back</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.ctlStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.ctlStatus.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.ctlWait.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.ctlWait.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.labStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameConnectScene.scnGameConnect.labStatus.Text">
+		<value>[de-de]Connecting to the game...</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.btnDone.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.btnDone.Text">
+		<value>[de-de]Return to Lobby</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.btnGamercard.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.btnGamercard.Text">
+		<value>[de-de]Show Gamer Card</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.btnPlayerReview.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.btnPlayerReview.Text">
+		<value>[de-de]Submit Player Review</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.ctlStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.ctlStatus.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.ctlWait.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.ctlWait.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.labGamertag.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.labGamertag.Text">
+		<value>[de-de]Gamertag</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.labScore.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.labScore.Text">
+		<value>[de-de]Score</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.labStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.labStatus.Text">
+		<value>[de-de]Ending the game...</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.lstFinalScores.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameEndScene.scnGameEnd.lstFinalScores.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameListScene.scnGameList.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameListScene.scnGameList.btnBack.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.btnBack.Text">
+		<value>[de-de]Back</value>
+	</data>
+	<data name="GameListScene.scnGameList.btnCreateGame.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.btnCreateGame.Text">
+		<value>[de-de]Create Game</value>
+	</data>
+	<data name="GameListScene.scnGameList.btnJoin.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.btnJoin.Text">
+		<value>[de-de]Join Game</value>
+	</data>
+	<data name="GameListScene.scnGameList.btnRefresh.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.btnRefresh.Text">
+		<value>[de-de]Refresh</value>
+	</data>
+	<data name="GameListScene.scnGameList.labGamertag.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.labGamertag.Text">
+		<value>[de-de]Gamertag</value>
+	</data>
+	<data name="GameListScene.scnGameList.labPing.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.labPing.Text">
+		<value>[de-de]Ping</value>
+	</data>
+	<data name="GameListScene.scnGameList.labPlayers.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.labPlayers.Text">
+		<value>[de-de]Players</value>
+	</data>
+	<data name="GameListScene.scnGameList.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample</value>
+	</data>
+	<data name="GameListScene.scnGameList.labStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.labStatus.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameListScene.scnGameList.lstGames.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameListScene.scnGameList.lstGames.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.btnBack.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.btnBack.Text">
+		<value>[de-de]Back</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.btnFriends.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.btnFriends.Text">
+		<value>[de-de]Invite Friends</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.btnGamercard.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.btnGamercard.Text">
+		<value>[de-de]Show Gamer Card</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.btnReady.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.btnReady.Text">
+		<value>[de-de]Ready</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.labStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.labStatus.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.lstPlayers.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameLobbyScene.scnGameLobby.lstPlayers.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.btnBack.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.btnBack.Text">
+		<value>[de-de]Back</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.btnCreateGame.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.btnCreateGame.Text">
+		<value>[de-de]Create Game</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.btnSelect.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.btnSelect.Text">
+		<value>[de-de]Select</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample
+</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.labStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.labStatus.Text">
+		<value>[de-de]Select game options</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.lstMaxPoints.ItemsText">
+		<value>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.lstMaxPoints.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.lstMaxPoints.Text">
+		<value>[de-de]Max Points</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.lstPrivate.ItemsText">
+		<value>No
+Yes
+</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.lstPrivate.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameOptionsScene.scnGameOptions.lstPrivate.Text">
+		<value>[de-de]Private Game</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.btnPause.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.btnPause.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.grpPause.btnAchievements.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.grpPause.btnAchievements.Text">
+		<value>[de-de]Achievements</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.grpPause.btnExit.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.grpPause.btnExit.Text">
+		<value>[de-de]Exit Game</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.grpPause.btnHelpOptions.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.grpPause.btnHelpOptions.Text">
+		<value>[de-de]Help &amp; Options</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.grpPause.btnLeaderboard.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.grpPause.btnLeaderboard.Text">
+		<value>[de-de]Leaderboards</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.grpPause.btnResume.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.grpPause.btnResume.Text">
+		<value>[de-de]Resume Game</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.labCountdown.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.labCountdown.Text">
+		<value>[de-de]0</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.labScore0.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.labScore0.Text">
+		<value>[de-de]0
+</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.labScore1.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.labScore1.Text">
+		<value>[de-de]0</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.lstPlayers.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GamePlayScene.scnGamePlay.lstPlayers.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameStartScene.scnGameStart.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameStartScene.scnGameStart.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameStartScene.scnGameStart.ctlStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameStartScene.scnGameStart.ctlStatus.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameStartScene.scnGameStart.ctlWait.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameStartScene.scnGameStart.ctlWait.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameStartScene.scnGameStart.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameStartScene.scnGameStart.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample</value>
+	</data>
+	<data name="GameStartScene.scnGameStart.labStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameStartScene.scnGameStart.labStatus.Text">
+		<value>[de-de]Starting the game...</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.btnBack.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.btnBack.Text">
+		<value>[de-de]Back</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.btnCreate.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.btnCreate.Text">
+		<value>[de-de]Create Game</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.btnCustom.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.btnCustom.Text">
+		<value>[de-de]Custom Match</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.btnQuick.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.btnQuick.Text">
+		<value>[de-de]Quick Match</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.btnSelect.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.btnSelect.Text">
+		<value>[de-de]Select</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.labStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.labStatus.Text">
+		<value>[de-de]Select game type</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.lstMatchType.ItemsText">
+		<value>Player Match
+Ranked Match
+</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.lstMatchType.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="GameTypeScene.scnGameType.lstMatchType.Text">
+		<value>[de-de]Match Type</value>
+	</data>
+	<data name="HelpOptionsScene.scnHelpOptions.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="HelpOptionsScene.scnHelpOptions.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="HelpOptionsScene.scnHelpOptions.XuiLabel1.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="HelpOptionsScene.scnHelpOptions.XuiLabel1.Text">
+		<value>[de-de]This is a sample application for Xbox Live Arcade.</value>
+	</data>
+	<data name="HelpOptionsScene.scnHelpOptions.btnBack.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="HelpOptionsScene.scnHelpOptions.btnBack.Text">
+		<value>[de-de]Back</value>
+	</data>
+	<data name="HelpOptionsScene.scnHelpOptions.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="HelpOptionsScene.scnHelpOptions.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample
+</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.btnBack.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.btnBack.Text">
+		<value>[de-de]Back</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.btnGamercard.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.btnGamercard.Text">
+		<value>[de-de]Show Gamer Card</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.btnMode.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.btnMode.Text">
+		<value>[de-de]Change Filter</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labGamertag.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labGamertag.Text">
+		<value>[de-de]Gamertag</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labLosses.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labLosses.Text">
+		<value>[de-de]Losses</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labMode.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labMode.Text">
+		<value>[de-de]Friends</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labRank.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labRank.Text">
+		<value>[de-de]Rank</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labStatus.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labWins.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.labWins.Text">
+		<value>[de-de]Wins</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.lstScores.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="LeaderboardScene.scnLeaderboard.lstScores.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnAchievements.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnAchievements.Text">
+		<value>[de-de]Achievements</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnHelpOptions.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnHelpOptions.Text">
+		<value>[de-de]Help &amp; Options</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnLeaderboard.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnLeaderboard.Text">
+		<value>[de-de]Leaderboards</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnLocal.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnLocal.Text">
+		<value>[de-de]Local Game</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnReturnToArcade.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnReturnToArcade.Text">
+		<value>[de-de]Return to Arcade</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnSelect.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnSelect.Text">
+		<value>[de-de]Select</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnUnlock.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnUnlock.Text">
+		<value>[de-de]Unlock Full Game</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnXboxLive.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.btnXboxLive.Text">
+		<value>[de-de]Xbox Live Game</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="MainMenuScene.scnMainMenu.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample
+</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.btnBack.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.btnBack.Text">
+		<value>[de-de]Back</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.ctlStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.ctlStatus.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.ctlWait.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.ctlWait.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.labSceneTitle.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.labSceneTitle.Text">
+		<value>[de-de]ArcadeSample</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.labStatus.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="QuickMatchScene.scnQuickMatch.labStatus.Text">
+		<value>[de-de]Looking for games...</value>
+	</data>
+	<data name="skin.A_Button.text_ButtonText.PointSize">
+		<value>12.000000</value>
+	</data>
+	<data name="skin.X_Button.text_ButtonText.PointSize">
+		<value>12.000000</value>
+	</data>
+	<data name="skin.XuiBackButton.text_ButtonText.PointSize">
+		<value>12.000000</value>
+	</data>
+	<data name="skin.XuiButton.text_Label.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiCheckbox.text_Button.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiEdit.Caret.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiEdit.Caret.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiEdit.ScrollDown.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiEdit.ScrollDown.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiEdit.ScrollLeft.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiEdit.ScrollLeft.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiEdit.ScrollRight.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiEdit.ScrollRight.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiEdit.ScrollUp.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiEdit.ScrollUp.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiEdit.Text.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiGrid.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiGrid.control_ListItem.Text">
+		<value>[de-de]Item #1</value>
+	</data>
+	<data name="skin.XuiGrid.control_ScrollDown.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiGrid.control_ScrollDown.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiGrid.control_ScrollUp.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiGrid.control_ScrollUp.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiGridHorizontal.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiGridHorizontal.control_ListItem.Text">
+		<value>[de-de]Item #1</value>
+	</data>
+	<data name="skin.XuiGridHorizontal.control_ScrollLeft.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiGridHorizontal.control_ScrollLeft.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiGridHorizontal.control_ScrollRight.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiGridHorizontal.control_ScrollRight.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiLabel.Text.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiLabelCentered.Text.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiLabelLarge.Text.PointSize">
+		<value>24.000000</value>
+	</data>
+	<data name="skin.XuiLabelLargeRightAligned.Text.PointSize">
+		<value>24.000000</value>
+	</data>
+	<data name="skin.XuiLabelRightAligned.Text.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiLabelSmall.Text.PointSize">
+		<value>12.000000</value>
+	</data>
+	<data name="skin.XuiList.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiList.control_ListItem.Text">
+		<value>[de-de]Item #1</value>
+	</data>
+	<data name="skin.XuiList.control_ScrollDown.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiList.control_ScrollDown.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiList.control_ScrollUp.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiList.control_ScrollUp.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiList2Column.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiList2Column.control_ListItem.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiList2Column.control_ScrollDown.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiList2Column.control_ScrollDown.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiList2Column.control_ScrollUp.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiList2Column.control_ScrollUp.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiList3Column.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiList3Column.control_ListItem.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiList3Column.control_ScrollDown.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiList3Column.control_ScrollDown.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiList3Column.control_ScrollUp.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiList3Column.control_ScrollUp.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListCheckable.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListCheckable.control_ListItem.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListCheckable.control_ScrollDown.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListCheckable.control_ScrollDown.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListCheckable.control_ScrollUp.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListCheckable.control_ScrollUp.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListChooser.ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListChooser.ListItem.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListChooser.ScrollLeft.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListChooser.ScrollLeft.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListChooser.ScrollRight.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListChooser.ScrollRight.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListChooser.TextTitle.PointSize">
+		<value>10.000000</value>
+	</data>
+	<data name="skin.XuiListGameEnd.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListGameEnd.control_ListItem.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListGameEnd.control_ScrollDown.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListGameEnd.control_ScrollDown.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListGameEnd.control_ScrollUp.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListGameEnd.control_ScrollUp.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListGameList.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListGameList.control_ListItem.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListGameList.control_ScrollDown.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListGameList.control_ScrollDown.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListGameList.control_ScrollUp.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListGameList.control_ScrollUp.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListGameLobby.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListGameLobby.control_ListItem.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListGamePlay.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListGamePlay.control_ListItem.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListHorizontal.control _ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListHorizontal.control _ListItem.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListHorizontal.control_ScrollLeft.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListHorizontal.control_ScrollLeft.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListHorizontal.control_ScrollRight.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListHorizontal.control_ScrollRight.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListItem2Column.text_Position1.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListItem2Column.text_Position2.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListItem3Column.text_Position1.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListItem3Column.text_Position2.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListItem3Column.text_Position3.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListItemGameEnd.text_Position0.PointSize">
+		<value>15.000000</value>
+	</data>
+	<data name="skin.XuiListItemGameEnd.text_Position1.PointSize">
+		<value>15.000000</value>
+	</data>
+	<data name="skin.XuiListItemGameList.text_Position0.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListItemGameList.text_Position1.PointSize">
+		<value>15.000000</value>
+	</data>
+	<data name="skin.XuiListItemGameList.text_Position2.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListItemGameLobby.text_Position0.PointSize">
+		<value>14.000000</value>
+	</data>
+	<data name="skin.XuiListItemGameLobby.text_Position1.PointSize">
+		<value>11.000000</value>
+	</data>
+	<data name="skin.XuiListItemGameLobby.text_Position2.PointSize">
+		<value>11.000000</value>
+	</data>
+	<data name="skin.XuiListItemGameLobby.text_Position3.PointSize">
+		<value>11.000000</value>
+	</data>
+	<data name="skin.XuiListItemGamePlay.text_Position0.PointSize">
+		<value>14.000000</value>
+	</data>
+	<data name="skin.XuiListItemLeaderboard.text_Position0.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListItemLeaderboard.text_Position1.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListItemLeaderboard.text_Position2.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListItemLeaderboard.text_Position3.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiListLeaderboard.control_ListItem.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListLeaderboard.control_ListItem.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListLeaderboard.control_ScrollDown.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListLeaderboard.control_ScrollDown.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiListLeaderboard.control_ScrollUp.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiListLeaderboard.control_ScrollUp.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiMessageBox1.XuiScene1.Button0.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiMessageBox1.XuiScene1.Button0.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiMessageBox1.XuiScene1.MessageText.AllowedChars">
+		<value />
+	</data>
+	<data name="skin.XuiMessageBox1.XuiScene1.MessageText.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiMessageBox1.XuiScene1.MessageText.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiMessageBox1.XuiScene1.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiMessageBox1.XuiScene1.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiMessageBox1.XuiScene1.Title.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiMessageBox2.XuiScene1.Button0.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiMessageBox2.XuiScene1.Button0.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiMessageBox2.XuiScene1.Button1.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiMessageBox2.XuiScene1.Button1.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiMessageBox2.XuiScene1.MessageText.AllowedChars">
+		<value />
+	</data>
+	<data name="skin.XuiMessageBox2.XuiScene1.MessageText.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiMessageBox2.XuiScene1.MessageText.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiMessageBox2.XuiScene1.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiMessageBox2.XuiScene1.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiMessageBox2.XuiScene1.Title.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiMultiButton.ButtonText.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiProgressBar.text_progressbar.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiRadioButton.ButtonText.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiSlider.Text_Slider.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiSlider.text_Label.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiSlider_Bars.Text_Slider.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiSlider_Radial.Text_Slider.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiSlider_ScrollEnds.ScrollMax.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiSlider_ScrollEnds.ScrollMax.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiSlider_ScrollEnds.ScrollMin.PointSize">
+		<value>-1.000000</value>
+	</data>
+	<data name="skin.XuiSlider_ScrollEnds.ScrollMin.Text">
+		<value>[de-de]</value>
+	</data>
+	<data name="skin.XuiSlider_ScrollEnds.Text_Slider.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.XuiSlider_ScrollEnds.text_Label.PointSize">
+		<value>13.000000</value>
+	</data>
+	<data name="skin.Y_Button.text_ButtonText.PointSize">
+		<value>12.000000</value>
+	</data>
+	<data name="Strings.IDS_MAINMENU_HELP_SINGLEPLAYER">
+		<value>Play against the computer.</value>
+		<comment>Main menu help text for single player</comment>
+	</data>
+	<data name="Strings.IDS_ABOUT">
+		<value>Copyright ©2010 Microsoft Corporation. All rights reserved.</value>
+		<comment>About scene text</comment>
+	</data>
+</root>

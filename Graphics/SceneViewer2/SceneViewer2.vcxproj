@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Xbox 360">
+      <Configuration>Release</Configuration>
+      <Platform>Xbox 360</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6D30B073-515B-2E6C-7316-6E25D1EBE8A8}</ProjectGuid>
+    <RootNamespace>SceneViewer2</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>2010-01</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>xapilib.lib;xboxkrnl.lib;d3d9.lib;d3dx9.lib;xgraphics.lib;xnet.lib;xaudio2.lib;xact3.lib;x3daudio.lib;xmcore.lib;xbdm.lib;vcomp.lib;xuirun.lib;xuirender.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AnimationPlayback.cpp" />
+    <ClCompile Include="Benchmark.cpp" />
+    <ClCompile Include="DefaultRender.cpp" />
+    <ClCompile Include="DeferredRender.cpp" />
+    <ClCompile Include="FileDialog.cpp" />
+    <ClCompile Include="ObjectTweak.cpp" />
+    <ClCompile Include="ParameterPool.cpp" />
+    <ClCompile Include="PassPerLightRender.cpp" />
+    <ClCompile Include="Render.cpp" />
+    <ClCompile Include="SceneLoad.cpp" />
+    <ClCompile Include="SceneViewer2.cpp" />
+    <ClCompile Include="SettingsUI.cpp" />
+    <ClCompile Include="UIRender.cpp" />
+    <ClCompile Include="Update.cpp" />
+    <ClCompile Include="Visibility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AnimationPlayback.h" />
+    <ClInclude Include="Benchmark.h" />
+    <ClInclude Include="FileDialog.h" />
+    <ClInclude Include="ObjectTweak.h" />
+    <ClInclude Include="ParameterPool.h" />
+    <ClInclude Include="SceneViewer2.h" />
+    <ClInclude Include="SettingsUI.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.vcxproj">
+      <Project>{4B99DC73-9044-E203-9C9C-C00C211DA956}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

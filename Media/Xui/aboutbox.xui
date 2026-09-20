@@ -1,0 +1,48 @@
+<XuiCanvas version="000c">
+<Properties>
+<Width>640.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>XuiScene1</Id>
+<Width>559.000000</Width>
+<Height>390.000000</Height>
+<Position>43.000008,46.000004,0.000000</Position>
+<Text>About XUI Dolphin</Text>
+<TransTo>TransTo</TransTo>
+<TransBackFrom>TransBackFrom</TransBackFrom>
+</Properties>
+<XuiBackButton>
+<Properties>
+<Id>XuiNavButton1</Id>
+<Width>140.000000</Width>
+<Position>209.500000,341.000000,0.000000</Position>
+<Text>OK</Text>
+</Properties>
+</XuiBackButton>
+<XuiText>
+<Properties>
+<Id>XuiText2</Id>
+<Width>516.000000</Width>
+<Height>88.000000</Height>
+<Position>20.500031,61.000000,0.000000</Position>
+<Text>XUI Dolphin is a modified version of the ATG Dolphin Sample.  It demonstrates simple use of the XUI library.
+(C) 2006 Microsoft Corporation. All rights reserved.</Text>
+<TextColor>0xffc0c0c0</TextColor>
+<TextStyle>0</TextStyle>
+</Properties>
+</XuiText>
+<XuiVideo>
+<Properties>
+<Id>DolphinVideo</Id>
+<Width>274.000000</Width>
+<Height>161.000000</Height>
+<Position>142.500015,163.000000,0.000000</Position>
+<File>dolphin_video.wmv</File>
+<SizeMode>16</SizeMode>
+<Loop>true</Loop>
+</Properties>
+</XuiVideo>
+</XuiScene>
+</XuiCanvas>

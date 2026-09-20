@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+   Name   = "Treebark.bmp"
+   Source = "..\..\Media\Textures\Treebark.bmp"
+   Format = "D3DFMT_X8R8G8B8"
+   Levels = "0"
+   sRGB   = "true"
+/>
+
+<Texture 
+   Name   = "volgroun.bmp"
+   Source = "..\..\Media\Textures\volgroun.bmp"
+   Format = "D3DFMT_X8R8G8B8"
+   Levels = "0"
+   sRGB   = "true"
+/>
+
+<Texture 
+   Name   = "SkyBoxXN.bmp"
+   Source = "..\..\Media\Textures\SkyBoxXN.bmp"
+   Format = "D3DFMT_X8R8G8B8"
+   Levels = "1"
+   sRGB   = "true"
+/>
+
+<Texture 
+   Name   = "SkyBoxXP.bmp"
+   Source = "..\..\Media\Textures\SkyBoxXP.bmp"
+   Format = "D3DFMT_X8R8G8B8"
+   Levels = "1"
+   sRGB   = "true"
+/>
+
+<Texture 
+   Name   = "SkyBoxYN.bmp"
+   Source = "..\..\Media\Textures\SkyBoxYN.bmp"
+   Format = "D3DFMT_X8R8G8B8"
+   Levels = "1"
+   sRGB   = "true"
+/>
+
+<Texture 
+   Name   = "SkyBoxYP.bmp"
+   Source = "..\..\Media\Textures\SkyBoxYP.bmp"
+   Format = "D3DFMT_X8R8G8B8"
+   Levels = "1"
+   sRGB   = "true"
+/>
+
+<Texture 
+   Name   = "SkyBoxZN.bmp"
+   Source = "..\..\Media\Textures\SkyBoxZN.bmp"
+   Format = "D3DFMT_X8R8G8B8"
+   Levels = "1"
+   sRGB   = "true"
+/>
+
+<Texture 
+   Name   = "SkyBoxZP.bmp"
+   Source = "..\..\Media\Textures\SkyBoxZP.bmp"
+   Format = "D3DFMT_X8R8G8B8"
+   Levels = "1"
+   sRGB   = "true"
+/>
+
+</RDF>

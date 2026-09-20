@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "PTC_TestImage.bmp"
+        Source = "..\..\Media\Textures\PTC_TestImage.bmp"
+        Format = "D3DFMT_A8R8G8B8"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+</RDF>
+
+

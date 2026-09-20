@@ -1,0 +1,32 @@
+<XuiCanvas version="000c">
+<Properties>
+<Width>640.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>UserNotConnectedScene</Id>
+<Width>275.000000</Width>
+<Height>190.000000</Height>
+<ClassOverride>UserNotConnectedScene</ClassOverride>
+<Visual>XuiSceneBlank</Visual>
+<TransFrom>TransFrom</TransFrom>
+<TransTo>TransTo</TransTo>
+<TransBackFrom>TransBackFrom</TransBackFrom>
+<TransBackTo>TransBackTo</TransBackTo>
+</Properties>
+<XuiText>
+<Properties>
+<Id>DisplayText</Id>
+<Width>275.000000</Width>
+<Height>190.000000</Height>
+<Text>User n
+Not Connected</Text>
+<TextColor>0xffebebeb</TextColor>
+<DropShadowColor>0x800f0f0f</DropShadowColor>
+<PointSize>24.000000</PointSize>
+<TextStyle>5137</TextStyle>
+</Properties>
+</XuiText>
+</XuiScene>
+</XuiCanvas>

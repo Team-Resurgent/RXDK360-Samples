@@ -1,0 +1,35 @@
+// use vsa.exe /FhMemExportShader.h MemExportMicrocode.vsm 
+// to build this file, and copy MemExportShader.h to the project directory
+
+xvs_3_0
+
+config VsExportMode=multipass   // export only shader
+
+dcl_index r0.x
+dcl_color o0
+
+// c255.xy = used for building the export address from the export constant
+// c255.z = stride of vertex output data
+
+def c255,0,1.0,2.0,0.5
+
+vfetch r1, r0.x, position
+vfetch r2, r0.x, color
+
+mul r3, r1.x, c0                // transform point
+mad r3, r1.y, c1, r3
+mad r3, r1.z, c2, r3
+mad r3, r1.w, c3, r3            
+
+alloc export=2                  // allocate export 
+
+mul r0.x, r0.x, c255.z          // calc the memory export index = 2 * vertex index
+mad eA, r0.x, c255.xyxx, c4     // set up export address
+max eM0, r3, r3                 // copy over transformed vertex
+mul eM1, r2, c255.w             // copy over darkened color
+
+alloc interpolators             // allocate interpolators
+alloc position                  // allocate position
+
+exece
+mov oPos, r3                    // set output position (required, but ignored)

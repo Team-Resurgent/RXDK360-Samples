@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "FeetTexture"
+        Source = "..\..\Media\Textures\Feet.png"
+        Levels = "0" 
+/>
+  <Texture Name="sponza_sp_luk_jpg.tga" Source="..\..\Media\Textures\sponza_sp_luk_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_sp_luk_nrm.tga" Source="..\..\Media\Textures\sponza_sp_luk_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_arch_jpg.tga" Source="..\..\Media\Textures\sponza_arch_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_arch_nrm.tga" Source="..\..\Media\Textures\sponza_arch_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_vrata_ko_jpg.tga" Source="..\..\Media\Textures\sponza_vrata_ko_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_vrata_ko_nrm.tga" Source="..\..\Media\Textures\sponza_vrata_ko_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_vrata_kr_jpg.tga" Source="..\..\Media\Textures\sponza_vrata_kr_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_vrata_kr_nrm.tga" Source="..\..\Media\Textures\sponza_vrata_kr_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_kamen_jpg.tga" Source="..\..\Media\Textures\sponza_kamen_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_kamen_nrm.tga" Source="..\..\Media\Textures\sponza_kamen_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_x01_st_jpg.tga" Source="..\..\Media\Textures\sponza_x01_st_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_x01_st_nrm.tga" Source="..\..\Media\Textures\sponza_x01_st_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_00_skap_jpg.tga" Source="..\..\Media\Textures\sponza_00_skap_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_00_skap_nrm.tga" Source="..\..\Media\Textures\sponza_00_skap_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_01_s_ba_jpg.tga" Source="..\..\Media\Textures\sponza_01_s_ba_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_01_s_ba_nrm.tga" Source="..\..\Media\Textures\sponza_01_s_ba_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_black_jpg.tga" Source="..\..\Media\Textures\sponza_black_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_black_nrm.tga" Source="..\..\Media\Textures\sponza_black_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_01_stub_jpg.tga" Source="..\..\Media\Textures\sponza_01_stub_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_01_stub_nrm.tga" Source="..\..\Media\Textures\sponza_01_stub_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_reljef_jpg.tga" Source="..\..\Media\Textures\sponza_reljef_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_reljef_nrm.tga" Source="..\..\Media\Textures\sponza_reljef_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="sponza_prozor1_jpg.tga" Source="..\..\Media\Textures\sponza_prozor1_jpg.tga" Format="D3DFMT_DXT5" Levels="0" sRGB="true" />
+  <Texture Name="sponza_prozor1_nrm.tga" Source="..\..\Media\Textures\sponza_prozor1_nrm.tga" Format="D3DFMT_DXN" Levels="0" />
+  <Texture Name="skydome_jpg.tga" Source="..\..\Media\Textures\skydome_jpg.tga" Format="D3DFMT_X8R8G8B8" Levels="1" sRGB="true" />
+</RDF>
+
+

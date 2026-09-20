@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+    Name   = "DiffuseMap"
+    Source = "..\..\Media\Textures\Earth.bmp"
+    Format = "D3DFMT_DXT1"
+    Levels = "0" 
+    sRGB   = "true"
+/>
+
+<Texture 
+    Name   = "DisplacementMap"
+    Source = "..\..\Media\Textures\EarthBmp.bmp"
+    Format = "D3DFMT_L16"
+    Levels = "0" 
+    sRGB   = "false"
+/>
+
+
+</RDF>
+
+

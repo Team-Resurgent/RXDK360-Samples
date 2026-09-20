@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+   Name   = "Ground"
+   Source = "..\..\Media\Textures\transavatar_ground.tga"
+   Format = "D3DFMT_DXT1"
+   Levels = "0"
+   sRGB   = "false"
+/>
+
+<Texture 
+   Name   = "Sky"
+   Source = "..\..\Media\Textures\Backdrop4.tga"
+   Format = "D3DFMT_DXT1"
+   Levels = "1"
+   sRGB   = "false"
+/>
+
+</RDF>

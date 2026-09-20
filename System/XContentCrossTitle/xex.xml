@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<xex>
+  <titleid id="0xFFFF006A"/>
+  <alttitleid id="0xFFFF011D"/> <!-- grant access to the XContent sample's data-->
+  <alttitleid id="0xFFFF0055"/> <!-- grant access to the Marketpalce sample's data-->
+</xex>

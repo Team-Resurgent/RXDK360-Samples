@@ -1,0 +1,118 @@
+﻿<?xml version= "1.0" encoding="utf-8"?>
+
+<grammar xmlns="http://www.w3.org/2001/06/grammar"
+         tag-format="semantics/1.0-literals"   
+         sapi:alphabet="x-microsoft-ups"   
+         xmlns:sapi="http://schemas.microsoft.com/Speech/2002/06/SRGSExtensions"
+         xml:lang="es-MX"
+         root="YesOrNo" 
+         version="1.0">
+
+  <rule id="YesOrNo" scope="public">
+    <one-of>
+      <!-- common "yes" responses -->
+      <item weight="0.58816">
+        si
+        <tag>yes</tag>
+      </item>
+      <item weight="0.000058816">
+        <one-of>
+          <!-- infrequent "yes" responses -->
+          <item>
+            si si
+          </item>
+          <item>
+            <item repeat="0-1">
+              si
+            </item>
+            asi es
+          </item>
+          <item>
+            si exacto
+          </item>
+          <item>
+            si por favor
+          </item>
+          <item>
+            si efectivamente
+          </item>
+          <item>
+            si en efecto
+          </item>
+          <item>
+            si exactamente
+          </item>
+          <item>
+            si gracias
+          </item>
+          <item>
+            si muy amable
+          </item>
+          <item>
+            si
+            <one-of>
+              <item>
+                le agradezco
+              </item>
+              <item>
+                muy agradezido
+              </item>
+            </one-of>
+          </item>
+          <item>
+            exacto
+          </item>
+          <item>
+            correcto
+          </item>
+          <item>
+            efectivamente
+          </item>
+          <item>
+            en efecto
+          </item>
+          <item>
+            exactamente
+          </item>
+        </one-of>
+        <tag>yes</tag>
+      </item>
+      <!-- basic "no" response -->
+      <item weight="0.29408">
+        no
+        <tag>no</tag>
+      </item>
+      <item weight="0.000058816">
+        <one-of>
+          <!-- infrequent "no" responses -->
+          <item>
+            no no
+          </item>
+          <item>
+            no no es asi
+          </item>
+          <item>
+            no gracias
+          </item>
+          <item>
+            no asi esta bien
+          </item>
+          <item>
+            no gracias asi esta bien
+          </item>
+          <item>
+            no por ahora no
+          </item>
+          <item>
+            no no es correcto
+          </item>
+          <item>
+            no gracias igual
+          </item>
+        </one-of>
+        <tag>no</tag>
+      </item>
+    </one-of>
+  </rule>
+
+</grammar>

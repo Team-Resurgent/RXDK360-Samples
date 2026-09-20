@@ -1,0 +1,298 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_XSIMSAMPLE          ICON                    "XInputSimulator.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDC_XSIMSAMPLE ACCELERATORS 
+BEGIN
+    "P",            ID_ACC_PLAY_START,      VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_ACC_PLAY_STOP,       VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "M",            ID_ACC_RANDOM_START,    VIRTKEY, CONTROL, NOINVERT
+    "M",            ID_ACC_RANDOM_STOP,     VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "R",            ID_ACC_RECORD_START,    VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_ACC_RECORD_STOP,     VIRTKEY, SHIFT, CONTROL, NOINVERT
+    VK_BACK,        ID_ACC_RETURN_CTL,      VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_ACC_TEXT_SEND,       VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_HELP_HELP,           VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_XSIMSAMPLE_DIALOG DIALOGEX 0, 0, 425, 290
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "XSim Remote Sample"
+MENU IDR_MENU
+CLASS "XSimSample"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "T&ype a target file name or choose one from the list:",IDC_STATIC,7,9,281,101
+    EDITTEXT        IDC_FILENAME,14,24,118,12,ES_LOWERCASE | ES_AUTOHSCROLL
+    PUSHBUTTON      "&Delete",IDC_BTN_DELFILE,135,23,38,14
+    LISTBOX         IDC_LIST_FILES,14,41,158,62,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "File Recorder (R)",IDC_STATIC,177,20,103,44
+    PUSHBUTTON      "Start",IDC_STARTRECORDER,183,32,45,16
+    PUSHBUTTON      "Stop",IDC_STOPRECORDER,231,32,45,16
+    CTEXT           "[ -- RECORDING -- ]",IDC_RECORDER_STATE,183,51,93,9,NOT WS_VISIBLE
+    GROUPBOX        "File Player (P)",IDC_STATIC,177,67,103,38
+    PUSHBUTTON      "Start",IDC_PLAYBACK,183,80,45,16
+    PUSHBUTTON      "Stop",IDC_STOPPLAYBACK,231,80,45,16
+    GROUPBOX        "&Active Port",IDC_STATIC,295,9,123,63,0,WS_EX_TRANSPARENT
+    LISTBOX         IDC_LIST_PORTS,301,20,106,43,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Random Input Player (M)",IDC_STATIC,295,76,123,34
+    PUSHBUTTON      "Start",IDC_START_RANDOMINPUT,297,89,54,16
+    PUSHBUTTON      "Stop",IDC_STOP_RANDOMINPUT,355,89,54,16
+    GROUPBOX        "&Text Sequence Player (T)",IDC_STATIC,7,114,411,39
+    COMBOBOX        IDC_TEXTSEQUENCE_COMBO,14,129,286,30,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Send",IDC_SEND_TEXTSEQUENCE,305,128,41,16
+    CONTROL         "<a>Format reference</a>",IDC_TEXTSEQUENCE_FORMAT,
+                    "SysLink",WS_TABSTOP | 0x2,351,133,60,9
+    GROUPBOX        "Output Window:",IDC_STATIC,7,156,411,127
+    CONTROL         "",IDC_OUTPUT,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_BORDER | WS_VSCROLL,14,172,393,105
+END
+
+IDD_QUICKHELP DIALOGEX 0, 0, 214, 136
+STYLE DS_SYSMODAL | DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Quick help"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,162,120,50,14
+    LTEXT           "Ctrl + R",IDC_STATIC,18,18,26,8
+    GROUPBOX        "Keyboard accelerators:",IDC_STATIC,7,7,203,107
+    LTEXT           "Ctrl + Shift + R",IDC_STATIC,18,30,50,8
+    LTEXT           "Ctrl + P",IDC_STATIC,18,42,26,8
+    LTEXT           "Ctrl + M",IDC_STATIC,18,66,27,8
+    LTEXT           "Ctrl + Shift + P",IDC_STATIC,18,54,50,8
+    LTEXT           "Ctrl + Shift + M",IDC_STATIC,18,78,51,8
+    LTEXT           "Start recording on the selected file",IDC_STATIC,84,18,112,8
+    LTEXT           "Stop the file recorder",IDC_STATIC,84,30,69,8
+    LTEXT           "Start playback on the selected file",IDC_STATIC,84,42,110,8
+    LTEXT           "Stop the file player",IDC_STATIC,84,54,62,8
+    LTEXT           "Start the random input player",IDC_STATIC,84,66,96,8
+    LTEXT           "Stop the random input player",IDC_STATIC,84,78,94,8
+    LTEXT           "Ctrl + T",IDC_STATIC,18,90,26,8
+    LTEXT           "Send the selected text sequence",IDC_STATIC,84,90,106,8
+    LTEXT           "Ctrl + Backspace",IDC_STATIC,18,102,55,8
+    LTEXT           "Return control of all ports to console",IDC_STATIC,84,102,118,8
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST ""XSimSample.exe.manifest""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_XSIMSAMPLE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 418
+        TOPMARGIN, 9
+        BOTTOMMARGIN, 283
+    END
+
+    IDD_QUICKHELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 207
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 129
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "Clear &output",               ID_FILE_CLEAROUTPUT
+        MENUITEM "&Refresh files",              ID_FILE_REFRESHFILES
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_FILE_EXIT
+    END
+    POPUP "&Console"
+    BEGIN
+        MENUITEM "&Return control",             ID_CONSOLE_RETURNCONTROL
+        POPUP "&Sync mode"
+        BEGIN
+            MENUITEM "&Frame",                      ID_SYNCMODE_FRAME, CHECKED
+            MENUITEM "&Time",                       ID_SYNCMODE_TIME
+        END
+        MENUITEM "&Disable guide button",       ID_CONSOLE_DISABLEGUIDEBUTTON, CHECKED
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Text sequence format",       ID_HELP_TEXTSEQUENCEHELP
+        MENUITEM "&Quick help",                 ID_HELP_QUICKHELP
+        MENUITEM "&Help",                       ID_HELP_HELP
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_TEXTSEQUENCE0_CMD   "DD,DD,DD,DU,DU,DU"
+    IDS_TEXTSEQUENCE1_CMD   "X,T4s,B"
+    IDS_TEXTSEQUENCE2_CMD   "_DD,T5s,^DD"
+    IDS_TEXTSEQUENCE0_DESC  "Dpad down 3x, Dpad up 3x"
+    IDS_TEXTSEQUENCE1_DESC  "Press X, wait 4 seconds, Press B"
+    IDS_TEXTSEQUENCE2_DESC  "Hold Dpad down for 5 seconds"
+    IDS_TIME_MODE           "time"
+    IDS_DELAYLOAD_ERROR     "Couldn't load xbdm.dll"
+    IDS_E_ASYNC_REQUIRES_BUFFER "Asynchronous read/writes require bufsize > 0"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_XEDK_ERROR          "XEDK environment variable not set"
+    IDS_ERROR_TITLE         "XSimXDKSample Error"
+    IDS_TEXTSEQUENCE_INIT   "Select a pre-set text sequence or type your own sequence string and click 'Send'"
+    IDS_OUT_DELETE_ERROR_1  "Select a valid file to be deleted.\n"
+    IDS_OUT_DELETE_ERROR_2  "File %S did not exist in the console.\n"
+    IDS_OUT_DELETE_ERROR_3  "Failed to delete the file %S, Error: 0x%08x\n"
+    IDS_OUT_DELETE_ERROR_4  "File %S deleted successfully.\n"
+    IDS_CONTROLLER          "Controller %d"
+    IDS_OUT_OPEN_CONNECTION "Opening a connection to your console..."
+    IDS_OUT_CONNECTION_FAILED " failed.\n"
+    IDS_OUT_CONNECTION_OK   " succeeded.\n"
+    IDS_OUT_CONNECTION_XBDM_ERROR 
+                            "Could not open a debug channel connection to your console.\n"
+    IDS_OUT_CONNECTION_XSIM_ERROR "Failed to initialize XSim. Error: 0x%08x\n"
+    IDS_OUT_ERROR_STRING    "Error: %s\n"
+    IDS_E_BUFFER_TOO_SMALL  "Buffer too small to hold data"
+    IDS_OUT_ERROR_CODE      "Error: Code 0x%08x\n"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_OUT_RANDOM_START    "XSim running random inputs on console test app.\n"
+    IDS_OUT_RANDOM_STOP     "Random input player stopped.\n"
+    IDS_OUT_SELECT_FILE     "You have to select a file first.\n"
+    IDS_OUT_RECORDER_START  "Recorder started. Use your XBOX 360 controller and/or start a player, then select Stop when done.\n"
+    IDS_OUT_RECORDER_STOP   "Recorder stopped. Select playback to play back your controller record.\n"
+    IDS_FRAME_MODE          "frame"
+    IDS_OUT_PLAYBACK_ALREADY_STOPPED "Player is already stopped.\n"
+    IDS_OUT_PLAYBACK_STOP   "Player stopped. Input control restored.\n"
+    IDS_OUT_PLAYBACK_START  "Playback running in %s mode.\n"
+    IDS_OUT_RETURN_CONTROL  "Input control returned to game.\n"
+    IDS_OUT_SELECT_SEQUENCE "You have to select or type a text sequence.\n"
+    IDS_OUT_SEQUENCE_START  "Starting text sequence on port %d in %s mode:\n    %S\n"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_E_GENERIC           "Unspecified Error"
+    IDS_E_OUTOFMEMORY       "Out of Memory"
+    IDS_E_THREADING         "Threading error"
+    IDS_E_SEQUENCE_PARSE_ERROR "Error parsing text sequence"
+    IDS_E_OPEN_FILE_FAILED  "Couldn't open file"
+    IDS_E_READ_FILE_FAILED  "Couldn't read from file"
+    IDS_E_WRITE_FILE_FAILED "Couldn't write to file"
+    IDS_E_INVALID_FILE      "Invalid file format "
+    IDS_E_XML_PARSE_ERROR   "RandomState XML file parse error"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_E_INVALID_RESPONSE  "The response string received is invalid"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_E_UNSPECIFIED_INITIAL_STATE "RandomState no initial state specified"
+    IDS_E_NO_CURRENT_STATE  "RandomState no current state set"
+    IDS_E_NO_CURRENT_CHOICE "RandomState no current choice set"
+    IDS_E_NO_STATES         "RandomState no states defined"
+    IDS_E_NO_CHOICES        "RandomState no choices defined in state"
+    IDS_E_NO_ACTION         "RandomState no action define in choice"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "XSimSample.exe.manifest"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

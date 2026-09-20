@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+  <Texture Name="Smile1" Source="..\..\Media\Textures\Smile1.png" Levels="0" />
+  <Texture Name="Smile2" Source="..\..\Media\Textures\Smile2.png" Levels="0" />
+</RDF>
+
+

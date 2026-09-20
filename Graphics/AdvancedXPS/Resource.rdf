@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "GrassBlades"
+    Source = "..\..\Media\Textures\GrassBlades.tga"
+    Format = "D3DFMT_DXT5"
+    Levels = "0" 
+    sRGB   = "true" 
+/>
+
+<Texture 
+    Name   = "Ground"
+    Source = "..\..\Media\Textures\GrassGround.tga"
+    Format = "D3DFMT_DXT1"
+    Levels = "0" 
+    sRGB   = "true"
+/>
+
+<Texture 
+    Name   = "SkyDome"
+    Source = "..\..\Media\Textures\SkyDome.tga"
+    Format = "D3DFMT_DXT1"
+    Levels = "0" 
+    sRGB   = "true"
+/>
+
+<Texture 
+    Name   = "Bush0"
+    Source = "..\..\Media\Textures\XpsBush0.tga"
+    Format = "D3DFMT_DXT5"
+    Levels = "0" 
+    sRGB   = "true"
+/>
+
+<Texture 
+    Name   = "Bush1"
+    Source = "..\..\Media\Textures\XpsBush1.tga"
+    Format = "D3DFMT_DXT5"
+    Levels = "0" 
+    sRGB   = "true"
+/>
+
+<Texture 
+    Name   = "Bush2"
+    Source = "..\..\Media\Textures\XpsBush2.tga"
+    Format = "D3DFMT_DXT5"
+    Levels = "0" 
+    sRGB   = "true"
+/>
+
+<Texture 
+    Name   = "Bush3"
+    Source = "..\..\Media\Textures\XpsBush3.tga"
+    Format = "D3DFMT_DXT5"
+    Levels = "0" 
+    sRGB   = "true"
+/>
+
+<Texture 
+    Name   = "Bush4"
+    Source = "..\..\Media\Textures\XpsBush4.tga"
+    Format = "D3DFMT_DXT5"
+    Levels = "0" 
+    sRGB   = "true"
+/>
+
+<Texture 
+    Name   = "Bush5"
+    Source = "..\..\Media\Textures\XpsBush5.tga"
+    Format = "D3DFMT_DXT5"
+    Levels = "0" 
+    sRGB   = "true"
+/>
+
+</RDF>
+
+

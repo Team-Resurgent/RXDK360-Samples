@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<grammar xmlns="http://www.w3.org/2001/06/grammar"
+         tag-format="semantics/1.0-literals"
+	 sapi:alphabet="x-microsoft-ups" 
+	 xmlns:sapi="http://schemas.microsoft.com/Speech/2002/06/SRGSExtensions"
+         xml:lang="en-GB"
+         root="rootrule"
+         version="1.0">
+
+  <rule id="rootrule" scope="public">
+    <one-of>
+      <item>
+        open spellbook
+        <tag>open spellbook</tag>
+      </item>
+      <item>
+        view inventory
+        <tag>view inventory</tag>
+      </item>
+      <item>
+        show quests
+        <tag>show quests</tag>
+      </item>
+      <item>
+        pause game
+        <tag>pause game</tag>
+      </item>
+      <item>
+        main menu
+        <tag>main menu</tag>
+      </item>
+      <item>
+        drink health potion
+        <tag>drink health potion</tag> 
+      </item>
+      <item>
+        cast fireball
+        <tag>cast fireball</tag>
+      </item>
+    </one-of>
+  </rule>
+</grammar>

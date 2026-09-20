@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<RDF Version="XPR2">
+
+  <Texture
+     Name   = "Ground"
+     Source = "..\..\Media\Textures\transavatar_ground.tga"
+     Format = "D3DFMT_DXT1"
+     Levels = "0"
+     sRGB   = "false"
+/>
+
+  <Texture
+     Name   = "Sky"
+     Source = "..\..\Media\Textures\Backdrop4.tga"
+     Format = "D3DFMT_DXT1"
+     Levels = "1"
+     sRGB   = "false"
+/>
+
+  <Texture
+     Name   = "DavinciGood"
+     Source = "..\..\Media\Textures\DavinciGood.png"
+     Format = "D3DFMT_DXT3"
+     Levels = "0"
+/>
+
+  <Texture
+     Name   = "DavinciLost"
+     Source = "..\..\Media\Textures\DavinciLost.png"
+     Format = "D3DFMT_DXT3"
+     Levels = "0"
+/>
+
+  <Texture
+     Name   = "DavinciMan"
+     Source = "..\..\Media\Textures\DavinciMan.png"
+     Format = "D3DFMT_DXT3"
+     Levels = "0"
+/>
+
+  <Texture
+     Name   = "DavinciOutline"
+     Source = "..\..\Media\Textures\DavinciOutline.png"
+     Format = "D3DFMT_DXT3"
+     Levels = "0"
+/>
+
+  <Texture
+       Name   = "PlayerMoveLeftHint"
+       Source = "..\..\Media\Textures\ps_left.png"
+       Format = "D3DFMT_DXT3"
+       Levels = "0"
+/>
+
+  <Texture
+       Name   = "PlayerMoveRightHint"
+       Source = "..\..\Media\Textures\ps_right.png"
+       Format = "D3DFMT_DXT3"
+       Levels = "0"
+/>
+
+  <Texture
+       Name   = "PlayerMoveFwdHint"
+       Source = "..\..\Media\Textures\ps_fwd.png"
+       Format = "D3DFMT_DXT3"
+       Levels = "0"
+/>
+
+  <Texture
+       Name   = "PlayerMoveBackHint"
+       Source = "..\..\Media\Textures\ps_back.png"
+       Format = "D3DFMT_DXT3"
+       Levels = "0"
+/>
+
+  <Texture
+     Name   = "SweetSpotTarget"
+     Source = "..\..\Media\Textures\target2.png"
+     Format = "D3DFMT_DXT3"
+     Levels = "2"
+/>
+
+</RDF>

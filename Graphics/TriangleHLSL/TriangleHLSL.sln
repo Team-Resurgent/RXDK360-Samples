@@ -1,0 +1,21 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TriangleHLSL", "TriangleHLSL.vcxproj", "{E0278748-B0B3-6ACD-5993-1A69509D8FC5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "..\..\Common\Common.vcxproj", "{4B99DC73-9044-E203-9C9C-C00C211DA956}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Xbox 360 = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0278748-B0B3-6ACD-5993-1A69509D8FC5}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+		{E0278748-B0B3-6ACD-5993-1A69509D8FC5}.Release|Xbox 360.Build.0 = Release|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Release|Xbox 360.Build.0 = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

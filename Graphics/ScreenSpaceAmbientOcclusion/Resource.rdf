@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "archC.tga"
+        Source = "..\..\Media\Textures\ruins_archc.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "beam2C.tga"
+        Source = "..\..\Media\Textures\ruins_beam2c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Beam3C.tga"
+        Source = "..\..\Media\Textures\ruins_beam3c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "beam4C.tga"
+        Source = "..\..\Media\Textures\ruins_beam4c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "beam5.tga"
+        Source = "..\..\Media\Textures\ruins_beam5.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "beam6C.tga"
+        Source = "..\..\Media\Textures\ruins_beam6c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "column1C.tga"
+        Source = "..\..\Media\Textures\ruins_column1c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "column3C.tga"
+        Source = "..\..\Media\Textures\ruins_column3c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "colunm5C.tga"
+        Source = "..\..\Media\Textures\ruins_colunm5c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "gateC.tga"
+        Source = "..\..\Media\Textures\ruins_gatec.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Path_blend5.tga"
+        Source = "..\..\Media\Textures\ruins_path_blend5.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "pf2C.tga"
+        Source = "..\..\Media\Textures\ruins_pf2c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "pf3C.tga"
+        Source = "..\..\Media\Textures\ruins_pf3c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "pfC.tga"
+        Source = "..\..\Media\Textures\ruins_pfc.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "roofC.tga"
+        Source = "..\..\Media\Textures\ruins_roofc.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "stone3C.tga"
+        Source = "..\..\Media\Textures\ruins_stone3c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "stone4.tga"
+        Source = "..\..\Media\Textures\ruins_stone4.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "wall6C.tga"
+        Source = "..\..\Media\Textures\ruins_wall6c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "wall7C.tga"
+        Source = "..\..\Media\Textures\ruins_wall7c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "wall8C.tga"
+        Source = "..\..\Media\Textures\ruins_wall8c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "wall9C.tga"
+        Source = "..\..\Media\Textures\ruins_wall9c.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture
+    Name   = "ChessKing.bmp"
+        Source = "..\..\Media\Textures\ChessKing.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0"
+        sRGB   = "true"
+/>
+
+<Texture
+	Name   = "ChessColumn.bmp"
+        Source = "..\..\Media\Textures\ChessColumn.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0"
+        sRGB   = "true"
+/>
+
+
+</RDF>
+
+

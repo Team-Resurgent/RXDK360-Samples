@@ -1,0 +1,2 @@
+openTest.oc,0
+closedTest.oc,1

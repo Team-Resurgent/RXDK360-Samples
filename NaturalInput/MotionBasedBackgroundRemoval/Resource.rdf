@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+  <Texture Name   = "perlin_noise" Source = "..\..\Media\Textures\perlin_noise.jpg" Levels = "0" />
+</RDF>
+
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Cubemap
+	Name    = "EnvMap"
+	Source0 = "..\..\Media\Textures\Skybox1XN.bmp"
+	Source1 = "..\..\Media\Textures\Skybox1XP.bmp"
+	Source2 = "..\..\Media\Textures\Skybox1YP.bmp"
+	Source3 = "..\..\Media\Textures\Skybox1YP.bmp"
+	Source4 = "..\..\Media\Textures\Skybox1ZP.bmp"
+	Source5 = "..\..\Media\Textures\Skybox1ZN.bmp"
+	Format  = "D3DFMT_LIN_A8R8G8B8"
+	Size    = "512"
+	Levels  = "1"
+    sRGB    = "true"
+/>
+
+<Texture 
+	Name   = "DolphinTexture"
+        Source = "..\..\Media\Textures\Dolphin.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB    = "true"
+/>
+
+
+</RDF>

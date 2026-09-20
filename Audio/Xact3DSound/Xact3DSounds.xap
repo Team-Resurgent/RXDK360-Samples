@@ -1,0 +1,1553 @@
+Signature = XACT3;
+Version = 18;
+Content Version = 46;
+Release = June 2009;
+
+Options
+{
+    Cue List File = XactSounds.txt;
+    Verbose Report = 0;
+    Generate C/C++ Headers = 1;
+}
+
+Global Settings
+{
+    Xbox File = XactSounds.xgs;
+    Windows File = XactSounds.xgs;
+    Header File = Xact3DSounds.h;
+    Exclude Category Names = 0;
+    Exclude Variable Names = 0;
+    Last Modified Low = 3564477633;
+    Last Modified High = 29777948;
+
+    Category
+    {
+        Name = Global;
+        Public = 1;
+        Background Music = 0;
+        Volume = 0;
+
+        Category Entry
+        {
+        }
+
+        Instance Limit
+        {
+            Max Instances = 255;
+            Behavior = 0;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+
+    Category
+    {
+        Name = Default;
+        Public = 1;
+        Background Music = 0;
+        Volume = 0;
+
+        Category Entry
+        {
+            Name = Global;
+        }
+
+        Instance Limit
+        {
+            Max Instances = 255;
+            Behavior = 0;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+
+    Category
+    {
+        Name = Music;
+        Public = 1;
+        Background Music = 1;
+        Volume = 0;
+
+        Category Entry
+        {
+            Name = Global;
+        }
+
+        Instance Limit
+        {
+            Max Instances = 255;
+            Behavior = 0;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+
+    Variable
+    {
+        Name = OrientationAngle;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = -180.000000;
+        Max = 180.000000;
+    }
+
+    Variable
+    {
+        Name = DopplerPitchScalar;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 1.000000;
+        Initial Value = 1.000000;
+        Min = 0.000000;
+        Max = 4.000000;
+    }
+
+    Variable
+    {
+        Name = SpeedOfSound;
+        Public = 1;
+        Global = 1;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 343.500000;
+        Initial Value = 343.500000;
+        Min = 0.000000;
+        Max = 1000000.000000;
+    }
+
+    Variable
+    {
+        Name = ReleaseTime;
+        Public = 1;
+        Global = 0;
+        Internal = 1;
+        External = 1;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 1;
+        Time = 1;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 15000.000000;
+    }
+
+    Variable
+    {
+        Name = AttackTime;
+        Public = 1;
+        Global = 0;
+        Internal = 1;
+        External = 1;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 1;
+        Time = 1;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 15000.000000;
+    }
+
+    Variable
+    {
+        Name = NumCueInstances;
+        Public = 1;
+        Global = 0;
+        Internal = 1;
+        External = 1;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 1;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 1024.000000;
+    }
+
+    Variable
+    {
+        Name = Distance;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 30.000000;
+    }
+
+    Variable
+    {
+        Name = Volume;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 0;
+        Read Only = 0;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = -85.000000;
+        Max = 0.000000;
+    }
+
+    RPC
+    {
+        Name = Volume;
+        Comment = Basic RPC used by the sample to control overall volume.;
+
+        RPC Curve
+        {
+            Name = Sound::d9e5a738-9610-426a-a31c-f6cdba5d76f0;
+            Property = 0;
+            Sound = 1;
+            Line Color = 4287317819;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = Volume;
+            }
+
+            RPC Point
+            {
+                X = -85.000000;
+                Y = -8500.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+        }
+    }
+
+    RPC
+    {
+        Name = Distance;
+        Comment = This RPC demonstrates smoother attenuation and "minimum" and "maximum" distances (volume remains full out to 2 units before beginning to attenuate, and doesn't attenuate beyond 8 units).;
+
+        RPC Curve
+        {
+            Name = Sound::fcbcb1ea-426c-4ebb-96f3-7bf790045186;
+            Property = 0;
+            Sound = 1;
+            Line Color = 4287596815;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = Distance;
+            }
+
+            RPC Point
+            {
+                X = 2.000000;
+                Y = 0.000000;
+                Curve = 3;
+            }
+
+            RPC Point
+            {
+                X = 8.000000;
+                Y = -1800.000000;
+                Curve = 0;
+            }
+        }
+    }
+
+    RPC
+    {
+        Name = Microsoft Reverb;
+        Comment = The Reverb RPC is implicitly created for the Reverb global DSP effect. It can be used to make the reverb respond to changes in any variable(s).;
+
+        Effect Entry
+        {
+            Effect Name = Microsoft Reverb;
+        }
+    }
+
+    RPC
+    {
+        Name = DistanceReverb;
+        Comment = This RPC demonstrates wet/dry mix adjustment with distance.;
+
+        RPC Curve
+        {
+            Name = Sound::df5af961-d5e8-4a0c-9db4-6c328f9d651f;
+            Property = 0;
+            Sound = 1;
+            Line Color = 4279686742;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = Distance;
+            }
+
+            RPC Point
+            {
+                X = 2.000000;
+                Y = 0.000000;
+                Curve = 2;
+            }
+
+            RPC Point
+            {
+                X = 8.000000;
+                Y = -2400.000000;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = Sound::6c0dd8e5-d315-4beb-9e8c-74a79c18e465;
+            Property = 2;
+            Sound = 1;
+            Line Color = 4278722240;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = Distance;
+            }
+
+            RPC Point
+            {
+                X = 1.000000;
+                Y = -2400.000000;
+                Curve = 1;
+            }
+
+            RPC Point
+            {
+                X = 2.000000;
+                Y = 600.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 8.000000;
+                Y = 600.000000;
+                Curve = 2;
+            }
+
+            RPC Point
+            {
+                X = 10.000000;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+        }
+    }
+
+    RPC
+    {
+        Name = Orientation;
+        Comment = This RPC shows sounds attenuating based on their orientation to the listener. (An emitter facing away will be quieter.);
+
+        RPC Curve
+        {
+            Name = Sound::a970f53f-3036-44bb-a8fd-06fba030220a;
+            Property = 0;
+            Sound = 1;
+            Line Color = 4281797256;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = OrientationAngle;
+            }
+
+            RPC Point
+            {
+                X = -90.000000;
+                Y = -1800.000000;
+                Curve = 1;
+            }
+
+            RPC Point
+            {
+                X = -30.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 30.000000;
+                Y = 0.000000;
+                Curve = 2;
+            }
+
+            RPC Point
+            {
+                X = 90.000000;
+                Y = -1800.000000;
+                Curve = 0;
+            }
+        }
+    }
+
+    RPC
+    {
+        Name = Distance_Default;
+        Comment = This RPC curve roughly emulates the one used in the sample when no RPC is specified (linear decibel falloff to a distance of 14 units).;
+
+        RPC Curve
+        {
+            Name = Sound::02c73be4-0e6e-4f8d-b95a-9c079d5cbb0a;
+            Property = 0;
+            Sound = 1;
+            Line Color = 4279977359;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = Distance;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 7.000000;
+                Y = -602.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 12.000000;
+                Y = -1690.000000;
+                Curve = 3;
+            }
+
+            RPC Point
+            {
+                X = 14.000000;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+        }
+    }
+
+    RPC
+    {
+        Name = DistanceFilter;
+        Comment = This RPC demonstrates (exaggerated) filtering with distance.;
+
+        RPC Curve
+        {
+            Name = Sound::a5131fc5-204b-40ea-a542-eee7c26e382b;
+            Property = 0;
+            Sound = 1;
+            Line Color = 4291575176;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = Distance;
+            }
+
+            RPC Point
+            {
+                X = 2.000000;
+                Y = 0.000000;
+                Curve = 2;
+            }
+
+            RPC Point
+            {
+                X = 8.000000;
+                Y = -1600.000000;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = Sound::1add02e6-3a81-484e-9ecf-5ccef2b75d1b;
+            Property = 3;
+            Sound = 1;
+            Line Color = 4286687970;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = Distance;
+            }
+
+            RPC Point
+            {
+                X = 4.000000;
+                Y = 20.000000;
+                Curve = 1;
+            }
+
+            RPC Point
+            {
+                X = 4.010000;
+                Y = 6000.000000;
+                Curve = 1;
+            }
+
+            RPC Point
+            {
+                X = 10.000000;
+                Y = 20000.000000;
+                Curve = 1;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = Sound::230f7cda-5439-4251-a843-44637298ed68;
+            Property = 4;
+            Sound = 1;
+            Line Color = 4282025342;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = Distance;
+            }
+
+            RPC Point
+            {
+                X = 4.000000;
+                Y = 30.000000;
+                Curve = 1;
+            }
+
+            RPC Point
+            {
+                X = 10.000000;
+                Y = 0.666700;
+                Curve = 0;
+            }
+        }
+    }
+
+    Effect
+    {
+        Name = Microsoft Reverb;
+        Global = 1;
+        Parameter Preset = Concert Hall;
+
+        Effect Parameter
+        {
+            Name = Reflections Delay;
+            Minimum = 0.000000;
+            Maximum = 300.000000;
+            Value = 20.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Reverb Delay;
+            Minimum = 0.000000;
+            Maximum = 85.000000;
+            Value = 29.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Position Left;
+            Minimum = 0.000000;
+            Maximum = 30.000000;
+            Value = 6.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Position Right;
+            Minimum = 0.000000;
+            Maximum = 30.000000;
+            Value = 6.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Position Left Matrix;
+            Minimum = 0.000000;
+            Maximum = 30.000000;
+            Value = 27.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Position Right Matrix;
+            Minimum = 0.000000;
+            Maximum = 30.000000;
+            Value = 27.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Early Diffusion;
+            Minimum = 0.000000;
+            Maximum = 15.000000;
+            Value = 15.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Late Diffusion;
+            Minimum = 0.000000;
+            Maximum = 15.000000;
+            Value = 15.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Low EQ Gain;
+            Minimum = 0.000000;
+            Maximum = 12.000000;
+            Value = 8.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Low EQ Cutoff;
+            Minimum = 0.000000;
+            Maximum = 9.000000;
+            Value = 4.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = High EQ Gain;
+            Minimum = 0.000000;
+            Maximum = 8.000000;
+            Value = 8.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = High EQ Cutoff;
+            Minimum = 0.000000;
+            Maximum = 14.000000;
+            Value = 6.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Rear Delay;
+            Minimum = 0.000000;
+            Maximum = 5.000000;
+            Value = 5.000000;
+            Type = 1;
+        }
+
+        Effect Parameter
+        {
+            Name = Room Filter Frequency;
+            Minimum = 20.000000;
+            Maximum = 20000.000000;
+            Value = 5000.000000;
+            Type = 0;
+        }
+
+        Effect Parameter
+        {
+            Name = Room Filter Main;
+            Minimum = -100.000000;
+            Maximum = 0.000000;
+            Value = -10.000000;
+            Type = 0;
+        }
+
+        Effect Parameter
+        {
+            Name = Room Filter High Frequency;
+            Minimum = -100.000000;
+            Maximum = 0.000000;
+            Value = -5.000000;
+            Type = 0;
+        }
+
+        Effect Parameter
+        {
+            Name = Reflections Gain;
+            Minimum = -100.000000;
+            Maximum = 20.000000;
+            Value = -12.300000;
+            Type = 0;
+        }
+
+        Effect Parameter
+        {
+            Name = Reverb Gain;
+            Minimum = -100.000000;
+            Maximum = 20.000000;
+            Value = -0.020000;
+            Type = 0;
+        }
+
+        Effect Parameter
+        {
+            Name = Decay Time;
+            Minimum = 0.100000;
+            Maximum = 30.000000;
+            Value = 3.920000;
+            Type = 0;
+        }
+
+        Effect Parameter
+        {
+            Name = Density;
+            Minimum = 0.000000;
+            Maximum = 100.000000;
+            Value = 100.000000;
+            Type = 0;
+        }
+
+        Effect Parameter
+        {
+            Name = Room Size;
+            Minimum = 1.000000;
+            Maximum = 100.000000;
+            Value = 100.000000;
+            Type = 0;
+        }
+
+        Effect Parameter
+        {
+            Name = Wet/Dry Mix;
+            Minimum = 0.000000;
+            Maximum = 100.000000;
+            Value = 100.000000;
+            Type = 0;
+        }
+    }
+
+    Compression Preset
+    {
+        Name = Compression Preset;
+        Xbox Format Tag = 357;
+        Target Sample Rate = 48000;
+        XMA Quality = 75;
+        Find Best Quality = 0;
+        High Freq Cut = 0;
+        Loop = 1;
+        PC Format Tag = 0;
+    }
+}
+
+Wave Bank
+{
+    Name = Xact3DSounds;
+    Xbox File = Xact3DSounds.xwb;
+    Windows File = Xact3DSounds.xwb;
+    Xbox Bank Path Edited = 1;
+    Windows Bank Path Edited = 1;
+    Entry Names = 1;
+    Seek Tables = 1;
+    Compression Preset Name = Compression Preset;
+    Xbox Bank Last Modified Low = 3565727633;
+    Xbox Bank Last Modified High = 29777948;
+    PC Bank Last Modified Low = 2633998378;
+    PC Bank Last Modified High = 29765910;
+    Header Last Modified Low = 0;
+    Header Last Modified High = 0;
+    Bank Last Revised Low = 0;
+    Bank Last Revised High = 0;
+
+    Wave
+    {
+        Name = Heli;
+        File = ..\..\Media\Sounds\heli.wav;
+        Build Settings Last Modified Low = 3486321155;
+        Build Settings Last Modified High = 29717183;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 122956;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2074787840;
+            Last Modified High = 29698960;
+        }
+    }
+
+    Wave
+    {
+        Name = DockingMono;
+        File = ..\..\Media\Sounds\DockingMono.wav;
+        Build Settings Last Modified Low = 3486321155;
+        Build Settings Last Modified High = 29717183;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 157442;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2074787840;
+            Last Modified High = 29698960;
+        }
+    }
+
+    Wave
+    {
+        Name = EngineStartMono;
+        File = ..\..\Media\Sounds\EngineStartMono.wav;
+        Build Settings Last Modified Low = 3486321155;
+        Build Settings Last Modified High = 29717183;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 350208;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 1688379343;
+            Last Modified High = 29663890;
+        }
+    }
+
+    Wave
+    {
+        Name = MaleDialog1;
+        File = ..\..\Media\Sounds\MaleDialog1.wav;
+        Build Settings Last Modified Low = 3486321155;
+        Build Settings Last Modified High = 29717183;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 141312;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2074787840;
+            Last Modified High = 29698960;
+        }
+    }
+
+    Wave
+    {
+        Name = MiningMono;
+        File = ..\..\Media\Sounds\MiningMono.wav;
+        Build Settings Last Modified Low = 3486321155;
+        Build Settings Last Modified High = 29717183;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 507390;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2074787840;
+            Last Modified High = 29698960;
+        }
+    }
+
+    Wave
+    {
+        Name = MusicMono;
+        File = ..\..\Media\Sounds\MusicMono.wav;
+        Build Settings Last Modified Low = 3486321155;
+        Build Settings Last Modified High = 29717183;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 768770;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2074787840;
+            Last Modified High = 29698960;
+        }
+    }
+
+    Wave
+    {
+        Name = Dolphin4;
+        File = ..\..\Media\Sounds\Dolphin4.wav;
+        Build Settings Last Modified Low = 3486321155;
+        Build Settings Last Modified High = 29717183;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 58;
+            Play Region Length = 165600;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2074787840;
+            Last Modified High = 29698960;
+        }
+    }
+}
+
+Sound Bank
+{
+    Name = 3DSound;
+    Xbox File = Xact3DSounds.xsb;
+    Windows File = Xact3DSounds.xsb;
+    Xbox Bank Path Edited = 1;
+    Windows Bank Path Edited = 1;
+    Header Last Modified High = 0;
+    Header Last Modified Low = 0;
+
+    Sound
+    {
+        Name = Heli;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+        Comment = No RPC tied to distance variable, so this sound will use XACT3DApply's default volume curve settings.;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = Volume;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Xact3DSounds;
+                    Bank Index = 0;
+                    Entry Name = Heli;
+                    Entry Index = 0;
+                    Weight = 0;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = DockingMono;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = Volume;
+        }
+
+        RPC Entry
+        {
+            RPC Name = Distance_Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Xact3DSounds;
+                    Bank Index = 0;
+                    Entry Name = DockingMono;
+                    Entry Index = 1;
+                    Weight = 0;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = EngineStartMono;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = Volume;
+        }
+
+        RPC Entry
+        {
+            RPC Name = Orientation;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Xact3DSounds;
+                    Bank Index = 0;
+                    Entry Name = EngineStartMono;
+                    Entry Index = 2;
+                    Weight = 0;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = MaleDialog1;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = Volume;
+        }
+
+        RPC Entry
+        {
+            RPC Name = DistanceReverb;
+        }
+
+        RPC Entry
+        {
+            RPC Name = Orientation;
+        }
+
+        Effect Entry
+        {
+            Effect Name = Microsoft Reverb;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Xact3DSounds;
+                    Bank Index = 0;
+                    Entry Name = MaleDialog1;
+                    Entry Index = 3;
+                    Weight = 0;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = MiningMono;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+        Comment = Note that filtering must be enabled on the sound (and/or its tracks) for an RPC to influence filter parameters.;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = Volume;
+        }
+
+        RPC Entry
+        {
+            RPC Name = DistanceFilter;
+        }
+
+        Effect Entry
+        {
+            Effect Name = Microsoft Reverb;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 1;
+            Filter Mode = 2;
+            Filter Frequency = 20000.000000;
+            Filter Q Factor = 30.000000;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Xact3DSounds;
+                    Bank Index = 0;
+                    Entry Name = MiningMono;
+                    Entry Index = 4;
+                    Weight = 0;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = MusicMono;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = Volume;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Xact3DSounds;
+                    Bank Index = 0;
+                    Entry Name = MusicMono;
+                    Entry Index = 5;
+                    Weight = 0;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = Dolphin4;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = Volume;
+        }
+
+        RPC Entry
+        {
+            RPC Name = DistanceReverb;
+        }
+
+        Effect Entry
+        {
+            Effect Name = Microsoft Reverb;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Xact3DSounds;
+                    Bank Index = 0;
+                    Entry Name = Dolphin4;
+                    Entry Index = 6;
+                    Weight = 0;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Cue
+    {
+        Name = Heli;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = Heli;
+            Index = 0;
+            Weight Min = 0;
+            Weight Max = 0;
+        }
+    }
+
+    Cue
+    {
+        Name = DockingMono;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = DockingMono;
+            Index = 1;
+            Weight Min = 0;
+            Weight Max = 0;
+        }
+    }
+
+    Cue
+    {
+        Name = EngineStartMono;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = EngineStartMono;
+            Index = 2;
+            Weight Min = 0;
+            Weight Max = 0;
+        }
+    }
+
+    Cue
+    {
+        Name = MaleDialog1;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = MaleDialog1;
+            Index = 3;
+            Weight Min = 0;
+            Weight Max = 0;
+        }
+    }
+
+    Cue
+    {
+        Name = MiningMono;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = MiningMono;
+            Index = 4;
+            Weight Min = 0;
+            Weight Max = 0;
+        }
+    }
+
+    Cue
+    {
+        Name = MusicMono;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = MusicMono;
+            Index = 5;
+            Weight Min = 0;
+            Weight Max = 0;
+        }
+    }
+
+    Cue
+    {
+        Name = Dolphin4;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = Dolphin4;
+            Index = 6;
+            Weight Min = 0;
+            Weight Max = 0;
+        }
+    }
+}

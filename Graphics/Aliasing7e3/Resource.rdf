@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+    Name   = "Room1Wall.bmp"
+    Source = "..\..\Media\Textures\Room1Wall.bmp"
+    Format = "D3DFMT_LIN_A8R8G8B8"
+    Levels = "1" 
+    sRGB   = "true"
+/>
+
+<Texture 
+    Name   = "Room1Painting.bmp"
+    Source = "..\..\Media\Textures\Room1Painting.bmp"
+    Format = "D3DFMT_LIN_A8R8G8B8"
+    Levels = "1" 
+    sRGB   = "true"
+/>
+
+<Texture 
+    Name   = "Room1Floor.bmp"
+    Source = "..\..\Media\Textures\Room1Floor.bmp"
+    Format = "D3DFMT_LIN_A8R8G8B8"
+    Levels = "1" 
+    sRGB   = "false"
+/>
+
+<Texture 
+    Name   = "Room1Ceiling.bmp"
+    Source = "..\..\Media\Textures\Room1Ceiling.bmp"
+    Format = "D3DFMT_LIN_A8R8G8B8"
+    Levels = "1" 
+    sRGB   = "true"
+/>
+
+</RDF>

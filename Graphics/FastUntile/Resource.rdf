@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "TestImage32F"
+        Source = "..\..\Media\Textures\TextureCompression_TestImage.bmp"
+        Format = "D3DFMT_A32B32G32R32F"
+        Levels = "1" 
+        sRGB   = "false"
+/>
+<Texture 
+	Name   = "GearBump32F"
+        Source = "..\..\Media\Textures\GearBumpTest.bmp"
+        Format = "D3DFMT_G32R32F"
+        Levels = "1" 
+        sRGB   = "false"
+/>
+<Texture 
+	Name   = "TestImage"
+        Source = "..\..\Media\Textures\TextureCompression_TestImage.bmp"
+        Format = "D3DFMT_X8R8G8B8"
+        Levels = "1" 
+        sRGB   = "true"
+/>
+<Texture 
+	Name   = "GearBump"
+        Source = "..\..\Media\Textures\GearBumpTest.bmp"
+        Format = "D3DFMT_G8R8"
+        Levels = "1" 
+        sRGB   = "false"
+/>
+<Texture 
+	Name   = "NuiColorSample"
+        Source = "..\..\Media\Textures\NuiColorSample.bmp"
+        Format = "D3DFMT_X8R8G8B8"
+        Levels = "1" 
+        sRGB   = "true"
+/>
+<Texture 
+	Name   = "NuiDepthStandIn"
+        Source = "..\..\Media\Textures\NuiDepthSample.bmp"
+        Format = "D3DFMT_R5G6B5"
+        Levels = "1" 
+        sRGB   = "false"
+/>
+<Texture 
+	Name   = "NuiLuminanceSample"
+        Source = "..\..\Media\Textures\NuiColorSample.bmp"
+        Format = "D3DFMT_L8"
+        Levels = "1" 
+        sRGB   = "true"
+/>
+
+</RDF>

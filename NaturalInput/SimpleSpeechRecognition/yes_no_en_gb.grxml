@@ -1,0 +1,163 @@
+﻿<?xml version= "1.0" encoding="utf-8"?>
+
+<grammar xmlns="http://www.w3.org/2001/06/grammar"
+         tag-format="semantics/1.0-literals"   
+         sapi:alphabet="x-microsoft-ups"   
+         xmlns:sapi="http://schemas.microsoft.com/Speech/2002/06/SRGSExtensions"
+         xml:lang="en-GB"
+         root="YesOrNo" 
+         version="1.0">
+
+ <rule id="YesOrNo" scope="public">
+  <one-of>
+   <!-- common "yes" responses -->
+    <item weight="0.6">
+      yes
+      <tag>yes</tag>
+    </item>
+    <item weight="0.09">
+      yeah
+      <tag>yes</tag>
+    </item>
+
+   <!-- infrequent "yes" responses -->
+   <item weight="0.009">
+    <one-of>
+     <item>
+      yes yes
+     </item>
+     <item>
+      yes please
+     </item>
+     <item>
+      you got it
+     </item>
+     <item>
+      that's right
+     </item>
+     <item>
+      that's it
+     </item>
+     <item>
+      that's correct
+     </item>
+     <item>
+      yes it is
+     </item>
+     <item>
+      yes that's correct
+     </item>
+     <item>
+      yes that's right
+     </item>
+     <item>
+      yes it is correct
+     </item>
+     <item>
+      yeah yes
+     </item>
+     <item>
+      yeah it is
+     </item>
+     <item>
+      yeah that's correct
+     </item>
+     <item>
+      yeah that's right
+     </item>
+     <item>
+      yeah it is correct
+     </item>
+     <item>
+      <item repeat="0-1">
+       that's
+      </item>
+      correct
+      <item repeat="0-1">
+       yes
+      </item>
+     </item>
+     <item>
+      okay
+     </item>
+     <item>
+      yup
+     </item>
+     <item>
+      right
+     </item>
+     <item>
+      right
+      yes
+     </item>
+    </one-of>
+    <tag>yes</tag>
+   </item>
+
+   <!-- basic "no" response -->
+    <item weight="0.3">
+      no
+      <tag>no</tag>
+    </item>
+
+   <!-- infrequent "no" responses  -->
+     <item weight="0.001">
+      <one-of>
+        <item>
+          no no
+      <item repeat="0-1">
+        no
+        </item>
+      </item>
+     <item>
+      no thank you
+     </item>
+     <item>
+      no it's not right
+     </item>
+     <item>
+      no it's not
+     </item>
+     <item>
+      it's not right
+     </item>
+     <item>
+      no it is not
+     </item>
+     <item>
+      no that's not correct
+     </item>
+     <item>
+      that's not correct
+     </item>
+     <item>
+      no it's not correct
+     </item>
+     <item>
+      no that's not right
+     </item>
+     <item>
+      that's not right
+     </item>
+     <item>
+      it's not correct
+     </item>
+     <item>
+      no it isn't
+     </item>
+     <item>
+      incorrect
+     </item>
+     <item>
+      wrong
+     </item>
+     <item>
+      nope
+     </item>
+    </one-of>
+    <tag>no</tag>
+   </item>
+  </one-of>
+ </rule>
+
+</grammar>

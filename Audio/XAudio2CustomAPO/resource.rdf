@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+
+<Texture 
+	Name   = "UI_Background"
+        Source = "..\..\Media\Textures\APO_UI_Background.png"
+        Format = "D3DFMT_LIN_A8R8G8B8"
+        Levels = "1" 
+/>
+
+<Texture 
+	Name   = "UI_MonitorAPO"
+        Source = "..\..\Media\Textures\APO_Monitor.png"
+        Format = "D3DFMT_LIN_A8R8G8B8"
+        Levels = "1" 
+/>
+
+  <Texture
+    Name   = "UI_YellowLED"
+          Source = "..\..\Media\Textures\APO_LED_Yellow.png"
+          Format = "D3DFMT_LIN_A8R8G8B8"
+          Levels = "1"
+/>
+ 
+  <Texture
+	Name   = "UI_AmpAPO"
+        Source = "..\..\Media\Textures\APO_Amp.png"
+        Format = "D3DFMT_LIN_A8R8G8B8"
+        Levels = "1"
+/>
+  <Texture
+	Name   = "UI_SliderH"
+        Source = "..\..\Media\Textures\APO_Slider_H.png"
+        Format = "D3DFMT_LIN_A8R8G8B8"
+        Levels = "1"
+/>
+  <Texture
+Name   = "UI_Comp1APO"
+      Source = "..\..\Media\Textures\APO_Comp1.png"
+      Format = "D3DFMT_LIN_A8R8G8B8"
+      Levels = "1"
+/>
+<Texture
+Name   = "UI_EQAPO"
+      Source = "..\..\Media\Textures\APO_EQ.png"
+      Format = "D3DFMT_LIN_A8R8G8B8"
+      Levels = "1"
+/>
+</RDF>
+
+

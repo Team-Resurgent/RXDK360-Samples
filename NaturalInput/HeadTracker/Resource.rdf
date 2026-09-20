@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+  <Texture Name="sponza_01_stub_jpg.tga" Source="..\..\Media\Textures\sponza_01_stub_jpg.tga" Format="D3DFMT_DXT5" Levels="0" />
+  <Texture Name="Target.tga" Source="..\..\Media\Textures\target.png" Format="D3DFMT_DXT5" Levels="0" />
+</RDF>
+
+

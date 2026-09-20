@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+  <Texture Name="ThumbsUp" Source="..\..\Media\Textures\ThumbsUp.png" Levels="0" />
+</RDF>
+
+

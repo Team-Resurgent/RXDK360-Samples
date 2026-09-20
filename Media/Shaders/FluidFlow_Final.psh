@@ -1,0 +1,50 @@
+//--------------------------------------------------------------------------------------
+// Name: ParticleRepelRenderPS()
+// Desc: return Color;
+//--------------------------------------------------------------------------------------
+#ifdef ParticleRepelRenderPS
+
+    xps_3_0
+
+    dcl_color0 r0
+
+    alloc colors
+    exece
+
+    mov_sat o0, r0.xyzw
+
+#endif
+
+
+//--------------------------------------------------------------------------------------
+// Name: ParticleRenderPS()
+// Desc: return ( 1.0f - length( TexCoord0 - 0.5f ) * 2.0f ) * Color;
+//--------------------------------------------------------------------------------------
+#ifdef ParticleRenderPS
+
+    xps_3_0
+
+    // Enable pointsprite texture coordinate generation
+    config PsParamGenReg=1
+
+    dcl_color0   r0
+
+    def c255, -0.5, 0, 2, 1
+
+    alloc colors
+    exece
+    mov r1, r1_abs
+//    tfetch2D r1.xyzw, r1.zw, tf0
+
+//    add r1.xy, r1, c255.xxzw
+    add r1.xy, r1.zw, c255.xxzw
+
+    dp2add r1.w, r1, r1, c255.y
+    rsq r1.w, r1_abs.w
+    rcp r1.w, r1.w
+    mad r1.w, -r1.w, c255.z, c255.w
+    mul r0, r1.w, r0
+
+    mov_sat o0, r0.xyzw
+
+#endif

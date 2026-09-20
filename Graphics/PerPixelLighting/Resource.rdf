@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "Earth"
+	Source = "..\..\Media\Textures\Earth.bmp"
+	Format = "D3DFMT_X8R8G8B8"
+	Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture
+	Name   = "EarthBmp"
+	Source = "..\..\Media\Textures\EarthBmp.bmp"
+	Format = "D3DFMT_LIN_X8R8G8B8"
+	Levels = "0"
+/>
+
+</RDF>

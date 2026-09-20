@@ -1,0 +1,189 @@
+//--------------------------------------------------------------------------------------
+// CubicBezierVS.a
+//
+// Bicubic Bezier patch tessellation vertex shader (~70 ALU instructions).
+//
+// Inputs: u,v - parametric coordiantes of the vertex
+//		   i0  - index of the patch
+//		   q   - quad-id
+//
+// Xbox Advanced Technology Group.
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//--------------------------------------------------------------------------------------
+
+xvs_3_0
+
+dcl_index0 r0.xyz	// [i0,u,v]
+dcl_index1 r1.x		// [q]
+
+dcl_color o0		// Output color
+
+// c0-c3 = transform matrix.
+// c4 = light vector
+
+// Bezier basis matrix (row major).
+def c8,  -1.0,  3.0, -3.0, 1.0
+def c9,   3.0, -6.0,  3.0, 0.0
+def c10, -3.0,  3.0,  0.0, 0.0
+def c11,  1.0,  0.0,  0.0, 0.0
+
+// Bezier 1st derivative basis matrix (row major).
+def c12, -3.0,   9.0, -9.0, 3.0
+def c13,  6.0, -12.0,  6.0, 0.0
+def c14, -3.0,   3.0,  0.0, 0.0
+
+// Posible quad-id values
+def c15, 0.0, 1.0, 2.0, 3.0
+
+exec
+
+// Load the 16 control points.
+// The fetches will be patched at runtime based on the semantic.
+vfetch r10, r0.x, position0		// P00
+vfetch r11, r0.x, position1		// P01
+vfetch r12, r0.x, position2		// P02
+vfetch r13, r0.x, position3		// P03
+
+vfetch r14, r0.x, position4		// P10
+vfetch r15, r0.x, position5		// P11
+vfetch r16, r0.x, position6		// P12
+vfetch r17, r0.x, position7		// P13
+
+vfetch r18, r0.x, position8		// P20
+vfetch r19, r0.x, position9		// P21
+vfetch r20, r0.x, position10	// P22
+vfetch r21, r0.x, position11	// P23
+
+vfetch r22, r0.x, position12	// P30
+vfetch r23, r0.x, position13	// P31
+vfetch r24, r0.x, position14	// P32
+vfetch r25, r0.x, position15	// P33
+
+alloc interpolators
+alloc position
+
+exec
+
+// Swizzle our weights based on the quad-id
+add r1, r1.x, -c15
+
+setp_eq r2.x, r1.y					// Swap in x
+(p0) add r0.y, c15.y, -r0			// u = 1-u
+
+setp_eq r2.x, r1.z					// Swap in x and y
+(p0) add r0.yz, c15.y, -r0			// u = 1-u, v = 1-v
+
+setp_eq r2.x, r1.w					// Swap in y
+(p0) add r0.z, c15.y, -r0			// v = 1-v
+
+// Compute [u^3, u^2, u]
+mov r2.z, r0.y						// u
+mul r2.y, r0.y, r0.y				// u^2
+mul r2.x, r0.y, r2.y				// u^3
+
+// Compute [v^3, v^2, v]
+mov r3.z, r0.z						// v
+mul r3.y, r0.z, r0.z				// v^2
+mul r3.x, r0.z, r3.y				// v^3
+
+// Compute the u basis functions
+//mov r4, c11
+mad r4, r2.z, c10, c11				// u * M2 + M3
+mad r4, r2.y, c9, r4				// + u^2 * M1
+mad r4, r2.x, c8, r4				// + u^3 * M0
+
+// Compute the v basis functions
+//mov r5, c11
+mad r5, r3.z, c10, c11
+mad r5, r3.y, c9, r5
+mad r5, r3.x, c8, r5
+
+// Apply the u basis functions to get the curve in v
+mul r6, r4.x, r10
+mad r6, r4.y, r11, r6
+mad r6, r4.z, r12, r6
+mad r6, r4.w, r13, r6
+
+mul r7, r4.x, r14
+mad r7, r4.y, r15, r7
+mad r7, r4.z, r16, r7
+mad r7, r4.w, r17, r7
+
+mul r8, r4.x, r18
+mad r8, r4.y, r19, r8
+mad r8, r4.z, r20, r8
+mad r8, r4.w, r21, r8
+
+mul r9, r4.x, r22
+mad r9, r4.y, r23, r9
+mad r9, r4.z, r24, r9
+mad r9, r4.w, r25, r9
+
+// Apply the v basis functions to get the final position
+mul r0, r5.x, r6
+mad r0, r5.y, r7, r0
+mad r0, r5.z, r8, r0
+mad r0, r5.w, r9, r0
+
+// Compute the v derivative basis functions (reuse r4)
+//mov r4, c14
+mad r4, r3.z, c13, c14
+mad r4, r3.y, c12, r4
+
+// Apply the v derivative basis functions to get the tangent in v
+mul r3, r4.x, r6
+mad r3, r4.y, r7, r3
+mad r3, r4.z, r8, r3
+mad r3, r4.w, r9, r3
+
+// Apply the v basis functions to get the curve in u
+mul r6, r5.x, r10
+mad r6, r5.y, r14, r6
+mad r6, r5.z, r18, r6
+mad r6, r5.w, r22, r6
+
+mul r7, r5.x, r11
+mad r7, r5.y, r15, r7
+mad r7, r5.z, r19, r7
+mad r7, r5.w, r23, r7
+
+mul r8, r5.x, r12
+mad r8, r5.y, r16, r8
+mad r8, r5.z, r20, r8
+mad r8, r5.w, r24, r8
+
+mul r9, r5.x, r13
+mad r9, r5.y, r17, r9
+mad r9, r5.z, r21, r9
+mad r9, r5.w, r25, r9
+
+// Compute the u derivative basis functions (reuse r5)
+//mov r5, c14
+mad r5, r2.z, c13, c14
+mad r5, r2.y, c12, r5
+
+// Apply the u derivative basis functions to get the tangent in u
+mul r2, r5.x, r6
+mad r2, r5.y, r7, r2
+mad r2, r5.z, r8, r2
+mad r2, r5.w, r9, r2
+
+// Cross the u and v tangents to get the normal.
+mul r1, r2.yzx, r3.zxy
+mad r1, -r2.zxy, r3.yzx, r1
+
+// Normalize the normal
+dp3 r1.w, r1, r1
+rsq r1.w, r1.w
+mul r1, r1, r1.w
+
+// Transform the position
+mul   r2, r0.x, c0
+mad   r2, r0.y, c1, r2
+mad   r2, r0.z, c2, r2
+mad oPos, r0.w, c3, r2
+
+// Simple directional lighting.
+dp3 o0, r1, c4
+
+exece

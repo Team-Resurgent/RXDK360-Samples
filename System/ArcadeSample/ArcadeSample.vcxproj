@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Xbox 360">
+      <Configuration>Release</Configuration>
+      <Platform>Xbox 360</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F1D35CF1-C8F4-FE5A-06F9-5BF279440CB7}</ProjectGuid>
+    <RootNamespace>ArcadeSample</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>2010-01</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>xapilib.lib;xboxkrnl.lib;d3d9.lib;d3dx9.lib;xgraphics.lib;xnet.lib;xaudio2.lib;xact3.lib;x3daudio.lib;xmcore.lib;xbdm.lib;vcomp.lib;xhv2.lib;xonline.lib;xuirun.lib;xuirender.lib;xcam.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="AppXuiModule.cpp" />
+    <ClCompile Include="AppXuiRectControl.cpp" />
+    <ClCompile Include="AppXuiScene.cpp" />
+    <ClCompile Include="AppXuiTextControl.cpp" />
+    <ClCompile Include="GameConnectScene.cpp" />
+    <ClCompile Include="GameEndScene.cpp" />
+    <ClCompile Include="GameListScene.cpp" />
+    <ClCompile Include="GameLobbyScene.cpp" />
+    <ClCompile Include="GameOptionsScene.cpp" />
+    <ClCompile Include="GamePlayScene.cpp" />
+    <ClCompile Include="GameStartScene.cpp" />
+    <ClCompile Include="GameTypeScene.cpp" />
+    <ClCompile Include="HelpOptionsScene.cpp" />
+    <ClCompile Include="LeaderboardScene.cpp" />
+    <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="QuickMatchScene.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="XAGamerPics.cpp" />
+    <ClCompile Include="XuiArena.cpp" />
+    <ClCompile Include="XuiBall.cpp" />
+    <ClCompile Include="XuiCountdown.cpp" />
+    <ClCompile Include="XuiPaddle.cpp" />
+    <ClCompile Include="XuiScore.cpp" />
+    <ClCompile Include="XuiScoreboard.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h" />
+    <ClInclude Include="AppXuiControl.h" />
+    <ClInclude Include="AppXuiModule.h" />
+    <ClInclude Include="AppXuiRectControl.h" />
+    <ClInclude Include="AppXuiScene.h" />
+    <ClInclude Include="AppXuiTextControl.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="GameConnectScene.h" />
+    <ClInclude Include="GameEndScene.h" />
+    <ClInclude Include="GameListScene.h" />
+    <ClInclude Include="GameLobbyScene.h" />
+    <ClInclude Include="GameOptionsScene.h" />
+    <ClInclude Include="GamePlayScene.h" />
+    <ClInclude Include="GamerPics.h" />
+    <ClInclude Include="GameStartScene.h" />
+    <ClInclude Include="GameTypeScene.h" />
+    <ClInclude Include="HelpOptionsScene.h" />
+    <ClInclude Include="Leaderboards.h" />
+    <ClInclude Include="LeaderboardScene.h" />
+    <ClInclude Include="MainMenuScene.h" />
+    <ClInclude Include="NetMsg.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="QuickMatchScene.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="XAGamerPics.h" />
+    <ClInclude Include="XALeaderboards.h" />
+    <ClInclude Include="XuiArena.h" />
+    <ClInclude Include="XuiBall.h" />
+    <ClInclude Include="XuiCountdown.h" />
+    <ClInclude Include="XuiPaddle.h" />
+    <ClInclude Include="XuiScore.h" />
+    <ClInclude Include="XuiScoreboard.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.vcxproj">
+      <Project>{4B99DC73-9044-E203-9C9C-C00C211DA956}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

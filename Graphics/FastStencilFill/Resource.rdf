@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "OrderedDither8x8"
+        Source = "..\..\Media\Textures\OrderedDither8x8.bmp"
+        Format = "D3DFMT_L8"
+        Levels = "1" 
+/>
+
+    <Texture 
+        Name   = "BitPattern"
+            Source = "..\..\Media\Textures\BitPattern.bmp"
+            Format = "D3DFMT_L8"
+            Levels = "1" 
+/>
+
+</RDF>
+
+

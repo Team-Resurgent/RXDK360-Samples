@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<grammar version="1.0"
+         sapi:alphabet="x-microsoft-ups"
+         xml:lang="en-us"
+         tag-format="semantics/1.0-literals"
+         xmlns="http://www.w3.org/2001/06/grammar"
+         xmlns:sapi="http://schemas.microsoft.com/Speech/2002/06/SRGSExtensions"
+         root="main">
+
+  <!-- MAIN -->
+  <rule id="main" scope="public">
+    <one-of>
+      <item>
+        alpha<tag>alpha</tag>
+      </item>
+      <item>
+        bravo<tag>bravo</tag>
+      </item>
+      <item>
+        charlie<tag>charlie</tag>
+      </item>
+      <item>
+        delta<tag>delta</tag>
+      </item>
+      <item>
+        echo<tag>echo</tag>
+      </item>
+      <item>
+        foxtrot<tag>foxtrot</tag>
+      </item>
+      <item>
+        golf<tag>golf</tag>
+      </item>
+      <item>
+        hotel<tag>hotel</tag>
+      </item>
+      <item>
+        india<tag>india</tag>
+      </item>
+      <item>
+        juliet<tag>juliet</tag>
+      </item>
+      <item>
+        kilo<tag>kilo</tag>
+      </item>
+      <item>
+        lima<tag>lima</tag>
+      </item>
+      <!-- Mike and Michael are mapped the same -->
+      <item>
+        <one-of>
+          <item>mike</item>
+          <item>michael</item>
+        </one-of>
+        <tag>mike</tag>
+      </item>
+      <item>
+        november<tag>november</tag>
+      </item>
+      <item>
+        oscar<tag>oscar</tag>
+      </item>
+      <item>
+        papa<tag>papa</tag>
+      </item>
+      <item>
+        quebec<tag>quebec</tag>
+      </item>
+      <item>
+        romeo<tag>romeo</tag>
+      </item>
+      <item>
+        sierra<tag>sierra</tag>
+      </item>
+      <item>
+        tango<tag>tango</tag>
+      </item>
+      <item>
+        uniform<tag>uniform</tag>
+      </item>
+      <item>
+        victor<tag>victor</tag>
+      </item>
+      <item>
+        whiskey<tag>whiskey</tag>
+      </item>
+      <!-- Handle X-Ray with phonemes since xray as a word confuses the parser -->
+      <!-- Phoneme table for quick lookup can be found here -->
+      <!-- http://msdn.microsoft.com/en-us/library/bb813894.aspx -->
+      <item>
+        <token sapi:pron="EH K S R EH I">xray</token>
+        <tag>xray</tag>
+      </item>
+      <item>
+        yankee<tag>yankee</tag>
+      </item>
+      <item>
+        zulu<tag>zulu</tag>
+      </item>
+    </one-of>
+  </rule>
+</grammar>

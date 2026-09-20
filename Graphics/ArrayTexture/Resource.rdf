@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+        Name   = "DolphinTexture"
+        Source = "..\..\Media\Textures\Dolphin.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+        Name   = "SeaFloorTexture"
+        Source = "..\..\Media\Textures\SeaFloor.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<ArrayTexture 
+        Name   = "WaterCaustic"
+        Source = "..\..\Media\Textures\caust00.tga"
+        Source = "..\..\Media\Textures\caust01.tga"
+        Source = "..\..\Media\Textures\caust02.tga"
+        Source = "..\..\Media\Textures\caust03.tga"
+        Source = "..\..\Media\Textures\caust04.tga"
+        Source = "..\..\Media\Textures\caust05.tga"
+        Source = "..\..\Media\Textures\caust06.tga"
+        Source = "..\..\Media\Textures\caust07.tga"
+        Source = "..\..\Media\Textures\caust08.tga"
+        Source = "..\..\Media\Textures\caust09.tga"
+        Source = "..\..\Media\Textures\caust10.tga"
+        Source = "..\..\Media\Textures\caust11.tga"
+        Source = "..\..\Media\Textures\caust12.tga"
+        Source = "..\..\Media\Textures\caust13.tga"
+        Source = "..\..\Media\Textures\caust14.tga"
+        Source = "..\..\Media\Textures\caust15.tga"
+        Source = "..\..\Media\Textures\caust16.tga"
+        Source = "..\..\Media\Textures\caust17.tga"
+        Source = "..\..\Media\Textures\caust18.tga"
+        Source = "..\..\Media\Textures\caust19.tga"
+        Source = "..\..\Media\Textures\caust20.tga"
+        Source = "..\..\Media\Textures\caust21.tga"
+        Source = "..\..\Media\Textures\caust22.tga"
+        Source = "..\..\Media\Textures\caust23.tga"
+        Source = "..\..\Media\Textures\caust24.tga"
+        Source = "..\..\Media\Textures\caust25.tga"
+        Source = "..\..\Media\Textures\caust26.tga"
+        Source = "..\..\Media\Textures\caust27.tga"
+        Source = "..\..\Media\Textures\caust28.tga"
+        Source = "..\..\Media\Textures\caust29.tga"
+        Source = "..\..\Media\Textures\caust30.tga"
+        Source = "..\..\Media\Textures\caust31.tga"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+</RDF>

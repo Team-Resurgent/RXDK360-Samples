@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "Flame1"
+	Source = "..\..\Media\Textures\Flame1.bmp"
+	Format = "D3DFMT_X8R8G8B8"
+	Levels = "0"
+/>
+
+<Texture 
+	Name   = "ForestGround"
+	Source = "..\..\Media\Textures\ForestGround.bmp"
+	Format = "D3DFMT_X8R8G8B8"
+	Levels = "0"
+/>
+
+<Texture 
+	Name   = "GryDirt1"
+	Source = "..\..\Media\Textures\GryDirt1.bmp"
+	Format = "D3DFMT_X8R8G8B8"
+	Levels = "0"
+/>
+
+<Texture 
+	Name   = "WaterBumps"
+	Source = "..\..\Media\Textures\WaterBumps.bmp"
+	Format = "D3DFMT_X8R8G8B8"
+	Levels = "0"
+/>
+
+</RDF>
+
+

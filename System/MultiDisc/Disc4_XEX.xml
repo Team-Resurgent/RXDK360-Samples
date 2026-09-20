@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<xex>
+  <titleid id="0xFFFFDDDD"/>
+  <privilege id="15"/>
+  <privilege id="16"/>
+  <multidisc discnum="4" discsinset="4"/>
+  <section file="4.bin" name="DiscID" memory="RO_ENCRYPTED"/>
+  <format>
+    <raw/>
+  </format>
+</xex>

@@ -1,0 +1,24 @@
+<root>
+<data name="XuiScene1.XuiLabel1.Text"><value>About</value></data>
+<data name="XuiScene1.XuiBackButton1.Text"><value>Back</value></data>
+<data name="XuiScene1.XuiEdit1.Text"><value>
+
+
+
+
+
+
+
+
+XuiAquatica demonstrates a wide variety of XUI features.
+
+The sample is meant to show a complete UI built on XUI, that has the complexity of a real game UI.
+
+There is extensive demonstration of key frames, animation, custom controls, scene transitions, video playback and 3D rendering.
+
+Copyright (c) 2006 Microsoft Corp.
+
+
+ </value></data>
+</root>
+

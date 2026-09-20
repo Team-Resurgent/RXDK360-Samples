@@ -1,0 +1,10 @@
+﻿<root>
+    <data name="IDS_MAINMENU_HELP_SINGLEPLAYER">
+        <value>Play against the computer.</value>
+        <comment>Main menu help text for single player</comment>
+    </data>
+    <data name="IDS_ABOUT">
+        <value>Copyright ©2010 Microsoft Corporation. All rights reserved.</value>
+        <comment>About scene text</comment>
+    </data>
+</root>

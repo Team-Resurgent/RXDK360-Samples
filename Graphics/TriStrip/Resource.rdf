@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "Robot"
+	Source = "..\..\Media\Textures\Robot.tga"
+	Format = "D3DFMT_A8R8G8B8"
+	Levels = "0"
+    sRGB   = "true"
+/>
+
+<Cubemap
+	Name    = "EnvMap"
+	Source0 = "..\..\Media\Textures\LobbyXP.bmp"
+	Source1 = "..\..\Media\Textures\LobbyXN.bmp"
+	Source2 = "..\..\Media\Textures\LobbyYP.bmp"
+	Source3 = "..\..\Media\Textures\LobbyYN.bmp"
+	Source4 = "..\..\Media\Textures\LobbyZP.bmp"
+	Source5 = "..\..\Media\Textures\LobbyZN.bmp"
+	Format  = "D3DFMT_X8R8G8B8"
+	Size    = "256"
+    sRGB    = "true"
+/>
+
+</RDF>

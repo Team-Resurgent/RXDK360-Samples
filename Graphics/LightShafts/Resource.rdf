@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+        Name   = "Backdrop"
+        Source = "..\..\Media\Textures\LightShafts_Backdrop.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "1" 
+        sRGB   = "true"
+/>
+
+<Texture 
+        Name   = "Noise"
+        Source = "..\..\Media\Textures\LightShafts_Cloud.tga"
+        Format = "D3DFMT_G8R8"
+/>
+
+<Texture 
+        Name   = "ColoredHoles"
+        Source = "..\..\Media\Textures\LightShafts_ColoredHoles.tga"
+        Format = "D3DFMT_A8R8G8B8"
+/>
+
+<Texture 
+        Name   = "HarshCircle"
+        Source = "..\..\Media\Textures\LightShafts_HarshCircle.tga"
+        Format = "D3DFMT_A8R8G8B8"
+/>
+
+<Texture 
+        Name   = "HebeWorldNmAmbiOccl1024"
+        Source = "..\..\Media\Textures\HebeWorldNmAmbiOccl1024.tga"
+        Format = "D3DFMT_A8R8G8B8"
+        Levels = "0" 
+/>
+
+<Texture 
+        Name   = "Holes"
+        Source = "..\..\Media\Textures\LightShafts_Holes.tga"
+        Format = "D3DFMT_A8R8G8B8"
+/>
+
+<Texture 
+        Name   = "MarbleSpline"
+        Source = "..\..\Media\Textures\MarbleSpline.tga"
+        Format = "D3DFMT_A8R8G8B8"
+/>
+
+<Texture 
+        Name   = "MoreHoles"
+        Source = "..\..\Media\Textures\LightShafts_MoreHoles.tga"
+        Format = "D3DFMT_A8R8G8B8"
+/>
+
+<Cubemap 
+        Name     = "DiffuseCubemap"
+        SourceXP = "..\..\Media\Textures\LightShafts_DiffuseCube_XP.bmp"
+        SourceXN = "..\..\Media\Textures\LightShafts_DiffuseCube_XN.bmp"
+        SourceYP = "..\..\Media\Textures\LightShafts_DiffuseCube_YP.bmp"
+        SourceYN = "..\..\Media\Textures\LightShafts_DiffuseCube_YN.bmp"
+        SourceZP = "..\..\Media\Textures\LightShafts_DiffuseCube_ZP.bmp"
+        SourceZN = "..\..\Media\Textures\LightShafts_DiffuseCube_ZN.bmp"
+        Format   = "D3DFMT_DXT1"
+        Levels   = "1" 
+        sRGB   = "true"
+/>
+
+<Texture 
+        Name   = "RadialFade"
+        Source = "..\..\Media\Textures\LightShafts_RadialFade.tga"
+        Format = "D3DFMT_A8R8G8B8"
+/>
+
+<Texture 
+        Name   = "Star"
+        Source = "..\..\Media\Textures\LightShafts_Star.bmp"
+        Format = "D3DFMT_L8"
+        Levels = "0" 
+/>
+
+<Texture 
+        Name   = "TreeCanopy"
+        Source = "..\..\Media\Textures\LightShafts_TreeCanopy.tga"
+        Format = "D3DFMT_A8R8G8B8"
+/>
+
+</RDF>

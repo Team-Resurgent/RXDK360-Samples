@@ -1,0 +1,6 @@
+﻿<root>
+<data name="XuiScene1.XuiLabel1.Text"><value>Contralor opciones</value></data>
+<data name="XuiScene1.XuiCheckbox1.Text"><value>Invertido</value></data>
+<data name="XuiScene1.XuiBackButton1.Text"><value>Volver</value></data>
+<data name="XuiScene1.XuiButton1.Text"><value>Seleccionar</value></data>
+</root>

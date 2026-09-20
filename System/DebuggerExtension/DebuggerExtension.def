@@ -1,0 +1,27 @@
+;--------------------------------------------------------------------------------------
+; DebuggerExtension.def
+;
+; Microsoft Game Technology Group.
+; Copyright (C) Microsoft Corporation. All rights reserved.
+;--------------------------------------------------------------------------------------
+
+EXPORTS
+
+;--------------------------------------------------------------------
+; These are the extensions exported by dll
+;--------------------------------------------------------------------
+    read
+    edit
+    help
+    stack
+
+;--------------------------------------------------------------------
+;
+; these are the extension service functions provided for the debugger
+;
+;--------------------------------------------------------------------
+
+
+    CheckVersion
+    WinDbgExtensionDllInit
+    ExtensionApiVersion

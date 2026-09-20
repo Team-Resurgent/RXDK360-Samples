@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Cubemap
+	Name    = "EnvMap"
+	Source0 = "..\..\Media\Textures\LobbyXP.bmp"
+	Source1 = "..\..\Media\Textures\LobbyXN.bmp"
+	Source2 = "..\..\Media\Textures\LobbyYP.bmp"
+	Source3 = "..\..\Media\Textures\LobbyYN.bmp"
+	Source4 = "..\..\Media\Textures\LobbyZP.bmp"
+	Source5 = "..\..\Media\Textures\LobbyZN.bmp"
+	Format  = "D3DFMT_LIN_A8R8G8B8"
+	Size    = "128"
+	Levels  = "1"
+    sRGB    = "true"
+/>
+
+</RDF>

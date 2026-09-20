@@ -1,0 +1,1459 @@
+Signature = XACT3;
+Version = 18;
+Content Version = 46;
+Release = June 2009;
+
+Options
+{
+    Cue List File = XactSounds.txt;
+    Verbose Report = 0;
+    Generate C/C++ Headers = 1;
+}
+
+Global Settings
+{
+    Xbox File = XACTSounds.xgs;
+    Windows File = XACTSounds.xgs;
+    Header File = XactSounds.h;
+    Exclude Category Names = 0;
+    Exclude Variable Names = 0;
+    Last Modified Low = 29669321;
+    Last Modified High = 2934094003;
+
+    Category
+    {
+        Name = Global;
+        Public = 1;
+        Background Music = 0;
+        Volume = 0;
+
+        Category Entry
+        {
+        }
+
+        Instance Limit
+        {
+            Max Instances = 255;
+            Behavior = 0;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+
+    Category
+    {
+        Name = Default;
+        Public = 1;
+        Background Music = 0;
+        Volume = 0;
+
+        Category Entry
+        {
+            Name = Global;
+        }
+
+        Instance Limit
+        {
+            Max Instances = 255;
+            Behavior = 0;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+
+    Category
+    {
+        Name = Music;
+        Public = 1;
+        Background Music = 1;
+        Volume = 0;
+
+        Category Entry
+        {
+            Name = Global;
+        }
+
+        Instance Limit
+        {
+            Max Instances = 255;
+            Behavior = 0;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+
+    Category
+    {
+        Name = Guns;
+        Public = 1;
+        Background Music = 0;
+        Volume = 1;
+
+        Category Entry
+        {
+            Name = Global;
+        }
+
+        Instance Limit
+        {
+            Max Instances = 2;
+            Behavior = 2;
+
+            Crossfade
+            {
+                Fade In = 100;
+                Fade Out = 100;
+                Crossfade Type = 2;
+            }
+        }
+    }
+
+    Variable
+    {
+        Name = OrientationAngle;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = -180.000000;
+        Max = 180.000000;
+    }
+
+    Variable
+    {
+        Name = DopplerPitchScalar;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 1.000000;
+        Initial Value = 1.000000;
+        Min = 0.000000;
+        Max = 4.000000;
+    }
+
+    Variable
+    {
+        Name = SpeedOfSound;
+        Public = 1;
+        Global = 1;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 343.500000;
+        Initial Value = 343.500000;
+        Min = 0.000000;
+        Max = 1000000.000000;
+    }
+
+    Variable
+    {
+        Name = ReleaseTime;
+        Public = 1;
+        Global = 0;
+        Internal = 1;
+        External = 1;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 1;
+        Time = 1;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 15000.000000;
+    }
+
+    Variable
+    {
+        Name = AttackTime;
+        Public = 1;
+        Global = 0;
+        Internal = 1;
+        External = 1;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 1;
+        Time = 1;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 15000.000000;
+    }
+
+    Variable
+    {
+        Name = NumCueInstances;
+        Public = 1;
+        Global = 0;
+        Internal = 1;
+        External = 1;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 1;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 1024.000000;
+    }
+
+    Variable
+    {
+        Name = Distance;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 340282346638528860000000000000000000000.000000;
+    }
+
+    Compression Preset
+    {
+        Name = Compression Preset;
+        Xbox Format Tag = 357;
+        Target Sample Rate = 48000;
+        XMA Quality = 75;
+        Find Best Quality = 0;
+        High Freq Cut = 0;
+        Loop = 0;
+        PC Format Tag = 0;
+    }
+}
+
+Wave Bank
+{
+    Name = XACTSounds;
+    Xbox File = XACTSounds.xwb;
+    Windows File = XACTSounds.xwb;
+    Xbox Bank Path Edited = 1;
+    Windows Bank Path Edited = 1;
+    Seek Tables = 1;
+    Compression Preset Name = Compression Preset;
+    Xbox Bank Last Modified Low = 0;
+    Xbox Bank Last Modified High = 0;
+    PC Bank Last Modified Low = 0;
+    PC Bank Last Modified High = 0;
+    Header Last Modified Low = 0;
+    Header Last Modified High = 0;
+    Bank Last Revised Low = 0;
+    Bank Last Revised High = 0;
+
+    Wave
+    {
+        Name = shot04;
+        File = ..\..\Media\Sounds\shot04.aif;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 106;
+            Play Region Length = 365672;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 2;
+            Last Modified Low = 4033883904;
+            Last Modified High = 29494676;
+        }
+    }
+
+    Wave
+    {
+        Name = shot01;
+        File = ..\..\Media\Sounds\shot01.aif;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 106;
+            Play Region Length = 93316;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 2;
+            Last Modified Low = 4008851200;
+            Last Modified High = 29494675;
+        }
+    }
+
+    Wave
+    {
+        Name = shot02;
+        File = ..\..\Media\Sounds\shot02.aif;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 106;
+            Play Region Length = 88170;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 2;
+            Last Modified Low = 513883904;
+            Last Modified High = 29494676;
+        }
+    }
+
+    Wave
+    {
+        Name = shot03;
+        File = ..\..\Media\Sounds\shot03.aif;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 106;
+            Play Region Length = 182302;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 2;
+            Last Modified Low = 1513883904;
+            Last Modified High = 29494676;
+        }
+    }
+
+    Wave
+    {
+        Name = Stone4;
+        File = ..\..\Media\Sounds\Stone4.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 39426;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 1859149408;
+            Last Modified High = 29583197;
+        }
+    }
+
+    Wave
+    {
+        Name = Stone1;
+        File = ..\..\Media\Sounds\Stone1.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 35842;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2941906336;
+            Last Modified High = 29583197;
+        }
+    }
+
+    Wave
+    {
+        Name = Stone2;
+        File = ..\..\Media\Sounds\Stone2.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 33344;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2779072192;
+            Last Modified High = 29583197;
+        }
+    }
+
+    Wave
+    {
+        Name = Stone3;
+        File = ..\..\Media\Sounds\Stone3.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 17920;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2674421712;
+            Last Modified High = 29583197;
+        }
+    }
+
+    Wave
+    {
+        Name = owl2;
+        File = ..\..\Media\Sounds\owl2.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 180;
+            Play Region Length = 93966;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2701908736;
+            Last Modified High = 29582984;
+        }
+    }
+
+    Wave
+    {
+        Name = owl3;
+        File = ..\..\Media\Sounds\owl3.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 180;
+            Play Region Length = 165394;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2691908736;
+            Last Modified High = 29582984;
+        }
+    }
+
+    Wave
+    {
+        Name = coyote1;
+        File = ..\..\Media\Sounds\coyote1.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 180;
+            Play Region Length = 176932;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2741908736;
+            Last Modified High = 29582984;
+        }
+    }
+
+    Wave
+    {
+        Name = coyote2;
+        File = ..\..\Media\Sounds\coyote2.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 180;
+            Play Region Length = 237080;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2741908736;
+            Last Modified High = 29582984;
+        }
+    }
+
+    Wave
+    {
+        Name = coyote3;
+        File = ..\..\Media\Sounds\coyote3.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 180;
+            Play Region Length = 288930;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2741908736;
+            Last Modified High = 29582984;
+        }
+    }
+
+    Wave
+    {
+        Name = cricket1;
+        File = ..\..\Media\Sounds\cricket1.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 1032192;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 1117072256;
+            Last Modified High = 29582989;
+        }
+    }
+
+    Wave
+    {
+        Name = cricket2;
+        File = ..\..\Media\Sounds\cricket2.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 925696;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 1697072256;
+            Last Modified High = 29582989;
+        }
+    }
+
+    Wave
+    {
+        Name = cricket3;
+        File = ..\..\Media\Sounds\cricket3.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 851968;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2057072256;
+            Last Modified High = 29582989;
+        }
+    }
+
+    Wave
+    {
+        Name = crickets;
+        File = ..\..\Media\Sounds\crickets.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 180;
+            Play Region Length = 851400;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2731908736;
+            Last Modified High = 29582984;
+        }
+    }
+
+    Wave
+    {
+        Name = katydid1;
+        File = ..\..\Media\Sounds\katydid1.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 212992;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 3147072256;
+            Last Modified High = 29582989;
+        }
+    }
+
+    Wave
+    {
+        Name = katydid2;
+        File = ..\..\Media\Sounds\katydid2.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 229376;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 3427072256;
+            Last Modified High = 29582989;
+        }
+    }
+
+    Wave
+    {
+        Name = owl1;
+        File = ..\..\Media\Sounds\owl1.wav;
+        Build Settings Last Modified Low = 2806687533;
+        Build Settings Last Modified High = 29717185;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 180;
+            Play Region Length = 80190;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2731908736;
+            Last Modified High = 29582984;
+        }
+    }
+}
+
+Sound Bank
+{
+    Name = XACTSounds;
+    Xbox File = XACTSounds.xsb;
+    Windows File = XACTSounds.xsb;
+    Xbox Bank Path Edited = 1;
+    Windows Bank Path Edited = 1;
+    Header Last Modified High = 0;
+    Header Last Modified Low = 0;
+
+    Sound
+    {
+        Name = gunshot;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Guns;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Variation
+                {
+                    Variation Type = 3;
+                    Variation Table Type = 0;
+                    New Variation on Loop = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = shot01;
+                    Entry Index = 1;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = shot02;
+                    Entry Index = 2;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = shot03;
+                    Entry Index = 3;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = shot04;
+                    Entry Index = 0;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            Set Pitch Event
+            {
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Equation
+                {
+                    Operator = 0;
+
+                    Operand
+                    {
+                        Min Random = -150;
+                        Max Random = 150;
+                    }
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = footstep;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Variation
+                {
+                    Variation Type = 3;
+                    Variation Table Type = 0;
+                    New Variation on Loop = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = Stone1;
+                    Entry Index = 5;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = Stone2;
+                    Entry Index = 6;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = Stone3;
+                    Entry Index = 7;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = Stone4;
+                    Entry Index = 4;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            Set Volume Event
+            {
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Equation
+                {
+                    Operator = 0;
+
+                    Operand
+                    {
+                        Min Random = -400;
+                        Max Random = 0;
+                    }
+                }
+            }
+
+            Set Pitch Event
+            {
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Equation
+                {
+                    Operator = 0;
+
+                    Operand
+                    {
+                        Min Random = -150;
+                        Max Random = 150;
+                    }
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = owl;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Variation
+                {
+                    Variation Type = 3;
+                    Variation Table Type = 0;
+                    New Variation on Loop = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = owl1;
+                    Entry Index = 19;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = owl2;
+                    Entry Index = 8;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = owl3;
+                    Entry Index = 9;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            Set Volume Event
+            {
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Equation
+                {
+                    Operator = 0;
+
+                    Operand
+                    {
+                        Min Random = -600;
+                        Max Random = 0;
+                    }
+                }
+            }
+
+            Set Pitch Event
+            {
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Equation
+                {
+                    Operator = 0;
+
+                    Operand
+                    {
+                        Min Random = -150;
+                        Max Random = 150;
+                    }
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = insects;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Variation
+                {
+                    Variation Type = 4;
+                    Variation Table Type = 0;
+                    New Variation on Loop = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = cricket1;
+                    Entry Index = 13;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = cricket2;
+                    Entry Index = 14;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = cricket3;
+                    Entry Index = 15;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = katydid1;
+                    Entry Index = 17;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = katydid2;
+                    Entry Index = 18;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            Set Volume Event
+            {
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Equation
+                {
+                    Operator = 0;
+
+                    Operand
+                    {
+                        Min Random = -600;
+                        Max Random = 0;
+                    }
+                }
+            }
+
+            Set Pitch Event
+            {
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Equation
+                {
+                    Operator = 0;
+
+                    Operand
+                    {
+                        Min Random = -150;
+                        Max Random = 150;
+                    }
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = coyote;
+        Volume = 0;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Variation
+                {
+                    Variation Type = 4;
+                    Variation Table Type = 0;
+                    New Variation on Loop = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = coyote1;
+                    Entry Index = 10;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = coyote2;
+                    Entry Index = 11;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = XACTSounds;
+                    Bank Index = 0;
+                    Entry Name = coyote3;
+                    Entry Index = 12;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            Set Volume Event
+            {
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Equation
+                {
+                    Operator = 0;
+
+                    Operand
+                    {
+                        Min Random = -600;
+                        Max Random = 0;
+                    }
+                }
+            }
+
+            Set Pitch Event
+            {
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Equation
+                {
+                    Operator = 0;
+
+                    Operand
+                    {
+                        Min Random = -150;
+                        Max Random = 150;
+                    }
+                }
+            }
+        }
+    }
+
+    Cue
+    {
+        Name = firegun;
+        Comment = This cue plays on the Guns category, which limits us to 2 playing instances. New instances replace the oldest instances (with a quick .1 sec crossfade). See the Guns category property page for more information.;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = gunshot;
+            Index = 0;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = footstep;
+        Comment = This cue restricts us to 1 instance - further attempts to trigger before the sound has completed fail.;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = footstep;
+            Index = 1;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+
+        Instance Limit
+        {
+            Max Instances = 1;
+            Behavior = 0;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+
+    Cue
+    {
+        Name = forest_animal;
+        Comment = This cue allows 5 playing instances. Further triggers of the cue are queued to play as earlier instances finish.;
+
+        Variation
+        {
+            Variation Type = 2;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = owl;
+            Index = 2;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+
+        Sound Entry
+        {
+            Name = insects;
+            Index = 3;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+
+        Sound Entry
+        {
+            Name = coyote;
+            Index = 4;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+
+        Instance Limit
+        {
+            Max Instances = 5;
+            Behavior = 1;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+}

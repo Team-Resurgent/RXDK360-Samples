@@ -1,0 +1,11 @@
+﻿<root>
+<data name="IDS_ENGLISH"><value>English</value></data>
+<data name="IDS_SPANISH"><value>Español</value></data>
+<data name="IDS_FRENCH"><value>Français</value></data>
+<data name="IDS_GERMAN"><value>Deutsch</value></data>
+<data name="IDS_ITALIAN"><value>Italiano</value></data>
+<data name="IDS_PORTUGESE"><value>Português</value></data>
+<data name="IDS_JAPANESE"><value>日本語</value></data>
+<data name="IDS_KOREAN"><value>한국어</value></data>
+<data name="IDS_CHINESE"><value>中文(繁體)</value></data>
+</root>

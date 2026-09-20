@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture
+    Name   = "Pack.dds"
+    Source = "..\..\Media\Textures\Pack.tga"
+    Format = "D3DFMT_DXT1"
+    Levels = "0"
+/>
+
+<Texture
+    Name   = "Weapons.dds"
+    Source = "..\..\Media\Textures\weapons.tga"
+    Format = "D3DFMT_DXT1"
+    Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture
+    Name   = "Body.dds"
+    Source = "..\..\Media\Textures\Body.tga"
+    Format = "D3DFMT_DXT1"
+    Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture
+    Name   = "Armor.dds"
+    Source = "..\..\Media\Textures\Armor.tga"
+    Format = "D3DFMT_DXT1"
+    Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture
+    Name   = "Headgear.dds"
+    Source = "..\..\Media\Textures\Headgear.tga"
+    Format = "D3DFMT_DXT1"
+    Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture
+    Name   = "DwarfHead.dds"
+    Source = "..\..\Media\Textures\DwarfHead.tga"
+    Format = "D3DFMT_DXT1"
+    Levels = "0"
+    sRGB   = "true"
+/>
+</RDF>

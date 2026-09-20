@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture   
+   Name        = "AnalogGauge"
+   Source      = "..\..\Media\Textures\AnalogGauge.bmp"
+   AlphaSource = "..\..\Media\Textures\AnalogGauge_a.bmp"
+   Width       = "256"
+   Height      = "128"
+   Format      = "D3DFMT_LIN_A8R8G8B8"
+   Levels      = "1"
+>
+
+<Texture
+   Name        = "MatteGray"
+   Source      = "..\..\Media\Textures\MatteGray.bmp"
+   Width       = "128"
+   Height      = "128"
+   Levels      = "1"
+>
+
+<Texture
+   Name        = "BlackGlass"
+   Source      = "..\..\Media\Textures\BlackGlass.bmp"
+   Width       = "128"
+   Height      = "128"
+   Levels      = "1"
+>
+
+<Texture
+   Name        = "DiffuseYellow"
+   Source      = "..\..\Media\Textures\DiffuseYellow.bmp"
+   Width       = "128"
+   Height      = "128"
+   Levels      = "1"
+>
+
+<Texture
+   Name        = "GreenGlass"
+   Source      = "..\..\Media\Textures\GreenGlass.bmp"
+   Width       = "128"
+   Height      = "128"
+   Levels      = "1"
+>
+
+<Texture
+   Name        = "WhiteGlass"
+   Source      = "..\..\Media\Textures\WhiteGlass.bmp"
+   Width       = "128"
+   Height      = "128"
+   Levels      = "1"
+>
+
+<Texture
+   Name        = "RedGlass"
+   Source      = "..\..\Media\Textures\RedGlass.bmp"
+   Width       = "128"
+   Height      = "128"
+   Levels      = "1"
+>
+
+<Texture
+   Name        = "BlueGlass"
+   Source      = "..\..\Media\Textures\BlueGlass.bmp"
+   Width       = "128"
+   Height      = "128"
+   Levels      = "1"
+>
+
+<Texture
+   Name        = "YellowGlass"
+   Source      = "..\..\Media\Textures\YellowGlass.bmp"
+   Width       = "128"
+   Height      = "128"
+   Levels      = "1"
+>
+
+<Texture
+   Name        = "GreenChrome"
+   Source      = "..\..\Media\Textures\GreenChrome.bmp"
+   Width       = "128"
+   Height      = "128"
+   Levels      = "1"
+>
+
+</RDF>

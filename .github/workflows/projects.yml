@@ -1,0 +1,34 @@
+# Verifies the committed .sln/.vcxproj match tools\Generate-Projects.ps1 and that
+# the asset parts are intact. Runs on a stock runner (PowerShell only, no XDK).
+#
+# Actually *building* the samples needs the RXDK-360 SDK (XDK toolchain + the
+# "Xbox 360" VS platform), which hosted runners don't have - do that on a
+# self-hosted runner with RXDK-360 installed (see the commented job below).
+name: projects
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: windows-latest       # generated MSBuild paths are Windows-native
+    steps:
+      - uses: actions/checkout@v4
+      - name: Projects are up to date
+        shell: pwsh
+        run: ./tools/Generate-Projects.ps1 -Check
+      - name: Asset parts are intact
+        shell: pwsh
+        run: ./tools/Manage-Assets.ps1 check
+
+  # build:
+  #   runs-on: [self-hosted, rxdk360]   # a Windows box with RXDK-360 installed
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Expand assets
+  #       shell: pwsh
+  #       run: ./tools/Manage-Assets.ps1 unpack
+  #     - name: Build all samples
+  #       shell: pwsh
+  #       run: ./tools/Build-All.ps1      # msbuild each .sln, report pass/fail

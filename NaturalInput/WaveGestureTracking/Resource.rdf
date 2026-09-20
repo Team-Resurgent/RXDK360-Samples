@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+<Texture Name   = "RightHand"     Source = "..\..\Media\Textures\RightHand.png"     Levels = "0" />
+<Texture Name   = "LeftHand"      Source = "..\..\Media\Textures\LeftHand.png"      Levels = "0" />
+<Texture Name   = "WaveProgressRight" Source = "..\..\Media\Textures\WaveProgressRight.png" Levels = "0" />
+<Texture Name   = "WaveProgressLeft"  Source = "..\..\Media\Textures\WaveProgressLeft.png"  Levels = "0" />
+</RDF>
+
+

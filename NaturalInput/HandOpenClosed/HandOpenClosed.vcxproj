@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Xbox 360">
+      <Configuration>Release</Configuration>
+      <Platform>Xbox 360</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A2EC145F-4D82-D7DB-9B8B-E5C9E8210C6F}</ProjectGuid>
+    <RootNamespace>HandOpenClosed</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>2010-01</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>xapilib.lib;xboxkrnl.lib;d3d9.lib;d3dx9.lib;xgraphics.lib;xnet.lib;xaudio2.lib;xact3.lib;x3daudio.lib;xmcore.lib;xbdm.lib;vcomp.lib;nuiapi.lib;nuihandles.lib;st.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CameraManager.cpp" />
+    <ClCompile Include="HandOpenClosed.cpp" />
+    <ClCompile Include="HOCDetectorTrainer\Trainer.cpp" />
+    <ClCompile Include="HOCDetector\HandSearch.cpp" />
+    <ClCompile Include="HOCDetector\HOCDetector.cpp" />
+    <ClCompile Include="HOCDetector\HOCTrainer.cpp" />
+    <ClCompile Include="XEDToHOC\CXEDFile.cpp" />
+    <ClCompile Include="XEDToHOC\stdafx.cpp" />
+    <ClCompile Include="XEDToHOC\XEDToHOC.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CameraManager.h" />
+    <ClInclude Include="HOCDetector\HandSearch.h" />
+    <ClInclude Include="HOCDetector\HOCDetector.h" />
+    <ClInclude Include="HOCDetector\HOCDetectorInternal.h" />
+    <ClInclude Include="XEDToHOC\CXEDFile.h" />
+    <ClInclude Include="XEDToHOC\CXEDFile.inl" />
+    <ClInclude Include="XEDToHOC\stdafx.h" />
+    <ClInclude Include="XEDToHOC\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.vcxproj">
+      <Project>{4B99DC73-9044-E203-9C9C-C00C211DA956}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Xbox 360">
+      <Configuration>Release</Configuration>
+      <Platform>Xbox 360</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2F7D2846-ADAC-3982-B5E6-3BA990845CFC}</ProjectGuid>
+    <RootNamespace>TiledResources</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>2010-01</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>xapilib.lib;xboxkrnl.lib;d3d9.lib;d3dx9.lib;xgraphics.lib;xnet.lib;xaudio2.lib;xact3.lib;x3daudio.lib;xmcore.lib;xbdm.lib;vcomp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="d3d9tiled.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PageLoaders.cpp" />
+    <ClCompile Include="PageRenderer.cpp" />
+    <ClCompile Include="PhysicalPageManager.cpp" />
+    <ClCompile Include="ResidencySampleRender.cpp" />
+    <ClCompile Include="SamplingQualityManager.cpp" />
+    <ClCompile Include="TerrainView.cpp" />
+    <ClCompile Include="TiledResourceBase.cpp" />
+    <ClCompile Include="TiledRuntimeTest.cpp" />
+    <ClCompile Include="TitleResidencyManager.cpp" />
+    <ClCompile Include="TypedPagePool.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="d3d9tiled.h" />
+    <ClInclude Include="PageLoaders.h" />
+    <ClInclude Include="PageRenderer.h" />
+    <ClInclude Include="PhysicalPageManager.h" />
+    <ClInclude Include="ResidencySampleRender.h" />
+    <ClInclude Include="SamplingQualityManager.h" />
+    <ClInclude Include="SceneObject.h" />
+    <ClInclude Include="TerrainView.h" />
+    <ClInclude Include="TiledFileFormat.h" />
+    <ClInclude Include="TiledResourceBase.h" />
+    <ClInclude Include="TiledResourceCommon.h" />
+    <ClInclude Include="TiledResourceXbox360.h" />
+    <ClInclude Include="TiledRuntimeTest.h" />
+    <ClInclude Include="TitleResidencyManager.h" />
+    <ClInclude Include="TypedPagePool.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.vcxproj">
+      <Project>{4B99DC73-9044-E203-9C9C-C00C211DA956}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

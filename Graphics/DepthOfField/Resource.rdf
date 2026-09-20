@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "ChessBoard.bmp"
+        Source = "..\..\Media\Textures\ChessBoard.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "ChessBishop.bmp"
+        Source = "..\..\Media\Textures\ChessBishop.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "ChessColumn.bmp"
+        Source = "..\..\Media\Textures\ChessColumn.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "ChessKnight.bmp"
+        Source = "..\..\Media\Textures\ChessKnight.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "ChessKing.bmp"
+        Source = "..\..\Media\Textures\ChessKing.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "ChessPawn.bmp"
+        Source = "..\..\Media\Textures\ChessPawn.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "ChessRook.bmp"
+        Source = "..\..\Media\Textures\ChessRook.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+</RDF>
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+<Texture 
+	Name   = "Oval"
+        Source = "..\..\Media\Textures\Oval.png"
+        Format = "D3DFMT_LIN_A8R8G8B8"
+        Levels = "0" 
+/>
+<Texture 
+	Name   = "Trail"
+        Source = "..\..\Media\Textures\Trail.png"
+        Format = "D3DFMT_LIN_A8R8G8B8"
+        Levels = "0" 
+/>
+<Texture 
+	Name   = "MSH1024"
+        Source = "..\..\Media\Textures\MSH1024.bmp"
+        Format = "D3DFMT_LIN_A8R8G8B8"
+        Levels = "0" 
+/>
+<Texture 
+	Name   = "ForestGround"
+        Source = "..\..\Media\Textures\sponza_kamen_jpg.tga"
+        Format = "D3DFMT_DXT5"
+        Levels = "0" 
+/>
+<Texture 
+	Name   = "waterbumps"
+        Source = "..\..\Media\Textures\sponza_kamen_nrm.tga"
+        Format = "D3DFMT_DXN"
+        Levels = "0" 
+/>
+</RDF>
+
+

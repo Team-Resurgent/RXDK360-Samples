@@ -1,0 +1,19 @@
+//-----------------------------------------------------------------------------
+// Name: ParticleRenderPS()
+// Desc: Pixel shader for the particles
+//-----------------------------------------------------------------------------
+#ifdef ParticleRenderPS
+
+    xps_3_0
+    
+    // Enable pointsprite texture coordinate generation
+    config PsParamGenReg=1
+    
+    alloc colors
+    exece
+    mov r1, r1_abs
+    tfetch2D r1.xyzw, r1.zw, tf0
+    
+    mov_sat o0, r1.xyzw
+
+#endif

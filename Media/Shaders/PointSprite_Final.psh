@@ -1,0 +1,23 @@
+//-----------------------------------------------------------------------------
+// Name: PointSpritePS()
+// Desc: Pixel shader for the particles and lights of the particle system
+//-----------------------------------------------------------------------------
+#ifdef PointSpritePS
+
+    xps_3_0
+    
+    // Enable pointsprite texture coordinate generation
+    config PsParamGenReg=1
+    
+    dcl_color0 r0
+    
+    alloc colors
+    exece
+    mov r1, r1_abs
+    tfetch2D r1.xyzw, r1.zw, tf0
+    
+    mul r1.xyzw, r1.xyzw, r0.xyzw
+    
+    mov_sat o0, r1.xyzw
+
+#endif

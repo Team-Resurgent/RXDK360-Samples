@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+<Texture Name   = "Smile1" Source = "..\..\Media\Textures\Smile1.png" Levels = "0" />
+<Texture Name   = "Smile2" Source = "..\..\Media\Textures\Smile2.png" Levels = "0" />
+<Texture Name   = "Smile3" Source = "..\..\Media\Textures\Smile3.png" Levels = "0" />
+<Texture Name   = "Smile4" Source = "..\..\Media\Textures\Smile4.png" Levels = "0" />
+<Texture Name   = "Smile5" Source = "..\..\Media\Textures\Smile5.png" Levels = "0" />
+<Texture Name   = "Smile6" Source = "..\..\Media\Textures\Smile6.png" Levels = "0" />
+<Texture Name   = "Smile7" Source = "..\..\Media\Textures\Smile7.png" Levels = "0" />
+<Texture Name   = "Smile8" Source = "..\..\Media\Textures\Smile8.png" Levels = "0" />
+<Texture Name   = "Smile9" Source = "..\..\Media\Textures\Smile9.png" Levels = "0" />
+</RDF>
+
+

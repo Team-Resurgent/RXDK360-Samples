@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "Ground"
+        Source = "..\..\Media\Textures\Ground2.bmp"
+        Format = "D3DFMT_LIN_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name        = "Particle"
+        Source      = "..\..\Media\Textures\Particle.bmp"
+        Format      = "D3DFMT_A8R8G8B8"
+        Levels      = "0" 
+        sRGB   = "true"
+/>
+
+</RDF>
+
+

@@ -1,0 +1,57 @@
+<XuiCanvas version="0006">
+<Properties>
+<Width>640.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>XuiScene1</Id>
+<Width>404.000000</Width>
+<Height>354.000000</Height>
+<Position>119.000000,63.000000,0.000000</Position>
+<ClassOverride>SigninScene</ClassOverride>
+<Text>Live Signin</Text>
+<TransTo>TransTo</TransTo>
+<TransBackFrom>TransBackFrom</TransBackFrom>
+</Properties>
+<XuiButton>
+<Properties>
+<Id>btnOne</Id>
+<Width>140.000000</Width>
+<Position>131.000000,92.000000,0.000000</Position>
+<NavDown>btnTwo</NavDown>
+<Text>One Player</Text>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>btnTwo</Id>
+<Width>140.000000</Width>
+<Position>131.000000,134.499985,0.000000</Position>
+<NavUp>btnOne</NavUp>
+<NavDown>btnFour</NavDown>
+<Text>Two Player</Text>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>btnFour</Id>
+<Width>140.000000</Width>
+<Position>131.000000,177.000000,0.000000</Position>
+<NavUp>btnTwo</NavUp>
+<Text>Four Player</Text>
+</Properties>
+</XuiButton>
+<XuiNavButton>
+<Properties>
+<Id>XuiNavButton1</Id>
+<Width>140.000000</Width>
+<Position>131.000000,282.000000,0.000000</Position>
+<UnfocusedInput>true</UnfocusedInput>
+<Text>Back</Text>
+<PressKey>22593</PressKey>
+<BackButton>true</BackButton>
+</Properties>
+</XuiNavButton>
+</XuiScene>
+</XuiCanvas>

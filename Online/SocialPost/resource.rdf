@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "Circle"
+	Source = "..\..\Media\Textures\Circle32x32.jpg"
+	Format = "D3DFMT_LIN_A8R8G8B8"
+	Width  = "32"
+	Height = "32"
+	Levels = "1"
+/>
+
+<Texture
+	Name   = "Arrow"
+	Source = "..\..\Media\Textures\Arrow32x32.jpg"
+	Format = "D3DFMT_LIN_A8R8G8B8"
+	Width  = "32"
+	Height = "32"
+	Levels = "1"
+/>
+
+  <Texture
+	Name   = "Star"
+	Source = "..\..\Media\Textures\Star32x32.jpg"
+	Format = "D3DFMT_LIN_A8R8G8B8"
+	Width  = "32"
+	Height = "32"
+	Levels = "1"
+/>
+
+  <Texture
+	Name   = "Triangle"
+	Source = "..\..\Media\Textures\Triangle32x32.jpg"
+	Format = "D3DFMT_LIN_A8R8G8B8"
+	Width  = "32"
+	Height = "32"
+	Levels = "1"
+/>
+
+
+</RDF>

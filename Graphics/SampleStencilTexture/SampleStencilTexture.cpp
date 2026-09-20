@@ -1,0 +1,323 @@
+//--------------------------------------------------------------------------------------
+// SampleStencilTexture.cpp
+//
+// This sample demonstrates sampling the stencil value from a D24S8 texture.
+//
+// The sample uses a second texture header to "cast" a D24S8 texture to A8R8G8B8.
+// This is necessary because the Xbox 360 GPU's texture samplers do not sample the
+// stencil buffer value when reading from a D24S8 texture.  The sample creates a second
+// texture header that points to the same texture data as the D24S8 texture, but this
+// texture header specifies an A8R8G8B8 format.  When the GPU samples the depth/stencil
+// data in A8R8G8B8 format, the stencil data appears in the blue channel.
+//
+// The texture header setup is in the middle of Initialize(), and the pixel shader that
+// samples the depth/stencil texture is in SampleStencilTexture.hlsl.
+//
+// Xbox Advanced Technology Group.
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//--------------------------------------------------------------------------------------
+#include <xtl.h>
+#include <xgraphics.h>
+#include <xboxmath.h>
+#include <AtgFont.h>
+#include <AtgInput.h>
+#include <AtgUtil.h>
+#include <AtgHelp.h>
+#include <AtgApp.h>
+
+
+//--------------------------------------------------------------------------------------
+// Callouts for labelling the gamepad on the help screen
+//--------------------------------------------------------------------------------------
+ATG::HELP_CALLOUT g_HelpCallouts[] =
+{
+    { ATG::HELP_BACK_BUTTON,  ATG::HELP_PLACEMENT_2, L"Display\nhelp"  },
+};
+#define NUM_HELP_CALLOUTS (sizeof(g_HelpCallouts) / sizeof(g_HelpCallouts[0]))
+
+
+// Vertex data for rendering four rects.
+const FLOAT g_fVertexDataRects[] =
+{
+    16,  16, 0, 0,
+    240,  16, 1, 0,
+    16, 240, 0, 1,
+
+    272,  16, 0, 0,
+    496,  16, 1, 0,
+    496, 240, 0, 1,
+
+    16, 272, 0, 0,
+    240, 272, 1, 0,
+    240, 496, 0, 1,
+
+    272, 272, 0, 0,
+    496, 272, 1, 0,
+    496, 496, 0, 1,
+};
+
+// Vertex data for rendering a single rect.
+const FLOAT g_fVertexDataOneRect[] =
+{
+    384, 104, 0, 0,
+    896, 104, 1, 0,
+    384, 616, 0, 1,
+};
+
+
+//--------------------------------------------------------------------------------------
+// Name: class Sample
+// Desc: The precompiled command buffers sample class.
+//--------------------------------------------------------------------------------------
+class Sample : public ATG::Application
+{
+public:
+    HRESULT Initialize();
+    HRESULT Update();
+    HRESULT Render();
+
+private:
+    VOID    RenderUI();
+
+private:
+    ATG::Font m_Font;
+    ATG::Timer m_Timer;
+    ATG::Help m_Help;
+    BOOL m_bDrawHelp;
+
+    D3DSurface* m_pMainRenderTarget;
+    D3DSurface* m_pDepthStencilSurface;
+    D3DTexture* m_pDepthTexture;
+    D3DTexture* m_pStencilTexture;
+
+    D3DVertexShader* m_pPassthruVS;
+    D3DPixelShader* m_pSampleStencilPS;
+    D3DVertexDeclaration* m_pVertexDecl;
+};
+
+
+//--------------------------------------------------------------------------------------
+// Name: main()
+// Desc: Entry point to the program
+//--------------------------------------------------------------------------------------
+VOID __cdecl main()
+{
+    Sample STSample;
+
+    // Set up the structure used to create the D3DDevice.
+    D3DPRESENT_PARAMETERS& d3dpp = STSample.m_d3dpp;
+    ZeroMemory( &d3dpp, sizeof( D3DPRESENT_PARAMETERS ) );
+    d3dpp.BackBufferWidth = 1280;
+    d3dpp.BackBufferHeight = 720;
+    d3dpp.BackBufferFormat =  ( D3DFORMAT )MAKESRGBFMT( D3DFMT_A8R8G8B8 );
+    d3dpp.FrontBufferFormat = ( D3DFORMAT )MAKESRGBFMT( D3DFMT_LE_X8R8G8B8 );
+    d3dpp.MultiSampleType = D3DMULTISAMPLE_NONE;
+    d3dpp.MultiSampleQuality = 0;
+    d3dpp.BackBufferCount = 1;
+    d3dpp.EnableAutoDepthStencil = FALSE;
+    d3dpp.DisableAutoBackBuffer = FALSE;
+    d3dpp.DisableAutoFrontBuffer = FALSE;
+    d3dpp.AutoDepthStencilFormat = D3DFMT_D24S8;
+    d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+    d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
+
+    STSample.Run();
+}
+
+
+//--------------------------------------------------------------------------------------
+// Name: Initialize()
+// Desc: Initializes data and content for the sample.  Note the texture setup for
+//       m_pDepthTexture and m_pStencilTexture.  They both point to the same texture
+//       data, but they have separate texture headers that treat the texture data as
+//       different formats.
+//--------------------------------------------------------------------------------------
+HRESULT Sample::Initialize()
+{
+    m_bDrawHelp = FALSE;
+
+    // Create font.
+    if( FAILED( m_Font.Create( "game:\\Media\\Fonts\\Arial_16.xpr" ) ) )
+        ATG::FatalError( "Could not load font." );
+
+    // Confine text drawing to the title safe area
+    m_Font.SetWindow( ATG::GetTitleSafeArea() );
+
+    // Create help screen.
+    if( FAILED( m_Help.Create( "game:\\Media\\Help\\Help.xpr" ) ) )
+        ATG::FatalError( "Could not load help resources." );
+
+    // Get autogenerated rendertarget.
+    m_pd3dDevice->GetBackBuffer( 0, 0, 0, &m_pMainRenderTarget );
+
+    // Create a 512x512 D24S8 depth/stencil surface.
+    D3DSURFACE_PARAMETERS SurfParams;
+    SurfParams.Base = 0;
+    SurfParams.ColorExpBias = 0;
+    SurfParams.HierarchicalZBase = 0;
+    SurfParams.HiZFunc = D3DHIZFUNC_DEFAULT;
+    m_pd3dDevice->CreateRenderTarget( 512, 512, D3DFMT_D24S8, D3DMULTISAMPLE_NONE,
+                                      0, FALSE, &m_pDepthStencilSurface, &SurfParams );
+
+    // Create a 512x512 D24S8 texture.
+    m_pd3dDevice->CreateTexture( 512, 512, 1, 0, D3DFMT_D24S8,
+                                 D3DPOOL_DEFAULT, &m_pDepthTexture, NULL );
+
+    // Create an A8R8G8B8 texture header using XGSetTextureHeader.
+    m_pStencilTexture = new D3DTexture;
+    XGSetTextureHeader( 512, 512, 1, 0, D3DFMT_A8R8G8B8, D3DPOOL_DEFAULT,
+                        0, 0, 512 * sizeof( DWORD ),
+                        m_pStencilTexture, NULL, NULL );
+
+    // Connect the A8R8G8B8 texture header to the texture data from the D24S8 texture.
+    // There are no mip maps on this texture, so we use NULL for the mip address.
+    DWORD dwBaseAddress = m_pDepthTexture->Format.BaseAddress << GPU_TEXTURE_ADDRESS_SHIFT;
+    XGOffsetBaseTextureAddress( m_pStencilTexture, ( VOID* )dwBaseAddress, NULL );
+
+    // Load vertex shader.
+    if( FAILED( ATG::LoadVertexShader( "game:\\media\\shaders\\PassthruVS.xvu", &m_pPassthruVS ) ) )
+        ATG::FatalError( "Could not load vertex shader." );
+
+    // Load pixel shader.
+    if( FAILED( ATG::LoadPixelShader( "game:\\media\\shaders\\SampleStencilPS.xpu", &m_pSampleStencilPS ) ) )
+        ATG::FatalError( "Could not load pixel shader." );
+
+    // Create vertex declaration.
+    static const D3DVERTEXELEMENT9 VertexElements[] =
+    {
+        { 0,     0, D3DDECLTYPE_FLOAT2,     0,  D3DDECLUSAGE_POSITION,  0 },
+        { 0,     8, D3DDECLTYPE_FLOAT2,     0,  D3DDECLUSAGE_TEXCOORD,  0 },
+        D3DDECL_END()
+    };
+    m_pd3dDevice->CreateVertexDeclaration( VertexElements, &m_pVertexDecl );
+
+    return S_OK;
+}
+
+
+//--------------------------------------------------------------------------------------
+// Name: Update()
+// Desc: Updates the timer and samples controller input.
+//--------------------------------------------------------------------------------------
+HRESULT Sample::Update()
+{
+    // Update FPS in the timer class.
+    m_Timer.MarkFrame();
+
+    // Get input from controllers (check for exit button sequence).
+    ATG::GAMEPAD* pGamepad = ATG::Input::GetMergedInput();
+
+    // The Back button toggles the help screen.
+    if( pGamepad->wPressedButtons & XINPUT_GAMEPAD_BACK )
+        m_bDrawHelp = !m_bDrawHelp;
+
+    return S_OK;
+}
+
+
+//--------------------------------------------------------------------------------------
+// Name: RenderUI()
+// Desc: Draws some statistics and other UI elements
+//--------------------------------------------------------------------------------------
+VOID Sample::RenderUI()
+{
+    if( m_bDrawHelp )
+    {
+        m_Help.Render( &m_Font, g_HelpCallouts, NUM_HELP_CALLOUTS );
+    }
+    else
+    {
+        // Draw a title and FPS indicator.
+        m_Font.Begin();
+        m_Font.SetScaleFactors( 1.2f, 1.2f );
+        m_Font.DrawText( 0, 0, 0xffffffff, L"SampleStencilTexture" );
+        m_Font.SetScaleFactors( 1.0f, 1.0f );
+        m_Font.DrawText( 0, 0, 0xffffff00, m_Timer.GetFrameRate(), ATGFONT_RIGHT );
+
+        m_Font.End();
+    }
+}
+
+
+//--------------------------------------------------------------------------------------
+// Name: Render()
+// Desc: Draws to an offscreen depth/stencil, then draws the scene, sampling from a
+//       stencil buffer texture.
+//--------------------------------------------------------------------------------------
+HRESULT Sample::Render()
+{
+    m_pd3dDevice->BeginScene();
+
+    // Set rendertargets for drawing to the depth/stencil surface only.
+    m_pd3dDevice->SetRenderTarget( 0, NULL );
+    m_pd3dDevice->SetDepthStencilSurface( m_pDepthStencilSurface );
+
+    // Clear depth/stencil.
+    m_pd3dDevice->Clear( 0, NULL, D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL, 0, 1.0f, 0 );
+
+    // Set up renderstate for stencil buffer writing.
+    m_pd3dDevice->SetRenderState( D3DRS_STENCILENABLE, TRUE );
+    m_pd3dDevice->SetRenderState( D3DRS_STENCILFUNC, D3DCMP_ALWAYS );
+    m_pd3dDevice->SetRenderState( D3DRS_STENCILWRITEMASK, 0xFFFFFFFF );
+    m_pd3dDevice->SetRenderState( D3DRS_STENCILPASS, D3DSTENCILOP_REPLACE );
+
+    // Set up other renderstate.
+    m_pd3dDevice->SetRenderState( D3DRS_VIEWPORTENABLE, FALSE );
+
+    // Set vertex declaration and shaders.
+    // Since we're only rendering to the depth/stencil, we can use a NULL pixel shader
+    // for double fillrate mode.
+    m_pd3dDevice->SetVertexDeclaration( m_pVertexDecl );
+    m_pd3dDevice->SetVertexShader( m_pPassthruVS );
+    m_pd3dDevice->SetPixelShader( NULL );
+
+    // Draw four rects with different stencil values.
+    for( DWORD i = 0; i < 4; ++i )
+    {
+        // Write 1, 2, 3, or 4 to the stencil buffer.
+        m_pd3dDevice->SetRenderState( D3DRS_STENCILREF, i + 1 );
+
+        // Draw rect.
+        const FLOAT* pVerts = &g_fVertexDataRects[ i * 12 ];
+        m_pd3dDevice->DrawPrimitiveUP( D3DPT_RECTLIST, 1, pVerts, 4 * sizeof( FLOAT ) );
+    }
+
+    // Resolve rendertarget to depth texture.
+    m_pd3dDevice->Resolve( D3DRESOLVE_DEPTHSTENCIL, NULL, m_pDepthTexture,
+                           NULL, 0, 0, NULL, 1.0f, 0, NULL );
+
+    // Disable stencil rendering.
+    m_pd3dDevice->SetRenderState( D3DRS_STENCILENABLE, FALSE );
+
+    // Set original rendertarget.
+    m_pd3dDevice->SetRenderTarget( 0, m_pMainRenderTarget );
+    m_pd3dDevice->SetDepthStencilSurface( NULL );
+
+    // Clear rendertarget.
+    m_pd3dDevice->Clear( 0, NULL, D3DCLEAR_TARGET, 0, 1.0f, 0 );
+
+    // Set up other renderstate.
+    m_pd3dDevice->SetRenderState( D3DRS_VIEWPORTENABLE, FALSE );
+
+    // Set vertex declaration and shaders.
+    m_pd3dDevice->SetVertexDeclaration( m_pVertexDecl );
+    m_pd3dDevice->SetVertexShader( m_pPassthruVS );
+    m_pd3dDevice->SetPixelShader( m_pSampleStencilPS );
+
+    // Set the stencil buffer texture into sampler 0.
+    // Note that this texture header points to the same data as m_pDepthTexture, which
+    // was the resolve target from the offscreen rendering.
+    m_pd3dDevice->SetTexture( 0, m_pStencilTexture );
+
+    // Draw rect.
+    m_pd3dDevice->DrawPrimitiveUP( D3DPT_RECTLIST, 1, g_fVertexDataOneRect, 4 * sizeof( FLOAT ) );
+
+    // Render UI.
+    RenderUI();
+
+    m_pd3dDevice->EndScene();
+
+    m_pd3dDevice->Present( NULL, NULL, NULL, NULL );
+
+    return S_OK;
+}

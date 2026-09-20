@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "softparticles_engine_diff"
+        Source = "..\..\Media\Textures\SoftParticles_engine_diff.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "softparticles_ground_diff"
+        Source = "..\..\Media\Textures\SoftParticles_ground_diff.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "softparticles_skybox"
+        Source = "..\..\Media\Textures\SoftParticles_skybox.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "softparticles_turret_diff"
+        Source = "..\..\Media\Textures\SoftParticles_turret_diff.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire0"
+        Source = "..\..\Media\Textures\fire0.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire1"
+        Source = "..\..\Media\Textures\fire1.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire2"
+        Source = "..\..\Media\Textures\fire2.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire3"
+        Source = "..\..\Media\Textures\fire3.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire4"
+        Source = "..\..\Media\Textures\fire4.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire5"
+        Source = "..\..\Media\Textures\fire5.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire6"
+        Source = "..\..\Media\Textures\fire6.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire7"
+        Source = "..\..\Media\Textures\fire7.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire8"
+        Source = "..\..\Media\Textures\fire8.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire9"
+        Source = "..\..\Media\Textures\fire9.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire10"
+        Source = "..\..\Media\Textures\fire10.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire11"
+        Source = "..\..\Media\Textures\fire11.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire12"
+        Source = "..\..\Media\Textures\fire12.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire13"
+        Source = "..\..\Media\Textures\fire13.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire14"
+        Source = "..\..\Media\Textures\fire14.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Fire15"
+        Source = "..\..\Media\Textures\fire15.jpg"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+
+</RDF>
+
+

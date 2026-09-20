@@ -1,0 +1,9 @@
+﻿<root>
+<data name="XuiScene1.Prototype_XuiNavButton1.Text"><value>Seleccionar</value></data>
+<data name="XuiScene1.XuiLabel1.Text"><value>Configuración</value></data>
+<data name="XuiScene1.XuiButton1.Text"><value>Seleccionar</value></data>
+<data name="XuiScene1.XuiBackButton1.Text"><value>Volver</value></data>
+<data name="XuiScene1.XuiSlider1.Text"><value>Niebla profundidad</value></data>
+<data name="XuiScene1.XuiCommonList2.Text"><value>Niebla de color</value></data>
+<data name="XuiScene1.XuiCommonList1.Text"><value>Iluminación</value></data>
+</root>

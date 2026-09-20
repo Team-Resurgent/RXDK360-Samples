@@ -1,0 +1,9 @@
+<root>
+<data name="XuiScene1.XuiLabel1.Text"><value>Pause</value></data>
+<data name="XuiScene1.XuiBackButton1.Text"><value>Back</value></data>
+<data name="XuiScene1.XuiButton1.Text"><value>Select</value></data>
+<data name="XuiScene1.XuiNavButton3.Text"><value>End Game</value></data>
+<data name="XuiScene1.XuiNavButton2.Text"><value>Controller Options</value></data>
+<data name="XuiScene1.XuiNavButton1.Text"><value>Resume Game</value></data>
+</root>
+

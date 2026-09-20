@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "RoadTexture"
+        Source = "..\..\Media\Textures\RoadTexture.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+/>
+
+</RDF>
+
+

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+  <Texture Name="Sky" Source="..\..\Media\Textures\SkyDome.tga" Format="D3DFMT_DXT5" Levels="1" sRGB = "true" />
+  <Texture Name="GraphBackground" Source="..\..\Media\Textures\Glass1.bmp" Format="D3DFMT_DXT1" Levels="1" sRGB = "false" />
+</RDF>

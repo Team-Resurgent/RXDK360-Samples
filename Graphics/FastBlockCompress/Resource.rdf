@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "PTC_TestImage"
+        Source = "..\..\Media\Textures\PTC_TestImage.bmp"
+        Format = "D3DFMT_LIN_X8R8G8B8"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+<Texture 
+	Name   = "GrassBlades"
+        Source = "..\..\Media\Textures\GrassBladesTest.tga"
+        Format = "D3DFMT_LIN_A8R8G8B8"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+<Texture 
+	Name   = "GearBump"
+        Source = "..\..\Media\Textures\GearBumpTest.bmp"
+        Format = "D3DFMT_LIN_G8R8"
+        Levels = "0" 
+        sRGB   = "false"
+/>
+
+</RDF>

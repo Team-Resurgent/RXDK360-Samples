@@ -1,0 +1,167 @@
+﻿<?xml version= "1.0" encoding="utf-8"?>
+
+<grammar xmlns="http://www.w3.org/2001/06/grammar"
+         tag-format="semantics/1.0-literals"   
+         sapi:alphabet="x-microsoft-ups"   
+         xmlns:sapi="http://schemas.microsoft.com/Speech/2002/06/SRGSExtensions"
+         xml:lang="fr-CA"
+         root="YesOrNo" 
+         version="1.0">
+         
+ <rule id="YesOrNo" scope="public">
+  <one-of>
+   <!-- common "yes" responses -->
+   <item weight="0.6">
+    oui
+    <tag>yes</tag>
+   </item>
+   <item weight="0.09">
+    ouais
+    <tag>yes</tag>
+   </item>
+
+   <!-- infrequent "yes" responses -->
+   <item weight="0.009">
+    <one-of>
+     <item>
+      oui oui
+     </item>
+     <item>
+      oui madame
+     </item>
+     <item>
+      oui s'il vous plait
+     </item>
+     <item>
+      c'est ca
+     </item>
+     <item>
+      c'est correct
+     </item>
+     <item>
+      c'est cela
+     </item>
+     <item>
+	    yeah
+     </item>
+     <item>
+      yes
+     </item>
+     <item>
+      oui c'est correct
+     </item>
+     <item>
+      oui c'est ca
+     </item>
+     <item>
+      oui c'est cela
+     </item>
+     <item>
+      ouais oui
+     </item>
+     <item>
+      ouais c'est ca
+     </item>
+     <item>
+      ouais c'est correct
+     </item>
+     <item>
+      ouais c'est cela
+     </item>
+     <item>
+      <item repeat="0-1">
+       c'est
+      </item>
+      correct
+      <item repeat="0-1">
+       oui
+      </item>
+     </item>
+     <item>
+      okay
+     </item>
+     <item>
+      yep
+     </item>
+    </one-of>
+    <tag>yes</tag>
+   </item>
+
+   <!-- basic "no" response -->
+   <item weight="0.3">
+    non
+    <tag>no</tag>
+   </item>
+
+   <!-- infrequent "no" responses  -->
+   <item weight="0.001">
+    <one-of>
+     <item>
+      non non
+      <item repeat="0-1">
+       non
+      </item>
+     </item>
+     <item>
+      non madame
+     </item>
+     <item>
+      non merci
+     </item>
+     <item>
+      non c'est pas ca
+     </item>
+     <item>
+      non c'est pas cela
+     </item>
+     <item>
+      c'est pas ca
+     </item>
+     <item>
+      c'est pas cela
+     </item>
+     <item>
+      non ce n'est pas ca
+     </item>
+     <item>
+      non ce n'est pas cela
+     </item>
+     <item>
+      non c'est pas correct
+     </item>
+     <item>
+      c'est pas correct
+     </item>
+     <item>
+      non ce n'est pas correct
+     </item>
+     <item>
+      ce n'est pas correct
+     </item>
+     <item>
+      non c'est incorrect
+     </item>
+     <item> c'est incorrect
+     </item>
+     <item>
+      non c'est faux
+     </item>
+     <item>
+      c'est faux
+     </item>
+     <item>
+      incorrect
+     </item>
+     <item>
+      faux
+     </item>
+     <item>
+      nope
+     </item>
+    </one-of>
+    <tag>no</tag>
+   </item>
+  </one-of>
+ </rule>
+ 
+</grammar>

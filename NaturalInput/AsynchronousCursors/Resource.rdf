@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+<Texture Name   = "Cursor" Source = "..\..\Media\Textures\particleAlpha2.png" Levels = "0" />
+<Texture Name   = "Menu1Selected" Source = "..\..\Media\Textures\Menu1_2.png" Levels = "0" />
+<Texture Name   = "Menu1Neutral" Source = "..\..\Media\Textures\Menu1_2neutral.png" Levels = "0" />
+<Texture Name   = "Menu2Selected" Source = "..\..\Media\Textures\Menu2_2.png" Levels = "0" />
+<Texture Name   = "Menu2Neutral" Source = "..\..\Media\Textures\Menu2_2neutral.png" Levels = "0" />
+<Texture Name   = "Menu3Selected" Source = "..\..\Media\Textures\Menu3_2.png" Levels = "0" />
+<Texture Name   = "Menu3Neutral" Source = "..\..\Media\Textures\Menu3_2neutral.png" Levels = "0" />
+<Texture Name   = "Menu4Selected" Source = "..\..\Media\Textures\Menu4_2.png" Levels = "0" />
+<Texture Name   = "Menu4Neutral" Source = "..\..\Media\Textures\Menu4_2neutral.png" Levels = "0" />
+</RDF>
+
+

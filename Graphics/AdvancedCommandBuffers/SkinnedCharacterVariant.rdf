@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "jacket-blue.tga"
+        Source = "..\..\Media\Textures\jacket-blue.tga"
+        Format = "D3DFMT_DXT5"
+        Levels = "0" 
+/>
+
+<Texture 
+	Name   = "pants-blue.tga"
+        Source = "..\..\Media\Textures\pants-blue.tga"
+        Format = "D3DFMT_DXT5"
+        Levels = "0" 
+/>
+
+<Texture 
+	Name   = "upbodyc-blue.tga"
+        Source = "..\..\Media\Textures\upBodyC-blue.tga"
+        Format = "D3DFMT_DXT5"
+        Levels = "0" 
+/>
+
+</RDF>
+
+

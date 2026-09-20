@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "SeaFloor.bmp"
+	Source = "..\..\Media\Textures\SeaFloor.bmp"
+	Format = "D3DFMT_DXT1"
+	Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "BiPlane.bmp"
+	Source = "..\..\Media\Textures\BiPlane.bmp"
+	Format = "D3DFMT_DXT1"
+	Levels = "0"
+    sRGB   = "true"
+/>
+
+</RDF>

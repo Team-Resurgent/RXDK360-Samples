@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "BallTexture"
+        Source = "..\..\Media\Textures\GestureGame_Ball.tga"
+        Format = "D3DFMT_DXT5"
+        Levels = "0" 
+/>
+
+<Texture 
+	Name   = "PrizeTexture"
+        Source = "..\..\Media\Textures\GestureGame_Prize.tga"
+        Format = "D3DFMT_DXT5"
+        Levels = "0" 
+/>
+
+<Texture 
+	Name   = "DeathTexture"
+        Source = "..\..\Media\Textures\GestureGame_Death.tga"
+        Format = "D3DFMT_DXT5"
+        Levels = "0" 
+/>
+
+</RDF>
+
+

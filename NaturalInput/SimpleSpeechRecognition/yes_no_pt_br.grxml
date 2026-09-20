@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<grammar xmlns="http://www.w3.org/2001/06/grammar"
+     tag-format="semantics/1.0-literals"
+     sapi:alphabet="x-microsoft-ups" 
+     xmlns:sapi="http://schemas.microsoft.com/Speech/2002/06/SRGSExtensions"
+     xml:lang="pt-BR"
+     root="YesOrNo"
+     version="1.0">
+
+ <rule id="YesOrNo" scope="public">
+ <one-of>
+  <!-- common "yes" responses -->
+    <item weight="0.6">
+      sim
+      <tag>yes</tag>
+    </item>   
+    <item weight="0.09">
+      é
+      <tag>yes</tag>
+    </item>
+
+  <!-- infrequent "yes" responses --> 
+    <item weight="0.009"> 
+      <one-of>
+        <item>
+          isso mesmo
+        </item> 
+        <item>
+          sim, senhora
+        </item>
+        <item>
+          sim, por favor
+        </item>
+        <item>
+          você conseguiu
+        </item>
+        <item>
+          muito bem
+        </item>
+        <item>
+          isso aí
+        </item>
+        <item>
+          está certo
+        </item>
+        <item>
+          sim, é isso
+        </item>
+        <item>
+          sim, isso tá certo
+        </item>
+        <item>
+          é, tá bom
+        </item> 
+        <item>
+          sim, está certo
+        </item>
+        <item>
+          isso aí
+        </item>
+        <item>
+          é isso aí
+        </item>
+        <item>
+          é, isso tá certo
+        </item>
+        <item>
+          é, tá bom
+        </item>
+        <item>
+          é, tá certo
+        </item>
+        <item>
+        <item repeat="0-1">
+          isso tá certo
+        </item> 
+        <item repeat="0-1">
+          sim
+        </item>
+      </item> 
+        <item>
+          legal
+        </item>
+        <item>
+          ahã
+        </item>
+        <item>
+          bom
+        </item>
+        <item>
+          muito bom
+        </item>
+      </one-of>
+        <tag>yes</tag>
+      </item>
+ 
+  <!-- basic "no" response -->
+   
+  <item weight="0.3">
+    não
+    <tag>no</tag>
+   </item>
+
+  <!-- infrequent "no" responses  -->
+   
+  <item weight="0.001">
+   <one-of>
+      <item>
+        não mesmo
+      <item repeat="0-1">
+       não
+      </item> 
+      </item>
+      <item>
+        não, senhora
+      </item>
+      <item>
+        não, obrigado
+      </item>
+      <item>
+        não, não tá bom
+      </item>
+      <item>
+        não, não é
+      </item>
+      <item>
+        não tá bom
+      </item>
+      <item>
+        não, não é
+      </item>
+      <item>
+        não, isso não tá certo
+      </item>
+      <item>
+        isso não tá certo
+      </item>
+      <item>
+        não, não tá certo
+      </item>
+      <item>
+        não, não tá bom
+      </item>   
+      <item>
+        isso não tá bom
+      </item>
+      <item>
+        não tá certo
+      </item>
+      <item>
+        não, não é
+      </item>
+      <item>
+        errado
+      </item>
+      <item>
+        errado
+      </item>
+      <item>
+        não
+      </item>
+   </one-of>   
+   <tag>no</tag>
+  </item>
+ </one-of>
+</rule>
+
+</grammar>

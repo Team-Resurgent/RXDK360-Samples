@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "ChessBishop.bmp"
+        Source = "..\..\Media\Textures\ChessBishop.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "ChessColumn.bmp"
+        Source = "..\..\Media\Textures\ChessColumn.bmp"
+        Format = "D3DFMT_DXT1"
+        Levels = "0" 
+        sRGB   = "true"
+/>
+
+</RDF>

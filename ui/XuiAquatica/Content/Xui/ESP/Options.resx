@@ -1,0 +1,13 @@
+﻿<root>
+<data name="XuiScene1.XuiLabel1.Text"><value>Opciones</value></data>
+<data name="XuiScene1.XuiBackButton1.Text"><value>Volver</value></data>
+<data name="XuiScene1.XuiTabScene1.XuiButton1.Text"><value>Seleccionar</value></data>
+<data name="XuiScene1.XuiTabScene1.XuiButton2.Text"><value>Volver</value></data>
+<data name="XuiScene1.XuiTabScene1.XuiLabel2.Text"><value>Idioma</value></data>
+<data name="XuiScene1.XuiTabScene1.XuiLabel1.Text"><value>De audio</value></data>
+<data name="XuiScene1.XuiTabScene1.Tab1.XuiCheckbox2.Text"><value>IU sonidos</value></data>
+<data name="XuiScene1.XuiTabScene1.Tab1.XuiCheckbox1.Text"><value>Música</value></data>
+<data name="XuiScene1.XuiTabScene1.Tab2.XuiRadioGroup1.XuiRadioButton3.Text"><value>Japonés</value></data>
+<data name="XuiScene1.XuiTabScene1.Tab2.XuiRadioGroup1.XuiRadioButton2.Text"><value>Español</value></data>
+<data name="XuiScene1.XuiTabScene1.Tab2.XuiRadioGroup1.XuiRadioButton1.Text"><value>English</value></data>
+</root>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "Texture0"
+	Source = "..\..\Media\Textures\StonesClr.bmp"
+	Format = "D3DFMT_X8R8G8B8"
+	Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "Texture0Height"
+	Source = "..\..\Media\Textures\StonesHtf.tga"
+	Format = "D3DFMT_A8R8G8B8"
+	Levels = "0"
+/>
+
+</RDF>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+<Texture 
+	Name   = "MSH1024"
+        Source = "..\..\Media\Textures\MSH1024.bmp"
+        Format = "D3DFMT_LIN_A8R8G8B8"
+        Levels = "0" 
+/>
+<Texture 
+	Name   = "ForestGround"
+        Source = "..\..\Media\Textures\forestground.bmp"
+        Format = "D3DFMT_LIN_A8R8G8B8"
+        Levels = "0" 
+/>
+</RDF>
+
+

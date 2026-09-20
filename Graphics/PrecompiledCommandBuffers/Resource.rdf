@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<RDF Version="XPR2">
+
+<Texture 
+	Name   = "TextureEnv"
+	Source = "..\..\Media\Textures\StonesClr.bmp"
+	Format = "D3DFMT_DXT5"
+	Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "TextureObj0"
+	Source = "..\..\Media\Textures\Rocks.tga"
+	Format = "D3DFMT_DXT5"
+	Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "TextureObj1"
+	Source = "..\..\Media\Textures\StoneWall.bmp"
+	Format = "D3DFMT_DXT5"
+	Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "TextureObj2"
+	Source = "..\..\Media\Textures\grydirt1.bmp"
+	Format = "D3DFMT_DXT5"
+	Levels = "0"
+    sRGB   = "true"
+/>
+
+<Texture 
+	Name   = "TextureObj3"
+	Source = "..\..\Media\Textures\ground2.bmp"
+	Format = "D3DFMT_DXT5"
+	Levels = "0"
+    sRGB   = "true"
+/>
+
+</RDF>

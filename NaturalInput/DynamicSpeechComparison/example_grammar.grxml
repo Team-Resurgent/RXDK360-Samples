@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<grammar xmlns="http://www.w3.org/2001/06/grammar"
+         tag-format="semantics/1.0-literals"
+	 sapi:alphabet="x-microsoft-ups" 
+	 xmlns:sapi="http://schemas.microsoft.com/Speech/2002/06/SRGSExtensions"
+         xml:lang="en-US"
+         root="basic"
+         version="1.0">
+    <!-- Create a simple rule -->
+    <rule id="basic" scope="public">
+        <item>
+            cast fireball<tag>cast fireball</tag>
+        </item>
+    </rule>
+    <!-- Create a simple rule, overriding default pronunciation -->
+    <rule id="override" scope="public">
+        <item>
+            <token sapi:display="Number 7" sapi:pron="s eh v ax n">seven</token>
+        </item>
+        <tag>The Number 7</tag>
+    </rule>
+    <!-- Create a rule with two ways of getting the same tag -->
+    <rule id="alternatives" scope="public">
+        <one-of>
+            <item>Affirmative</item>
+            <item>Correct</item>
+        </one-of>
+        <tag>Correct</tag>
+    </rule>
+    <!-- Reuse existing rules -->   
+    <rule id="action" scope="public">
+        <one-of>
+            <item>point</item>
+            <item>jump</item>
+            <item>go</item>
+        </one-of>
+        <tag>actions</tag>
+    </rule>
+    <rule id="direction" scope="public">
+        <one-of>
+            <item>up</item>
+            <item>down</item>
+            <item>left</item>
+            <item>right</item>
+        </one-of>
+        <tag>directions</tag>
+    </rule>
+    <rule id="reuse" scope="public">
+        <ruleref uri="#action"/>
+        <ruleref uri="#direction"/>
+        <tag>reused</tag>
+    </rule>
+</grammar>

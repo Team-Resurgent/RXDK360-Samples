@@ -1,0 +1,9 @@
+# Generated MSBuild/text files ship with CRLF.
+*.sln              text eol=crlf
+*.vcxproj          text eol=crlf
+*.vcxproj.filters  text eol=crlf
+*.props            text eol=crlf
+*.targets          text eol=crlf
+
+# The packed asset parts are opaque binaries (see tools/assets.py).
+assets/*.part.* binary
