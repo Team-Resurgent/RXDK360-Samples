@@ -7,13 +7,38 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "..\..\Common\Comm
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CodeAnalysis|Xbox 360 = CodeAnalysis|Xbox 360
+		Debug|Xbox 360 = Debug|Xbox 360
+		Profile|Xbox 360 = Profile|Xbox 360
+		Profile_FastCap|Xbox 360 = Profile_FastCap|Xbox 360
 		Release|Xbox 360 = Release|Xbox 360
+		Release_LTCG|Xbox 360 = Release_LTCG|Xbox 360
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.CodeAnalysis|Xbox 360.ActiveCfg = CodeAnalysis|Xbox 360
+		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.CodeAnalysis|Xbox 360.Build.0 = CodeAnalysis|Xbox 360
+		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.Debug|Xbox 360.Build.0 = Debug|Xbox 360
+		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.Profile|Xbox 360.ActiveCfg = Profile|Xbox 360
+		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.Profile|Xbox 360.Build.0 = Profile|Xbox 360
+		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.Profile_FastCap|Xbox 360.ActiveCfg = Profile_FastCap|Xbox 360
+		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.Profile_FastCap|Xbox 360.Build.0 = Profile_FastCap|Xbox 360
 		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
 		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.Release|Xbox 360.Build.0 = Release|Xbox 360
+		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.Release_LTCG|Xbox 360.ActiveCfg = Release_LTCG|Xbox 360
+		{A7737707-C2B4-1C4C-E7EC-80A072F66CEE}.Release_LTCG|Xbox 360.Build.0 = Release_LTCG|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.CodeAnalysis|Xbox 360.ActiveCfg = CodeAnalysis|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.CodeAnalysis|Xbox 360.Build.0 = CodeAnalysis|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Debug|Xbox 360.Build.0 = Debug|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Profile|Xbox 360.ActiveCfg = Profile|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Profile|Xbox 360.Build.0 = Profile|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Profile_FastCap|Xbox 360.ActiveCfg = Profile_FastCap|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Profile_FastCap|Xbox 360.Build.0 = Profile_FastCap|Xbox 360
 		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
 		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Release|Xbox 360.Build.0 = Release|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Release_LTCG|Xbox 360.ActiveCfg = Release_LTCG|Xbox 360
+		{4B99DC73-9044-E203-9C9C-C00C211DA956}.Release_LTCG|Xbox 360.Build.0 = Release_LTCG|Xbox 360
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

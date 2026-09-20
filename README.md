@@ -3,9 +3,11 @@
 The Xbox 360 XDK sample suite, ported to build on **modern Visual Studio**
 (VS2022 / VS "18") through the [RXDK-360](https://github.com/Team-Resurgent/RXDK360)
 platform integration. Each sample carries a committed `.sln` + `.vcxproj` on the
-`Xbox 360` MSBuild platform (toolset `2010-01`), so you can clone, open, and build
-without any project conversion. The shared ATG framework lives once in
-[`Common/`](Common) as a static library every sample references.
+`Xbox 360` MSBuild platform (toolset `2010-01`), with the full stock XDK
+configuration set — **CodeAnalysis, Debug, Profile, Profile_FastCap, Release,
+Release_LTCG** — so you can clone, open, and build without any project conversion.
+The shared ATG framework lives once in [`Common/`](Common) as a static library
+every sample references.
 
 > These are the stock Microsoft XDK samples. You need the RXDK-360 SDK (the XDK
 > compiler/headers/libs and the VS platform integration) installed to build them.
@@ -28,13 +30,17 @@ pwsh tools\Manage-Assets.ps1 unpack
 ## Build
 
 1. Install RXDK-360 (provides the `Xbox 360` VS platform + the XDK toolchain).
-2. Open a sample's `.sln` in VS2022/VS18, or from a command line:
+2. Open a sample's `.sln` in VS2022/VS18, or from a command line (any of the six
+   configurations):
 
    ```
    msbuild Graphics\ArrayTexture\ArrayTexture.sln /p:Configuration=Release /p:Platform="Xbox 360"
    ```
 
-The build produces a `.xex` under the sample's `Release\` folder. (Building also
+   Build every sample with `tools\Build-All.ps1` (`-Configs "Debug,Release"` or
+   `-Configs All`); it writes a pass/fail `build-report.txt`.
+
+The build produces a `.xex` under the sample's `<Config>\` folder. (Building also
 runs the XDK Deploy step, which reports `X1001 Could not connect` when no console
 is set — the `.xex` is still produced; that error is deploy, not build.)
 
@@ -64,21 +70,23 @@ under the modern platform:
   for Application/DLL, so a `StaticLibrary` config (Common) misses it — and
   without `_XBOX`, ATG's `stdafx.h` skips `<xtl.h>` and `xnamath.h` fails to
   compile (`CONST`/`INT`/`HALF` undefined).
-- **Explicit link set.** The platform's `Core.props` lists the XDK title
-  libraries but is a legacy property sheet that isn't imported, so each app names
-  the libraries it links. A base set (`xapilib xboxkrnl d3d9 d3dx9 xgraphics xnet
-  xaudio2 xact3 x3daudio xmcore xbdm vcomp`) plus per-sample **category libraries**
-  detected from the source (e.g. `xhv2` for headset, `nuiapi`/`nuihandles`/`st`
-  for NUI/Kinect, `xonline` for Live, `xuirun`/`xuirender` for XUI).
+- **Explicit link set, per config.** The platform's `Core.props` lists the XDK
+  title libraries but is a legacy property sheet that isn't imported, so each app
+  names the libraries it links — with the right **per-config variant**: Debug/
+  CodeAnalysis use the `d`-suffixed libs, Profile the instrumented `i` libs
+  (`xapilibi`, `d3d9i`, …), Release_LTCG the `ltcg` libs. On top of the base title
+  set, per-sample **category libraries** are detected from the source (e.g. `xhv2`
+  for headset, `nuiapi`/`nuihandles`/`st` for NUI/Kinect, `xonline` for Live,
+  `xuirun`/`xuirender` for XUI, `xinput2` for XInput2).
+- **SPA pre-build.** Samples carrying a `.gameconfig` get a `spac.exe` pre-build
+  step that generates their `<name>.spa.h` (the header they `#include`).
 
 ## Known non-building samples
 
-A minority need the XDK **content pipeline** at build time and won't link from the
-project alone until those pre-build steps are wired up:
+A small minority still need more of the XDK **content pipeline** at build time:
 
-- Samples that compile a game-config to a generated header (`*.spa.h`).
-- XUI samples that compile `.xui`/scene binaries offline.
-- A few that need instrumented/perf libraries (e.g. `d3d9i.lib` perf counters).
+- XUI samples that compile `.xui`/scene binaries offline (XuiTool).
+- Any sample needing an offline-compiled shader or other generated resource.
 
 ## License
 

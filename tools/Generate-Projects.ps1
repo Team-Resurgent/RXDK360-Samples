@@ -5,20 +5,23 @@
 .DESCRIPTION
     The stock XDK samples ship as source + media only; this writes, for each
     sample, a project on the installed "Xbox 360" VS platform (toolset 2010-01)
-    so they open and build in VS2022 / VS "18" via the RXDK-360 integration. The
-    ATG framework under Common\ is emitted once as a static library every sample
-    references.
+    with the full stock XDK configuration set - CodeAnalysis, Debug, Profile,
+    Profile_FastCap, Release, Release_LTCG - so they open and build in VS2022 /
+    VS "18" via the RXDK-360 integration. The ATG framework under Common\ is
+    emitted once as a static library every sample references.
 
     Layout expected (and produced) at -Root:
         <Root>\Common\<AtgXxx.cpp...>      + Common.vcxproj
         <Root>\<Area>\<Sample>\<src...>    + <Sample>.vcxproj + <Sample>.sln
 
-    Hard-won settings (see README "Why these settings"): the platform is literally
-    named "Xbox 360"; ATG is ANSI so CharacterSet stays the platform default
-    (MultiByte); StaticLibrary configs miss the platform's _XBOX define (which the
-    ATG stdafx.h / xnamath.h require) so it is set explicitly; and the platform's
-    default XDK link set is a property sheet that is not imported, so each app
-    lists the libraries it needs (a base set + per-sample category libraries).
+    Settings mirror the stock XDK vcxproj (see README "Why these settings"):
+    platform literally "Xbox 360"; ANSI/MultiByte (platform default); _XBOX
+    defined explicitly (StaticLibrary configs miss it, breaking ATG xnamath.h);
+    per-config optimization/runtime + the XDK title link set with the right
+    per-config library variant (Debug -> 'd', Profile -> instrumented 'i',
+    Release_LTCG -> 'ltcg'), which the platform does not import. Per-sample
+    category libraries are detected from source, and samples with a .gameconfig
+    get a spac pre-build step to generate their <name>.spa.h.
 
 .PARAMETER Root
     Samples root (default: current directory).
@@ -34,27 +37,53 @@ param(
 Set-StrictMode -Version 2.0
 $ErrorActionPreference = "Stop"
 
-$Platform     = "Xbox 360"
-$Config       = "Release"
-$Toolset      = "2010-01"
-$VcxprojType  = "8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942"
-$CommonName   = "Common"
-$CompileExt   = @(".cpp", ".cxx", ".cc", ".c")
-$HeaderExt    = @(".h", ".hpp", ".inl")
-$IgnoreTop    = @(".git", ".github", "tools", "Common", "assets")
+$Platform    = "Xbox 360"
+$Toolset     = "2010-01"
+$VcxprojType = "8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942"
+$CommonName  = "Common"
+$CompileExt  = @(".cpp", ".cxx", ".cc", ".c")
+$HeaderExt   = @(".h", ".hpp", ".inl")
+$IgnoreTop   = @(".git", ".github", "tools", "Common", "assets")
 
-# Base XDK "title" link set (Release libs) - what a plain graphics/audio/system
-# sample needs. Category libraries are added on demand from LibTriggers.
-$BaseLibs = @(
-    "xapilib.lib", "xboxkrnl.lib", "d3d9.lib", "d3dx9.lib", "xgraphics.lib",
-    "xnet.lib", "xaudio2.lib", "xact3.lib", "x3daudio.lib", "xmcore.lib",
-    "xbdm.lib", "vcomp.lib"
+# The stock XDK title link sets, per configuration, verbatim from a stock XDK
+# vcxproj. Each config uses a specific library variant for the core libs
+# (Debug -> 'd', Profile -> instrumented 'i', Release_LTCG -> 'ltcg').
+$LibsDebug   = @("xapilibd.lib","d3d9d.lib","d3dx9d.lib","xgraphicsd.lib","xboxkrnl.lib","xnetd.lib","xaudiod2.lib","xactd3.lib","x3daudiod.lib","xmcored.lib","xbdm.lib","vcompd.lib")
+$LibsProfile = @("xapilibi.lib","d3d9i.lib","d3dx9.lib","xgraphics.lib","xboxkrnl.lib","xnet.lib","xaudio2.lib","xact3i.lib","x3daudioi.lib","xmcorei.lib","xbdm.lib","vcomp.lib")
+$LibsFast    = @("xapilib.lib","d3d9.lib","d3dx9.lib","xgraphics.lib","xboxkrnl.lib","xnet.lib","xaudio2.lib","xact3.lib","x3daudio.lib","xmcore.lib","vcomp.lib","xbdm.lib")
+$LibsRelease = @("xapilib.lib","d3d9.lib","d3dx9.lib","xgraphics.lib","xboxkrnl.lib","xnet.lib","xaudio2.lib","xact3.lib","x3daudio.lib","xmcore.lib","vcomp.lib")
+$LibsLtcg    = @("xapilib.lib","d3d9ltcg.lib","d3dx9.lib","xgraphics.lib","xboxkrnl.lib","xnet.lib","xaudio2.lib","xact3ltcg.lib","x3daudioltcg.lib","xmcoreltcg.lib","vcomp.lib")
+
+# The six stock configurations. CatVariant selects the per-config suffix applied
+# to detected *category* libraries (below). Ignore adds /NODEFAULTLIB (Profile
+# links xapilibi and must ignore the plain xapilib a #pragma may pull).
+$Configs = @(
+    @{ Name = "CodeAnalysis";    Opt = "Disabled"; Rt = "MultiThreadedDebug"; Defs = "_DEBUG;_XBOX";               Base = $LibsDebug;   CatVariant = "debug"; Wpo = $false; Ignore = @() },
+    @{ Name = "Debug";           Opt = "Disabled"; Rt = "MultiThreadedDebug"; Defs = "_DEBUG;_XBOX";               Base = $LibsDebug;   CatVariant = "debug"; Wpo = $false; Ignore = @() },
+    @{ Name = "Profile";         Opt = "Full";     Rt = "MultiThreaded";      Defs = "NDEBUG;_XBOX;PROFILE";       Base = $LibsProfile; CatVariant = "plain"; Wpo = $false; Ignore = @("xapilib.lib") },
+    @{ Name = "Profile_FastCap"; Opt = "Full";     Rt = "MultiThreaded";      Defs = "NDEBUG;_XBOX;PROFILE;FASTCAP"; Base = $LibsFast;  CatVariant = "plain"; Wpo = $false; Ignore = @() },
+    @{ Name = "Release";         Opt = "Full";     Rt = "MultiThreaded";      Defs = "NDEBUG;_XBOX";               Base = $LibsRelease; CatVariant = "plain"; Wpo = $false; Ignore = @() },
+    @{ Name = "Release_LTCG";    Opt = "Full";     Rt = "MultiThreaded";      Defs = "NDEBUG;_XBOX;LTCG";          Base = $LibsLtcg;    CatVariant = "ltcg";  Wpo = $true;  Ignore = @() }
 )
 
-# Extra libraries keyed by a signal in the sample's source (a dedicated XDK
-# header, an ATG wrapper header, or an unmistakable API prefix). Import libs pull
-# nothing when unreferenced, so over-inclusion is cheap; a missing *referenced*
-# lib is a hard link error, so err toward adding.
+# Release category library -> Debug / LTCG variant (irregular XDK naming).
+$DebugLib = @{
+    "xhv2.lib"="xhvd2.lib"; "nuiapi.lib"="nuiapid.lib"; "nuihandles.lib"="nuihandlesd.lib";
+    "st.lib"="std.lib"; "nuispeech.lib"="nuispeechd.lib"; "nuifitnessapi.lib"="nuifitnessapid.lib";
+    "xonline.lib"="xonlined.lib"; "xparty.lib"="xpartyd.lib"; "xavatar2.lib"="xavatar2d.lib";
+    "xmic.lib"="xmicd.lib"; "xuirun.lib"="xuirund.lib"; "xuirender.lib"="xuirenderd.lib";
+    "xuihtml.lib"="xuihtmld.lib"; "xuivideo.lib"="xuivideod.lib"; "xav.lib"="xavd.lib";
+    "xime.lib"="ximed.lib"; "xhttp.lib"="xhttpd.lib"; "xauth.lib"="xauthd.lib";
+    "xmp.lib"="xmpd.lib"; "xffb.lib"="xffbd.lib"; "xcam.lib"="xcamd.lib"; "xjson.lib"="xjsond.lib";
+    "xinput2.lib"="xinput2d.lib"; "xmedia2.lib"="xmediad2.lib"; "xwmadecode.lib"="xwmadecoded.lib";
+    "dxerr9.lib"="dxerr9.lib"; "tracerecording.lib"="tracerecordingd.lib"; "xrnm.lib"="xrnmd.lib";
+    "NuiAudio.lib"="NuiAudiod.lib"; "xmahal.lib"="xmahald.lib"; "xinputremap.lib"="xinputremapd.lib";
+    "xgetserviceendpoint.lib"="xgetserviceendpointd.lib"; "multidisc.lib"="multidiscd.lib";
+    "xsocialpost.lib"="xsocialpostd.lib"; "xtms.lib"="xtmsd.lib"
+}
+$LtcgLib = @{ "xuirender.lib"="xuirenderltcg.lib"; "xavatar2.lib"="xavatar2ltcg.lib"; "st.lib"="stltcg.lib" }
+
+# Category libraries keyed by a signal in the sample's source.
 $LibTriggers = @(
     @{ t = @("xhv2.h", "XHV2");                                          libs = @("xhv2.lib") },
     @{ t = @("nuiapi.h", "AtgNui", "NuiImageStream", "NuiSkeleton", "NuiInitialize", "NUI_"); libs = @("nuiapi.lib", "nuihandles.lib", "st.lib") },
@@ -75,11 +104,27 @@ $LibTriggers = @(
     @{ t = @("xffb.h", "XFFB");                                          libs = @("xffb.lib") },
     @{ t = @("xcam.h", "XCamera", "XCAMERA");                            libs = @("xcam.lib") },
     @{ t = @("xjson.h", "XJSON");                                        libs = @("xjson.lib") },
-    @{ t = @("xinput2.h");                                               libs = @("xinput2.lib") },
-    @{ t = @("xmedia2.h", "xmedia.h");                                   libs = @("xmedia2.lib") },
+    @{ t = @("xinput2.h", "XInput2", "XINPUTID_");                       libs = @("xinput2.lib") },
+    @{ t = @("xmedia2.h", "xmedia.h", "IXMedia2", "XmvPlayer", "XMedia2");  libs = @("xmedia2.lib") },
     @{ t = @("xwmadecode.h", "XWMA");                                    libs = @("xwmadecode.lib") },
-    @{ t = @("dxerr9.h", "DXGetErrorString9");                          libs = @("dxerr9.lib") }
+    @{ t = @("dxerr9.h", "DXGetErrorString9");                          libs = @("dxerr9.lib") },
+    @{ t = @("tracerecording.h", "XTrace");                             libs = @("tracerecording.lib") },
+    @{ t = @("xrnm.h", "Xrnm", "XRNM");                                  libs = @("xrnm.lib") },
+    @{ t = @("NuiAudio", "nuiaudio");                                    libs = @("NuiAudio.lib") },
+    @{ t = @("xmahal.h", "XMAHal", "XMAPlayback", "XMACreate");          libs = @("xmahal.lib") },
+    @{ t = @("xinputremap.h", "XInputRemap");                           libs = @("xinputremap.lib") },
+    @{ t = @("xgetserviceendpoint.h", "XGetServiceEndpoint");           libs = @("xgetserviceendpoint.lib") },
+    @{ t = @("multidisc.h", "XSwapDisc", "XMultiDisc");                 libs = @("multidisc.lib") },
+    @{ t = @("xsocialpost.h", "XSocialPost", "XShowSocialNetwork");     libs = @("xsocialpost.lib") },
+    @{ t = @("xtms.h", "XReportData", "XTitleServer");                  libs = @("xtms.lib") }
 )
+
+# A sample whose sources include <windows.h>/<winsock2.h> but not <xtl.h> is a
+# PC-side host tool (debugger/automation helper), not an Xbox title - skip it.
+function Test-HostTool([string]$blob) {
+    $win = $blob.Contains("<windows.h>") -or $blob.Contains("<Windows.h>") -or $blob.Contains("<winsock2.h>")
+    return ($win -and -not $blob.Contains("<xtl.h>"))
+}
 
 $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
@@ -95,15 +140,12 @@ function ConvertTo-Xml([string]$s) {
     return $s.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace('"', "&quot;")
 }
 
-# Relative path FROM directory to file-or-dir, backslash-separated (5.1 has no
-# [IO.Path]::GetRelativePath, so use Uri).
 function Get-RelPath([string]$fromDir, [string]$to) {
     $f = (Resolve-Path -LiteralPath $fromDir).Path
     if (-not $f.EndsWith([IO.Path]::DirectorySeparatorChar)) { $f += [IO.Path]::DirectorySeparatorChar }
     $fromUri = New-Object System.Uri($f)
     $toUri = New-Object System.Uri((Resolve-Path -LiteralPath $to).Path)
-    $rel = [System.Uri]::UnescapeDataString($fromUri.MakeRelativeUri($toUri).ToString())
-    return $rel.Replace("/", "\")
+    return [System.Uri]::UnescapeDataString($fromUri.MakeRelativeUri($toUri).ToString()).Replace("/", "\")
 }
 
 function Get-Sources([string]$dir) {
@@ -112,7 +154,6 @@ function Get-Sources([string]$dir) {
     $base = (Resolve-Path -LiteralPath $dir).Path
     foreach ($f in Get-ChildItem -LiteralPath $dir -Recurse -File) {
         $ext = $f.Extension.ToLowerInvariant()
-        # MSBuild Include paths are always backslash-separated, whatever the OS.
         $rel = $f.FullName.Substring($base.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")
         if ($CompileExt -contains $ext) { $cpps.Add($rel) }
         elseif ($HeaderExt -contains $ext) { $hdrs.Add($rel) }
@@ -123,14 +164,15 @@ function Get-Sources([string]$dir) {
     return @{ cpps = $ca; hdrs = $ha }
 }
 
-function Get-DetectedLibs([string]$dir, [string[]]$cpps, [string[]]$hdrs) {
+function Read-Blob([string]$dir, [string[]]$rels) {
     $sb = New-Object System.Text.StringBuilder
-    foreach ($r in ($cpps + $hdrs)) {
-        try { [void]$sb.AppendLine([IO.File]::ReadAllText((Join-Path $dir $r))) } catch { }
-    }
-    $blob = $sb.ToString()
+    foreach ($r in $rels) { try { [void]$sb.AppendLine([IO.File]::ReadAllText((Join-Path $dir $r))) } catch { } }
+    return $sb.ToString()
+}
+
+# Category (extra) libraries only - the base title set is per-config.
+function Get-CategoryLibs([string]$blob) {
     $libs = New-Object System.Collections.Generic.List[string]
-    $BaseLibs | ForEach-Object { $libs.Add($_) }
     foreach ($rule in $LibTriggers) {
         $hit = $false
         foreach ($tok in $rule.t) { if ($blob.Contains($tok)) { $hit = $true; break } }
@@ -139,47 +181,99 @@ function Get-DetectedLibs([string]$dir, [string[]]$cpps, [string[]]$hdrs) {
     return $libs.ToArray()
 }
 
-function New-Vcxproj($name, $guid, $confType, $cpps, $hdrs, $includeDirs, $linkLibs, $projRefs) {
+function ConvertTo-Variant([string]$lib, [string]$variant) {
+    switch ($variant) {
+        "debug" { if ($DebugLib.ContainsKey($lib)) { return $DebugLib[$lib] } return ($lib -replace '\.lib$', 'd.lib') }
+        "ltcg"  { if ($LtcgLib.ContainsKey($lib))  { return $LtcgLib[$lib] }  return $lib }
+        default { return $lib }
+    }
+}
+
+# A spac invocation to generate the SPA header, if the sample carries a
+# .gameconfig, else $null. The generated header is named after the source's
+# #include "...spa.h" (which need not match the gameconfig base, e.g.
+# TitleStorageSample.gameconfig -> TitleStorage.spa.h). Returned as a target
+# descriptor (the platform ignores PreBuildEvent, so a real Target is used).
+function Get-SpaStep([string]$dir, [string]$blob) {
+    $gc = Get-ChildItem -LiteralPath $dir -Recurse -Filter *.gameconfig -File | Select-Object -First 1
+    if (-not $gc) { return $null }
+    $base = (Resolve-Path -LiteralPath $dir).Path
+    $gcRel = $gc.FullName.Substring($base.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")
+    $m = [regex]::Match($blob, '#include\s*"([^"]*\.spa\.h)"', 'IgnoreCase')
+    if ($m.Success) { $hdr = $m.Groups[1].Value.Replace("/", "\") }
+    else { $hdr = [IO.Path]::GetFileNameWithoutExtension($gc.Name) + ".spa.h" }
+    $spa = [IO.Path]::GetFileNameWithoutExtension($gc.Name) + ".spa"
+    $cmd = ('"$(RxdkBinDir)\spac.exe" -nologo -forceoverwrite -h "$(ProjectDir){0}" -o "$(ProjectDir){1}" "$(ProjectDir){2}"' -f $hdr, $spa, $gcRel)
+    return @{ Cmd = $cmd; In = $gcRel; Out = $hdr }
+}
+
+function New-Vcxproj($name, $guid, $confType, $cpps, $hdrs, $includeDirs, $catLibs, $projRefs, $preBuild) {
+    $isApp = ($confType -eq "Application")
     $o = New-Object System.Collections.Generic.List[string]
     $o.Add('<?xml version="1.0" encoding="utf-8"?>')
     $o.Add('<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">')
     $o.Add('  <ItemGroup Label="ProjectConfigurations">')
-    $o.Add("    <ProjectConfiguration Include=`"$Config|$Platform`">")
-    $o.Add("      <Configuration>$Config</Configuration>")
-    $o.Add("      <Platform>$Platform</Platform>")
-    $o.Add('    </ProjectConfiguration>')
+    foreach ($c in $Configs) {
+        $o.Add("    <ProjectConfiguration Include=`"$($c.Name)|$Platform`">")
+        $o.Add("      <Configuration>$($c.Name)</Configuration>")
+        $o.Add("      <Platform>$Platform</Platform>")
+        $o.Add('    </ProjectConfiguration>')
+    }
     $o.Add('  </ItemGroup>')
     $o.Add('  <PropertyGroup Label="Globals">')
     $o.Add("    <ProjectGuid>{$guid}</ProjectGuid>")
     $o.Add("    <RootNamespace>$(ConvertTo-Xml $name)</RootNamespace>")
     $o.Add('  </PropertyGroup>')
     $o.Add('  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />')
-    $o.Add('  <PropertyGroup Label="Configuration">')
-    $o.Add("    <ConfigurationType>$confType</ConfigurationType>")
-    $o.Add("    <PlatformToolset>$Toolset</PlatformToolset>")
-    $o.Add('  </PropertyGroup>')
+    # Per-config configuration properties (ConfigurationType, toolset, WPO).
+    foreach ($c in $Configs) {
+        $cond = "'`$(Configuration)|`$(Platform)'=='$($c.Name)|$Platform'"
+        $o.Add("  <PropertyGroup Condition=`"$cond`" Label=`"Configuration`">")
+        $o.Add("    <ConfigurationType>$confType</ConfigurationType>")
+        $o.Add("    <PlatformToolset>$Toolset</PlatformToolset>")
+        if ($c.Wpo) { $o.Add('    <WholeProgramOptimization>true</WholeProgramOptimization>') }
+        $o.Add('  </PropertyGroup>')
+    }
     $o.Add('  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />')
-    $o.Add('  <ItemDefinitionGroup>')
-    $o.Add('    <ClCompile>')
-    $o.Add('      <PreprocessorDefinitions>_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>')
-    if ($includeDirs) {
-        $o.Add("      <AdditionalIncludeDirectories>$(ConvertTo-Xml $includeDirs);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>")
+    foreach ($c in $Configs) {
+        $cond = "'`$(Configuration)|`$(Platform)'=='$($c.Name)|$Platform'"
+        $o.Add("  <ItemDefinitionGroup Condition=`"$cond`">")
+        $o.Add('    <ClCompile>')
+        $o.Add("      <PreprocessorDefinitions>$($c.Defs);%(PreprocessorDefinitions)</PreprocessorDefinitions>")
+        $o.Add("      <Optimization>$($c.Opt)</Optimization>")
+        $o.Add("      <RuntimeLibrary>$($c.Rt)</RuntimeLibrary>")
+        if ($includeDirs) {
+            $o.Add("      <AdditionalIncludeDirectories>$(ConvertTo-Xml $includeDirs);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>")
+        }
+        $o.Add('    </ClCompile>')
+        if ($isApp) {
+            $deps = @($c.Base)
+            foreach ($lib in $catLibs) { $deps += (ConvertTo-Variant $lib $c.CatVariant) }
+            $o.Add('    <Link>')
+            $o.Add("      <AdditionalDependencies>$(ConvertTo-Xml ($deps -join ';'));%(AdditionalDependencies)</AdditionalDependencies>")
+            if ($c.Ignore.Count -gt 0) {
+                $o.Add("      <IgnoreSpecificDefaultLibraries>$(ConvertTo-Xml ($c.Ignore -join ';'));%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>")
+            }
+            $o.Add('    </Link>')
+        }
+        $o.Add('  </ItemDefinitionGroup>')
     }
-    $o.Add('    </ClCompile>')
-    if ($linkLibs) {
-        $o.Add('    <Link>')
-        $o.Add("      <AdditionalDependencies>$(ConvertTo-Xml ($linkLibs -join ';'));%(AdditionalDependencies)</AdditionalDependencies>")
-        $o.Add('    </Link>')
+    if ($preBuild) {
+        # The "Xbox 360" platform does not run PreBuildEvent, so wire spac as a
+        # real target before compilation. Inputs/Outputs make it incremental.
+        $o.Add("  <Target Name=`"RxdkGenSpa`" BeforeTargets=`"ClCompile`" Inputs=`"`$(ProjectDir)$(ConvertTo-Xml $preBuild.In)`" Outputs=`"`$(ProjectDir)$(ConvertTo-Xml $preBuild.Out)`">")
+        $o.Add("    <Message Importance=`"high`" Text=`"RXDK-360: generating $(ConvertTo-Xml $preBuild.Out)`" />")
+        $o.Add("    <Exec Command=`"$(ConvertTo-Xml $preBuild.Cmd)`" />")
+        $o.Add('  </Target>')
     }
-    $o.Add('  </ItemDefinitionGroup>')
     if ($cpps.Count -gt 0) {
         $o.Add('  <ItemGroup>')
-        foreach ($c in $cpps) { $o.Add("    <ClCompile Include=`"$(ConvertTo-Xml $c)`" />") }
+        foreach ($x in $cpps) { $o.Add("    <ClCompile Include=`"$(ConvertTo-Xml $x)`" />") }
         $o.Add('  </ItemGroup>')
     }
     if ($hdrs.Count -gt 0) {
         $o.Add('  <ItemGroup>')
-        foreach ($h in $hdrs) { $o.Add("    <ClInclude Include=`"$(ConvertTo-Xml $h)`" />") }
+        foreach ($x in $hdrs) { $o.Add("    <ClInclude Include=`"$(ConvertTo-Xml $x)`" />") }
         $o.Add('  </ItemGroup>')
     }
     if ($projRefs) {
@@ -208,12 +302,14 @@ function New-Sln($name, $guid, $toCommon, $commonGuid) {
     $o.Add("EndProject")
     $o.Add("Global")
     $o.Add("`tGlobalSection(SolutionConfigurationPlatforms) = preSolution")
-    $o.Add("`t`t$Config|$Platform = $Config|$Platform")
+    foreach ($c in $Configs) { $o.Add("`t`t$($c.Name)|$Platform = $($c.Name)|$Platform") }
     $o.Add("`tEndGlobalSection")
     $o.Add("`tGlobalSection(ProjectConfigurationPlatforms) = postSolution")
     foreach ($g in @($guid, $commonGuid)) {
-        $o.Add("`t`t{$g}.$Config|$Platform.ActiveCfg = $Config|$Platform")
-        $o.Add("`t`t{$g}.$Config|$Platform.Build.0 = $Config|$Platform")
+        foreach ($c in $Configs) {
+            $o.Add("`t`t{$g}.$($c.Name)|$Platform.ActiveCfg = $($c.Name)|$Platform")
+            $o.Add("`t`t{$g}.$($c.Name)|$Platform.Build.0 = $($c.Name)|$Platform")
+        }
     }
     $o.Add("`tEndGlobalSection")
     $o.Add("`tGlobalSection(SolutionProperties) = preSolution")
@@ -224,6 +320,13 @@ function New-Sln($name, $guid, $toCommon, $commonGuid) {
 }
 
 $script:Changed = New-Object System.Collections.Generic.List[string]
+# Remove a stale generated file (a sample that is now skipped). In -Check mode a
+# lingering file counts as out-of-date.
+function Remove-Generated([string]$path) {
+    if (-not (Test-Path -LiteralPath $path)) { return }
+    if ($Check) { $script:Changed.Add($path); return }
+    Remove-Item -LiteralPath $path -Force
+}
 function Write-Generated([string]$path, [string]$text) {
     if ($Check) {
         $old = $null
@@ -243,25 +346,32 @@ if (-not (Test-Path -LiteralPath $commonDir -PathType Container)) {
 }
 $commonGuid = Get-StableGuid $CommonName
 
-# 1) Common ATG static library.
+# 1) Common ATG static library (all configs, no link set, no pre-build).
 $cs = Get-Sources $commonDir
 Write-Generated (Join-Path $commonDir "$CommonName.vcxproj") `
-    (New-Vcxproj $CommonName $commonGuid "StaticLibrary" $cs.cpps $cs.hdrs '$(ProjectDir)' $null $null)
+    (New-Vcxproj $CommonName $commonGuid "StaticLibrary" $cs.cpps $cs.hdrs '$(ProjectDir)' $null $null $null)
 
-# 2) One project + solution per sample (Root\<Area>\<Sample> with a source).
+# 2) One project + solution per sample.
 $made = 0
 foreach ($area in (Get-ChildItem -LiteralPath $rootFull -Directory | Sort-Object Name)) {
     if ($IgnoreTop -contains $area.Name -or $area.Name.StartsWith(".")) { continue }
     foreach ($sample in (Get-ChildItem -LiteralPath $area.FullName -Directory | Sort-Object Name)) {
         $src = Get-Sources $sample.FullName
-        if ($src.cpps.Count -eq 0) { continue }   # pure-C# tool or asset-only dir
+        if ($src.cpps.Count -eq 0) { continue }
+        $blob = Read-Blob $sample.FullName ($src.cpps + $src.hdrs)
+        if (Test-HostTool $blob) {              # PC-side tool, not an Xbox title
+            Remove-Generated (Join-Path $sample.FullName ("$($sample.Name).vcxproj"))
+            Remove-Generated (Join-Path $sample.FullName ("$($sample.Name).sln"))
+            continue
+        }
         $name = $sample.Name
         $guid = Get-StableGuid ($name + "|" + (Join-Path $area.Name $name))
         $toCommon = Get-RelPath $sample.FullName $commonDir
-        $libs = Get-DetectedLibs $sample.FullName $src.cpps $src.hdrs
+        $catLibs = Get-CategoryLibs $blob
+        $pre = Get-SpaStep $sample.FullName $blob
         $ref = @{ Path = "$toCommon\$CommonName.vcxproj"; Guid = $commonGuid }
         Write-Generated (Join-Path $sample.FullName "$name.vcxproj") `
-            (New-Vcxproj $name $guid "Application" $src.cpps $src.hdrs $toCommon $libs @($ref))
+            (New-Vcxproj $name $guid "Application" $src.cpps $src.hdrs $toCommon $catLibs @($ref) $pre)
         Write-Generated (Join-Path $sample.FullName "$name.sln") `
             (New-Sln $name $guid $toCommon $commonGuid)
         $made++
@@ -276,4 +386,4 @@ if ($Check) {
     }
     Write-Host "projects up to date"; exit 0
 }
-Write-Host ("generated {0} sample project(s) + Common library" -f $made)
+Write-Host ("generated {0} sample project(s) + Common library (6 configs)" -f $made)
