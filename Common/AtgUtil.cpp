@@ -106,7 +106,10 @@ const DWORD g_MapLinearToSrgbGpuFormat[] =
 // Name: DebugSpewV()
 // Desc: Internal helper function
 //--------------------------------------------------------------------------------------
-static VOID DebugSpewV( const CHAR* strFormat, const va_list pArgList )
+/* RXDK-360: va_list is an array type under the clang/PPC-ELF ABI, so a top-level
+   `const` on the parameter makes it non-portable (can't bind to the CRT's va_list
+   parameters). The const carried no meaning; drop it. See PATCHES.md. */
+static VOID DebugSpewV( const CHAR* strFormat, va_list pArgList )
 {
     CHAR str[2048];
     // Use the secure CRT to avoid buffer overruns. Specify a count of

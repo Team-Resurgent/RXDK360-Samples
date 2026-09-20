@@ -21,6 +21,12 @@ only what genuinely cannot be fixed in the toolchain.
   nothing unless a VS debugger is attached, so under clang the function is a
   no-op. Standard C++ `try`/`catch`/`throw` are fully supported and unaffected.
 
+- **`Common/AtgUtil.cpp` — `DebugSpewV` `const va_list`.**
+  Dropped the `const` on the `va_list` parameter. Under the clang/PPC-ELF ABI
+  `va_list` is an array type, so a top-level `const` on the parameter is
+  non-portable (it can't bind to the CRT's `va_list` parameters). The `const`
+  carried no meaning.
+
 ## Notes
 - The scalar `xnamath` path (`_XM_NO_INTRINSICS_`) is a toolset flag, not a source
   edit: clang has AltiVec but not the MS `__vector4`/VMX128 intrinsic spellings,
