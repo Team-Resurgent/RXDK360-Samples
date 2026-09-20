@@ -862,15 +862,24 @@ VOID SetThreadName( DWORD dwThreadID, LPCSTR strThreadName )
     info.dwThreadID = dwThreadID;
     info.dwFlags = 0;
 
+    // RXDK-360: this is the Visual Studio debugger's "name a thread" trick -
+    // it raises a magic exception that only an attached VS debugger consumes.
+    // MS SEH (__try/__except) is unsupported by clang on PowerPC, and the raise
+    // does nothing without a listening debugger, so under clang skip it entirely
+    // (thread naming is a debug-only nicety). See PATCHES.md.
+#if defined(__clang__)
+    (void)info;
+#else
     __try
     {
         RaiseException( 0x406D1388, 0, sizeof(info) / sizeof(DWORD), (DWORD*)&info );
     }
-    __except( GetExceptionCode()== 0x406D1388 ? 
-                EXCEPTION_CONTINUE_EXECUTION : EXCEPTION_EXECUTE_HANDLER ) 
+    __except( GetExceptionCode()== 0x406D1388 ?
+                EXCEPTION_CONTINUE_EXECUTION : EXCEPTION_EXECUTE_HANDLER )
     {
         __noop;
     }
+#endif
 }
 
 
