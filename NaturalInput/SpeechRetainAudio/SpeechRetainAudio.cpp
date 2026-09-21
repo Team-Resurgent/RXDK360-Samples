@@ -841,7 +841,7 @@ HRESULT SpeechRetainApp::Update()
 // Name: main()
 // Desc: main entry point
 //--------------------------------------------------------------------------------------
-VOID main( VOID )
+INT main( VOID )
 {
     HRESULT hr = NOERROR;
     // Create my instance which also initializes the console
@@ -851,7 +851,7 @@ VOID main( VOID )
     hr = TheApp.CreateNuiSpeech();
     if( FAILED(hr) )
     {
-        return;
+        return 0;
     }
         
     // Primary update loop

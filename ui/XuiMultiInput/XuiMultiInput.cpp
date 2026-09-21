@@ -537,7 +537,7 @@ HRESULT CMyApp::Render()
 // Name: main
 // Desc: Application entry point.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Declare an instance of the XUI framework application.
     CMyApp app;
@@ -547,7 +547,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed intializing application.\n" );
-        return;
+        return 0;
     }
 
     // Turn on interruptable transitions globally
@@ -558,7 +558,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed to register default typeface.\n" );
-        return;
+        return 0;
     }
 
     // Load the skin file used for the scene.

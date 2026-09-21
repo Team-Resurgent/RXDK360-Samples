@@ -636,7 +636,7 @@ INT MyGetCharWidthW( WCHAR c )
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     Sample xbApp;
     ATG::GetVideoSettings( &xbApp.m_d3dpp.BackBufferWidth, &xbApp.m_d3dpp.BackBufferHeight );

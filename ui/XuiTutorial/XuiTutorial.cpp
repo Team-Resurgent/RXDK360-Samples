@@ -109,7 +109,7 @@ HRESULT CMyApp::UnregisterXuiClasses()
 // Name: main
 // Desc: Application entry point.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Declare helper necessary to locate resources inside an xzp archive.
     ATG::MediaLocator mediaLocator( L"file://game:/media/simplescene.xzp" );
@@ -123,7 +123,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed intializing application.\n" );
-        return;
+        return 0;
     }
 
     // Register a default typeface
@@ -131,7 +131,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed to register default typeface.\n" );
-        return;
+        return 0;
     }
 
     // Load the skin file used for the scene.

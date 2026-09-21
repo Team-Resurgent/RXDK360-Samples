@@ -148,7 +148,7 @@ HRESULT GetXWMAData(void* pUserContext, XWMADECODE_INPUT_BUFFER_INFO* pInfo)
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
 
     //

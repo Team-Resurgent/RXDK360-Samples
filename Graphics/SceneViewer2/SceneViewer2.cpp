@@ -62,7 +62,7 @@ DWORD WINAPI LoaderThreadEntry( LPVOID pParam );
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     SceneViewer atgApp;
     g_pSceneViewerApp = &atgApp;

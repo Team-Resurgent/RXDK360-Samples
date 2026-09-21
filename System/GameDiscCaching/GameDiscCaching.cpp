@@ -83,7 +83,7 @@ static DWORD FileCacheCallback( PVOID pContext, const CHAR* strPath, PLARGE_INTE
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     DWORD dwErr = ERROR_SUCCESS;
 

@@ -562,7 +562,7 @@ VOID DoTests()
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // CPU frequency is a constant.
     g_frequency = 3200000000;

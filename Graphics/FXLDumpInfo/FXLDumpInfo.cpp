@@ -54,11 +54,11 @@ public:
 //
 // Main game loop;
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Initialize the application, and load the FXLite effect
     if( !Initialize() )
-        return;
+        return 0;
 
 
     HRESULT hr = S_OK;

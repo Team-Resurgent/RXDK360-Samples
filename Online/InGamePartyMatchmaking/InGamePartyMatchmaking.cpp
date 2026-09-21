@@ -153,7 +153,7 @@ const char* Sample::m_astrAppStates[] =
 // Desc: Entry point to the program on Xbox 360
 //--------------------------------------------------------------------------------------
 #ifdef _XBOX
-VOID __cdecl main()
+INT __cdecl main()
 {
     #ifdef _DEBUG
     _CrtSetDbgFlag( _CrtSetDbgFlag( _CRTDBG_REPORT_FLAG     | 

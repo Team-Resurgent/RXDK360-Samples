@@ -140,7 +140,7 @@ HRESULT CMyApp::UnregisterXuiClasses()
 // Name: RegisterXuiClasses()
 // Desc: Application entry point.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Declare an instance of the XUI framework application.
     CMyApp app;
@@ -150,7 +150,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed intializing application.\n" );
-        return;
+        return 0;
     }
 
     // Register a default typeface
@@ -158,7 +158,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed to register default typeface.\n" );
-        return;
+        return 0;
     }
 
     WCHAR szResourceLocator[ ATG::LOCATOR_SIZE ];

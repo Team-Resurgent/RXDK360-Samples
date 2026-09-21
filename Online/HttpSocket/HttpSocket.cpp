@@ -352,7 +352,7 @@ private:
 // Desc: Entry point to the program
 //       Call WSACleanup() and XNetCleanup() for clean up
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     Sample atgApp;
     ATG::GetVideoSettings( &atgApp.m_d3dpp.BackBufferWidth, &atgApp.m_d3dpp.BackBufferHeight );

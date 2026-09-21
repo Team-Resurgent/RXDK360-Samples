@@ -291,7 +291,7 @@ private:
 //
 // Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     LobbyChat atgApp;
     ATG::GetVideoSettings( &atgApp.m_d3dpp.BackBufferWidth, 

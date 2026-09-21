@@ -19,7 +19,7 @@ VOID __cdecl Print( const WCHAR* strFormat, ... );
 // Name: main
 // Desc: Entry point to the program.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Simple reads and writes to properly-aligned native type variables (char, short
     // int, __int64, float, double, and __vector4) are atomic.

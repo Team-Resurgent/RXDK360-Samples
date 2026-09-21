@@ -256,7 +256,7 @@ namespace TiledRuntime
         m_pd3dDevice->CreateVertexDeclaration( CopyVertexElements, &m_pDeclCopyVertex );
 
         // Compile all of the shaders used in resource copying.
-        const CHAR* strVS = "void main( float2 InPos : POSITION, float4 InTex : TEXCOORD0, out float4 OutPos : POSITION, out float4 OutTex : TEXCOORD0 ) { OutPos = float4( InPos, 0, 1 ); OutTex = InTex; }";
+        const CHAR* strVS = "int main( float2 InPos : POSITION, float4 InTex : TEXCOORD0, out float4 OutPos : POSITION, out float4 OutTex : TEXCOORD0 ) { OutPos = float4( InPos, 0, 1 ); OutTex = InTex; }";
         const CHAR* strPSColor = "float4 OutColor : register(c0); float4 main() : COLOR0 { return OutColor; }";
         const CHAR* strPSTex2D = "sampler2D s_tex : register(s0); float4 main( float4 TexCoord : TEXCOORD0 ) : COLOR0 { return tex2D( s_tex, TexCoord.xy ); }";
         const CHAR* strPSTex3D = "sampler3D s_tex : register(s0); float4 main( float4 TexCoord : TEXCOORD0 ) : COLOR0 { return tex3D( s_tex, TexCoord.xyz ); }";

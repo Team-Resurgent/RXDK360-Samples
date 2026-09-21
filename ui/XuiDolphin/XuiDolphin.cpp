@@ -153,7 +153,7 @@ Sample      g_atgApp;
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     ATG::GetVideoSettings( &g_atgApp.m_d3dpp.BackBufferWidth, &g_atgApp.m_d3dpp.BackBufferHeight );
     g_atgApp.Run();

@@ -981,7 +981,7 @@ VOID ReadFileIntoMemory( const CHAR* strFile )
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Initialize the console window
     g_Console.Create( "game:\\Media\\Fonts\\Courier_New_11.xpr", 0xFF1F005F, 0xFFFFFFFF );

@@ -247,7 +247,7 @@ SimplePartyExperience::SimplePartyExperience() :
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     SimplePartyExperience atgApp;
     ATG::GetVideoSettings( &atgApp.m_d3dpp.BackBufferWidth, 

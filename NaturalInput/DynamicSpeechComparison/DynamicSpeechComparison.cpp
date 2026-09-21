@@ -810,7 +810,7 @@ void DynamicSpeechApp::BindNotifications()
 // Name: main()
 // Desc: main entry point
 //--------------------------------------------------------------------------------------
-VOID main( VOID )
+INT main( VOID )
 {
     HRESULT hr = NOERROR;
     // Create my instance which also initializes the console
@@ -822,7 +822,7 @@ VOID main( VOID )
     hr = TheApp.SwapGrammar(DYNAMIC_GRAMMAR);
     if( FAILED(hr) )
     {
-        return;
+        return 0;
     }
 
     // Print the intro text

@@ -31,7 +31,7 @@ VOID PlayXMA2( IXAudio2* pXaudio2, const char* szFilename );
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     HRESULT hr;
 

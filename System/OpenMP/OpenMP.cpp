@@ -500,7 +500,7 @@ VOID ParallelSort()
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Initialize the console window
     g_console.Create( "game:\\Media\\Fonts\\Arial_12.xpr", 0xFF0000FF, 0xFFFFFFFF );

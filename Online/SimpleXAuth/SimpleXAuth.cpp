@@ -196,7 +196,7 @@ VOID SimpleXAuth::Uninitialize()
 //
 // Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     SimpleXAuth atgApp;
 

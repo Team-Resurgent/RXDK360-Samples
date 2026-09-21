@@ -615,7 +615,7 @@ HRESULT SocialPostSample::Render()
 //-----------------------------------------------------------------------------
 // Main loop
 //-----------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Create the application object
     SocialPostSample app;

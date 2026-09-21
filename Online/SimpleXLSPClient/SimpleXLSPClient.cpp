@@ -246,7 +246,7 @@ void CloseConnection()
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     SOCKADDR_IN RemoteInAddr;
     DOUBLE dLastSendTime = 0.0f;

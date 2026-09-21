@@ -29,7 +29,7 @@ void XACTNotificationCallback( const XACT_NOTIFICATION* pNotification )
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Initialize the XACT runtime parameters
     XACT_RUNTIME_PARAMETERS xrParams = {0};
@@ -55,7 +55,7 @@ VOID __cdecl main()
     // Make sure XMA contents must reside in physically contiguous memory
     if( FAILED( hr = ATG::LoadFilePhysicalMemory( "game:\\media\\sounds\\XactSounds.xwb", &pbWaveBank,
                                                   &dwFileSize ) ) )
-        return;
+        return 0;
 
     // Register the wave bank with XACT
     IXACT3WaveBank* pWaveBank;
@@ -65,7 +65,7 @@ VOID __cdecl main()
     // Load the sound bank
     VOID* pbSoundBank = NULL;
     if( FAILED( hr = ATG::LoadFile( "game:\\media\\sounds\\XactSounds.xsb", &pbSoundBank, &dwFileSize ) ) )
-        return;
+        return 0;
 
     // Register the sound bank with XACT
     IXACT3SoundBank* pSoundBank;

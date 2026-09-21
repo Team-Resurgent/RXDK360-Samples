@@ -120,7 +120,7 @@ IXAudio2SourceVoice** CreatePCMOutputVoicesForXMAFile( const XMA2WAVEFORMATEX& S
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
 
     //

@@ -221,7 +221,7 @@ HRESULT CMyApp::UnregisterXuiClasses()
 // Name: main()
 // Desc: Application entry point.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Declare an instance of the XUI framework application.
     CMyApp app;

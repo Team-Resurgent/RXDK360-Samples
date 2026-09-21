@@ -1069,7 +1069,7 @@ VOID CalculateAngularDistance(  PSNRRecord& psnrOut,
 // Name: main()
 // Desc: The application's entry point
 //-------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     DmMapDevkitDrive();
 

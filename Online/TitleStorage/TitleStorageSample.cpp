@@ -1524,7 +1524,7 @@ VOID TitleStorageSample::GetCurrentTimeString(CHAR* timeStr)
 //
 // Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     TitleStorageSample atgApp;
 

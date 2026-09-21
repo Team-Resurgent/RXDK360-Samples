@@ -114,7 +114,7 @@ public:
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     static Sample atgApp;
     atgApp.m_d3dpp.BackBufferWidth = 640;

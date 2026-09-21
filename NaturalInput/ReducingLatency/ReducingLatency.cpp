@@ -56,7 +56,7 @@ Sample g_NuiSample;
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     g_NuiSample.Run();
 }

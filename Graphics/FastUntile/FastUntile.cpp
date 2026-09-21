@@ -750,12 +750,12 @@ HRESULT Sample::Render( )
         // same resource pointer, and overwrite the Format field.  Otherwise, D3D's coherency 
         // guarantees can fail, in situations such as: 
         //
-        //    •	Unlock followed by SetTexture
-        //    •	Resolve followed by SetTexture
-        //    •	Resolve followed by Lock
-        //    •	SetTexture followed by BeginExport
-        //    •	EndExport followed by SetTexture
-        //    •	EndExport followed by Lock
+        //    ï¿½	Unlock followed by SetTexture
+        //    ï¿½	Resolve followed by SetTexture
+        //    ï¿½	Resolve followed by Lock
+        //    ï¿½	SetTexture followed by BeginExport
+        //    ï¿½	EndExport followed by SetTexture
+        //    ï¿½	EndExport followed by Lock
         //
         GPUTEXTURE_FETCH_CONSTANT OldSourceTextureFetchConstant = pSourceTexture->Format;
         SetDummyNuiTexture( pSourceTexture );
@@ -1020,7 +1020,7 @@ HRESULT Sample::Render( )
 // Desc: Entry point to the program.
 //-----------------------------------------------------------------------------
 
-VOID __cdecl main( )
+INT __cdecl main( )
 {
     Sample atgApp;
     ATG::GetVideoSettings( &atgApp.m_d3dpp.BackBufferWidth, &atgApp.m_d3dpp.BackBufferHeight );

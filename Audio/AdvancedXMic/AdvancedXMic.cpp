@@ -69,7 +69,7 @@ LEDPreset m_LEDPresets[] =
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     XMicSample atgApp;
     atgApp.m_d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_ONE;

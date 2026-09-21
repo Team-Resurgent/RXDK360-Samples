@@ -49,7 +49,7 @@ const CHAR g_strPixelShaderProgram[] =
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Create the D3D object.
     g_pD3D = Direct3DCreate9( D3D_SDK_VERSION );

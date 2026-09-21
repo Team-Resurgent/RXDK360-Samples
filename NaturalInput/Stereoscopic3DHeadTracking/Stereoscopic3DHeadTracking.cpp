@@ -354,7 +354,7 @@ public:
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID main() 
+INT main() 
 {
     Sample AtgApp;
     

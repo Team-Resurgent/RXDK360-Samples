@@ -450,15 +450,15 @@ void Render()
 // Name: main()
 // Desc: The application's entry point
 //-------------------------------------------------------------------------------------
-void __cdecl main()
+int __cdecl main()
 {
     // Initialize Direct3D
     if( FAILED( InitD3D() ) )
-        return;
+        return 0;
 
     // Initialize the vertex buffer
     if( FAILED( InitScene() ) )
-        return;
+        return 0;
 
     InitTime();
 

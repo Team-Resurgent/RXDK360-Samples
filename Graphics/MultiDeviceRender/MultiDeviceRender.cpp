@@ -163,7 +163,7 @@ private:
 // Name: main()
 // Desc: Entry point to the sample.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     Sample MDRSample;
 

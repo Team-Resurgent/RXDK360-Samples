@@ -312,7 +312,7 @@ Sample::DebugDraw   Sample::ms_debugDraw;
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     Sample* atgApp = new Sample;
     ATG::GetVideoSettings( &atgApp->m_d3dpp.BackBufferWidth, &atgApp->m_d3dpp.BackBufferHeight );

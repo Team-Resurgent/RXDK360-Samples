@@ -130,7 +130,7 @@ inline BOOL D3DCOLORIsVisible( D3DCOLOR color )
 // Name: main
 // Desc: The application's entry point
 //-------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     Sample MyAtgApp;
     ZeroMemory( &MyAtgApp.m_d3dpp, sizeof( MyAtgApp.m_d3dpp ) );

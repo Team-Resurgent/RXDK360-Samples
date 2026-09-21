@@ -127,7 +127,7 @@ UMessage*       ReceiveMessage( SOCKADDR_IN* psaIn, SIZE_T* pcbRecv );
 //
 // Main game loop; drive the state machine
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Initialize variables
     g_socket = INVALID_SOCKET;

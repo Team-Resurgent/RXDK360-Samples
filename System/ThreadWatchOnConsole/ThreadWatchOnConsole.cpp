@@ -394,7 +394,7 @@ DWORD WINAPI ThreadProc2( LPVOID lpParameter )
 // Name: main
 // Desc: Entry point to the program.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Initialize the console window
     g_console.Create( "game:\\Media\\Fonts\\Arial_12.xpr", 0xFF0000FF, 0xFFFFFFFF );
@@ -422,7 +422,7 @@ VOID __cdecl main()
     {
         Print( L"*** Error creating sample threads.\n" );
         DetectRebootKeypress();
-        return; // to silence Code Analysis
+        return 0; // to silence Code Analysis
     }
 
 #ifdef WDTHREAD

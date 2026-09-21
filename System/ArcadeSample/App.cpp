@@ -18,7 +18,7 @@ XEX_TITLE_ID( TITLEID_ARCADESAMPLE ) // Title ID for ArcadeSample
 //--------------------------------------------------------------------------------------
 // Application entry point.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Run the application    
     ArcadeSample::g_App.Run();

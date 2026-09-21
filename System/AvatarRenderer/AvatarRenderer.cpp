@@ -159,7 +159,7 @@ LPXAVATARANIMATION Sample::UserAvatarData::s_pAnimations[ NUM_ANIMATIONS ];
 // Name: main()
 // Desc: The application's entry point
 //-------------------------------------------------------------------------------------
-void __cdecl main()
+int __cdecl main()
 {
     Sample atgApp;
     ZeroMemory( &atgApp.m_d3dpp, sizeof( atgApp.m_d3dpp ) );

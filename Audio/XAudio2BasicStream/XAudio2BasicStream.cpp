@@ -33,7 +33,7 @@ struct StreamingVoiceContext : public IXAudio2VoiceCallback
     virtual ~StreamingVoiceContext(){ CloseHandle( hBufferEndEvent ); }
 };
 
-void main( void )
+int main( void )
 {
     HRESULT hr = S_OK;
 

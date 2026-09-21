@@ -58,7 +58,7 @@ VOID SimulateIO()
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     srand( GetTickCount() );
 
@@ -72,7 +72,7 @@ VOID __cdecl main()
     if( dwErr != ERROR_SUCCESS )
     {
         g_Console.Format( "Error: Could not initialize CIV.\n" );
-        return;
+        return 0;
     }
 
     g_Console.Format( "\nPress A to inject hash errors\n" );

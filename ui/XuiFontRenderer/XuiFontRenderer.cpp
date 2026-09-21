@@ -212,7 +212,7 @@ HRESULT CMyApp::Render()
 // Name: main
 // Desc: Application entry point.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Declare helper necessary to locate resources inside an xzp archive.
     ATG::MediaLocator mediaLocator( L"file://game:/media/xuifontrenderer.xzp" );
@@ -236,13 +236,13 @@ VOID __cdecl main()
 
     IDirect3D9* pD3D = Direct3DCreate9( D3D_SDK_VERSION );
     if( !pD3D )
-        return;
+        return 0;
 
     HRESULT hr = pD3D->CreateDevice( 0, D3DDEVTYPE_HAL, NULL,
                                      D3DCREATE_HARDWARE_VERTEXPROCESSING, &d3dpp, &g_pDevice );
     if( FAILED( hr ) )
     {
-        return;
+        return 0;
     }
 
 
@@ -251,7 +251,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed intializing application.\n" );
-        return;
+        return 0;
     }
 
     // Initialize custom font renderer
@@ -268,7 +268,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed to register default typeface.\n" );
-        return;
+        return 0;
     }
 
     // Load the skin file used for the scene.

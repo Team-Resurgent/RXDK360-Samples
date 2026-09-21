@@ -48,7 +48,7 @@ VOID PlayXMA2Streamed( IXAudio2* pXaudio2, const char* szFilename, DWORD dwPlayB
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     HRESULT hr;
 

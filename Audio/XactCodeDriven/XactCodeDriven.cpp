@@ -142,7 +142,7 @@ VOID PlayFromWaveFile( IXACT3Engine* pXACTEngine )
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Initialize the XACT runtime parameters
     XACT_RUNTIME_PARAMETERS xrParams = {0};

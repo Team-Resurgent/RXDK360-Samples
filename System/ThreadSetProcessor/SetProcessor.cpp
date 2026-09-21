@@ -88,7 +88,7 @@ DWORD WINAPI ThreadProc( LPVOID lpParameter )
 // Name: main
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Before a critical section can be used, it must be initialized using
     // the InitializeCriticalSection function.  

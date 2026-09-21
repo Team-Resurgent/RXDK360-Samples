@@ -38,7 +38,7 @@ Set-StrictMode -Version 2.0
 $ErrorActionPreference = "Stop"
 
 $Platform    = "Xbox 360"
-$Toolset     = "2010-01"
+$Toolset     = "clang"
 $VcxprojType = "8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942"
 $CommonName  = "Common"
 $CompileExt  = @(".cpp", ".cxx", ".cc", ".c")
@@ -231,6 +231,8 @@ function New-Vcxproj($name, $guid, $confType, $cpps, $hdrs, $includeDirs, $catLi
         $o.Add("  <PropertyGroup Condition=`"$cond`" Label=`"Configuration`">")
         $o.Add("    <ConfigurationType>$confType</ConfigurationType>")
         $o.Add("    <PlatformToolset>$Toolset</PlatformToolset>")
+        # The clang toolset builds stock XDK/ATG headers in always-modern mode.
+        $o.Add('    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>')
         if ($c.Wpo) { $o.Add('    <WholeProgramOptimization>true</WholeProgramOptimization>') }
         $o.Add('  </PropertyGroup>')
     }

@@ -1195,7 +1195,7 @@ void CMyApp::RunFrame()
 // Name: main
 // Desc: Application entry point.
 //----------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Declare helper necessary to locate resources inside an xzp archive.
     ATG::MediaLocator mediaLocator( L"file://game:/media/tabbedscene.xzp" );
@@ -1206,7 +1206,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed intializing application.\n" );
-        return;
+        return 0;
     }
 
     // Register a default typeface.
@@ -1214,7 +1214,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed to register default typeface.\n" );
-        return;
+        return 0;
     }
 
     // Load the skin file used for the scene.
@@ -1223,7 +1223,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed to load the skin.\n" );
-        return;
+        return 0;
     }
 
     // Load the scene.
@@ -1232,7 +1232,7 @@ VOID __cdecl main()
     if( FAILED( hr ) )
     {
         OutputDebugString( "Failed to load the scene.\n" );
-        return;
+        return 0;
     }
 
     // Run the scene.    

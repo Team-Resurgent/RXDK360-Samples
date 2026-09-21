@@ -221,7 +221,7 @@ HRESULT CMyApp::UnregisterXuiClasses()
 // Name: main()
 // Desc: Application entry point.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     // Declare helper necessary to locate resources inside an xzp archive.
     ATG::MediaLocator mediaLocator( L"file://game:/media/xuieffect.xzp" );

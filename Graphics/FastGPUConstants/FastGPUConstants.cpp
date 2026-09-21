@@ -209,7 +209,7 @@ struct SkinVertex
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     Sample App;
     ATG::GetVideoSettings( &App.m_d3dpp.BackBufferWidth, &App.m_d3dpp.BackBufferHeight );

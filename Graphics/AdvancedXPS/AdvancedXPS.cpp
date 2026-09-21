@@ -195,7 +195,7 @@ private:
 // Name: main()
 // Desc: Entry point to the program
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     Sample atgApp;
     atgApp.m_dwDeviceCreationFlags |= D3DCREATE_CREATE_THREAD_ON_2 | D3DCREATE_CREATE_THREAD_ON_3 |

@@ -102,7 +102,7 @@ private:
 // Name: main()
 // Desc: Entry point to the sample.
 //--------------------------------------------------------------------------------------
-VOID __cdecl main()
+INT __cdecl main()
 {
     Sample FlightSample;
     ATG::GetVideoSettings( &FlightSample.m_d3dpp.BackBufferWidth, &FlightSample.m_d3dpp.BackBufferHeight );
