@@ -136,7 +136,7 @@
       <AdditionalDependencies>xapilib.lib;d3d9ltcg.lib;d3dx9.lib;xgraphics.lib;xboxkrnl.lib;xnet.lib;xaudio2.lib;xact3ltcg.lib;x3daudioltcg.lib;xmcoreltcg.lib;vcomp.lib;xhv2.lib;xonline.lib;xparty.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <Target Name="RxdkGenSpa" BeforeTargets="ClCompile" Inputs="$(ProjectDir)Sessions.gameconfig" Outputs="$(ProjectDir)Sessions.spa.h">
+  <Target Name="RxdkGen1" BeforeTargets="ClCompile" Inputs="$(ProjectDir)Sessions.gameconfig" Outputs="$(ProjectDir)Sessions.spa.h">
     <Message Importance="high" Text="RXDK-360: generating Sessions.spa.h" />
     <Exec Command="&quot;$(RxdkBinDir)\spac.exe&quot; -nologo -forceoverwrite -h &quot;$(ProjectDir)Sessions.spa.h&quot; -o &quot;$(ProjectDir)Sessions.spa&quot; &quot;$(ProjectDir)Sessions.gameconfig&quot;" />
   </Target>

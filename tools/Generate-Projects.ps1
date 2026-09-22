@@ -222,6 +222,47 @@ function Get-SpaStep([string]$dir, [string]$blob) {
     return @{ Cmd = $cmd; In = $gcRel; Out = $hdr }
 }
 
+# psa/vsa steps for pixel/vertex shader ASSEMBLY (.psh/.vsh) a source #includes
+# as "<base>.h" (defining g_<base>), when that header is not already present.
+# Returns a list of step descriptors.
+function Get-ShaderSteps([string]$dir, [string]$blob) {
+    $steps = @()
+    # (-Include is ignored with -LiteralPath, so filter on the extension here.)
+    #   .psh -> psa (pixel shader asm), .vsh/.vsm -> vsa (vertex shader asm/microcode),
+    #   .hlsl -> fxc (target vs_3_0/ps_3_0 chosen from the VS/PS name suffix, entry main).
+    $exts = @(".psh", ".vsh", ".vsm", ".hlsl")
+    $shaders = @(Get-ChildItem -LiteralPath $dir -Recurse -File | Where-Object { $exts -contains $_.Extension.ToLower() })
+    # A shader-header #include the sample makes but no committed .h satisfies.
+    $absentIncludes = @([regex]::Matches($blob, '#include\s*"([A-Za-z0-9_]+\.h)"', 'IgnoreCase') |
+        ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique |
+        Where-Object { -not (Test-Path (Join-Path $dir $_)) })
+    foreach ($sh in $shaders) {
+        $nm = [IO.Path]::GetFileNameWithoutExtension($sh.Name)
+        $base = (Resolve-Path -LiteralPath $dir).Path
+        $rel = $sh.FullName.Substring($base.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")
+        # Header + variable name. Convention A (CubicBezierPatch): <base>.h is
+        # #included and the sample uses g_<base> -> pass /Vng_<base>. Convention B
+        # (MicrocodeMemExport): the header has an unrelated name and the sample
+        # uses the assembler's DEFAULT variable (g_xvs_main/g_xps_main) -> map to
+        # the single absent shader-header include and omit /Vn.
+        if (($blob -match [regex]::Escape("$nm.h")) -and -not (Test-Path (Join-Path $sh.DirectoryName "$nm.h"))) {
+            $hdr = [IO.Path]::ChangeExtension($rel, ".h"); $vn = " `"/Vng_$nm`""
+        } elseif ($shaders.Count -eq 1 -and $absentIncludes.Count -eq 1) {
+            $hdr = (Split-Path $rel -Parent); if ($hdr) { $hdr = "$hdr\" }; $hdr = "$hdr$($absentIncludes[0])"; $vn = ""
+        } else { continue }
+        switch ($sh.Extension.ToLower()) {
+            ".psh"  { $cmd = ('"$(RxdkBinDir)\psa.exe" /nologo "/Fh$(ProjectDir){0}"{1} "$(ProjectDir){2}"' -f $hdr, $vn, $rel) }
+            ".hlsl" {
+                $tgt = if ($nm -match 'PS$') { "ps_3_0" } else { "vs_3_0" }
+                $cmd = ('"$(RxdkBinDir)\fxc.exe" /nologo "/T{0}" /Emain "/Fh$(ProjectDir){1}"{2} "$(ProjectDir){3}"' -f $tgt, $hdr, $vn, $rel)
+            }
+            default { $cmd = ('"$(RxdkBinDir)\vsa.exe" /nologo "/Fh$(ProjectDir){0}"{1} "$(ProjectDir){2}"' -f $hdr, $vn, $rel) }
+        }
+        $steps += @{ Cmd = $cmd; In = $rel; Out = $hdr }
+    }
+    return $steps
+}
+
 function New-Vcxproj($name, $guid, $confType, $cpps, $hdrs, $includeDirs, $catLibs, $projRefs, $preBuild) {
     $isApp = ($confType -eq "Application")
     $o = New-Object System.Collections.Generic.List[string]
@@ -283,12 +324,17 @@ function New-Vcxproj($name, $guid, $confType, $cpps, $hdrs, $includeDirs, $catLi
         $o.Add('  </ItemDefinitionGroup>')
     }
     if ($preBuild) {
-        # The "Xbox 360" platform does not run PreBuildEvent, so wire spac as a
-        # real target before compilation. Inputs/Outputs make it incremental.
-        $o.Add("  <Target Name=`"RxdkGenSpa`" BeforeTargets=`"ClCompile`" Inputs=`"`$(ProjectDir)$(ConvertTo-Xml $preBuild.In)`" Outputs=`"`$(ProjectDir)$(ConvertTo-Xml $preBuild.Out)`">")
-        $o.Add("    <Message Importance=`"high`" Text=`"RXDK-360: generating $(ConvertTo-Xml $preBuild.Out)`" />")
-        $o.Add("    <Exec Command=`"$(ConvertTo-Xml $preBuild.Cmd)`" />")
-        $o.Add('  </Target>')
+        # The "Xbox 360" platform does not run PreBuildEvent, so wire each
+        # generated-header step (spac for .spa.h, psa/vsa for shader .h) as a real
+        # target before compilation. Inputs/Outputs make each incremental.
+        $i = 0
+        foreach ($step in @($preBuild)) {
+            $i++
+            $o.Add("  <Target Name=`"RxdkGen$i`" BeforeTargets=`"ClCompile`" Inputs=`"`$(ProjectDir)$(ConvertTo-Xml $step.In)`" Outputs=`"`$(ProjectDir)$(ConvertTo-Xml $step.Out)`">")
+            $o.Add("    <Message Importance=`"high`" Text=`"RXDK-360: generating $(ConvertTo-Xml $step.Out)`" />")
+            $o.Add("    <Exec Command=`"$(ConvertTo-Xml $step.Cmd)`" />")
+            $o.Add('  </Target>')
+        }
     }
     if ($cpps.Count -gt 0) {
         $o.Add('  <ItemGroup>')
@@ -392,7 +438,10 @@ foreach ($area in (Get-ChildItem -LiteralPath $rootFull -Directory | Sort-Object
         $guid = Get-StableGuid ($name + "|" + (Join-Path $area.Name $name))
         $toCommon = Get-RelPath $sample.FullName $commonDir
         $catLibs = Get-CategoryLibs $blob
-        $pre = Get-SpaStep $sample.FullName $blob
+        $pre = @()
+        $spa = Get-SpaStep $sample.FullName $blob
+        if ($spa) { $pre += $spa }
+        $pre += Get-ShaderSteps $sample.FullName $blob
         $ref = @{ Path = "$toCommon\$CommonName.vcxproj"; Guid = $commonGuid }
         Write-Generated (Join-Path $sample.FullName "$name.vcxproj") `
             (New-Vcxproj $name $guid "Application" $src.cpps $src.hdrs $toCommon $catLibs @($ref) $pre)

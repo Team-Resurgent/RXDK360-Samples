@@ -140,6 +140,9 @@
     <ClCompile Include="CubicBezierPatch.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CubicBezierPatchVS.h" />
+    <ClInclude Include="DebugVS.h" />
+    <ClInclude Include="SimplePS.h" />
     <ClInclude Include="Teapot.h" />
   </ItemGroup>
   <ItemGroup>

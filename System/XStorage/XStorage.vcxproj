@@ -136,7 +136,7 @@
       <AdditionalDependencies>xapilib.lib;d3d9ltcg.lib;d3dx9.lib;xgraphics.lib;xboxkrnl.lib;xnet.lib;xaudio2.lib;xact3ltcg.lib;x3daudioltcg.lib;xmcoreltcg.lib;vcomp.lib;xonline.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <Target Name="RxdkGenSpa" BeforeTargets="ClCompile" Inputs="$(ProjectDir)XStorage.xlast" Outputs="$(ProjectDir)XStorage.spa.h">
+  <Target Name="RxdkGen1" BeforeTargets="ClCompile" Inputs="$(ProjectDir)XStorage.xlast" Outputs="$(ProjectDir)XStorage.spa.h">
     <Message Importance="high" Text="RXDK-360: generating XStorage.spa.h" />
     <Exec Command="&quot;$(RxdkBinDir)\spac.exe&quot; -nologo -forceoverwrite -h &quot;$(ProjectDir)XStorage.spa.h&quot; -o &quot;$(ProjectDir)XStorage.spa&quot; &quot;$(ProjectDir)XStorage.xlast&quot;" />
   </Target>
