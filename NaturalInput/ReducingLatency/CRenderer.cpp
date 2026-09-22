@@ -552,7 +552,7 @@ VOID CRenderer::Render( const ERender Render, CFrameBufferData* pFrameBufferData
 // Desc: Render post effects
 //--------------------------------------------------------------------------------------
 
-VOID CRenderer::RenderPostEffects( const dwFlags, CFrameBufferData* pFrameBufferData )
+VOID CRenderer::RenderPostEffects( const DWORD dwFlags, CFrameBufferData* pFrameBufferData )
 {
     // Bias towards pixel shader
     m_pd3dDevice->SetShaderGPRAllocation( 0, 16, GPU_GPRS - 16 );

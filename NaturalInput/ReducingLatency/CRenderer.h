@@ -58,7 +58,7 @@ public:
     HRESULT CreateRenderTargets( D3DPRESENT_PARAMETERS* pParams );
 
     VOID Render( const ERender Render, CFrameBufferData* pFrameBufferData );
-    VOID RenderPostEffects( const dwFlags, CFrameBufferData* pFrameBufferData );
+    VOID RenderPostEffects( const DWORD dwFlags, CFrameBufferData* pFrameBufferData );
 
     VOID Update( CFrameBufferData* pFrameBufferData, const FLOAT fTime );
     VOID UpdateAvatar( CFrameBufferData* pFrameBufferData, const FLOAT fTime );
