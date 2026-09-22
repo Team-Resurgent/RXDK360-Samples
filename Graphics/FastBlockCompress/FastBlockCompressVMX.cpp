@@ -1852,7 +1852,7 @@ __forceinline VOID CompressUVBlockVMXBYTE( BYTE *pDst,
     // 0x00 means sample is in the upper right quadrant ( 3 ) or lower left quadrant ( 0 )
     // 0xff means sample is in the lower right quadrant ( 2 ) or upper left quadrant ( 1 )
     // If the 0x00's outnumber the 0xff's we choose anchors pointing this way: / 
-    // If the 0xff's outnumber the 0x00's we choose anchors pointing this way: \ 
+    // If the 0xff's outnumber the 0x00's we choose anchors pointing this way:  
     __vector4 vAnchorTest       = __vavgub( vQuad1or2[0], vQuad1or2[1] );
     vAnchorTest                 = __vavgub( vAnchorTest, __vsldoi( vAnchorTest, vAnchorTest, 8 ) );
     vAnchorTest                 = __vavgub( vAnchorTest, __vsldoi( vAnchorTest, vAnchorTest, 4 ) );
