@@ -202,7 +202,11 @@ function Get-SpaStep([string]$dir, [string]$blob) {
     # .xlast (QNet/ArcadeSample/XStorage), so fall back to it when there is no
     # .gameconfig.
     $m = [regex]::Match($blob, '#include\s*"([^"]*\.spa\.h)"', 'IgnoreCase')
-    $wantBase = if ($m.Success) { [IO.Path]::GetFileNameWithoutExtension([IO.Path]::GetFileName($m.Groups[1].Value.Replace("/", "\"))) } else { "" }
+    # Only titles that actually #include a .spa.h need one. A .xlast may also be a
+    # content/package project (ArcadeLicenseCheck) that spac cannot compile as a
+    # game config -- don't emit a spurious step for it.
+    if (-not $m.Success) { return $null }
+    $wantBase = [IO.Path]::GetFileNameWithoutExtension([IO.Path]::GetFileName($m.Groups[1].Value.Replace("/", "\")))
     $gc = Get-ChildItem -LiteralPath $dir -Recurse -Filter *.gameconfig -File | Select-Object -First 1
     if (-not $gc) {
         # Prefer the .xlast whose base name matches the wanted .spa.h (the game

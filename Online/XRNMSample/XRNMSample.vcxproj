@@ -136,10 +136,6 @@
       <AdditionalDependencies>xapilib.lib;d3d9ltcg.lib;d3dx9.lib;xgraphics.lib;xboxkrnl.lib;xnet.lib;xaudio2.lib;xact3ltcg.lib;x3daudioltcg.lib;xmcoreltcg.lib;vcomp.lib;xonline.lib;xrnm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <Target Name="RxdkGen1" BeforeTargets="ClCompile" Inputs="$(ProjectDir)XRNMSample.gameconfig" Outputs="$(ProjectDir)XRNMSample.spa.h">
-    <Message Importance="high" Text="RXDK-360: generating XRNMSample.spa.h" />
-    <Exec Command="&quot;$(RxdkBinDir)\spac.exe&quot; -nologo -forceoverwrite -h &quot;$(ProjectDir)XRNMSample.spa.h&quot; -o &quot;$(ProjectDir)XRNMSample.spa&quot; &quot;$(ProjectDir)XRNMSample.gameconfig&quot;" />
-  </Target>
   <ItemGroup>
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Messages.cpp" />

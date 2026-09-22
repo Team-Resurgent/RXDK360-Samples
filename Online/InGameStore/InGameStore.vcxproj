@@ -136,10 +136,6 @@
       <AdditionalDependencies>xapilib.lib;d3d9ltcg.lib;d3dx9.lib;xgraphics.lib;xboxkrnl.lib;xnet.lib;xaudio2.lib;xact3ltcg.lib;x3daudioltcg.lib;xmcoreltcg.lib;vcomp.lib;xonline.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <Target Name="RxdkGen1" BeforeTargets="ClCompile" Inputs="$(ProjectDir)InGameStore.gameconfig" Outputs="$(ProjectDir)InGameStore.spa.h">
-    <Message Importance="high" Text="RXDK-360: generating InGameStore.spa.h" />
-    <Exec Command="&quot;$(RxdkBinDir)\spac.exe&quot; -nologo -forceoverwrite -h &quot;$(ProjectDir)InGameStore.spa.h&quot; -o &quot;$(ProjectDir)InGameStore.spa&quot; &quot;$(ProjectDir)InGameStore.gameconfig&quot;" />
-  </Target>
   <ItemGroup>
     <ClCompile Include="Enumerator.cpp" />
     <ClCompile Include="InGameContentManager.cpp" />
