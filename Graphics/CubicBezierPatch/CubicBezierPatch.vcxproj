@@ -136,6 +136,18 @@
       <AdditionalDependencies>xapilib.lib;d3d9ltcg.lib;d3dx9.lib;xgraphics.lib;xboxkrnl.lib;xnet.lib;xaudio2.lib;xact3ltcg.lib;x3daudioltcg.lib;xmcoreltcg.lib;vcomp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
+  <Target Name="RxdkGen1" BeforeTargets="ClCompile" Inputs="$(ProjectDir)CubicBezierPatchVS.vsm" Outputs="$(ProjectDir)CubicBezierPatchVS.h">
+    <Message Importance="high" Text="RXDK-360: generating CubicBezierPatchVS.h" />
+    <Exec Command="&quot;$(RxdkBinDir)\vsa.exe&quot; /nologo &quot;/Fh$(ProjectDir)CubicBezierPatchVS.h&quot; &quot;/Vng_CubicBezierPatchVS&quot; &quot;$(ProjectDir)CubicBezierPatchVS.vsm&quot;" />
+  </Target>
+  <Target Name="RxdkGen2" BeforeTargets="ClCompile" Inputs="$(ProjectDir)DebugVS.hlsl" Outputs="$(ProjectDir)DebugVS.h">
+    <Message Importance="high" Text="RXDK-360: generating DebugVS.h" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; /Emain &quot;/Fh$(ProjectDir)DebugVS.h&quot; &quot;/Vng_DebugVS&quot; &quot;$(ProjectDir)DebugVS.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen3" BeforeTargets="ClCompile" Inputs="$(ProjectDir)SimplePS.psh" Outputs="$(ProjectDir)SimplePS.h">
+    <Message Importance="high" Text="RXDK-360: generating SimplePS.h" />
+    <Exec Command="&quot;$(RxdkBinDir)\psa.exe&quot; /nologo &quot;/Fh$(ProjectDir)SimplePS.h&quot; &quot;/Vng_SimplePS&quot; &quot;$(ProjectDir)SimplePS.psh&quot;" />
+  </Target>
   <ItemGroup>
     <ClCompile Include="CubicBezierPatch.cpp" />
   </ItemGroup>

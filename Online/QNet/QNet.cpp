@@ -1359,7 +1359,7 @@ HRESULT CQNetSample::RunStateSessionDeleting()
 // Name: main()
 // Desc: Main executable entry point
 //-----------------------------------------------------------------------------
-void _cdecl main( int argc, char * argv[] )
+int _cdecl main( int argc, char * argv[] )
 {
     HRESULT hr;
 

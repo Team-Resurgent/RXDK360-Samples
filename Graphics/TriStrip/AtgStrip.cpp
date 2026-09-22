@@ -164,7 +164,7 @@ struct SortEntry
     INT iOrigIndex;
 
     // Define the < operator, which is needed for the STL sort() routine.
-    BOOL operator<( const SortEntry& rhs )
+    BOOL operator<( const SortEntry& rhs ) const
     {
         return iFirstUsed < rhs.iFirstUsed;
     }

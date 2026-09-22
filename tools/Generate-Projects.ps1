@@ -232,10 +232,18 @@ function Get-ShaderSteps([string]$dir, [string]$blob) {
     #   .hlsl -> fxc (target vs_3_0/ps_3_0 chosen from the VS/PS name suffix, entry main).
     $exts = @(".psh", ".vsh", ".vsm", ".hlsl")
     $shaders = @(Get-ChildItem -LiteralPath $dir -Recurse -File | Where-Object { $exts -contains $_.Extension.ToLower() })
-    # A shader-header #include the sample makes but no committed .h satisfies.
-    $absentIncludes = @([regex]::Matches($blob, '#include\s*"([A-Za-z0-9_]+\.h)"', 'IgnoreCase') |
-        ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique |
-        Where-Object { -not (Test-Path (Join-Path $dir $_)) })
+    # Every "X.h" the sample #includes (quoted, exact -- so "Foo.h" never matches a
+    # runtime-compiled "Foo.hlsl"). A generated shader header is a build artifact
+    # (gitignored), so we do NOT skip on its presence -- the step is incremental.
+    $allIncludes = @([regex]::Matches($blob, '#include\s*"([A-Za-z0-9_]+\.h)"', 'IgnoreCase') |
+        ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique)
+    # For the assembly default-var fallback: an included header that no shader
+    # source is named after and that has no sibling .cpp -- i.e. a generated shader
+    # header (e.g. MemExportShader.h). Not Test-Path, which a generated .h pollutes.
+    $srcBases = @($shaders | ForEach-Object { [IO.Path]::GetFileNameWithoutExtension($_.Name) })
+    $absentIncludes = @($allIncludes | Where-Object {
+        ($srcBases -notcontains [IO.Path]::GetFileNameWithoutExtension($_)) -and
+        (-not (Test-Path (Join-Path $dir ([IO.Path]::ChangeExtension($_, '.cpp'))))) })
     foreach ($sh in $shaders) {
         $nm = [IO.Path]::GetFileNameWithoutExtension($sh.Name)
         $base = (Resolve-Path -LiteralPath $dir).Path
@@ -248,7 +256,7 @@ function Get-ShaderSteps([string]$dir, [string]$blob) {
         # Match the EXACT include "<base>.h" (in $absentIncludes, parsed with the
         # closing quote) -- not a loose substring, or "Foo.h" would false-match a
         # runtime-compiled "Foo.hlsl" reference and emit a bogus fxc step.
-        if (($absentIncludes -contains "$nm.h") -and -not (Test-Path (Join-Path $sh.DirectoryName "$nm.h"))) {
+        if ($allIncludes -contains "$nm.h") {
             $hdr = [IO.Path]::ChangeExtension($rel, ".h"); $vn = " `"/Vng_$nm`""
         } elseif ($sh.Extension.ToLower() -ne ".hlsl" -and $shaders.Count -eq 1 -and $absentIncludes.Count -eq 1) {
             # Default-variable convention only for ASSEMBLY shaders (a lone .vsm/.psh/
