@@ -207,7 +207,7 @@ VOID Shutdown( VOID )
 // Name: OutputStringV()
 // Desc: Internal helper function
 //--------------------------------------------------------------------------------------
-static VOID OutputStringV( const CHAR* strFormat, const va_list pArgList )
+static VOID OutputStringV( const CHAR* strFormat, va_list pArgList )
 {
     CHAR str[2048];
     // Use the secure CRT to avoid buffer overruns. Specify a count of

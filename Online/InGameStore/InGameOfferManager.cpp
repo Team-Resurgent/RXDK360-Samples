@@ -304,7 +304,7 @@ OfferSelectionTable::RenderOneRow( INT iWhichRow )
 	
 	// Draw the checkbox
 	IndexSet::iterator iter = m_sCheckmarkedItems.find( iWhichRow );
-	DrawRowElement( ( iter == m_sCheckmarkedItems.end() ) ? L"" : GLYPH_CHECK_MARK );
+	DrawRowElement( ( WCHAR* )( ( iter == m_sCheckmarkedItems.end() ) ? L"" : GLYPH_CHECK_MARK ) );
 	
 	__super::RenderOneRow( rec );
 }

@@ -87,7 +87,7 @@ $LtcgLib = @{ "xuirender.lib"="xuirenderltcg.lib"; "xavatar2.lib"="xavatar2ltcg.
 $LibTriggers = @(
     @{ t = @("xhv2.h", "XHV2");                                          libs = @("xhv2.lib") },
     @{ t = @("nuiapi.h", "AtgNui", "NuiImageStream", "NuiSkeleton", "NuiInitialize", "NUI_"); libs = @("nuiapi.lib", "nuihandles.lib", "st.lib") },
-    @{ t = @("nuispeech.h", "NuiSpeech");                                libs = @("nuispeech.lib") },
+    @{ t = @("nuispeech.h", "NuiSpeech");                                libs = @("nuispeech.lib", "NuiAudio.lib") },
     @{ t = @("nuifitness", "NuiFitness");                                libs = @("nuifitnessapi.lib") },
     @{ t = @("xonline.h", "XOnline", "XSessionCreate", "XSessionSearch"); libs = @("xonline.lib") },
     @{ t = @("xparty.h", "XParty", "XShowCommunitySessions");            libs = @("xparty.lib") },

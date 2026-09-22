@@ -369,12 +369,12 @@ private:
     // Helper functions to update this job's status depending on its current status.
     inline void UpdateStatusAfterNotStarted() 
         { assert( m_Status == JOBSTATUS_NOTSTARTED || m_Status == JOBSTATUS_WAITING ); 
-          m_pNotifyCallback == NULL ? UpdateStatusAfterNotify() : 
-          m_Status = JOBSTATUS_NOTIFY; }
+          m_pNotifyCallback == NULL ? UpdateStatusAfterNotify() :
+          (void)( m_Status = JOBSTATUS_NOTIFY ); }
     inline void UpdateStatusAfterWaiting() { UpdateStatusAfterNotStarted(); }
     inline void UpdateStatusAfterNotify() 
-        { m_pFinalizeFunction == NULL ? UpdateStatusAfterFinalize() : 
-          m_Status = JOBSTATUS_FINALIZE; }
+        { m_pFinalizeFunction == NULL ? UpdateStatusAfterFinalize() :
+          (void)( m_Status = JOBSTATUS_FINALIZE ); }
     inline void UpdateStatusAfterFinalize() { m_Status = JOBSTATUS_COMPLETED; }
 
 

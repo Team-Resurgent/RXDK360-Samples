@@ -52,7 +52,7 @@ OfferTableControl::RenderOneRow( const XMARKETPLACE_CONTENTOFFER_INFO& OfferInfo
 	DrawRowElement( L"0x%08X%08X", pdw[0], pdw[1] );
 
 	// Draw the fUserHasPurchased value
-	DrawRowElement( OfferInfo.fUserHasPurchased ? L"TRUE" : L"FALSE" );
+	DrawRowElement( OfferInfo.fUserHasPurchased ? (WCHAR*)L"TRUE" : (WCHAR*)L"FALSE" );
 }
 
 //--------------------------------------------------------------------------------------
@@ -124,7 +124,7 @@ OfferDetailsTableControl::OfferDetailsTableControl
 	
 	// fIsUnrestrictedLicense
 	AddRowElement( L"fIsUnrestrictedLicense" );
-	AddRowElement( pOffer->fIsUnrestrictedLicense ? L"TRUE" : L"FALSE" );
+	AddRowElement( pOffer->fIsUnrestrictedLicense ? (WCHAR*)L"TRUE" : (WCHAR*)L"FALSE" );
 	
 	// dwLicenseMask
 	AddRowElement( L"dwLicenseMask" );
@@ -144,7 +144,7 @@ OfferDetailsTableControl::OfferDetailsTableControl
 
 	// fUserHasPurchased
 	AddRowElement( L"fUserHasPurchased" );
-	AddRowElement( pOffer->fUserHasPurchased ? L"TRUE" : L"FALSE" );
+	AddRowElement( pOffer->fUserHasPurchased ? (WCHAR*)L"TRUE" : (WCHAR*)L"FALSE" );
 	
 	// dwPackageSize
 	AddRowElement( L"dwPackageSize" );

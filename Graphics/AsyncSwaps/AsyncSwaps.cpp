@@ -872,7 +872,7 @@ public:
     virtual WCHAR* GetOptionName() 
     { 
         UINT iValue = GetValue( );
-        return GetValid() ? m_OptionNames[iValue] : L"n/a"; 
+        return ( WCHAR* )( GetValid() ? m_OptionNames[iValue] : L"n/a" );
     }
 
     UINT                GetValue() { return m_iValue; };
