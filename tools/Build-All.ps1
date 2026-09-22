@@ -51,7 +51,9 @@ $onlySet = @()
 if ($Only) { $onlySet = @($Only.Split(",") | ForEach-Object { $_.Trim() }) }
 
 function Invoke-Build([string]$sln, [string]$cfg) {
-    $out = & $msb $sln /p:Configuration=$cfg "/p:Platform=Xbox 360" /nologo /v:q /clp:ErrorsOnly 2>&1
+    # DeploymentType=Xenia makes the Deploy target a no-op (no xbecopy console
+    # connect, which just times out on the build box); we only need the .xex.
+    $out = & $msb $sln /p:Configuration=$cfg "/p:Platform=Xbox 360" /p:DeploymentType=Xenia /nologo /v:q /clp:ErrorsOnly 2>&1
     $name = [IO.Path]::GetFileNameWithoutExtension($sln)
     $xex = Join-Path (Join-Path (Split-Path $sln -Parent) $cfg) "$name.xex"
     $err = ($out | Where-Object { $_ -match "error " -and $_ -notmatch "xbecopy|Could not connect|X1001" } |
