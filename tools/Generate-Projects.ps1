@@ -245,9 +245,15 @@ function Get-ShaderSteps([string]$dir, [string]$blob) {
         # (MicrocodeMemExport): the header has an unrelated name and the sample
         # uses the assembler's DEFAULT variable (g_xvs_main/g_xps_main) -> map to
         # the single absent shader-header include and omit /Vn.
-        if (($blob -match [regex]::Escape("$nm.h")) -and -not (Test-Path (Join-Path $sh.DirectoryName "$nm.h"))) {
+        # Match the EXACT include "<base>.h" (in $absentIncludes, parsed with the
+        # closing quote) -- not a loose substring, or "Foo.h" would false-match a
+        # runtime-compiled "Foo.hlsl" reference and emit a bogus fxc step.
+        if (($absentIncludes -contains "$nm.h") -and -not (Test-Path (Join-Path $sh.DirectoryName "$nm.h"))) {
             $hdr = [IO.Path]::ChangeExtension($rel, ".h"); $vn = " `"/Vng_$nm`""
-        } elseif ($shaders.Count -eq 1 -and $absentIncludes.Count -eq 1) {
+        } elseif ($sh.Extension.ToLower() -ne ".hlsl" -and $shaders.Count -eq 1 -and $absentIncludes.Count -eq 1) {
+            # Default-variable convention only for ASSEMBLY shaders (a lone .vsm/.psh/
+            # .vsh -> the one absent shader header). Never for .hlsl, which is often
+            # compiled at runtime (mapping it to an unrelated missing .h is wrong).
             $hdr = (Split-Path $rel -Parent); if ($hdr) { $hdr = "$hdr\" }; $hdr = "$hdr$($absentIncludes[0])"; $vn = ""
         } else { continue }
         switch ($sh.Extension.ToLower()) {
