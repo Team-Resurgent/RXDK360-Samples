@@ -104,7 +104,7 @@ $LibTriggers = @(
     @{ t = @("xauth.h", "XAuth");                                        libs = @("xauth.lib") },
     @{ t = @("xmp.h", "XMPGet", "XMP_");                                 libs = @("xmp.lib") },
     @{ t = @("xffb.h", "XFFB");                                          libs = @("xffb.lib") },
-    @{ t = @("xcam.h", "XCamera", "XCAMERA");                            libs = @("xcam.lib") },
+    @{ t = @("xcam.h", "XCamera", "XCAMERA");                            libs = @("xcam.lib", "xav.lib", "xhttp.lib", "xauth.lib") },
     @{ t = @("xjson.h", "XJSON", "AtgJson", "AtgRest");                  libs = @("xjson.lib") },
     @{ t = @("xinput2.h", "XInput2", "XINPUTID_");                       libs = @("xinput2.lib") },
     @{ t = @("xmedia2.h", "xmedia.h", "IXMedia2", "XmvPlayer", "XMedia2", "AtgMediaLocator"); libs = @("xmedia2.lib") },
