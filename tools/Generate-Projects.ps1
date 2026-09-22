@@ -96,7 +96,7 @@ $LibTriggers = @(
     @{ t = @("xui.h", "xuiapp.h", "XuiInit", "XuiRender", "XuiElement", "XuiDrawText"); libs = @("xuirun.lib", "xuirender.lib") },
     @{ t = @("xuihtml.h", "XuiHtml");                                    libs = @("xuihtml.lib") },
     @{ t = @("xuivideo.h", "XuiVideo");                                  libs = @("xuivideo.lib") },
-    @{ t = @("xav.h", "XAVCreate", "XAV_", "CreateXAV", "IXAVPlayer", "AsfWriter", "IAsfWriter"); libs = @("xav.lib") },
+    @{ t = @("xav.h", "XAVCreate", "XAV_", "CreateXAV", "IXAVPlayer", "AsfWriter", "IAsfWriter"); libs = @("xav.lib", "xhttp.lib", "xauth.lib") },
     @{ t = @("qnet.h", "QNetCreate", "IQNet");                           libs = @("qnetxaudio2.lib") },
     @{ t = @("xime.h", "XimeXui", "XIME");                               libs = @("xime.lib") },
     @{ t = @("xhttp.h", "XHttp", "AtgHttp", "AtgRest");                  libs = @("xhttp.lib") },
