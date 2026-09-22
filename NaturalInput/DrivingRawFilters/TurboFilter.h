@@ -48,7 +48,7 @@ private:
     //
     // Gameplay data
     //
-    NUI_SKELETON_POSITION_CONFIDENCE m_eConfidence;
+    NUI_SKELETON_POSITION_TRACKING_STATE m_eConfidence;
     BOOL m_bIsToggled;
 
     //
@@ -64,7 +64,7 @@ public:
     //
     // Gameplay data accessors
     //
-    inline NUI_SKELETON_POSITION_CONFIDENCE GetConfidence() const { return m_eConfidence; }
+    inline NUI_SKELETON_POSITION_TRACKING_STATE GetConfidence() const { return m_eConfidence; }
     inline BOOL IsToggled() const { return m_bIsToggled; }
     const WCHAR* GetState() const;
 

@@ -44,7 +44,7 @@ TurboFilter::~TurboFilter() { }
 //--------------------------------------------------------------------------------------
 VOID TurboFilter::Reset()
 {
-    m_eConfidence = NUI_SKELETON_POSITION_CONFIDENCE_NONE;
+    m_eConfidence = NUI_SKELETON_POSITION_NOT_TRACKED;
     m_eState = TURBO_WAITING;
     m_bIsToggled = FALSE;
     m_fLastTrackedVelocity = 0.0f;
@@ -94,7 +94,7 @@ VOID TurboFilter::Update( float fElapsedTime, const NUI_SKELETON_DATA *pSkeleton
         if ( bGestureStarted )
         {
             m_eState = TURBO_BOOSTING_IN;
-            m_eConfidence = NUI_SKELETON_POSITION_CONFIDENCE_LOW;
+            m_eConfidence = NUI_SKELETON_POSITION_INFERRED;
             m_fElapsedGestureDuration = m_fElapsedStateDuration = 0.0f;
         }
     }
@@ -120,7 +120,7 @@ VOID TurboFilter::Update( float fElapsedTime, const NUI_SKELETON_DATA *pSkeleton
                      ( m_fElapsedStateDuration >= m_fMinimumBoostingInDuration ) )
                 {
                     m_eState = TURBO_BOOSTING;
-                    m_eConfidence = NUI_SKELETON_POSITION_CONFIDENCE_LOW;
+                    m_eConfidence = NUI_SKELETON_POSITION_INFERRED;
                     m_fElapsedStateDuration = 0.0f;
                 }
                 // If the hand has stopped moving on +z, the player has given up; reset
@@ -135,7 +135,7 @@ VOID TurboFilter::Update( float fElapsedTime, const NUI_SKELETON_DATA *pSkeleton
                 if ( m_fLastTrackedVelocity <= m_fMinimumBoostingOutVelocity )
                 {
                     m_eState = TURBO_BOOSTING_OUT;
-                    m_eConfidence = NUI_SKELETON_POSITION_CONFIDENCE_LOW;
+                    m_eConfidence = NUI_SKELETON_POSITION_INFERRED;
                     m_fElapsedStateDuration = 0.0f;
                 }
                 break;
@@ -146,7 +146,7 @@ VOID TurboFilter::Update( float fElapsedTime, const NUI_SKELETON_DATA *pSkeleton
                      ( m_fElapsedStateDuration <= m_fMinimumBoostingOutDuration ) )
                 {
                     m_eState = TURBO_TOGGLED;
-                    m_eConfidence = NUI_SKELETON_POSITION_CONFIDENCE_LOW;
+                    m_eConfidence = NUI_SKELETON_POSITION_INFERRED;
                 }
                 // If the hand has stopped moving on -z, the player has given up; reset
                 else if ( m_fLastTrackedVelocity > m_fMinimumBoostingOutVelocity )
