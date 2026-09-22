@@ -89,7 +89,7 @@ $LibTriggers = @(
     @{ t = @("nuiapi.h", "AtgNui", "NuiImageStream", "NuiSkeleton", "NuiInitialize", "NUI_"); libs = @("nuiapi.lib", "nuihandles.lib", "st.lib") },
     @{ t = @("nuispeech.h", "NuiSpeech");                                libs = @("nuispeech.lib") },
     @{ t = @("nuifitness", "NuiFitness");                                libs = @("nuifitnessapi.lib") },
-    @{ t = @("xonline.h", "XOnline");                                    libs = @("xonline.lib") },
+    @{ t = @("xonline.h", "XOnline", "XSessionCreate", "XSessionSearch"); libs = @("xonline.lib") },
     @{ t = @("xparty.h", "XParty", "XShowCommunitySessions");            libs = @("xparty.lib") },
     @{ t = @("XStudioApi.h", "XStudio", "XStudioStart", "XStudioMapStreams"); libs = @("xstudio.lib") },
     @{ t = @("xavatar", "XAvatar");                                      libs = @("xavatar2.lib") },
