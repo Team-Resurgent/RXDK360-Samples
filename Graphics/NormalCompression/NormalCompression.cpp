@@ -1947,9 +1947,9 @@ XMFINLINE VOID XMStoreS11S11U10N3
     FXMVECTOR V
 )
 {
-#if defined(_XM_NO_INTRINSICS_)
-    #error We didn't implement this case
-#elif defined(_XM_SSE_INTRINSICS_)
+#if 0 // RXDK360: the no-intrinsics/SSE paths were stubbed; the modern runtime
+      // provides scalar implementations of every VMX intrinsic used below, so
+      // route to the VMX128 body.
 #else // _XM_VMX128_INTRINSICS_
     XMVECTOR               Convert;
     XMVECTOR               Select;
