@@ -53,19 +53,19 @@ static const ULONG LOADED_GRAMMAR_ID = 55;
 static const ULONG NO_GRAMMAR_LOADED = 0;
 
 // WAVE infromation
-static const WAVE_NUM_OF_CHANNELS = 1;
-static const WAVE_SAMPLE_RATE = 16000;
-static const WAVE_AVG_BYTES_PER_SEC = 32000;
-static const WAVE_BLOCK_ALIGN = 2;
-static const WAVE_BITS_PER_SAMPLE = 16;
-static const SIZE_OF_CHUNK_BEFORE_DATA = 36;
+static const int WAVE_NUM_OF_CHANNELS = 1;
+static const int WAVE_SAMPLE_RATE = 16000;
+static const int WAVE_AVG_BYTES_PER_SEC = 32000;
+static const int WAVE_BLOCK_ALIGN = 2;
+static const int WAVE_BITS_PER_SAMPLE = 16;
+static const int SIZE_OF_CHUNK_BEFORE_DATA = 36;
 
 // Number of retain audio events to capture
-static const RETAIN_AUDIO_BUFFER_SIZE = 5;
-static const RETAIN_AUDIO_BUFFER_BYTE_SIZE = RETAIN_AUDIO_BUFFER_SIZE * WAVE_AVG_BYTES_PER_SEC;
+static const int RETAIN_AUDIO_BUFFER_SIZE = 5;
+static const int RETAIN_AUDIO_BUFFER_BYTE_SIZE = RETAIN_AUDIO_BUFFER_SIZE * WAVE_AVG_BYTES_PER_SEC;
 
 // 1000ms of audio buffer before and after SOUND events
-static const EXTRA_AUDIO_BYTES = WAVE_AVG_BYTES_PER_SEC * 1;  
+static const int EXTRA_AUDIO_BYTES = WAVE_AVG_BYTES_PER_SEC * 1;  
 
 
 // WAVE File information
@@ -632,7 +632,7 @@ VOID SpeechRetainApp::ProcessRecognitionEvent( const NUI_SPEECH_EVENT* pEvent )
             __fallthrough;
         case NUI_SPEECH_EVENT_FALSE_RECOGNITION:
             {
-                CHAR *strNUIEvent = (pEvent->eventId == NUI_SPEECH_EVENT_RECOGNITION) ?
+                const CHAR *strNUIEvent = (pEvent->eventId == NUI_SPEECH_EVENT_RECOGNITION) ?
                     "NUI_SPEECH_EVENT_RECOGNITION" : "NUI_SPEECH_EVENT_FALSE_RECOGNITION";
 
                 m_Console.Format( "%s event received.\n", strNUIEvent );

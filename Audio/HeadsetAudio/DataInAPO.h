@@ -48,8 +48,8 @@ public:
 
 private:
     DataInAPO();
-	DataInAPO(const &DataOutAPO);
-	DataInAPO &operator=(const &DataOutAPO);
+	DataInAPO(const DataInAPO&);
+	DataInAPO &operator=(const DataInAPO&);
 	
 	IAPODataSender * m_pDataSender;
 	

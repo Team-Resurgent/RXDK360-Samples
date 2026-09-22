@@ -1409,7 +1409,7 @@ HRESULT Sample::InitializeLeaving( VOID )
     BOOL bErased = FALSE;
 
     for( std::list <SConsole>::iterator i = ++m_Consoles.begin(); SUCCEEDED( hr ) && i != m_Consoles.end();
-         bErased ? 0 : ( VOID )++i )
+         bErased ? ( VOID )0 : ( VOID )++i )
     {
         bErased = i->hLink == 0;
 

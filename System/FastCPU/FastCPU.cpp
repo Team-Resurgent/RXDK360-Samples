@@ -461,7 +461,8 @@ VOID SkinningTest()
         for( UINT i = 0; i < float3Count; i++ )
         {
             // Use D3DX for the math here because it is simpler, and not performance critical.
-            XMFLOAT3 Diff = *( D3DXVECTOR3* )&pTestVertsASM[i] - *( D3DXVECTOR3* )&pTestVertsC[i];
+            D3DXVECTOR3 DiffV = *( D3DXVECTOR3* )&pTestVertsASM[i] - *( D3DXVECTOR3* )&pTestVertsC[i];
+            XMFLOAT3 Diff = *( XMFLOAT3* )&DiffV;
             FLOAT NormDif = D3DXVec3Length( ( D3DXVECTOR3* )&Diff ) /
                 D3DXVec3Length( ( D3DXVECTOR3* )&pTestVertsC[i] );
             if( fabsf( NormDif ) > maxErrorRatio )

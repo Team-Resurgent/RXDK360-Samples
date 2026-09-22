@@ -272,8 +272,8 @@ std::wstring GrammarFileLangVariant::LoadDescriptionFromFile()
     
     WCHAR byteOrderMark = pBuffer[0];
 
-    const EXPECTED_BOM = 0xFEFF;            // The byte order mark we expect for Xbox-native Unicode
-    const ENDIANSWAPPED_BOM = 0xFFFE;       // Endian-swapped byte order mark.
+    const int EXPECTED_BOM = 0xFEFF;            // The byte order mark we expect for Xbox-native Unicode
+    const int ENDIANSWAPPED_BOM = 0xFFFE;       // Endian-swapped byte order mark.
 
     if ( byteOrderMark == ENDIANSWAPPED_BOM )
     {

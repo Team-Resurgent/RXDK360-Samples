@@ -68,7 +68,7 @@ public ATG::ISAXCallback
 {
 public:
 
-    static const FILE_PATH_LENGTH = 128;
+    static const int FILE_PATH_LENGTH = 128;
 
     virtual HRESULT  StartDocument() {     m_bFound = FALSE;    return ERROR_SUCCESS; };
 

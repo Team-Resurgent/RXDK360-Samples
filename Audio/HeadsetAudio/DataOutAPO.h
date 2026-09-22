@@ -54,8 +54,8 @@ public:
 
 private:
     DataOutAPO();
-	DataOutAPO(const &DataOutAPO);
-	DataOutAPO &operator=(const &DataOutAPO);
+	DataOutAPO(const DataOutAPO&);
+	DataOutAPO &operator=(const DataOutAPO&);
 	
 	IAPODataReceiver * m_pDataReceiver;
 	UINT m_uChannels;

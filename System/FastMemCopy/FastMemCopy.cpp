@@ -98,8 +98,8 @@ const DWORD         g_dwAllocationSize = g_dwLargestBufferSize + g_dwAllocationP
 
 // Stats about the L2 cache:
 const DWORD         g_dwCacheLineSize = 128;
-const g_dwL2CacheSize = 1024 * 1024;
-const g_dwL2CacheWays = 8;
+const DWORD         g_dwL2CacheSize = 1024 * 1024;
+const DWORD         g_dwL2CacheWays = 8;
 
 // Units:
 const DWORD         g_dwTicksPerSecond = 50000000;  // This isn't exact.

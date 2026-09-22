@@ -298,7 +298,7 @@ HRESULT SystemLinkHelper::Update( VOID )
     {
         BOOL bErased = FALSE;
 
-        for( std::vector <Session>::iterator i = m_Sessions.begin(); i != m_Sessions.end(); bErased ? 0 : ( VOID )++i )
+        for( std::vector <Session>::iterator i = m_Sessions.begin(); i != m_Sessions.end(); bErased ? ( VOID )0 : ( VOID )++i )
         {
             bErased = ( ( dwTickCount - i->dwLastUpdateReceived ) > TIMEOUT_INTERVAL );
 
