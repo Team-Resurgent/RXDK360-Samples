@@ -197,11 +197,24 @@ function ConvertTo-Variant([string]$lib, [string]$variant) {
 # TitleStorageSample.gameconfig -> TitleStorage.spa.h). Returned as a target
 # descriptor (the platform ignores PreBuildEvent, so a real Target is used).
 function Get-SpaStep([string]$dir, [string]$blob) {
+    # A .gameconfig and a .xlast are the same XML schema (XboxLiveSubmissionProject
+    # -> GameConfigProject); spac.exe reads either. Some samples ship only the
+    # .xlast (QNet/ArcadeSample/XStorage), so fall back to it when there is no
+    # .gameconfig.
+    $m = [regex]::Match($blob, '#include\s*"([^"]*\.spa\.h)"', 'IgnoreCase')
+    $wantBase = if ($m.Success) { [IO.Path]::GetFileNameWithoutExtension([IO.Path]::GetFileName($m.Groups[1].Value.Replace("/", "\"))) } else { "" }
     $gc = Get-ChildItem -LiteralPath $dir -Recurse -Filter *.gameconfig -File | Select-Object -First 1
+    if (-not $gc) {
+        # Prefer the .xlast whose base name matches the wanted .spa.h (the game
+        # config), not an unrelated Package/Submission .xlast in the same tree.
+        $xl = @(Get-ChildItem -LiteralPath $dir -Recurse -Filter *.xlast -File)
+        if ($wantBase) { $gc = $xl | Where-Object { [IO.Path]::GetFileNameWithoutExtension($_.Name) -eq $wantBase } | Select-Object -First 1 }
+        if (-not $gc) { $gc = $xl | Where-Object { $_.Name -notmatch 'Package|Submission' } | Select-Object -First 1 }
+        if (-not $gc) { $gc = $xl | Select-Object -First 1 }
+    }
     if (-not $gc) { return $null }
     $base = (Resolve-Path -LiteralPath $dir).Path
     $gcRel = $gc.FullName.Substring($base.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")
-    $m = [regex]::Match($blob, '#include\s*"([^"]*\.spa\.h)"', 'IgnoreCase')
     if ($m.Success) { $hdr = $m.Groups[1].Value.Replace("/", "\") }
     else { $hdr = [IO.Path]::GetFileNameWithoutExtension($gc.Name) + ".spa.h" }
     $spa = [IO.Path]::GetFileNameWithoutExtension($gc.Name) + ".spa"
