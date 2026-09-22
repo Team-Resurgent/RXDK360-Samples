@@ -175,6 +175,17 @@ function Get-Sources([string]$dir) {
     }
     $excludeTop = @{}
     if ($rootHasMain) { $excludeTop = $subMainTops }
+    # Also exclude any subdirectory that includes a host-desktop-only header
+    # (GDI+, ATL) -- these are PC build tools (SimpleTextureBuilder), never part of
+    # an Xbox title. Safe regardless of where the title's main lives.
+    foreach ($f in $files) {
+        $e = $f.Extension.ToLowerInvariant()
+        if ($CompileExt -notcontains $e -and $HeaderExt -notcontains $e) { continue }
+        $rel = $f.FullName.Substring($base.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")
+        $parts = $rel.Split("\")
+        if ($parts.Count -le 1) { continue }
+        try { if ((Get-Content -LiteralPath $f.FullName -Raw) -match '(?im)#include\s*[<"](gdiplus|atlbase|atlstr|tchar)\.h[>"]') { $excludeTop[$parts[0]] = $true } } catch {}
+    }
     foreach ($f in $files) {
         $ext = $f.Extension.ToLowerInvariant()
         $rel = $f.FullName.Substring($base.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")

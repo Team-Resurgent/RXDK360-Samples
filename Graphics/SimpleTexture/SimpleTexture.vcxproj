@@ -137,17 +137,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SimpleTextureBuilder\Image.cpp" />
-    <ClCompile Include="SimpleTextureBuilder\SimpleTextureBuilder.cpp" />
-    <ClCompile Include="SimpleTextureBuilder\Stdafx.cpp" />
-    <ClCompile Include="SimpleTextureBuilder\Texture.cpp" />
     <ClCompile Include="TextureLoadDemo\stdafx.cpp" />
     <ClCompile Include="TextureLoadDemo\TextureLoadDemo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SimpleTextureBuilder\Image.h" />
-    <ClInclude Include="SimpleTextureBuilder\Stdafx.h" />
-    <ClInclude Include="SimpleTextureBuilder\Texture.h" />
     <ClInclude Include="TextureLoadDemo\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
