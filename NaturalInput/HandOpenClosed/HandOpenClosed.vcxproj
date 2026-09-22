@@ -139,23 +139,15 @@
   <ItemGroup>
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="HandOpenClosed.cpp" />
-    <ClCompile Include="HOCDetectorTrainer\Trainer.cpp" />
     <ClCompile Include="HOCDetector\HandSearch.cpp" />
     <ClCompile Include="HOCDetector\HOCDetector.cpp" />
     <ClCompile Include="HOCDetector\HOCTrainer.cpp" />
-    <ClCompile Include="XEDToHOC\CXEDFile.cpp" />
-    <ClCompile Include="XEDToHOC\stdafx.cpp" />
-    <ClCompile Include="XEDToHOC\XEDToHOC.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="HOCDetector\HandSearch.h" />
     <ClInclude Include="HOCDetector\HOCDetector.h" />
     <ClInclude Include="HOCDetector\HOCDetectorInternal.h" />
-    <ClInclude Include="XEDToHOC\CXEDFile.h" />
-    <ClInclude Include="XEDToHOC\CXEDFile.inl" />
-    <ClInclude Include="XEDToHOC\stdafx.h" />
-    <ClInclude Include="XEDToHOC\targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.vcxproj">

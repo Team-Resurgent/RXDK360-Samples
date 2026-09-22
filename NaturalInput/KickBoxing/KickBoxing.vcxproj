@@ -137,8 +137,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GestureDetectorTrainer\GenerateLabeledExamples\GenerateLabeledExamples.cpp" />
-    <ClCompile Include="GestureDetectorTrainer\TrainGesture\TrainGesture.cpp" />
     <ClCompile Include="GestureDetector\ClassifierData.cpp" />
     <ClCompile Include="GestureDetector\GestureDetector.cpp" />
     <ClCompile Include="GestureDetector\MuscleTracking.cpp" />

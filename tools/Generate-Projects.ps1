@@ -154,9 +154,32 @@ function Get-Sources([string]$dir) {
     $cpps = New-Object System.Collections.Generic.List[string]
     $hdrs = New-Object System.Collections.Generic.List[string]
     $base = (Resolve-Path -LiteralPath $dir).Path
-    foreach ($f in Get-ChildItem -LiteralPath $dir -Recurse -File) {
+    $files = @(Get-ChildItem -LiteralPath $dir -Recurse -File)
+    # A subdirectory with its OWN main() is a separate tool program
+    # (HOCDetectorTrainer, GestureDetectorTrainer/*) -- exclude its whole tree so
+    # the title does not compile a second entry point. Guard: only do this when the
+    # sample ROOT already has a main (the title). If the title itself lives in a
+    # subdir (SimpleTexture -> TextureLoadDemo/, with a builder alongside), excluding
+    # subdir-mains would drop the title, so leave those samples untouched.
+    $mainRe = '(?m)^\s*(INT|int|VOID|void)\s+(__cdecl\s+|_cdecl\s+)?main\s*\('
+    $rootHasMain = $false
+    $subMainTops = @{}
+    foreach ($f in $files) {
+        if ($CompileExt -notcontains $f.Extension.ToLowerInvariant()) { continue }
+        $rel = $f.FullName.Substring($base.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")
+        $parts = $rel.Split("\")
+        $hasMain = $false
+        try { $hasMain = ((Get-Content -LiteralPath $f.FullName -Raw) -match $mainRe) } catch {}
+        if (-not $hasMain) { continue }
+        if ($parts.Count -eq 1) { $rootHasMain = $true } else { $subMainTops[$parts[0]] = $true }
+    }
+    $excludeTop = @{}
+    if ($rootHasMain) { $excludeTop = $subMainTops }
+    foreach ($f in $files) {
         $ext = $f.Extension.ToLowerInvariant()
         $rel = $f.FullName.Substring($base.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")
+        $parts = $rel.Split("\")
+        if ($parts.Count -gt 1 -and $excludeTop.ContainsKey($parts[0])) { continue }
         if ($CompileExt -contains $ext) { $cpps.Add($rel) }
         elseif ($HeaderExt -contains $ext) { $hdrs.Add($rel) }
     }
