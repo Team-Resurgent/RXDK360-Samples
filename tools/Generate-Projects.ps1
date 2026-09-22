@@ -79,7 +79,7 @@ $DebugLib = @{
     "dxerr9.lib"="dxerr9.lib"; "tracerecording.lib"="tracerecordingd.lib"; "xrnm.lib"="xrnmd.lib";
     "NuiAudio.lib"="NuiAudiod.lib"; "xmahal.lib"="xmahald.lib"; "xinputremap.lib"="xinputremapd.lib";
     "xgetserviceendpoint.lib"="xgetserviceendpointd.lib"; "multidisc.lib"="multidiscd.lib";
-    "xsocialpost.lib"="xsocialpostd.lib"; "xtms.lib"="xtmsd.lib"
+    "xsocialpost.lib"="xsocialpostd.lib"; "xtms.lib"="xtmsd.lib"; "qnetxaudio2.lib"="qnetxaudio2d.lib"
 }
 $LtcgLib = @{ "xuirender.lib"="xuirenderltcg.lib"; "xavatar2.lib"="xavatar2ltcg.lib"; "st.lib"="stltcg.lib" }
 
@@ -96,14 +96,15 @@ $LibTriggers = @(
     @{ t = @("xui.h", "xuiapp.h", "XuiInit", "XuiRender", "XuiElement", "XuiDrawText"); libs = @("xuirun.lib", "xuirender.lib") },
     @{ t = @("xuihtml.h", "XuiHtml");                                    libs = @("xuihtml.lib") },
     @{ t = @("xuivideo.h", "XuiVideo");                                  libs = @("xuivideo.lib") },
-    @{ t = @("xav.h", "XAVCreate", "XAV_");                              libs = @("xav.lib") },
+    @{ t = @("xav.h", "XAVCreate", "XAV_", "CreateXAV", "IXAVPlayer", "AsfWriter", "IAsfWriter"); libs = @("xav.lib") },
+    @{ t = @("qnet.h", "QNetCreate", "IQNet");                           libs = @("qnetxaudio2.lib") },
     @{ t = @("xime.h", "XimeXui", "XIME");                               libs = @("xime.lib") },
-    @{ t = @("xhttp.h", "XHttp");                                        libs = @("xhttp.lib") },
+    @{ t = @("xhttp.h", "XHttp", "AtgHttp", "AtgRest");                  libs = @("xhttp.lib") },
     @{ t = @("xauth.h", "XAuth");                                        libs = @("xauth.lib") },
     @{ t = @("xmp.h", "XMPGet", "XMP_");                                 libs = @("xmp.lib") },
     @{ t = @("xffb.h", "XFFB");                                          libs = @("xffb.lib") },
     @{ t = @("xcam.h", "XCamera", "XCAMERA");                            libs = @("xcam.lib") },
-    @{ t = @("xjson.h", "XJSON");                                        libs = @("xjson.lib") },
+    @{ t = @("xjson.h", "XJSON", "AtgJson", "AtgRest");                  libs = @("xjson.lib") },
     @{ t = @("xinput2.h", "XInput2", "XINPUTID_");                       libs = @("xinput2.lib") },
     @{ t = @("xmedia2.h", "xmedia.h", "IXMedia2", "XmvPlayer", "XMedia2");  libs = @("xmedia2.lib") },
     @{ t = @("xwmadecode.h", "XWMA");                                    libs = @("xwmadecode.lib") },
