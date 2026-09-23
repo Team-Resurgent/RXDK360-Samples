@@ -139,6 +139,12 @@
   <ItemGroup>
     <ClCompile Include="XuiLocale.cpp" />
   </ItemGroup>
+  <!-- The XUI string table is compiled to its IDS_* id header (xuilocale_strings.h)
+       at build time by the platform's XuiStringTable rule (Rxdk.Xui.targets), which
+       also puts the generated-header dir on the include path. -->
+  <ItemGroup>
+    <XuiStringTable Include="..\..\Media\Xui\xuilocale_strings.resx" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.vcxproj">
       <Project>{4B99DC73-9044-E203-9C9C-C00C211DA956}</Project>
