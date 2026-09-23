@@ -34,38 +34,38 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
-    <RxdkModernLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkModernLibs>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
-    <RxdkModernLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkModernLibs>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
-    <RxdkModernLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkModernLibs>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
-    <RxdkModernLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkModernLibs>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
-    <RxdkModernLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkModernLibs>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
-    <RxdkModernLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkModernLibs>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -139,11 +139,8 @@
   <ItemGroup>
     <ClCompile Include="XuiLocale.cpp" />
   </ItemGroup>
-  <!-- The XUI string table is compiled to its IDS_* id header (xuilocale_strings.h)
-       at build time by the platform's XuiStringTable rule (Rxdk.Xui.targets), which
-       also puts the generated-header dir on the include path. -->
   <ItemGroup>
-    <XuiStringTable Include="..\..\Media\Xui\xuilocale_strings.resx" />
+    <ClInclude Include="Release\xuilocale_strings.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.vcxproj">

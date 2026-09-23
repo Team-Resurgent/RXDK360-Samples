@@ -34,32 +34,32 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>clang</PlatformToolset>
-    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>
+    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />

@@ -339,14 +339,14 @@ function New-Vcxproj($name, $guid, $confType, $cpps, $hdrs, $includeDirs, $catLi
         $o.Add("  <PropertyGroup Condition=`"$cond`" Label=`"Configuration`">")
         $o.Add("    <ConfigurationType>$confType</ConfigurationType>")
         $o.Add("    <PlatformToolset>$Toolset</PlatformToolset>")
-        # The clang toolset builds stock XDK/ATG headers in always-modern mode.
-        $o.Add('    <RxdkModernXdkHeaders>true</RxdkModernXdkHeaders>')
+        # The clang toolset builds stock XDK/ATG headers.
+        $o.Add('    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>')
         # Link the ATG Common archive. A ProjectReference builds Common but the
         # clang link (ld.lld) does not auto-pull a referenced static lib, so name
         # its per-config output explicitly. Common is an on-demand archive, so a
         # sample links only the members it uses. (Not for Common itself.)
         if ($confType -eq 'Application') {
-            $o.Add('    <RxdkModernLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkModernLibs>')
+            $o.Add('    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>')
         }
         if ($c.Wpo) { $o.Add('    <WholeProgramOptimization>true</WholeProgramOptimization>') }
         $o.Add('  </PropertyGroup>')

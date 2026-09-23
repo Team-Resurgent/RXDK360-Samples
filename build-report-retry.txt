@@ -1,0 +1,58 @@
+RXDK-360 samples build report
+total 52  pass 52  fail 0
+
+== FAIL ==
+
+== PASS ==
+Release          AdvancedCommandBuffers
+Release          AdvancedLighting
+Release          AdvancedSkeletalRetargeting
+Release          ArcadeSample
+Release          AsyncResources
+Release          BatchedOcclusionQueries
+Release          ConditionalRendering
+Release          CustomVFetch
+Release          FastDepthRestore
+Release          FastSamplerStates
+Release          FirstPerson
+Release          FirstPersonNatural
+Release          Flight
+Release          FrostyWindow
+Release          GestureDetection
+Release          GPUParticle
+Release          HeadTracker
+Release          HLSLDebugging
+Release          HttpSocket
+Release          HyperFillrateParticles
+Release          Instancing
+Release          JointConstraints
+Release          KickBoxing
+Release          LeanDetection
+Release          LightShafts
+Release          MultiDeviceRender
+Release          ReducingLatency
+Release          SceneViewer2
+Release          SimpleGestureDetection
+Release          SkinnedCharacter
+Release          SoftParticles
+Release          Stereoscopic3D
+Release          Stereoscopic3DHeadTracking
+Release          SubD
+Release          TankSim
+Release          TextureCompression
+Release          TexturedMesh
+Release          XContent
+Release          XEXResource
+Release          Xime
+Release          XuiAquatica
+Release          XuiDolphin
+Release          XuiDrawText
+Release          XuiEffect
+Release          XuiFontRenderer
+Release          XuiKeyboard
+Release          XuiKeyboardClassLib
+Release          XuiLocale
+Release          XuiMultiInput
+Release          XuiSimpleVideo
+Release          XuiTabbedScene
+Release          XuiTutorial

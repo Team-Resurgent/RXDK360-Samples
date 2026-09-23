@@ -1,0 +1,250 @@
+RXDK-360 samples build report
+total 244  pass 183  fail 61
+
+== FAIL ==
+Release          AdvancedSegmentation           C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __vspltisb, __vsldoi, __vsr, __vsl, __vupklsb, __vupkhsb, __vmrghh, __vmrglh, __vcfux, __vnor, __vctuxs, __vpkswus, __vandc, __vpkuhum, __vmaxub, __vminub, __vsububs, __vcmpgtub, __vsel, __vspltish, __vslw, __vadduws, __vcmpgtuh, __vpkuhus, __vsraw [D:\Git\RXDK360-Samples\NaturalInput\AdvancedSegmentation\AdvancedSegmentation.vcxproj]
+Release          AdvancedXMic                   C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): exp2f, _ZN19CXAPOParametersBaseC2EPK28XAPO_REGISTRATION_PROPERTIESPhji, _ZN19CXAPOParametersBaseD2Ev, _ZN9CXAPOBase14LockForProcessEjPK37XAPO_LOCKFORPROCESS_BUFFER_PARAMETERSjS2_, _ZN19CXAPOParametersBase12BeginProcessEv, _ZN19CXAPOParametersBase10EndProcessEv, _ZN9CXAPOBase25GetRegistrationPropertiesEPP28XAPO_REGISTRATION_PROPERTIES, _ZN9CXAPOBase22IsInputFormatSupportedEPK13tWAVEFORMATEXS2_PPS0_, _ZN9CXAPOBase23IsOutputFormatSupportedEPK13tWAVEFORMATEXS2_PPS0_, _ZN9CXAPOBase16UnlockForProcessEv, _ZN9CXAPOBase21ValidateFormatDefaultEP13tWAVEFORMATEXi, _ZN19CXAPOParametersBase13SetParametersEPKvj, _ZN19CXAPOParametersBase13GetParametersEPvj, _ZThn32_N19CXAPOParametersBase13SetParametersEPKvj, _ZThn32_N19CXAPOParametersBase13GetParametersEPvj, _ZTI19CXAPOParametersBase [D:\Git\RXDK360-Samples\Audio\AdvancedXMic\AdvancedXMic.vcxproj]
+Release          AdvancedXPS                    C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): _Z17D3DXps_InitializeP6D3DXpsP12D3DXpsThread, _Z15D3DXps_AllocateP6D3DXpsmm, _Z19D3DXps_DrawVerticesP6D3DXps17_D3DPRIMITIVETYPEmPKv, _Z20D3DXps_KickOffAndGetP6D3DXpsPm, _Z19D3DXps_UninitializeP6D3DXps [D:\Git\RXDK360-Samples\Graphics\AdvancedXPS\AdvancedXPS.vcxproj]
+Release          ArcadeLicenseCheck             spac : error : Index was out of range. Must be non-negative and less than the size of the collection. [D:\Git\RXDK360-Samples\System\ArcadeLicenseCheck\ArcadeLicenseCheck.vcxproj]
+Release          ArcadeSample                   D:\Git\RXDK360-Samples\System\ArcadeSample\LeaderboardScene.cpp(42,17): error : use of undeclared identifier '_itow_s'; did you mean '_itoa_s'? [D:\Git\RXDK360-Samples\System\ArcadeSample\ArcadeSample.vcxproj]
+Release          ASFWriter                      C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): _ZN22AsfWriterPropertyValueC1Ev, _ZN22AsfWriterPropertyValue5ClearEv, _ZN19CXAPOParametersBaseC2EPK28XAPO_REGISTRATION_PROPERTIESPhji, _ZN19CXAPOParametersBaseD2Ev, _ZN9CXAPOBase14LockForProcessEjPK37XAPO_LOCKFORPROCESS_BUFFER_PARAMETERSjS2_, _ZN9CXAPOBase25GetRegistrationPropertiesEPP28XAPO_REGISTRATION_PROPERTIES, _ZN9CXAPOBase22IsInputFormatSupportedEPK13tWAVEFORMATEXS2_PPS0_, _ZN9CXAPOBase23IsOutputFormatSupportedEPK13tWAVEFORMATEXS2_PPS0_, _ZN9CXAPOBase16UnlockForProcessEv, _ZN19CXAPOParametersBase12BeginProcessEv, _ZN19CXAPOParametersBase10EndProcessEv, _ZN9CXAPOBase21ValidateFormatDefaultEP13tWAVEFORMATEXi, _ZN19CXAPOParametersBase13SetParametersEPKvj, _ZN19CXAPOParametersBase13GetParametersEPvj, _ZThn32_N19CXAPOParametersBase13SetParametersEPKvj, _ZThn32_N19CXAPOParametersBase13GetParametersEPvj, _ZTI19CXAPOParametersBase [D:\Git\RXDK360-Samples\Graphics\ASFWriter\ASFWriter.vcxproj]
+Release          AsyncPrecompiledCommandBuffers C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __vcmpgtfp [D:\Git\RXDK360-Samples\Graphics\AsyncPrecompiledCommandBuffers\AsyncPrecompiledCommandBuffers.vcxproj]
+Release          AsyncResources                 C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __vcmpgtfp [D:\Git\RXDK360-Samples\Graphics\AsyncResources\AsyncResources.vcxproj]
+Release          AsyncSwaps                     D:\Git\RXDK360-Samples\Graphics\AsyncSwaps\AsyncSwaps.cpp(875,16): error : cannot initialize return object of type 'WCHAR *' (aka 'wchar_t *') with an rvalue of type 'const wchar_t *' [D:\Git\RXDK360-Samples\Graphics\AsyncSwaps\AsyncSwaps.vcxproj]
+Release          CustomVFetch                   C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __vcmpgtfp [D:\Git\RXDK360-Samples\Graphics\CustomVFetch\CustomVFetch.vcxproj]
+Release          DepthMapParticleStream         D:\Git\RXDK360-Samples\NaturalInput\DepthMapParticleStream\DepthMapParticleStream.cpp(1187,39): error : use of undeclared identifier '__max' [D:\Git\RXDK360-Samples\NaturalInput\DepthMapParticleStream\DepthMapParticleStream.vcxproj]
+Release          DrivingRawFilters              D:\Git\RXDK360-Samples\NaturalInput\DrivingRawFilters\TurboFilter.h(51,5): error : unknown type name 'NUI_SKELETON_POSITION_CONFIDENCE'; did you mean 'NUI_SKELETON_POSITION_INDEX'? [D:\Git\RXDK360-Samples\NaturalInput\DrivingRawFilters\DrivingRawFilters.vcxproj]
+Release          EdgeBasedAntiAliasing          D:\Git\RXDK360-Samples\Graphics\EdgeBasedAntiAliasing\EdgeBasedAA.hlsl(172,8): error X3501: Microcode Compiler 'main': entrypoint not found [D:\Git\RXDK360-Samples\Graphics\EdgeBasedAntiAliasing\EdgeBasedAntiAliasing.vcxproj]
+Release          FastBlockCompress              D:\Git\RXDK360-Samples\Graphics\FastBlockCompress\FastBlockCompressVMX.cpp(1857,5): error : use of undeclared identifier 'vAnchorTest' [D:\Git\RXDK360-Samples\Graphics\FastBlockCompress\FastBlockCompress.vcxproj]
+Release          FastCPU                        C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __lvsr, __vsel, __vsldoi, __vupkd3d, __vpkd3d, __vsplth, __stvehx [D:\Git\RXDK360-Samples\System\FastCPU\FastCPU.vcxproj]
+Release          FirstPerson                    C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __vaddshs, __vsrh, __vmaxuh, __vminuh, __vsubuhs, __vupkhsh, __vupklsh, __vpkuwus, __vadduhs, __vcmpgtuh, __vadduws, __vspltish [D:\Git\RXDK360-Samples\NaturalInput\FirstPerson\FirstPerson.vcxproj]
+Release          FluidFlow                      C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): exp2f [D:\Git\RXDK360-Samples\Graphics\FluidFlow\FluidFlow.vcxproj]
+Release          FXLDumpInfo                    D:\Git\RXDK360-Samples\Graphics\FXLDumpInfo\FXLDumpInfo.cpp(216,5): error : no matching function for call to '_vsnprintf_s' [D:\Git\RXDK360-Samples\Graphics\FXLDumpInfo\FXLDumpInfo.vcxproj]
+Release          FXLWater                       D:\Git\RXDK360-Samples\Graphics\FXLWater\Camera.cpp(86,27): error : use of undeclared identifier '__max' [D:\Git\RXDK360-Samples\Graphics\FXLWater\FXLWater.vcxproj]
+Release          Gamepad                        D:\Git\RXDK360-Samples\System\Gamepad\GamepadMesh.cpp(109,14): error : use of undeclared identifier '_strcmpi' [D:\Git\RXDK360-Samples\System\Gamepad\Gamepad.vcxproj]
+Release          GrabManipulator                C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __fself [D:\Git\RXDK360-Samples\NaturalInput\GrabManipulator\GrabManipulator.vcxproj]
+Release          HandControl                    C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __vaddshs, __vsrh, __vmaxuh, __vminuh, __vsubuhs, __vupkhsh, __vupklsh, __vpkuwus, __vadduhs, __vcmpgtuh, __vadduws, __vspltish [D:\Git\RXDK360-Samples\NaturalInput\HandControl\HandControl.vcxproj]
+Release          HandOpenClosed                 D:\Git\RXDK360-Samples\NaturalInput\HandOpenClosed\HOCDetectorTrainer\Trainer.cpp(26,32): error : incomplete type 'HOCDetectorTrainer' named in nested name specifier [D:\Git\RXDK360-Samples\NaturalInput\HandOpenClosed\HandOpenClosed.vcxproj]
+Release          HandRefinement                 C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __vaddshs, __vsrh, __vmaxuh, __vminuh, __vsubuhs, __vupkhsh, __vupklsh, __vpkuwus, __vadduhs, __vcmpgtuh, __vadduws, __vspltish [D:\Git\RXDK360-Samples\NaturalInput\HandRefinement\HandRefinement.vcxproj]
+Release          HeadsetAudio                   C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): _ZN9CXAPOBaseC2EPK28XAPO_REGISTRATION_PROPERTIES, _ZN9CXAPOBase14LockForProcessEjPK37XAPO_LOCKFORPROCESS_BUFFER_PARAMETERSjS2_, _ZN9CXAPOBaseD2Ev, _ZN9CXAPOBase25GetRegistrationPropertiesEPP28XAPO_REGISTRATION_PROPERTIES, _ZN9CXAPOBase22IsInputFormatSupportedEPK13tWAVEFORMATEXS2_PPS0_, _ZN9CXAPOBase23IsOutputFormatSupportedEPK13tWAVEFORMATEXS2_PPS0_, _ZN9CXAPOBase16UnlockForProcessEv, _ZN9CXAPOBase21ValidateFormatDefaultEP13tWAVEFORMATEXi, _ZTI9CXAPOBase [D:\Git\RXDK360-Samples\Audio\HeadsetAudio\HeadsetAudio.vcxproj]
+Release          HyperFillrateParticles         C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __vpkd3d, __vspltb, __vadduwm [D:\Git\RXDK360-Samples\Graphics\HyperFillrateParticles\HyperFillrateParticles.vcxproj]
+Release          Identity                       D:\Git\RXDK360-Samples\NaturalInput\Identity\Identity.cpp(1211,9): error : use of undeclared identifier '_snwprintf_s'; did you mean '_vsnprintf_s'? [D:\Git\RXDK360-Samples\NaturalInput\Identity\Identity.vcxproj]
+Release          InGameStore                    D:\Git\RXDK360-Samples\Online\InGameStore\InGameOfferManager.cpp(307,18): error : cannot initialize a parameter of type 'WCHAR *' (aka 'wchar_t *') with an rvalue of type 'const wchar_t *' [D:\Git\RXDK360-Samples\Online\InGameStore\InGameStore.vcxproj]
+Release          InlineAssembly                 D:\Git\RXDK360-Samples\System\InlineAssembly\InlineAssembly.cpp(65,17): error : 'naked' attribute is not supported on 'powerpc' [D:\Git\RXDK360-Samples\System\InlineAssembly\InlineAssembly.vcxproj]
+Release          Instancing                     C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): _Z17D3DXps_InitializeP6D3DXpsP12D3DXpsThread, _Z15D3DXps_AllocateP6D3DXpsmm, _Z26D3DXps_DrawIndexedVerticesP6D3DXps17_D3DPRIMITIVETYPEmPKv10_D3DFORMATS3_, _Z20D3DXps_KickOffAndGetP6D3DXpsPm, _Z19D3DXps_UninitializeP6D3DXps [D:\Git\RXDK360-Samples\Graphics\Instancing\Instancing.vcxproj]
+Release          JobScheduler                   D:\Git\RXDK360-Samples\System\JobScheduler\Job.h(372,37): error : left operand to ? is void, but right operand is of type 'JOBSTATUS' [D:\Git\RXDK360-Samples\System\JobScheduler\JobScheduler.vcxproj]
+Release          KickBoxing                     D:\Git\RXDK360-Samples\NaturalInput\KickBoxing\GestureDetectorTrainer\GenerateLabeledExamples\GenerateLabeledExamples.cpp(47,5): error : unknown type name 'GestureDetectorTrainer'; did you mean 'GestureDetector'? [D:\Git\RXDK360-Samples\NaturalInput\KickBoxing\KickBoxing.vcxproj]
+Release          LeanDetection                  C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __fself [D:\Git\RXDK360-Samples\NaturalInput\LeanDetection\LeanDetection.vcxproj]
+Release          NormalCompression              D:\Git\RXDK360-Samples\Graphics\NormalCompression\NormalCompression.cpp(1951,6): error : We didn't implement this case [D:\Git\RXDK360-Samples\Graphics\NormalCompression\NormalCompression.vcxproj]
+Release          OpenMP                         C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): .TOC. [D:\Git\RXDK360-Samples\System\OpenMP\OpenMP.vcxproj]
+Release          PlayspaceFeedback              D:\Git\RXDK360-Samples\NaturalInput\PlayspaceFeedback\Shaders\common.hlsl(81,1): error X3501: Microcode Compiler 'main': entrypoint not found [D:\Git\RXDK360-Samples\NaturalInput\PlayspaceFeedback\PlayspaceFeedback.vcxproj]
+Release          PrecompiledCommandBuffers      C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __vcmpgtfp [D:\Git\RXDK360-Samples\Graphics\PrecompiledCommandBuffers\PrecompiledCommandBuffers.vcxproj]
+Release          ProfileSettings                D:\Git\RXDK360-Samples\System\ProfileSettings\ProfileSettings.cpp(678,21): error : use of undeclared identifier '_ultow_s' [D:\Git\RXDK360-Samples\System\ProfileSettings\ProfileSettings.vcxproj]
+Release          QNet                           D:\Git\RXDK360-Samples\Online\QNet\QNet.cpp(238,13): error : use of undeclared identifier '_snprintf_s' [D:\Git\RXDK360-Samples\Online\QNet\QNet.vcxproj]
+Release          ReducingLatency                D:\Git\RXDK360-Samples\NaturalInput\ReducingLatency\CRenderer.h(61,35): error : unknown type name 'dwFlags' [D:\Git\RXDK360-Samples\NaturalInput\ReducingLatency\ReducingLatency.vcxproj]
+Release          RichPresence                   D:\Git\RXDK360-Samples\Online\RichPresence\RichPresence.cpp(381,21): error : use of undeclared identifier '_snwprintf_s'; did you mean '_vsnprintf_s'? [D:\Git\RXDK360-Samples\Online\RichPresence\RichPresence.vcxproj]
+Release          ScreenSpaceAmbientOcclusion    C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): exp2f [D:\Git\RXDK360-Samples\Graphics\ScreenSpaceAmbientOcclusion\ScreenSpaceAmbientOcclusion.vcxproj]
+Release          SimplePartyExperience          C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): WMVideoDecClose, WMVideoDecReset, WMVideoDecDecodeSequenceHeader, ?EMBEncSessionCreate@@YAPAXH@Z, ?EMBEncSessionSetRTC@@YA?AW4EMBENC_RETURNCODE@@PAX@Z, ?EMBEncInit@@YA?AW4EMBENC_RETURNCODE@@PAXW4tagCodingMode_WMV@@HHNNNHHHHHHKPAK_N33HHPADHH3@Z, ?EMBEncGetExtendedFormat@@YA?AW4EMBENC_RETURNCODE@@PAXPADPAH@Z, WMVideoDecInit, ?EMBEncSessionDelete@@YA?AW4EMBENC_RETURNCODE@@PAX@Z, WMVideoDecSetErrorRecoveryFrameType, WMVideoDecDecodeData, ?EMBEncRTCSetNetworkMetrics@@YA?AW4EMBENC_RETURNCODE@@PAX_JN@Z, ?EMBEncRTCChangeBitRate@@YA?AW4EMBENC_RETURNCODE@@PAXNN@Z, ?EMBEncRTCChangeFrameRate@@YA?AW4EMBENC_RETURNCODE@@PAXN@Z, WMVideoDecPlanarYUVGetOutput, ?EMBEncEncodeAndLock@@YA?AW4EMBENC_RETURNCODE@@PAXPAUtagEMBBITMAPINFOHEADER@@PAD2PAH12_N_J44H433PA_JPA_N@Z, ?EMBEncGetPredType@@YA?AW4EMBENC_RETURNCODE@@PAXPAW4VOPpredType@@@Z, ?EMBQueryErrorRecoveryFrameType@@YA?AW4EMBENC_RETURNCODE@@PAXPAE@Z [D:\Git\RXDK360-Samples\Online\SimplePartyExperience\SimplePartyExperience.vcxproj]
+Release          SimpleSkeletonTracking         D:\Git\RXDK360-Samples\NaturalInput\SimpleSkeletonTracking\SimpleSkeletonTracking.cpp(170,27): error : use of undeclared identifier '__min' [D:\Git\RXDK360-Samples\NaturalInput\SimpleSkeletonTracking\SimpleSkeletonTracking.vcxproj]
+Release          SimpleTexture                  C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(66,5): error : clang: compile failed for Image.cpp [D:\Git\RXDK360-Samples\Graphics\SimpleTexture\SimpleTexture.vcxproj]
+Release          SimpleXLSPClient               C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): .TOC. [D:\Git\RXDK360-Samples\Online\SimpleXLSPClient\SimpleXLSPClient.vcxproj]
+Release          SkeletalPostProcessing         D:\Git\RXDK360-Samples\NaturalInput\SkeletalPostProcessing\Shaders\common.hlsl(81,1): error X3501: Microcode Compiler 'main': entrypoint not found [D:\Git\RXDK360-Samples\NaturalInput\SkeletalPostProcessing\SkeletalPostProcessing.vcxproj]
+Release          SpeechRetainAudio              C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): NuiAudioUnregisterCallbacksPrivate, NuiAudioRelease, NuiAudioCreate, NuiAudioRegisterCallbacksPrivate [D:\Git\RXDK360-Samples\NaturalInput\SpeechRetainAudio\SpeechRetainAudio.vcxproj]
+Release          TankSim                        C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __vaddshs, __vsrh, __vmaxuh, __vminuh, __vsubuhs, __vupkhsh, __vupklsh, __vpkuwus, __vadduhs, __vcmpgtuh, __vadduws, __vspltish [D:\Git\RXDK360-Samples\NaturalInput\TankSim\TankSim.vcxproj]
+Release          Theremin                       C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): __fself, exp2f [D:\Git\RXDK360-Samples\NaturalInput\Theremin\Theremin.vcxproj]
+Release          ThreadSetProcessor             D:\Git\RXDK360-Samples\System\ThreadSetProcessor\SetProcessor.cpp(56,5): error : SEH '__try' is not supported on this target [D:\Git\RXDK360-Samples\System\ThreadSetProcessor\ThreadSetProcessor.vcxproj]
+Release          ThreadSyncCritSec              D:\Git\RXDK360-Samples\System\ThreadSyncCritSec\CritSec.cpp(58,5): error : SEH '__try' is not supported on this target [D:\Git\RXDK360-Samples\System\ThreadSyncCritSec\ThreadSyncCritSec.vcxproj]
+Release          ThreadSyncEvent                D:\Git\RXDK360-Samples\System\ThreadSyncEvent\Events.cpp(49,5): error : SEH '__try' is not supported on this target [D:\Git\RXDK360-Samples\System\ThreadSyncEvent\ThreadSyncEvent.vcxproj]
+Release          TiledResources                 C:\Program Files\RXDK-360\modern\include\xbox\xutility(13,1): error : unknown type name '_STD_BEGIN' [D:\Git\RXDK360-Samples\Graphics\TiledResources\TiledResources.vcxproj]
+Release          TriStrip                       C:\Program Files\RXDK-360\modern\include\libcxx\__algorithm/comp.h(43,18): error : invalid operands to binary expression ('const SortEntry' and 'const SortEntry') [D:\Git\RXDK360-Samples\Graphics\TriStrip\TriStrip.vcxproj]
+Release          VarianceShadowMaps             C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): exp2f [D:\Git\RXDK360-Samples\Graphics\VarianceShadowMaps\VarianceShadowMaps.vcxproj]
+Release          XAudio2CustomAPO               D:\Git\RXDK360-Samples\Audio\XAudio2CustomAPO\Comp1APO.cpp(69,25): error : no matching function for call to 'RmsCore' [D:\Git\RXDK360-Samples\Audio\XAudio2CustomAPO\XAudio2CustomAPO.vcxproj]
+Release          XPSCube                        C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): _Z17D3DXps_InitializeP6D3DXpsP12D3DXpsThread, _Z15D3DXps_AllocateP6D3DXpsmm, _Z26D3DXps_DrawIndexedVerticesP6D3DXps17_D3DPRIMITIVETYPEmPKv10_D3DFORMATS3_, _Z20D3DXps_KickOffAndGetP6D3DXpsPm, _Z19D3DXps_UninitializeP6D3DXps [D:\Git\RXDK360-Samples\Graphics\XPSCube\XPSCube.vcxproj]
+Release          XuiFontRenderer                C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): _ZTI16IXuiFontRenderer [D:\Git\RXDK360-Samples\ui\XuiFontRenderer\XuiFontRenderer.vcxproj]
+Release          XuiLocale                      C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(66,5): error : clang: compile failed for XuiLocale.cpp [D:\Git\RXDK360-Samples\ui\XuiLocale\XuiLocale.vcxproj]
+Release          XWMADecode                     C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Platforms\Xbox 360\PlatformToolsets\clang\Toolset.targets(104,5): error : unresolved symbols (not kernel imports): _ZN7XAUDIO231XWMADecodeGetRequiredBufferSizeEPK13tWAVEFORMATEX, _ZN7XAUDIO216XWMADecodeCreateEPK13tWAVEFORMATEXPFlPvPNS_28XWMADECODE_INPUT_BUFFER_INFOEES3_PhmPPNS_10XWMADECODEE, _ZN7XAUDIO221XWMADecodeProcessDataEPNS_10XWMADECODEE, _ZN7XAUDIO217XWMADecodeDestroyEPNS_10XWMADECODEE [D:\Git\RXDK360-Samples\Audio\XWMADecode\XWMADecode.vcxproj]
+
+== PASS ==
+Release          Achievements
+Release          ActivePassiveSkeletons
+Release          AdvancedCommandBuffers
+Release          AdvancedLighting
+Release          AdvancedSkeletalRetargeting
+Release          AdvancedXAV
+Release          Aliasing7e3
+Release          ArrayTexture
+Release          AsynchronousCursors
+Release          AvatarAwards
+Release          AvatarGetAssets
+Release          AvatarMonkeySeeMonkeyDo
+Release          AvatarRenderer
+Release          AvatarRetargeting
+Release          BatchedOcclusionQueries
+Release          BigButtonController
+Release          Blobs
+Release          Bowling
+Release          CallStackRecording
+Release          Cartoon
+Release          Collision
+Release          Compilation
+Release          Compression
+Release          ConditionalRendering
+Release          ContentIntegrityVerification
+Release          CrumpleDetection
+Release          CubicBezierPatch
+Release          CustomEDRAMAllocation
+Release          DebugChannel
+Release          DepthOfField
+Release          DepthVisualizer
+Release          DisplacementMap
+Release          Dolphin
+Release          DynamicLinkLibrary
+Release          DynamicSpeechComparison
+Release          EncryptedAlloc
+Release          EndianSwapping
+Release          FastDepthRestore
+Release          FastGPUConstants
+Release          FastMemCopy
+Release          FastSamplerStates
+Release          FastStencilFill
+Release          FastUntile
+Release          Filtering
+Release          FirstPersonNatural
+Release          Fitness
+Release          Flight
+Release          FloatDepth
+Release          ForceFeedback
+Release          ForwardMovement
+Release          FriendMatchmaking
+Release          Friends
+Release          FrostyWindow
+Release          Fur
+Release          FXLite
+Release          GameDiscCaching
+Release          Gamma
+Release          GestureDetection
+Release          GestureGame
+Release          GestureScoring
+Release          Glass
+Release          GPUMemoryMove
+Release          GPUParticle
+Release          GrayscaleBlur
+Release          GuideExtensibility
+Release          HDRLighting
+Release          HeadOrientation
+Release          HeadTracker
+Release          HLSLConstantTable
+Release          HLSLDebugging
+Release          HttpSocket
+Release          InGamePartyMatchmaking
+Release          JointConstraints
+Release          LaunchData
+Release          LEDTracking
+Release          LightShafts
+Release          LobbyChat
+Release          LockL2Cache
+Release          Marketplace
+Release          MemAlloc
+Release          MemoryViews
+Release          MenuUsingHandles
+Release          MenuUsingHover
+Release          Mesh
+Release          MessageBox
+Release          MicrocodeMemExport
+Release          MotionBasedBackgroundRemoval
+Release          MSAAResolve
+Release          MultiCoreCollision
+Release          MultiDeviceRender
+Release          MultiDisc
+Release          MultiRateRender
+Release          NuiViewer
+Release          ParallaxMapping
+Release          PerPixelLighting
+Release          PointSprites
+Release          Postprocess
+Release          PredicatedTiling
+Release          PredicatedTilingFullDepth
+Release          PredicatedTilingMRT
+Release          PredicatedTilingVPos
+Release          Privileges
+Release          Profiling
+Release          QualityOfService
+Release          RenderToTexture
+Release          RESTfulObjects
+Release          Running
+Release          SampleStencilTexture
+Release          SceneViewer2
+Release          Segmentation
+Release          Sessions
+Release          ShadowMap
+Release          ShadowVolume
+Release          ShoulderStabilization
+Release          SimpleGestureDetection
+Release          SimpleHeadTracking
+Release          SimpleIdentity
+Release          SimpleIdentityUsingCallbacks
+Release          SimpleSeatedSkeletonTracking
+Release          SimpleSocket
+Release          SimpleSpeechRecognition
+Release          SimpleTessellation
+Release          SimpleXAuth
+Release          SimpleXAV
+Release          SimpleXInput2
+Release          SimpleXMV
+Release          SkinnedCharacter
+Release          SocialPost
+Release          SoftParticles
+Release          SoundLocationTracking
+Release          Stats
+Release          Stereoscopic3D
+Release          Stereoscopic3DHeadTracking
+Release          StringVerify
+Release          SubD
+Release          TextureCompression
+Release          TexturedMesh
+Release          TextureMemoryView
+Release          ThreadSyncInterlock
+Release          ThreadWatchOnConsole
+Release          TitleStorage
+Release          TriangleASM
+Release          TriangleHLSL
+Release          TurnDetection
+Release          TwoStageShadowMap
+Release          VideoCamera
+Release          VideoChat
+Release          VolumeFog
+Release          WaveGestureTracking
+Release          Wordwrap
+Release          Xact3DSound
+Release          XactBasicSound
+Release          XactCodeDriven
+Release          XactCuePlayback
+Release          XactCustom3DSound
+Release          XactMarkers
+Release          XAudio2BasicSound
+Release          XAudio2BasicStream
+Release          XAudio2Sound3D
+Release          XAudio2VoiceReuse
+Release          XContent
+Release          XContentCrossTitle
+Release          XEXResource
+Release          Xime
+Release          XInputRemap
+Release          XMAHal
+Release          XMAStream
+Release          XMPBackgroundMusic
+Release          XMPCaptureOutput
+Release          XMV
+Release          XRNMSample
+Release          XStorage
+Release          XuiAquatica
+Release          XuiDolphin
+Release          XuiDrawText
+Release          XuiEffect
+Release          XuiKeyboard
+Release          XuiKeyboardClassLib
+Release          XuiMultiInput
+Release          XuiSimpleVideo
+Release          XuiTabbedScene
+Release          XuiTutorial
+Release          ZSprite
