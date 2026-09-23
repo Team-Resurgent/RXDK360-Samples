@@ -22,6 +22,8 @@
 
 #include <xnamath.h>
 #include <assert.h>
+#include <stdio.h>    // _vsnprintf_s (DebugSpewV); pulled in transitively by MSVC's
+#include <stdarg.h>   // <hash_map> before, but include it directly where it is used
 
 #include <hash_map>
 #include <hash_set>
@@ -60,7 +62,10 @@ namespace TiledRuntime
     // Name: DebugSpewV()
     // Desc: Internal helper function
     //--------------------------------------------------------------------------------------
-    static inline VOID DebugSpewV( const CHAR* strFormat, const va_list pArgList )
+    // RXDK-360: va_list is an array type under the clang/PPC-ELF ABI, so a top-level
+    // `const` on the parameter makes it non-portable (can't bind to the CRT's va_list
+    // parameters, e.g. _vsnprintf_s below). The const carried no meaning; drop it.
+    static inline VOID DebugSpewV( const CHAR* strFormat, va_list pArgList )
     {
         CHAR str[2048];
         // Use the secure CRT to avoid buffer overruns. Specify a count of

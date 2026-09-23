@@ -17,6 +17,8 @@
 #include <vector>
 #include <deque>
 #include <hash_map>
+#include <list>       // std::list (TrackedTileSortList) -- MSVC <hash_map> dragged this
+                      // in transitively; the libc++ <hash_map> compat does not
 #include <stack>
 #include <algorithm>
 
