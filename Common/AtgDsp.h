@@ -133,7 +133,7 @@ private:
 // be initialized to zero.
 //
 //--------------------------------------------------------------------------------------
-template<DWORD windowLen> __vector4 __forceinline RmsCore( vector4_in input, DelayLine<__vector4, windowLen>* __restrict window, vector4_inout accumulator, __vector4 oneOverWindowLen )
+template<long windowLen> __vector4 __forceinline RmsCore( vector4_in input, DelayLine<__vector4, windowLen>* __restrict window, vector4_inout accumulator, __vector4 oneOverWindowLen )
  {
     // 
     // Square the four newest input samples
