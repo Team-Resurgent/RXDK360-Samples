@@ -62,24 +62,21 @@ int __declspec( noinline ) SimpleAddCPP( int x, int y )
 //       Note that in release builds the compiler will generate identical code for
 //       SimpleAddCPP as what we have here.
 //--------------------------------------------------------------------------------------
-int __declspec( naked ) SimpleAddAssem( int x, int y )
+int SimpleAddAssem( int x, int y )
 {
-    __asm
-        {
-        // x is in r3
-        // y is in r4
-        add r3, r3, r4
-
-        // This NOP exists purely to make it so that the internals of this function are
-        // different from SimpleAddCPP. Without this the linker (when called with
-        // /opt:icf, typical in release builds) will discard one of the duplicates
-        // which makes looking at the result more confusing, since both calls would
-        // then go to the same location.
-        nop
-
-        // The return value is in r3
-        blr
-        }
+    // Clang uses GNU extended inline assembly rather than MSVC's __asm{}/naked
+    // functions. The compiler picks registers for the operands (%0..%2) and handles
+    // the prologue/epilogue and return; we just describe the instruction.
+    int result;
+    __asm__(
+        "add %0, %1, %2\n\t"
+        // This NOP exists purely so the internals of this function differ from
+        // SimpleAddCPP, so /opt:icf-style identical-code folding does not merge the
+        // two and make the disassembly confusing.
+        "nop"
+        : "=r"( result )        // output: result in some GPR
+        : "r"( x ), "r"( y ) ); // inputs: x, y in GPRs
+    return result;
 }
 
 
@@ -107,47 +104,21 @@ int __declspec( noinline ) AddCallsFunctionCPP( int x, int y )
 //       simpler code, because since GetValue() is in the same translation unit the
 //       compiler knows what registers it uses and can generate more efficient code.
 //--------------------------------------------------------------------------------------
-int __declspec( naked ) AddCallsFunctionAssem( int x, int y )
+int AddCallsFunctionAssem( int x, int y )
 {
-    __asm
-        {
-        // x is in r3
-        // y is in r4
-
-        // Function prologue. Set up a stack frame and
-        // preserve r30, r31, and the link register
-        mflr    r12
-        stw     r12,-8( r1 )
-        std     r30,-18h( r1 )
-        std     r31,-10h( r1 )
-        // See the Stack Frame Layout section of the documentation for details on how
-        // much space should be reserved.
-        stwu    r1,-70h( r1 )
-
-        // Preserve r3 and r4 so their values aren't lost by
-        // the function call.
-        mr      r31,r3
-        mr      r30,r4
-
-        // Call our function call--it is assumed to trash all
-        // volatile variables, including the link register.
-        bl      GetValue
-        // Add the result of GetValue to x
-        add     r11,r3,r31
-        // Add in y and store the result in r3
-        add     r3,r11,r30
-
-        // Function epilogue. Tear down the stack frame and
-        // restore r30, r31, and the link register.
-        addi    r1,r1,70h
-        lwz     r12,-8( r1 )
-        mtlr    r12
-        ld      r30,-18h( r1 )
-        ld      r31,-10h( r1 )
-
-        // The return value is in r3
-        blr
-        }
+    // The MSVC version hand-wrote the stack frame, saved volatiles, and issued a
+    // `bl GetValue` from inside the __asm block. With GNU inline assembly the clean
+    // idiom is to make the call in C -- the compiler builds the frame and preserves
+    // whatever it needs across the call -- and then do the arithmetic in inline asm,
+    // which is what the function is really demonstrating.
+    int g = GetValue();
+    int result;
+    __asm__(
+        "add %0, %1, %2\n\t"    // x + y
+        "add %0, %0, %3"        // + GetValue()
+        : "=&r"( result )       // early-clobber: written before all inputs are read
+        : "r"( x ), "r"( y ), "r"( g ) );
+    return result;
 }
 
 
@@ -190,65 +161,33 @@ FLOAT ArrayMathFunctionCPP( FLOAT* pData, DWORD count )
 //       with no optimizations.
 //       This function really should use VMX operations.
 //--------------------------------------------------------------------------------------
-FLOAT __declspec( naked ) ArrayMathFunctionAssem( FLOAT* pData, int count )
+FLOAT ArrayMathFunctionAssem( FLOAT* pData, int count )
 {
-    __asm
-        {
-        // pData is in r3
-        // count is in r4
-
-        // Load the address of our global float variable. The lau mnemonic
-        // loads the high 16-bits of the address. The low 16-bits can either
-        // be loaded with lal (see the commented out code below) or, in
-        // instructions that support it, can be part of the offset of the
-        // load instruction, as shown in the lfs instruction below.
-        lau     r5, g_fAdder
-        //lal     r5, r5, g_fAdder
-        // Load our global float variable. Note that there is no type
-        // checking, so make sure you know whether you have a float, double,
-        // or something else. Also note that the inline assembler now
-        // lets you use the low 16-bits of the variable's address as an
-        // offset in this addressing mode.
-        lfs     fr2, g_fAdder( r5 )
-
-        // Do a check to see if our loop should execute at all.
-        cmplwi  cr6, r4, 0
-
-        // Generate a zero. PowerPC has no immediate float constants so numbers
-        // such as 0.0 and 1.0 are usually loaded from global variables.
-        // If you know you have a 'normal' (not NaN or infinite) number then
-        // you can conserve instruction space by using subtraction to create
-        // a zero, although the latency will be greater.
-        fsub    fr1, fr2, fr2
-
-        // If count is zero then return immediately. The return value of zero
-        // is already setup in fr1.
-        beqlr   cr6
-        LoopTop:
-        // Implement the inner loop.
-        // Load the next array element
-        lfs     fr0, 0( r3 )
-        // Add g_fAdder (from fr2)
-        fadd    fr0, fr0, fr2
-        // Calculate the reciprocal square root estimate
-        frsqrte fr0, fr0
-        // Accumulate the result into the sum in fr1, using double precision
-        // math for maximum accuracy.
-        fadd   fr1, fr1, fr0
-        // Increment our array pointer to the next element.
-        addi    r3,r3,4
-
-        // Subtract one from our loop count, then branch
-        // to the top of the loop if we haven't hit zero yet.
-        addic.r4, r4, -1
-        bne     LoopTop
-
-        // Our return type is float so we need to round our result to float
-        // precision to avoid errors.
-        frsp    fr1, fr1
-        // The return value is in fr1
-        blr
-        }
+    // The same algorithm as ArrayMathFunctionCPP -- sum of frsqrte(pData[i] +
+    // g_fAdder), accumulated in double precision -- expressed in GNU inline assembly.
+    // The compiler loads g_fAdder for us (the "f" input); no hand-written address
+    // arithmetic (lau/lal) is needed. Local numeric labels (1:/2:) are used so the
+    // block is safe even if the function is inlined at more than one call site.
+    const float adder = g_fAdder;
+    double     sum;
+    __asm__(
+        "fsub    %0, %2, %2\n\t"     // sum = 0.0  (adder - adder; PPC has no float immediates)
+        "cmpwi   %3, 0\n\t"          // if count == 0, the sum stays 0 and we skip the loop
+        "beq     2f\n\t"
+        "mtctr   %3\n\t"             // loop count into CTR
+        "1:\n\t"
+        "lfs     0, 0(%1)\n\t"       // load pData[i] into fr0
+        "fadds   0, 0, %2\n\t"       // + g_fAdder
+        "frsqrte 0, 0\n\t"           // reciprocal square-root estimate
+        "fadd    %0, %0, 0\n\t"      // accumulate (double precision for accuracy)
+        "addi    %1, %1, 4\n\t"      // advance to the next element
+        "bdnz    1b\n\t"             // decrement CTR, loop while non-zero
+        "2:"
+        : "=&f"( sum ), "+b"( pData )        // sum (early-clobber); pData advances
+        : "f"( adder ), "r"( count )
+        : "f0", "ctr", "cr0", "memory" );
+    // Round the double accumulator back to float, as the original frsp did.
+    return ( FLOAT )sum;
 }
 
 
@@ -294,148 +233,52 @@ struct AssemData
 //       If the data is not in L1 then prefetching should also be done.
 //       This function really should use VMX operations.
 //--------------------------------------------------------------------------------------
-FLOAT __declspec( naked ) ArrayMathFunctionAssemFast( FLOAT* pData, int count )
+FLOAT ArrayMathFunctionAssemFast( FLOAT* pData, int count )
 {
-    __asm
-        {
-        // pData is in r3
-        // count is in r4
-
-        // Load the address of our global float variable. This is a two
-        // stage process because only 16-bits of immediate data can be
-        // contained in a PowerPC instruction. We need to load the full
-        // 32-bits of address, rather than using the offset field as
-        // we load the elements, because a field offset plus the lower 16-bits
-        // might overflow, leading to incorrect addressing.
-        lau     r5, g_assemData
-        lal     r5, r5, g_assemData
-        // Load our global float variable. Note that there is no type
-        // checking, so make sure you know whether you have a float, double,
-        // or something else.
-        lfs     fr2, offset AssemData.fMultiplier( r5 )
-
-        // Assume that count is always non-zero and a multiple of our
-        // unwind count, to avoid extra checks in this function. This
-        // saves time and code space.
-
-        // Load a zero from our assembly language data structure.
-        // Note that now that we have the address of our structure we can load additional
-        // data with a single instruction.
-        lfs     fr1, offset AssemData.fZero( r5 )
-        // Put a zero in the two partial sum registers so that we
-        // get correct results on the first iteration. We could use
-        // fmr in order to co-issue with some of the lfs instructions,
-        // but fmr has ten cycle latency instead of the two cycle
-        // latency of a load that hits in L1.
-        lfs     fr7, offset AssemData.fZero( r5 )
-        lfs     fr8, offset AssemData.fZero( r5 )
-
-        // Load our first two data items before the loop, to improve
-        // scheduling opportunities.
-        lfs     fr3, 0( r3 )
-        lfs     fr4, 4( r3 )
-        lfs     fr5, 8( r3 )
-        lfs     fr6, 12( r3 )
-
-        // Make sure we know the code alignment of our loop top. Having a
-        // known alignment lets us control our instruction pairing.
-        // Having as much alignment as possible lets us maximize
-        // instruction fetch efficiency after the branch.
-        // nopalign 8 will insert a no-op if necessary to ensure 8-byte alignment.
-        nopalign    8
-        LoopTop:
-        // Double precision adds (fadd instead of fadds) are used to increase the
-        // precision.
-
-        // Calculate the sum of: __frsqrte(pData[0] + g_fAdd1)
-        // First add fr2 (g_fAdder) to our four data values.
-        // These two instructions co-issue--we'll call their issue time cycle 0.
-        fadd    fr3, fr3, fr2
-        // Update our data pointer. This instruction needs to be issued as early
-        // as possible to avoid data dependency stalls at IS2 on any loads that use
-        // this address, which must issue from IS2 five cycles later than this
-        // instruction.
-        addi    r3, r3, 16
-
-        // These two instructions co-issue on cycle 1.
-        fadd    fr4, fr4, fr2
-        // Subtract from our loop count. This instruction issues on
-        // cycle 5. It can't co-issue because both instructions use
-        // the integer pipeline.
-        addic.r4, r4, -4
-
-        // This instruction by itself on cycle 2.
-        fadd    fr5, fr5, fr2
-        // This instruction by itself on cycle 3. It can't co-issue with the
-        // previous instruction because they both use the same pipeline--there is
-        // a structural hazard.
-        fadd    fr6, fr6, fr2
-
-        // Add in the sum of fr3 and fr4 from the previous loop.
-        // This issues around cycle 6, waiting a few cycles for the result from
-        // the previous loop to be ready,
-        // A short stall doesn't matter because the next instruction
-        // would stall anyway.
-        fadd    fr1, fr1, fr7
-
-        // No instructions are issued on cycles 7, 8, and 9.
-        // More work could be done here, either by having this loop do
-        // additional calculations, or by unwinding the loop even more.
-
-        // These instructions issue on cycles 10, 11, 12, and 13.
-        // They are limited by data dependencies: the results of their
-        // respective fmuls ten cycles earlier.
-        frsqrte fr9, fr3
-        frsqrte fr10, fr4
-        frsqrte fr11, fr5
-        frsqrte fr12, fr6
-        // These instructions could be interleaved with the frsqrte instructions,
-        // loading each register immediately after it issues, but this would risk
-        // having them stall at IS2 because of a data dependency on R3, which would
-        // then stall the following frsqrte instructions. Because load and store
-        // instructions dual-issue to the load/store pipe and to VIQ they have to
-        // worry about multiple types of stalls.
-        lfs     fr3, 0( r3 )
-        lfs     fr4, 4( r3 )
-        lfs     fr5, 8( r3 )
-        lfs     fr6, 12( r3 )
-
-        // No instructions are issued on cycles 15-20. More work is needed to
-        // fully utilize the pipelines.
-
-        // Merge our results using an add tree: combine fr9 and fr10 and combine
-        // fr11 and fr12. The combined results are added to the sum later.
-        // This instruction issues on cycle 21, ten cycles after the instruction to
-        // calculate fr10 was issued.
-        fadd    fr7, fr9, fr10
-
-        // Add in the sum of fr5 and fr6 from the previous loop.
-        // This issues on cycle 24, using a spare slot just before fr8 is filled
-        // with its new value.
-        fadd    fr1, fr1, fr8
-
-        // Second part of the add tree. This issues on cycle 23, ten cycles after
-        // the instruction to calculate fr12 was issued.
-        fadd    fr8, fr11, fr12
-
-        // Branch to the top of our loop if our decrement earlier went to zero.
-        // Because of stalls earlier in the loop the branch predictor should
-        // make this branch essentially free--about eight cycles or more of stalls
-        // per iteration can overlap with the cost of a correctly predicted branch.
-        // This branch issues on cycle 24 (it can't pair with the previous instruction
-        // because it is in a different instruction pair).
-        bne     LoopTop
-
-        // We have to add in the results of the last iteration.
-        fadd    fr1, fr1, fr7
-        fadd    fr1, fr1, fr8
-
-        // Our return type is float so we need to round our result to float
-        // precision to avoid errors.
-        frsp    fr1, fr1
-        // The return value is in fr1
-        blr
-        }
+    // The same algorithm as ArrayMathFunctionCPP, manually unrolled four times so the
+    // long-latency fadd/frsqrte chains from independent elements can overlap in the
+    // pipeline. Assumes (as the original sample documents) that count is a non-zero
+    // multiple of four and that four elements past the end of the array are readable.
+    //
+    // The MSVC version hand-scheduled every instruction and annotated its issue cycle;
+    // clang's scheduler reorders GNU inline asm far less freely, so this port keeps the
+    // faithful unrolled data flow and lets the four independent lanes (fr0-fr3) provide
+    // the instruction-level parallelism, rather than reproducing the exact hand cycle
+    // assignment. g_assemData.fMultiplier is just g_fAdder; the compiler loads it for us.
+    const float mult = g_assemData.fMultiplier;
+    double      sum;
+    __asm__(
+        "fsub    %0, %3, %3\n\t"     // sum = 0.0  (mult - mult)
+        "srawi   %2, %2, 2\n\t"      // iterations = count / 4
+        "mtctr   %2\n\t"
+        "1:\n\t"
+        // Load four consecutive elements into independent lanes.
+        "lfs     0, 0(%1)\n\t"
+        "lfs     1, 4(%1)\n\t"
+        "lfs     2, 8(%1)\n\t"
+        "lfs     3, 12(%1)\n\t"
+        // Add g_fAdder to each (single precision).
+        "fadds   0, 0, %3\n\t"
+        "fadds   1, 1, %3\n\t"
+        "fadds   2, 2, %3\n\t"
+        "fadds   3, 3, %3\n\t"
+        // Reciprocal square-root estimate of each.
+        "frsqrte 0, 0\n\t"
+        "frsqrte 1, 1\n\t"
+        "frsqrte 2, 2\n\t"
+        "frsqrte 3, 3\n\t"
+        // Accumulate all four into the running sum (double precision for accuracy).
+        "fadd    %0, %0, 0\n\t"
+        "fadd    %0, %0, 1\n\t"
+        "fadd    %0, %0, 2\n\t"
+        "fadd    %0, %0, 3\n\t"
+        "addi    %1, %1, 16\n\t"     // advance past the four elements
+        "bdnz    1b"
+        : "=&f"( sum ), "+b"( pData ), "+r"( count )
+        : "f"( mult )
+        : "f0", "f1", "f2", "f3", "ctr", "cr0", "memory" );
+    // Round the double accumulator back to float, as the original frsp did.
+    return ( FLOAT )sum;
 }
 
 
