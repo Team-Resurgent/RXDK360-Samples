@@ -703,7 +703,8 @@ namespace ATG
             case FXLDCLASS_SCALAR:
                 if( pParam->Type == MaterialParameter::RPT_Bool )
                 {
-                    pEffect->SetScalarB( hParam, &pParam->bValue );
+                    BOOL bNorm = pParam->bValue ? 1 : 0;
+                    pEffect->SetScalarB( hParam, &bNorm );
                 }
                 else if( pParam->Type == MaterialParameter::RPT_Int )
                 {
@@ -1076,10 +1077,14 @@ namespace ATG
         for( DWORD i = 0; i < dwCount; ++i )
         {
             const BoundBoolConstant& bbc = m_BoundBoolConstants[i];
+            // RXDK360: force strict 0/1 -- the Xbox 360 debug D3D runtime rejects any
+            // other BOOL value for a shader b# constant ("BOOL value for constant N
+            // must be 0 or 1").
+            BOOL bNorm = ( bbc.pBoolData != NULL && *bbc.pBoolData ) ? 1 : 0;
             if( bbc.dwConstantIndex < 128 )
-                pd3dDevice->SetVertexShaderConstantB( bbc.dwConstantIndex, bbc.pBoolData, bbc.dwConstantCount );
+                pd3dDevice->SetVertexShaderConstantB( bbc.dwConstantIndex, &bNorm, 1 );
             else
-                pd3dDevice->SetPixelShaderConstantB( bbc.dwConstantIndex - 128, bbc.pBoolData, bbc.dwConstantCount );
+                pd3dDevice->SetPixelShaderConstantB( bbc.dwConstantIndex - 128, &bNorm, 1 );
         }
 
         // set material instance parameters
@@ -1106,10 +1111,11 @@ namespace ATG
             for( DWORD i = 0; i < dwCount; ++i )
             {
                 const BoundBoolConstant& bbc = pInstanceData->m_BoundBoolConstants[i];
+                BOOL bNorm = ( bbc.pBoolData != NULL && *bbc.pBoolData ) ? 1 : 0;   // RXDK360: strict 0/1
                 if( bbc.dwConstantIndex < 128 )
-                    pd3dDevice->SetVertexShaderConstantB( bbc.dwConstantIndex, bbc.pBoolData, bbc.dwConstantCount );
+                    pd3dDevice->SetVertexShaderConstantB( bbc.dwConstantIndex, &bNorm, 1 );
                 else
-                    pd3dDevice->SetPixelShaderConstantB( bbc.dwConstantIndex - 128, bbc.pBoolData, bbc.dwConstantCount );
+                    pd3dDevice->SetPixelShaderConstantB( bbc.dwConstantIndex - 128, &bNorm, 1 );
             }
         }
     }

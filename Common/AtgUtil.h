@@ -37,12 +37,15 @@ namespace ATG
 #define ARRAY_SIZE(x) ( sizeof(x) / sizeof(x[0] ) )
 #endif
 
+// RXDK360: on failure, report the exact expression, HRESULT and location so a
+// silent Initialize()/load failure names the culprit in the debug output (which the
+// RXDK-360 debug adapter forwards to the VS Output window).
 #ifndef RETURN_ON_FAIL
-#define RETURN_ON_FAIL(fn) { HRESULT ATG_hr; if ( FAILED( ATG_hr = (fn) ) ) return ATG_hr;}
+#define RETURN_ON_FAIL(fn) { HRESULT ATG_hr; if ( FAILED( ATG_hr = (fn) ) ) { ATG::DebugSpew( "%s(%d): RETURN_ON_FAIL: %s -> hr=0x%08X\n", __FILE__, __LINE__, #fn, ATG_hr ); return ATG_hr; } }
 #endif
 
 #ifndef RETURN_ON_NULL
-#define RETURN_ON_NULL(x) { if ( (x) == NULL ) return E_FAIL;}
+#define RETURN_ON_NULL(x) { if ( (x) == NULL ) { ATG::DebugSpew( "%s(%d): RETURN_ON_NULL: %s was NULL\n", __FILE__, __LINE__, #x ); return E_FAIL; } }
 #endif
 
 

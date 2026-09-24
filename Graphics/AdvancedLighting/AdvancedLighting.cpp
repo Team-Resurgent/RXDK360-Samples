@@ -646,10 +646,13 @@ VOID Sample::SetGlobalShaderConstants()
     BOOL bDebugShowIndirectLighting = ( m_RenderMode == RENDERMODE_LIGHTING ) ||
         ( m_RenderMode == RENDERMODE_INDIRECTLIGHTING );
 
-    m_pd3dDevice->SetPixelShaderConstantB( PSCONST_bDebugShowNoLighting, &bDebugShowNoLighting, 1 );
-    m_pd3dDevice->SetPixelShaderConstantB( PSCONST_bDebugShowDirectLighting, &bDebugShowDirectLighting, 1 );
-    m_pd3dDevice->SetPixelShaderConstantB( PSCONST_bDebugShowIndirectLighting, &bDebugShowIndirectLighting, 1 );
-    m_pd3dDevice->SetPixelShaderConstantB( PSCONST_bDebugReduceFlicker, &m_bReduceFlicker, 1 );
+    // RXDK360: force strict 0/1 (Xbox 360 debug D3D rejects any other BOOL value).
+    BOOL bNL = bDebugShowNoLighting ? 1 : 0, bDL = bDebugShowDirectLighting ? 1 : 0;
+    BOOL bIL = bDebugShowIndirectLighting ? 1 : 0, bRF = m_bReduceFlicker ? 1 : 0;
+    m_pd3dDevice->SetPixelShaderConstantB( PSCONST_bDebugShowNoLighting, &bNL, 1 );
+    m_pd3dDevice->SetPixelShaderConstantB( PSCONST_bDebugShowDirectLighting, &bDL, 1 );
+    m_pd3dDevice->SetPixelShaderConstantB( PSCONST_bDebugShowIndirectLighting, &bIL, 1 );
+    m_pd3dDevice->SetPixelShaderConstantB( PSCONST_bDebugReduceFlicker, &bRF, 1 );
 
     const FLOAT vWorldScale[ 4 ] = { 1.0f / g_fWorldScale, g_fWorldScale, g_fWorldScale / 2.0f, 1 };
     m_pd3dDevice->SetPixelShaderConstantF( PSCONST_vWorldScale, ( FLOAT* )&vWorldScale, 1 );
