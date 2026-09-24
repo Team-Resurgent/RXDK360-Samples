@@ -312,6 +312,35 @@ function Get-ShaderSteps([string]$dir, [string]$blob) {
         }
         $steps += @{ Cmd = $cmd; In = $rel; Out = $hdr }
     }
+
+    # Runtime-loaded shaders: a title loads compiled microcode from
+    # game:\Media\Shaders\NAME.xvu (vertex) / NAME.xpu (pixel) at run time (vs the
+    # /Fh headers above, which bake into the .xex). Compile each from the sample's
+    # .hlsl with fxc /Fo into the LOCAL Media\Shaders\ so the media deploy ships it.
+    # Entry point is NAME + VS/PS by convention (ShadeScenePerVertex.xvu ->
+    # ShadeScenePerVertexVS); only emit a step when that entry actually exists.
+    $hlsls = @($shaders | Where-Object { $_.Extension.ToLower() -eq ".hlsl" })
+    if ($hlsls.Count -gt 0) {
+        $seen = @{}
+        foreach ($m in [regex]::Matches($blob, '([A-Za-z0-9_]+)\.(xvu|xpu)\b')) {
+            $shName = $m.Groups[1].Value; $ext = $m.Groups[2].Value.ToLower()
+            $key = "$shName.$ext"; if ($seen.ContainsKey($key)) { continue }; $seen[$key] = $true
+            $suffix = if ($ext -eq "xvu") { "VS" } else { "PS" }
+            $target = if ($ext -eq "xvu") { "vs_3_0" } else { "ps_3_0" }
+            $entry = "$shName$suffix"
+            $srcHlsl = $null
+            foreach ($h in $hlsls) {
+                $hc = ""; try { $hc = Get-Content -LiteralPath $h.FullName -Raw } catch {}
+                if ($hc -match "\b$([regex]::Escape($entry))\s*\(") { $srcHlsl = $h; break }
+            }
+            if (-not $srcHlsl) { continue }
+            $baseP = (Resolve-Path -LiteralPath $dir).Path
+            $srcRel = $srcHlsl.FullName.Substring($baseP.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")
+            $outRel = "Media\Shaders\$shName.$ext"
+            $cmd = ('"$(RxdkBinDir)\fxc.exe" /nologo "/T{0}" "/E{1}" "/Fo$(ProjectDir){2}" "$(ProjectDir){3}"' -f $target, $entry, $outRel, $srcRel)
+            $steps += @{ Cmd = $cmd; In = $srcRel; Out = $outRel; MkDir = "Media\Shaders" }
+        }
+    }
     return $steps
 }
 
@@ -384,6 +413,7 @@ function New-Vcxproj($name, $guid, $confType, $cpps, $hdrs, $includeDirs, $catLi
             $i++
             $o.Add("  <Target Name=`"RxdkGen$i`" BeforeTargets=`"ClCompile`" Inputs=`"`$(ProjectDir)$(ConvertTo-Xml $step.In)`" Outputs=`"`$(ProjectDir)$(ConvertTo-Xml $step.Out)`">")
             $o.Add("    <Message Importance=`"high`" Text=`"RXDK-360: generating $(ConvertTo-Xml $step.Out)`" />")
+            if ($step['MkDir']) { $o.Add("    <MakeDir Directories=`"`$(ProjectDir)$(ConvertTo-Xml $step['MkDir'])`" />") }
             $o.Add("    <Exec Command=`"$(ConvertTo-Xml $step.Cmd)`" />")
             $o.Add('  </Target>')
         }

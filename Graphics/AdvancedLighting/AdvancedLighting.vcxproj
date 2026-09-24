@@ -140,6 +140,121 @@
     <Message Importance="high" Text="RXDK-360: generating AdvancedLighting.h" />
     <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; /Emain &quot;/Fh$(ProjectDir)AdvancedLighting.h&quot; &quot;/Vng_AdvancedLighting&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
   </Target>
+  <Target Name="RxdkGen2" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeScenePerVertex.xvu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeScenePerVertex.xvu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; &quot;/EShadeScenePerVertexVS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeScenePerVertex.xvu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen3" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeScenePerVertex.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeScenePerVertex.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeScenePerVertexPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeScenePerVertex.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen4" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeScenePerVertexDebug.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeScenePerVertexDebug.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeScenePerVertexDebugPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeScenePerVertexDebug.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen5" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeScenePerPixel.xvu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeScenePerPixel.xvu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; &quot;/EShadeScenePerPixelVS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeScenePerPixel.xvu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen6" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeScenePerPixel.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeScenePerPixel.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeScenePerPixelPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeScenePerPixel.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen7" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeScenePerPixelDebug.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeScenePerPixelDebug.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeScenePerPixelDebugPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeScenePerPixelDebug.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen8" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSceneShadowed.xvu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSceneShadowed.xvu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; &quot;/EShadeSceneShadowedVS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSceneShadowed.xvu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen9" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSceneShadowed.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSceneShadowed.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeSceneShadowedPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSceneShadowed.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen10" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSceneShadowedDebug.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSceneShadowedDebug.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeSceneShadowedDebugPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSceneShadowedDebug.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen11" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertex.xvu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSceneIndirectPerVertex.xvu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; &quot;/EShadeSceneIndirectPerVertexVS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertex.xvu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen12" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertex.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSceneIndirectPerVertex.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeSceneIndirectPerVertexPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertex.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen13" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertexDebug.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSceneIndirectPerVertexDebug.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeSceneIndirectPerVertexDebugPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertexDebug.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen14" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVtxSelfOcclude.xvu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSceneIndirectPerVtxSelfOcclude.xvu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; &quot;/EShadeSceneIndirectPerVtxSelfOccludeVS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVtxSelfOcclude.xvu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen15" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerPixel.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSceneIndirectPerPixel.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeSceneIndirectPerPixelPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerPixel.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen16" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerPixelDebug.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSceneIndirectPerPixelDebug.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeSceneIndirectPerPixelDebugPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerPixelDebug.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen17" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSky.xvu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSky.xvu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; &quot;/EShadeSkyVS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSky.xvu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen18" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ShadeSky.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ShadeSky.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EShadeSkyPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ShadeSky.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen19" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ReflectiveShadowmap.xvu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ReflectiveShadowmap.xvu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; &quot;/EReflectiveShadowmapVS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ReflectiveShadowmap.xvu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen20" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ReflectiveShadowmap.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ReflectiveShadowmap.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EReflectiveShadowmapPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ReflectiveShadowmap.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen21" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ReflectiveShadowmapDebug.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ReflectiveShadowmapDebug.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EReflectiveShadowmapDebugPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ReflectiveShadowmapDebug.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen22" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ImportanceSampling.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ImportanceSampling.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EImportanceSamplingPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ImportanceSampling.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen23" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\GenerateSmallRSMTextures.xpu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\GenerateSmallRSMTextures.xpu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EGenerateSmallRSMTexturesPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\GenerateSmallRSMTextures.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
+  <Target Name="RxdkGen24" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\DepthOnly.xvu">
+    <Message Importance="high" Text="RXDK-360: generating Media\Shaders\DepthOnly.xvu" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; &quot;/EDepthOnlyVS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\DepthOnly.xvu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+  </Target>
   <ItemGroup>
     <ClCompile Include="AdvancedLighting.cpp" />
     <ClCompile Include="CReflectiveShadowMap.cpp" />
