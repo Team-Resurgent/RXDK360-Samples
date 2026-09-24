@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="Meshes">
+<UniqueIdentifier>{213BE6AB-96C7-440b-ACBD-EDFEB17C13A1}</UniqueIdentifier>
+<Extensions>xbg</Extensions>
+</Filter>
+<Filter Include="FXLite Effects">
+<UniqueIdentifier>{66FFA51C-CC80-4755-AC3B-50320EED7A38}</UniqueIdentifier>
+<Extensions>fx</Extensions>
+</Filter>
+<Filter Include="Shaders">
+<UniqueIdentifier>{1008237E-1E09-477c-92C2-F7C0517BFE4C}</UniqueIdentifier>
+<Extensions>hlsl</Extensions>
+</Filter>
+<Filter Include="Scene Files">
+<UniqueIdentifier>{96ED41EC-44C0-4015-A89B-6399385FD891}</UniqueIdentifier>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\GrabManipulator.cpp" />
+      <CLInclude Include=".\HandSearch.h" />
+      <ClCompile Include=".\HandSearch.cpp" />
+      <CLInclude Include=".\HOCDetector.h" />
+      <CLInclude Include=".\HOCDetectorInternal.h" />
+      <ClCompile Include=".\HOCDetector.cpp" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Resource.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Meshes\Dwarf.xbg">
+<Filter>Meshes</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Effects\SimpleShaders.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="Data\opt.hoc">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Shaders\DepthPreview.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Shaders\CommonShaders.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

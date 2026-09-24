@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\FastCPU.cpp" />
+      <ClCompile Include=".\ScalarSkinning.cpp" />
+      <CLInclude Include=".\Skinning.h" />
+      <CLInclude Include=".\VMXSharedSkinning.h" />
+      <ClCompile Include=".\VMXSkinning1.cpp" />
+      <ClCompile Include=".\VMXSkinning2.cpp" />
+      <ClCompile Include=".\VMXSkinning3.cpp" />
+      <ClCompile Include=".\VMXSkinning4Float16.cpp" />
+      <ClCompile Include=".\XboxHardwareTimer.cpp" />
+      <CLInclude Include=".\XboxHardwareTimer.h" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Courier_New_11.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

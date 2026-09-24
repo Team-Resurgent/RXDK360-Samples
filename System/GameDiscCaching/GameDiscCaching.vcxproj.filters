@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="Scene Files">
+<UniqueIdentifier>{96ED41EC-44C0-4015-A89B-6399385FD891}</UniqueIdentifier>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\GameDiscCaching.cpp" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Courier_New_11.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="test_file0.bin">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="test_file1.bin">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="test_file2.bin">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="test_file3.bin">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="test_file4.bin">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="test_file5.bin">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="test_file6.bin">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="test_file7.bin">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="test_file8.bin">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="test_file9.bin">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

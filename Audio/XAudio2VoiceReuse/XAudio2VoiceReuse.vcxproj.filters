@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="Sounds">
+<UniqueIdentifier>{C6AC64E1-1959-4cb3-8304-25AA64072BA9}</UniqueIdentifier>
+<Extensions>wav;wma</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <CLInclude Include="XAudio2VoiceReuse.h" />
+      <ClCompile Include="PrioritizedVoice.cpp" />
+      <ClCompile Include="PrioritizedVoices.cpp" />
+      <ClCompile Include="XAudio2VoiceReuse.cpp" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-01.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-02.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-03.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-04.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-05.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-06.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-07.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-08.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-09.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-10.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Ambient-11.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Music-01.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Music-02.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Music-03.xma2">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Pistol-1.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Pistol-2.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Pistol-3.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Pistol-4.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Pistol-5.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Pistol-6.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Pistol-7.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="FXLite Effects">
+<UniqueIdentifier>{66FFA51C-CC80-4755-AC3B-50320EED7A38}</UniqueIdentifier>
+<Extensions>fx</Extensions>
+</Filter>
+<Filter Include="Shaders">
+<UniqueIdentifier>{1008237E-1E09-477c-92C2-F7C0517BFE4C}</UniqueIdentifier>
+<Extensions>hlsl</Extensions>
+</Filter>
+<Filter Include="Scene Files">
+<UniqueIdentifier>{96ED41EC-44C0-4015-A89B-6399385FD891}</UniqueIdentifier>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\ReducingLatency.cpp" />
+      <ClCompile Include=".\CLatencySample.cpp" />
+      <CLInclude Include=".\CLatencySample.h" />
+      <ClCompile Include=".\CLowLatencySample.cpp" />
+      <CLInclude Include=".\CLowLatencySample.h" />
+      <ClCompile Include=".\CHighLatencySample.cpp" />
+      <CLInclude Include=".\CHighLatencySample.h" />
+      <ClCompile Include=".\CRenderer.cpp" />
+      <CLInclude Include=".\CRenderer.h" />
+      <ClCompile Include=".\AvatarRenderer.cpp" />
+      <CLInclude Include=".\AvatarRenderer.h" />
+      <CLInclude Include=".\Common.h" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include=".\Resource.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Effects\SimpleShaders.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Sounds\XENON_Light.xma">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Scenes\Terrain.xatg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Scenes\Terrain.pmem">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Meshes\shark1.xbg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Meshes\shark2.xbg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Meshes\shark3.xbg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Meshes\turtle1.xbg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Meshes\turtle2.xbg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Meshes\turtle3.xbg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Meshes\ud1.xbg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Meshes\ud2.xbg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Meshes\ud3.xbg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include=".\Shaders\Aquatica.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Shaders\AvatarBody_vs.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Shaders\AvatarBodyOpaque_ps.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Shaders\AvatarBodyTransparent_ps.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Shaders\AvatarHeadOpaque_vs.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Shaders\AvatarHeadOpaque_ps.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Shaders\AvatarBodyShinyOpaque_ps.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Shaders\AvatarBodyShinyTransparent_ps.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Shaders\AvatarBodyShiny_vs.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Shaders\AvatarCommon.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include=".\Shaders\AvatarSkinning.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<None Include=".\Shaders\AvatarLighting.hlsl">
+<Filter>Shaders</Filter>
+</None>
+<CustomBuild Include="..\..\Media\Shaders\TwoStageShadowMap.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Shaders\PostProcess.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

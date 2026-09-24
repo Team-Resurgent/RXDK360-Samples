@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="Sounds">
+<UniqueIdentifier>{C6AC64E1-1959-4cb3-8304-25AA64072BA9}</UniqueIdentifier>
+<Extensions>wav;wma</Extensions>
+</Filter>
+<Filter Include="XACT Projects">
+<UniqueIdentifier>{874D7B73-6EAC-4b9d-9714-DE08561D3F7E}</UniqueIdentifier>
+<Extensions>xap</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\XactCuePlayback.cpp" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Sounds\Stone4.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Stone1.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Stone2.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Stone3.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\owl2.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\owl3.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\coyote1.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\coyote2.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\coyote3.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\cricket1.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\cricket2.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\cricket3.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\crickets.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\katydid1.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\katydid2.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\owl1.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\shot04.aif">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\shot01.aif">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\shot02.aif">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\shot03.aif">
+<Filter>Sounds</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="XactSounds.xap">
+<Filter>XACT Projects</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

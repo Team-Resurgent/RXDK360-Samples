@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="XUI Package Files">
+<UniqueIdentifier>{19AC8FC7-BD6B-442b-9588-CD503225A5A4}</UniqueIdentifier>
+<Extensions>xui;bmp</Extensions>
+</Filter>
+<Filter Include="Scene Files">
+<UniqueIdentifier>{96ED41EC-44C0-4015-A89B-6399385FD891}</UniqueIdentifier>
+</Filter>
+<Filter Include="XUI Wavebanks">
+<UniqueIdentifier>{953CBD07-61C7-4f85-A2B9-C27B55985850}</UniqueIdentifier>
+<Extensions>xap</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <CLInclude Include=".\KeyboardScene.h" />
+      <ClCompile Include=".\XuiKeyboardClassLib.cpp" />
+      <ClCompile Include=".\KeyboardScene.cpp" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\media\xui\xarialuni.ttf">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\media\xui\skin_keyboard.xui">
+<Filter>XUI Package Files</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="Keyboard.xap">
+<Filter>XUI Wavebanks</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

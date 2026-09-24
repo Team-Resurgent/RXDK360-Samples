@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Sounds">
+<UniqueIdentifier>{C6AC64E1-1959-4cb3-8304-25AA64072BA9}</UniqueIdentifier>
+<Extensions>wav;wma</Extensions>
+</Filter>
+<Filter Include="XACT Projects">
+<UniqueIdentifier>{874D7B73-6EAC-4b9d-9714-DE08561D3F7E}</UniqueIdentifier>
+<Extensions>xap</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\XactCodeDriven.cpp" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Sounds\Dolphin4.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="XactCodeDriven.xap">
+<Filter>XACT Projects</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

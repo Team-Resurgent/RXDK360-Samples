@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="Textures">
+<UniqueIdentifier>{BB0EF373-5196-40ee-A35B-E91DC445E26F}</UniqueIdentifier>
+<Extensions>bmp;tga;dds</Extensions>
+</Filter>
+<Filter Include="FXLite Effects">
+<UniqueIdentifier>{66FFA51C-CC80-4755-AC3B-50320EED7A38}</UniqueIdentifier>
+<Extensions>fx</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\AsyncResources.cpp" />
+      <ClCompile Include=".\ParticleSystem.cpp" />
+      <CLInclude Include=".\ParticleSystem.h" />
+      <CLInclude Include=".\AtgWorkerThread.h" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Textures\customvfetch-particles.dds">
+<Filter>Textures</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Effects\SimpleShaders.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Effects\Billboard.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

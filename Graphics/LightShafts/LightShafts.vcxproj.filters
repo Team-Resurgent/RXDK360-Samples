@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="Meshes">
+<UniqueIdentifier>{213BE6AB-96C7-440b-ACBD-EDFEB17C13A1}</UniqueIdentifier>
+<Extensions>xbg</Extensions>
+</Filter>
+<Filter Include="Textures">
+<UniqueIdentifier>{BB0EF373-5196-40ee-A35B-E91DC445E26F}</UniqueIdentifier>
+<Extensions>bmp;tga;dds</Extensions>
+</Filter>
+<Filter Include="Shaders">
+<UniqueIdentifier>{1008237E-1E09-477c-92C2-F7C0517BFE4C}</UniqueIdentifier>
+<Extensions>hlsl</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\LightShafts.cpp" />
+      <ClCompile Include=".\CBackdrop.cpp" />
+      <CLInclude Include=".\CBackdrop.h" />
+      <ClCompile Include=".\COverlayQuad.cpp" />
+      <CLInclude Include=".\COverlayQuad.h" />
+      <ClCompile Include=".\CSpotlight.cpp" />
+      <CLInclude Include=".\CSpotlight.h" />
+      <ClCompile Include=".\CVolVizShells.cpp" />
+      <CLInclude Include=".\CVolVizShells.h" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include=".\Resource.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Meshes\Hebe.xbg">
+<Filter>Meshes</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Textures\LightShafts_NoiseVolume.dds">
+<Filter>Textures</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Shaders\LightShafts_OverlayQuad.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Shaders\LightShafts_SpotLight.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Shaders\LightShafts_Backdrop.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Shaders\LightShafts_Object.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Shaders\LightShafts_VolVizShells.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

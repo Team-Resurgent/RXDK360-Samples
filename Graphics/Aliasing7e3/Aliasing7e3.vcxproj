@@ -1,152 +1,461 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="CodeAnalysis|Xbox 360">
-      <Configuration>CodeAnalysis</Configuration>
-      <Platform>Xbox 360</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|Xbox 360">
-      <Configuration>Debug</Configuration>
-      <Platform>Xbox 360</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Profile|Xbox 360">
-      <Configuration>Profile</Configuration>
-      <Platform>Xbox 360</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Profile_FastCap|Xbox 360">
-      <Configuration>Profile_FastCap</Configuration>
-      <Platform>Xbox 360</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Xbox 360">
-      <Configuration>Release</Configuration>
-      <Platform>Xbox 360</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release_LTCG|Xbox 360">
-      <Configuration>Release_LTCG</Configuration>
-      <Platform>Xbox 360</Platform>
-    </ProjectConfiguration>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup Label="ProjectConfigurations">
+<ProjectConfiguration Include="CodeAnalysis|Xbox 360">
+<Configuration>CodeAnalysis</Configuration>
+<Platform>Xbox 360</Platform>
+</ProjectConfiguration>
+<ProjectConfiguration Include="Debug|Xbox 360">
+<Configuration>Debug</Configuration>
+<Platform>Xbox 360</Platform>
+</ProjectConfiguration>
+<ProjectConfiguration Include="Profile_FastCap|Xbox 360">
+<Configuration>Profile_FastCap</Configuration>
+<Platform>Xbox 360</Platform>
+</ProjectConfiguration>
+<ProjectConfiguration Include="Profile|Xbox 360">
+<Configuration>Profile</Configuration>
+<Platform>Xbox 360</Platform>
+</ProjectConfiguration>
+<ProjectConfiguration Include="Release_LTCG|Xbox 360">
+<Configuration>Release_LTCG</Configuration>
+<Platform>Xbox 360</Platform>
+</ProjectConfiguration>
+<ProjectConfiguration Include="Release|Xbox 360">
+<Configuration>Release</Configuration>
+<Platform>Xbox 360</Platform>
+</ProjectConfiguration>
+</ItemGroup>
+<PropertyGroup Label="Globals">
+<ProjectName>Aliasing7e3</ProjectName>
+<ProjectGuid>{C5682794-7DBE-727F-CE0F-A9425E39F490}</ProjectGuid>
+<RootNamespace>Aliasing7e3</RootNamespace>
+<Keyword>Win32Proj</Keyword>
+</PropertyGroup>
+<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'" Label="Configuration">
+<ConfigurationType>Application</ConfigurationType>
+<PlatformToolset>clang</PlatformToolset>
+<RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+<RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
+<CharacterSet>MultiByte</CharacterSet>
+<UseOfAtl>false</UseOfAtl>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'" Label="Configuration">
+<ConfigurationType>Application</ConfigurationType>
+<PlatformToolset>clang</PlatformToolset>
+<RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+<RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
+<CharacterSet>MultiByte</CharacterSet>
+<UseOfAtl>false</UseOfAtl>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'" Label="Configuration">
+<ConfigurationType>Application</ConfigurationType>
+<PlatformToolset>clang</PlatformToolset>
+<RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+<RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
+<CharacterSet>MultiByte</CharacterSet>
+<UseOfAtl>false</UseOfAtl>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'" Label="Configuration">
+<ConfigurationType>Application</ConfigurationType>
+<PlatformToolset>clang</PlatformToolset>
+<RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+<RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
+<CharacterSet>MultiByte</CharacterSet>
+<UseOfAtl>false</UseOfAtl>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'" Label="Configuration">
+<ConfigurationType>Application</ConfigurationType>
+<PlatformToolset>clang</PlatformToolset>
+<RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+<RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
+<CharacterSet>MultiByte</CharacterSet>
+<UseOfAtl>false</UseOfAtl>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'" Label="Configuration">
+<ConfigurationType>Application</ConfigurationType>
+<PlatformToolset>clang</PlatformToolset>
+<RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
+<RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
+<WholeProgramOptimization>true</WholeProgramOptimization>
+<CharacterSet>MultiByte</CharacterSet>
+<UseOfAtl>false</UseOfAtl>
+</PropertyGroup>
+<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+<ImportGroup Label="ExtensionSettings" />
+<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'" Label="PropertySheets">
+<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+</ImportGroup>
+<ImportGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'" Label="PropertySheets">
+<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+</ImportGroup>
+<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'" Label="PropertySheets">
+<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+</ImportGroup>
+<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'" Label="PropertySheets">
+<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+</ImportGroup>
+<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'" Label="PropertySheets">
+<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+</ImportGroup>
+<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'" Label="PropertySheets">
+<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+</ImportGroup>
+<PropertyGroup Label="UserMacros" />
+
+<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
+<ClCompile>
+<WarningLevel>Level4</WarningLevel>
+<Optimization>Disabled</Optimization>
+<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+<OpenMPSupport>FALSE</OpenMPSupport>
+<IntrinsicFunctions>true</IntrinsicFunctions>
+<ExceptionHandling>false</ExceptionHandling>
+<AdditionalIncludeDirectories>..\..\Common;..\..\..\Modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+<AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+<PreprocessorDefinitions>_DEBUG;_XBOX;XBOX;XBOX_SAMPLE;_XBOX_CRT_DEPRECATE_INSECURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+<ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+<RuntimeTypeInfo>false</RuntimeTypeInfo>
+<BufferSecurityCheck>false</BufferSecurityCheck>
+<AssemblerOutput>NoListing</AssemblerOutput>
+<AnalyzeStalls>false</AnalyzeStalls>
+<CallAttributedProfiling>Disabled</CallAttributedProfiling>
+</ClCompile>
+<Link>
+<AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
+<AdditionalDependencies>d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xapilibd.lib;xaudiod2.lib;x3daudiod.lib;xmcored.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<GenerateDebugInformation>true</GenerateDebugInformation>
+</Link>
+<PreBuildEvent>
+<Command></Command>
+</PreBuildEvent>
+<PostBuildEvent>
+<Command></Command>
+</PostBuildEvent>
+<ImageXex>
+<ConfigurationFile></ConfigurationFile>
+<AdditionalSections></AdditionalSections>
+</ImageXex>
+<Deploy>
+<DeploymentType>EmulateDvd</DeploymentType>
+<DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+</Deploy>
+</ItemDefinitionGroup>
+<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
+<ClCompile>
+<WarningLevel>Level4</WarningLevel>
+<Optimization>Disabled</Optimization>
+<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+<OpenMPSupport>FALSE</OpenMPSupport>
+<IntrinsicFunctions>true</IntrinsicFunctions>
+<ExceptionHandling>false</ExceptionHandling>
+<AdditionalIncludeDirectories>..\..\Common;..\..\..\Modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+<AdditionalOptions>/MP /analyze:stacksize32768  %(AdditionalOptions)</AdditionalOptions>
+<PreprocessorDefinitions>_DEBUG;_XBOX;XBOX;XBOX_SAMPLE;_XBOX_CRT_DEPRECATE_INSECURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+<ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+<RuntimeTypeInfo>false</RuntimeTypeInfo>
+<BufferSecurityCheck>false</BufferSecurityCheck>
+<AssemblerOutput>NoListing</AssemblerOutput>
+<AnalyzeStalls>false</AnalyzeStalls>
+<CallAttributedProfiling>Disabled</CallAttributedProfiling>
+<PREfast>AnalyzeOnly</PREfast>
+</ClCompile>
+<Link>
+<AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
+<AdditionalDependencies>d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xapilibd.lib;xaudiod2.lib;x3daudiod.lib;xmcored.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<GenerateDebugInformation>true</GenerateDebugInformation>
+</Link>
+<PreBuildEvent>
+<Command></Command>
+</PreBuildEvent>
+<PostBuildEvent>
+<Command></Command>
+</PostBuildEvent>
+<ImageXex>
+<ConfigurationFile></ConfigurationFile>
+<AdditionalSections></AdditionalSections>
+</ImageXex>
+<Deploy>
+<DeploymentType>EmulateDvd</DeploymentType>
+<DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+</Deploy>
+</ItemDefinitionGroup>
+<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
+<ClCompile>
+<WarningLevel>Level4</WarningLevel>
+<Optimization>Full</Optimization>
+<FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+<StringPooling>true</StringPooling>
+<InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+<FunctionLevelLinking>true</FunctionLevelLinking>
+<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+<OpenMPSupport>FALSE</OpenMPSupport>
+<IntrinsicFunctions>true</IntrinsicFunctions>
+<ExceptionHandling>false</ExceptionHandling>
+<AdditionalIncludeDirectories>..\..\Common;..\..\..\Modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+<AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+<PreprocessorDefinitions>NDEBUG;_XBOX;XBOX;XBOX_SAMPLE;_XBOX_CRT_DEPRECATE_INSECURE;PROFILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+<ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+<RuntimeTypeInfo>false</RuntimeTypeInfo>
+<BufferSecurityCheck>false</BufferSecurityCheck>
+<AssemblerOutput>NoListing</AssemblerOutput>
+<AnalyzeStalls>false</AnalyzeStalls>
+<CallAttributedProfiling>Disabled</CallAttributedProfiling>
+</ClCompile>
+<Link>
+<AdditionalOptions>/ignore:4089  %(AdditionalOptions)</AdditionalOptions>
+<AdditionalDependencies>d3d9i.lib;d3dx9i.lib;xgraphics.lib;xapilibi.lib;xaudio2.lib;x3daudioi.lib;xmcorei.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<IgnoreSpecificDefaultLibraries>xapilib.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+<GenerateDebugInformation>true</GenerateDebugInformation>
+<OptimizeReferences>true</OptimizeReferences>
+<EnableCOMDATFolding>false</EnableCOMDATFolding>
+<SetChecksum>true</SetChecksum>
+</Link>
+<PreBuildEvent>
+<Command></Command>
+</PreBuildEvent>
+<PostBuildEvent>
+<Command></Command>
+</PostBuildEvent>
+<ImageXex>
+<ConfigurationFile></ConfigurationFile>
+<AdditionalSections></AdditionalSections>
+</ImageXex>
+<Deploy>
+<DeploymentType>EmulateDvd</DeploymentType>
+<DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+</Deploy>
+</ItemDefinitionGroup>
+<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
+<ClCompile>
+<WarningLevel>Level4</WarningLevel>
+<Optimization>Full</Optimization>
+<FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+<StringPooling>true</StringPooling>
+<InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+<FunctionLevelLinking>true</FunctionLevelLinking>
+<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+<OpenMPSupport>FALSE</OpenMPSupport>
+<IntrinsicFunctions>true</IntrinsicFunctions>
+<ExceptionHandling>false</ExceptionHandling>
+<AdditionalIncludeDirectories>..\..\Common;..\..\..\Modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+<AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+<PreprocessorDefinitions>NDEBUG;_XBOX;XBOX;XBOX_SAMPLE;_XBOX_CRT_DEPRECATE_INSECURE;PROFILE;FASTCAP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+<ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+<RuntimeTypeInfo>false</RuntimeTypeInfo>
+<BufferSecurityCheck>false</BufferSecurityCheck>
+<AssemblerOutput>NoListing</AssemblerOutput>
+<AnalyzeStalls>false</AnalyzeStalls>
+<CallAttributedProfiling>Fastcap</CallAttributedProfiling>
+</ClCompile>
+<Link>
+<AdditionalOptions>/ignore:4089  %(AdditionalOptions)</AdditionalOptions>
+<AdditionalDependencies>d3d9i.lib;d3dx9i.lib;xgraphics.lib;xapilibi.lib;xaudio2.lib;x3daudioi.lib;xmcorei.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<GenerateDebugInformation>true</GenerateDebugInformation>
+<OptimizeReferences>true</OptimizeReferences>
+<EnableCOMDATFolding>false</EnableCOMDATFolding>
+<SetChecksum>true</SetChecksum>
+</Link>
+<PreBuildEvent>
+<Command></Command>
+</PreBuildEvent>
+<PostBuildEvent>
+<Command></Command>
+</PostBuildEvent>
+<ImageXex>
+<ConfigurationFile></ConfigurationFile>
+<AdditionalSections></AdditionalSections>
+</ImageXex>
+<Deploy>
+<DeploymentType>EmulateDvd</DeploymentType>
+<DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+</Deploy>
+</ItemDefinitionGroup>
+<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
+<ClCompile>
+<WarningLevel>Level4</WarningLevel>
+<Optimization>Full</Optimization>
+<FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+<StringPooling>true</StringPooling>
+<InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+<FunctionLevelLinking>true</FunctionLevelLinking>
+<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+<OpenMPSupport>FALSE</OpenMPSupport>
+<IntrinsicFunctions>true</IntrinsicFunctions>
+<ExceptionHandling>false</ExceptionHandling>
+<AdditionalIncludeDirectories>..\..\Common;..\..\..\Modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+<AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+<PreprocessorDefinitions>NDEBUG;_XBOX;XBOX;XBOX_SAMPLE;_XBOX_CRT_DEPRECATE_INSECURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+<ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+<RuntimeTypeInfo>false</RuntimeTypeInfo>
+<BufferSecurityCheck>false</BufferSecurityCheck>
+<AssemblerOutput>NoListing</AssemblerOutput>
+<AnalyzeStalls>false</AnalyzeStalls>
+</ClCompile>
+<Link>
+<AdditionalOptions>/ignore:4089  %(AdditionalOptions)</AdditionalOptions>
+<AdditionalDependencies>d3d9.lib;d3dx9.lib;xgraphics.lib;xapilib.lib;xaudio2.lib;x3daudio.lib;xmcore.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<GenerateDebugInformation>true</GenerateDebugInformation>
+<OptimizeReferences>true</OptimizeReferences>
+<EnableCOMDATFolding>true</EnableCOMDATFolding>
+<SetChecksum>true</SetChecksum>
+</Link>
+<PreBuildEvent>
+<Command></Command>
+</PreBuildEvent>
+<PostBuildEvent>
+<Command></Command>
+</PostBuildEvent>
+<ImageXex>
+<ConfigurationFile></ConfigurationFile>
+<AdditionalSections></AdditionalSections>
+</ImageXex>
+<Deploy>
+<DeploymentType>EmulateDvd</DeploymentType>
+<DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+</Deploy>
+</ItemDefinitionGroup>
+<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
+<ClCompile>
+<WarningLevel>Level4</WarningLevel>
+<Optimization>Full</Optimization>
+<FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+<StringPooling>true</StringPooling>
+<InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+<FunctionLevelLinking>true</FunctionLevelLinking>
+<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+<OpenMPSupport>FALSE</OpenMPSupport>
+<IntrinsicFunctions>true</IntrinsicFunctions>
+<ExceptionHandling>false</ExceptionHandling>
+<AdditionalIncludeDirectories>..\..\Common;..\..\..\Modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+<AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+<PreprocessorDefinitions>NDEBUG;_XBOX;XBOX;XBOX_SAMPLE;_XBOX_CRT_DEPRECATE_INSECURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+<ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+<RuntimeTypeInfo>false</RuntimeTypeInfo>
+<BufferSecurityCheck>false</BufferSecurityCheck>
+<AssemblerOutput>NoListing</AssemblerOutput>
+<AnalyzeStalls>false</AnalyzeStalls>
+<WholeProgramOptimization>true</WholeProgramOptimization>
+</ClCompile>
+<Link>
+<AdditionalOptions>/ignore:4089  %(AdditionalOptions)</AdditionalOptions>
+<AdditionalDependencies>d3d9ltcg.lib;d3dx9.lib;xgraphics.lib;xapilib.lib;xaudio2.lib;x3daudioltcg.lib;xmcoreltcg.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<GenerateDebugInformation>true</GenerateDebugInformation>
+<OptimizeReferences>true</OptimizeReferences>
+<EnableCOMDATFolding>true</EnableCOMDATFolding>
+<SetChecksum>true</SetChecksum>
+<LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+</Link>
+<PreBuildEvent>
+<Command></Command>
+</PreBuildEvent>
+<PostBuildEvent>
+<Command></Command>
+</PostBuildEvent>
+<ImageXex>
+<ConfigurationFile></ConfigurationFile>
+<AdditionalSections></AdditionalSections>
+</ImageXex>
+<Deploy>
+<DeploymentType>EmulateDvd</DeploymentType>
+<DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+</Deploy>
+</ItemDefinitionGroup>
+<ItemGroup>
+      <ClCompile Include=".\Aliasing7e3.cpp" />
+      <ClCompile Include=".\GlareDefD3D.cpp" />
+      <CLInclude Include=".\GlareDefD3D.h" />
   </ItemGroup>
-  <PropertyGroup Label="Globals">
-    <ProjectGuid>{C5682794-7DBE-727F-CE0F-A9425E39F490}</ProjectGuid>
-    <RootNamespace>Aliasing7e3</RootNamespace>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>clang</PlatformToolset>
-    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
-    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>clang</PlatformToolset>
-    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
-    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>clang</PlatformToolset>
-    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
-    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>clang</PlatformToolset>
-    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
-    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>clang</PlatformToolset>
-    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
-    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>clang</PlatformToolset>
-    <RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>
-    <RxdkClangLibs>$(MSBuildProjectDirectory)\..\..\Common\$(Configuration)\Common.lib</RxdkClangLibs>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
-    <ClCompile>
-      <PreprocessorDefinitions>_DEBUG;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>xapilibd.lib;d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xboxkrnl.lib;xnetd.lib;xaudiod2.lib;xactd3.lib;x3daudiod.lib;xmcored.lib;xbdm.lib;vcompd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
-    <ClCompile>
-      <PreprocessorDefinitions>_DEBUG;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>xapilibd.lib;d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xboxkrnl.lib;xnetd.lib;xaudiod2.lib;xactd3.lib;x3daudiod.lib;xmcored.lib;xbdm.lib;vcompd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
-    <ClCompile>
-      <PreprocessorDefinitions>NDEBUG;_XBOX;PROFILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Optimization>Full</Optimization>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>xapilibi.lib;d3d9i.lib;d3dx9.lib;xgraphics.lib;xboxkrnl.lib;xnet.lib;xaudio2.lib;xact3i.lib;x3daudioi.lib;xmcorei.lib;xbdm.lib;vcomp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>xapilib.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
-    <ClCompile>
-      <PreprocessorDefinitions>NDEBUG;_XBOX;PROFILE;FASTCAP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Optimization>Full</Optimization>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>xapilib.lib;d3d9.lib;d3dx9.lib;xgraphics.lib;xboxkrnl.lib;xnet.lib;xaudio2.lib;xact3.lib;x3daudio.lib;xmcore.lib;vcomp.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
-    <ClCompile>
-      <PreprocessorDefinitions>NDEBUG;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Optimization>Full</Optimization>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>xapilib.lib;d3d9.lib;d3dx9.lib;xgraphics.lib;xboxkrnl.lib;xnet.lib;xaudio2.lib;xact3.lib;x3daudio.lib;xmcore.lib;vcomp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
-    <ClCompile>
-      <PreprocessorDefinitions>NDEBUG;_XBOX;LTCG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Optimization>Full</Optimization>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>xapilib.lib;d3d9ltcg.lib;d3dx9.lib;xgraphics.lib;xboxkrnl.lib;xnet.lib;xaudio2.lib;xact3ltcg.lib;x3daudioltcg.lib;xmcoreltcg.lib;vcomp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Aliasing7e3.cpp" />
-    <ClCompile Include="GlareDefD3D.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="GlareDefD3D.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\Common.vcxproj">
-      <Project>{4B99DC73-9044-E203-9C9C-C00C211DA956}</Project>
-    </ProjectReference>
-  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include=".\Resource.rdf">
+<Message>Create a bundled resource file from  %(FullPath)</Message>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
+<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Message>Create a bundled resource file from  %(FullPath)</Message>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Message>Create a bundled resource file from  %(FullPath)</Message>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Meshes\Room1.xbg">
+<Message>Copy mesh %(FullPath)</Message>
+<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Meshes\Sphere0.xbg">
+<Message>Copy mesh %(FullPath)</Message>
+<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Shaders\PostProcess.hlsl">
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESampleLumInitialPS /DEntryPoint_SampleLumInitialPS /Fo"$(ProjectDir)Media\Shaders\SampleLumInitial.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESampleLumFinalPS /DEntryPoint_SampleLumFinalPS /Fo"$(ProjectDir)Media\Shaders\SampleLumFinal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECalculateAdaptedLumPS /DEntryPoint_CalculateAdaptedLumPS /Fo"$(ProjectDir)Media\Shaders\CalculateAdaptedLum.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownScale4x4PS /DEntryPoint_DownScale4x4PS /Fo"$(ProjectDir)Media\Shaders\DownScale4x4.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownScale2x2PS /DEntryPoint_DownScale2x2PS /Fo"$(ProjectDir)Media\Shaders\DownScale2x2.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBrightPassFilterPS /DEntryPoint_BrightPassFilterPS /Fo"$(ProjectDir)Media\Shaders\BrightPassFilter.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EGaussBlur5x5PS /DEntryPoint_GaussBlur5x5PS /Fo"$(ProjectDir)Media\Shaders\GaussBlur5x5.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBloomPS /DEntryPoint_BloomPS /Fo"$(ProjectDir)Media\Shaders\Bloom.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EStarPS /DEntryPoint_StarPS /Fo"$(ProjectDir)Media\Shaders\Star.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_1PS /DEntryPoint_MergeTextures_1PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_1.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_2PS /DEntryPoint_MergeTextures_2PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_2.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_3PS /DEntryPoint_MergeTextures_3PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_3.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_4PS /DEntryPoint_MergeTextures_4PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_4.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_5PS /DEntryPoint_MergeTextures_5PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_5.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_6PS /DEntryPoint_MergeTextures_6PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_6.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_7PS /DEntryPoint_MergeTextures_7PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_7.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_8PS /DEntryPoint_MergeTextures_8PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_8.xpu"
+</Command>
+<Message>Compile shaders in %(FullPath)</Message>
+<Outputs>$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu;$(ProjectDir)Media\Shaders\SampleLumInitial.xpu;$(ProjectDir)Media\Shaders\SampleLumFinal.xpu;$(ProjectDir)Media\Shaders\CalculateAdaptedLum.xpu;$(ProjectDir)Media\Shaders\DownScale4x4.xpu;$(ProjectDir)Media\Shaders\DownScale2x2.xpu;$(ProjectDir)Media\Shaders\BrightPassFilter.xpu;$(ProjectDir)Media\Shaders\GaussBlur5x5.xpu;$(ProjectDir)Media\Shaders\Bloom.xpu;$(ProjectDir)Media\Shaders\Star.xpu;$(ProjectDir)Media\Shaders\MergeTextures_1.xpu;$(ProjectDir)Media\Shaders\MergeTextures_2.xpu;$(ProjectDir)Media\Shaders\MergeTextures_3.xpu;$(ProjectDir)Media\Shaders\MergeTextures_4.xpu;$(ProjectDir)Media\Shaders\MergeTextures_5.xpu;$(ProjectDir)Media\Shaders\MergeTextures_6.xpu;$(ProjectDir)Media\Shaders\MergeTextures_7.xpu;$(ProjectDir)Media\Shaders\MergeTextures_8.xpu;</Outputs>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Shaders\Aliasing7e3.hlsl">
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ETransformSceneVS /DEntryPoint_TransformSceneVS /Fo"$(ProjectDir)Media\Shaders\TransformScene.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EPointLightPS /DEntryPoint_PointLightPS /Fo"$(ProjectDir)Media\Shaders\PointLight.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightSpherePS /DEntryPoint_LightSpherePS /Fo"$(ProjectDir)Media\Shaders\LightSphere.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFinalScenePassPS /DEntryPoint_FinalScenePassPS /Fo"$(ProjectDir)Media\Shaders\FinalScenePass.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFinalScenePassUsingFetch7e3PS /DEntryPoint_FinalScenePassUsingFetch7e3PS /Fo"$(ProjectDir)Media\Shaders\FinalScenePass7e3.xpu"
+</Command>
+<Message>Compile shaders in %(FullPath)</Message>
+<Outputs>$(ProjectDir)Media\Shaders\TransformScene.xvu;$(ProjectDir)Media\Shaders\PointLight.xpu;$(ProjectDir)Media\Shaders\LightSphere.xpu;$(ProjectDir)Media\Shaders\FinalScenePass.xpu;$(ProjectDir)Media\Shaders\FinalScenePass7e3.xpu;</Outputs>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<ProjectReference Include="..\..\Common\Common.vcxproj">
+<Project>{4B99DC73-9044-E203-9C9C-C00C211DA956}</Project>
+<ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+</ProjectReference>
+</ItemGroup>
+  <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
+    <MakeDir Directories="$(ProjectDir)Media" />
+    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
+    <MakeDir Directories="$(ProjectDir)Media\Help" />
+    <MakeDir Directories="$(ProjectDir)Media\Meshes" />
+    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+  </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+<ImportGroup Label="ExtensionTargets" />
 </Project>

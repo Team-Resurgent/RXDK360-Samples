@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="Grammars">
+<UniqueIdentifier>{F5B75A1E-1640-4b2b-B1DA-78CDCF520A53}</UniqueIdentifier>
+<Extensions>grxml</Extensions>
+</Filter>
+<Filter Include="Shaders">
+<UniqueIdentifier>{1008237E-1E09-477c-92C2-F7C0517BFE4C}</UniqueIdentifier>
+<Extensions>hlsl</Extensions>
+</Filter>
+<Filter Include="Scene Files">
+<UniqueIdentifier>{96ED41EC-44C0-4015-A89B-6399385FD891}</UniqueIdentifier>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+    <ClCompile Include=".\SimpleSpeechRecognition.cpp" />
+    <ClCompile Include=".\GrammarFileHelper.cpp" />
+    <CLInclude Include=".\GrammarFileHelper.h" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16_Speech.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include=".\medieval_en_gb.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_en_us.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_es_mx.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_fr_ca.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_fr_ch.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_ja_jp.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_en_au.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_de_at.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_de_ch.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_de_de.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_es_es.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_fr_fr.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_it_it.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\medieval_pt_br.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\phonetic_alphabet_en_us.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\yes_no_en_gb.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\yes_no_en_us.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\yes_no_es_mx.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\yes_no_fr_ca.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+<CustomBuild Include=".\yes_no_ja_jp.grxml.grxml">
+<Filter>Grammars</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="medieval_en_gb.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_en_us.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_es_mx.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_fr_ca.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_fr_ch.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_ja_jp.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_en_au.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_es_es.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_de_at.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_de_ch.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_de_de.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_fr_fr.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_it_it.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="medieval_pt_br.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="phonetic_alphabet_en_us.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="yes_no_en_gb.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="yes_no_en_us.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="yes_no_es_mx.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="yes_no_fr_ca.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="yes_no_ja_jp.grtxt">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Shaders\CommonShaders.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

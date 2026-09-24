@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="Xlast Project Files">
+<UniqueIdentifier>{487F174B-1119-460e-A98A-EE55576D8CD5}</UniqueIdentifier>
+<Extensions>xlast</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\ClientInfo.cpp" />
+      <ClCompile Include=".\GaussianNumerics.cpp" />
+      <ClCompile Include=".\HostMigration.cpp" />
+      <ClCompile Include=".\Invitations.cpp" />
+      <ClCompile Include=".\InGamePartyMatchmaking.cpp" />
+      <ClCompile Include=".\InGamePartyMatchmakingRender.cpp" />
+      <ClCompile Include=".\InGamePartyMatchmakingUpdate.cpp" />
+      <ClCompile Include=".\TaskScheduler.cpp" />
+      <ClCompile Include=".\TrueSkill.cpp" />
+      <ClCompile Include=".\TrueSkillBar.cpp" />
+      <ClCompile Include=".\XGUI.cpp" />
+      <CLInclude Include=".\ClientInfo.h" />
+      <CLInclude Include=".\GaussianNumerics.h" />
+      <CLInclude Include=".\HostMigration.h" />
+      <CLInclude Include=".\Messages.h" />
+      <CLInclude Include=".\InGamePartyMatchmaking.h" />
+      <CLInclude Include=".\InGamePartyMatchmaking.spa.h" />
+      <CLInclude Include=".\Task.h" />
+      <CLInclude Include=".\Tasks.h" />
+      <CLInclude Include=".\TaskScheduler.h" />
+      <CLInclude Include=".\TrueSkill.h" />
+      <CLInclude Include=".\TrueSkillBar.h" />
+      <CLInclude Include=".\XGUI.h" />
+      <CLInclude Include=".\Xplat.h" />
+      <CLInclude Include=".\XplatImpl.h" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Fonts\Arial_12.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="InGamePartyMatchmaking.gameconfig">
+<Filter>Xlast Project Files</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

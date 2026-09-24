@@ -39,6 +39,11 @@ $ErrorActionPreference = "Stop"
 
 $Platform    = "Xbox 360"
 $Toolset     = "clang"
+# Stock XDK samples (source of truth for each sample's project + content build steps).
+# We UPGRADE the stock <Name>2010.vcxproj in place rather than re-derive it, so the
+# authoritative CustomBuild items (shaders/effects/resources/scenes, incl. Common-driven
+# assets like PostProcess.hlsl / SimpleShaders.fx) and the .filters come along verbatim.
+$XdkSamplesRoot = 'C:\Program Files (x86)\Microsoft Xbox 360 SDK\Source\Samples'
 $VcxprojType = "8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942"
 $CommonName  = "Common"
 $CompileExt  = @(".cpp", ".cxx", ".cc", ".c")
@@ -315,42 +320,134 @@ function Get-ShaderSteps([string]$dir, [string]$blob) {
 
     # Runtime-loaded shaders: a title loads compiled microcode from
     # game:\Media\Shaders\NAME.xvu (vertex) / NAME.xpu (pixel) at run time (vs the
-    # /Fh headers above, which bake into the .xex). Compile each from the sample's
-    # .hlsl with fxc /Fo into the LOCAL Media\Shaders\ so the media deploy ships it.
-    # Entry point is NAME + VS/PS by convention (ShadeScenePerVertex.xvu ->
-    # ShadeScenePerVertexVS); only emit a step when that entry actually exists.
+    # /Fh headers above, which bake into the .xex). Compile each with fxc /Fo into the
+    # LOCAL Media\Shaders\ so the media deploy ships it. Entry point is NAME + VS/PS by
+    # convention (ShadeScenePerVertex.xvu -> ShadeScenePerVertexVS); only emit a step
+    # when that entry actually exists.
+    #
+    # The entry may live in a sample-local .hlsl OR in a SHARED Media\Shaders\*.hlsl
+    # (the stock XDK vcxproj referenced the shared file directly, e.g.
+    # ..\..\Media\Shaders\VarianceShadowMaps.hlsl for CopyDepthToVariance). Our install
+    # flattens (no shared Media beside the installed sample), so when the entry is only
+    # in a shared file we VENDOR that .hlsl into the sample folder (it then ships via
+    # CopyTree and compiles locally, self-contained) and reference it locally.
     $hlsls = @($shaders | Where-Object { $_.Extension.ToLower() -eq ".hlsl" })
-    if ($hlsls.Count -gt 0) {
-        $seen = @{}
-        foreach ($m in [regex]::Matches($blob, '([A-Za-z0-9_]+)\.(xvu|xpu)\b')) {
-            $shName = $m.Groups[1].Value; $ext = $m.Groups[2].Value.ToLower()
-            $key = "$shName.$ext"; if ($seen.ContainsKey($key)) { continue }; $seen[$key] = $true
-            $suffix = if ($ext -eq "xvu") { "VS" } else { "PS" }
-            $target = if ($ext -eq "xvu") { "vs_3_0" } else { "ps_3_0" }
-            # Find the entry point in a sample .hlsl. The load path gives the name
-            # case-insensitively (filename ReflectiveShadowmap -> ReflectiveShadowmapVS)
-            # but fxc /E is case-SENSITIVE, so capture the function's ACTUAL spelling
-            # (e.g. ReflectiveShadowMapVS) from the source and pass that.
-            $srcHlsl = $null; $entry = "$shName$suffix"
-            foreach ($h in $hlsls) {
-                $hc = ""; try { $hc = Get-Content -LiteralPath $h.FullName -Raw } catch {}
-                # Require a return-type token before the name so we match the function
-                # DEFINITION (e.g. "float4 ReflectiveShadowMapDebugPS(") and never a
-                # "// Name: ReflectiveShadowmapDebugPS()" comment, whose casing differs.
-                if ($hc -match "\b[A-Za-z_][A-Za-z0-9_]*\s+($([regex]::Escape($shName))$suffix)\s*\(") { $srcHlsl = $h; $entry = $matches[1]; break }
-            }
-            if (-not $srcHlsl) { continue }
-            $baseP = (Resolve-Path -LiteralPath $dir).Path
-            $srcRel = $srcHlsl.FullName.Substring($baseP.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")
-            $outRel = "Media\Shaders\$shName.$ext"
-            $cmd = ('"$(RxdkBinDir)\fxc.exe" /nologo "/T{0}" "/E{1}" "/Fo$(ProjectDir){2}" "$(ProjectDir){3}"' -f $target, $entry, $outRel, $srcRel)
-            $steps += @{ Cmd = $cmd; In = $srcRel; Out = $outRel; MkDir = "Media\Shaders" }
+    $sharedDir = $null
+    try { $sharedDir = (Resolve-Path -LiteralPath (Join-Path $Root "Media\Shaders")).Path } catch {}
+    $baseP = (Resolve-Path -LiteralPath $dir).Path
+    $seen = @{}; $vendored = @{}
+    foreach ($m in [regex]::Matches($blob, '([A-Za-z0-9_]+)\.(xvu|xpu)\b')) {
+        $shName = $m.Groups[1].Value; $ext = $m.Groups[2].Value.ToLower()
+        $key = "$shName.$ext"; if ($seen.ContainsKey($key)) { continue }; $seen[$key] = $true
+        $suffix = if ($ext -eq "xvu") { "VS" } else { "PS" }
+        $target = if ($ext -eq "xvu") { "vs_3_0" } else { "ps_3_0" }
+        # Find the entry point. The load path names it case-insensitively (filename
+        # ReflectiveShadowmap -> ReflectiveShadowmapVS) but fxc /E is case-SENSITIVE, so
+        # capture the function's ACTUAL spelling (e.g. ReflectiveShadowMapVS). Require a
+        # return-type token before the name so we match the DEFINITION, never a
+        # "// Name: ReflectiveShadowmapDebugPS()" comment (whose casing differs).
+        $rx = "\b[A-Za-z_][A-Za-z0-9_]*\s+($([regex]::Escape($shName))$suffix)\s*\("
+        $srcHlsl = $null; $entry = "$shName$suffix"; $srcText = ""
+        foreach ($h in $hlsls) {
+            $hc = ""; try { $hc = Get-Content -LiteralPath $h.FullName -Raw } catch {}
+            if ($hc -match $rx) { $srcHlsl = $h; $entry = $matches[1]; $srcText = $hc; break }
         }
+        # Not local: look in the shared Media\Shaders and VENDOR the winning .hlsl into
+        # this sample's own Media\Shaders\ (the stock layout shared it via ..\..\Media,
+        # but our flattened install has no shared Media beside the sample). It then ships
+        # via CopyTree and compiles locally, self-contained.
+        if (-not $srcHlsl -and $sharedDir) {
+            foreach ($sf in (Get-ChildItem -LiteralPath $sharedDir -Filter *.hlsl -File -ErrorAction SilentlyContinue)) {
+                $hc = ""; try { $hc = Get-Content -LiteralPath $sf.FullName -Raw } catch {}
+                if ($hc -match $rx) {
+                    $entry = $matches[1]; $srcText = $hc
+                    $dest = Join-Path $dir "Media\Shaders\$($sf.Name)"
+                    if (-not $Check -and -not $vendored.ContainsKey($sf.Name)) {
+                        New-Item -ItemType Directory -Force -Path (Split-Path $dest) | Out-Null
+                        Copy-Item -LiteralPath $sf.FullName -Destination $dest -Force
+                        $vendored[$sf.Name] = $true
+                    }
+                    $srcHlsl = [pscustomobject]@{ FullName = $dest }
+                    break
+                }
+            }
+        }
+        if (-not $srcHlsl) { continue }
+        $srcRel = $srcHlsl.FullName.Substring($baseP.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace("/", "\")
+        $outRel = "Media\Shaders\$shName.$ext"
+        # Guarded shared shaders (e.g. PostProcess.hlsl) select one entry via
+        # #ifdef EntryPoint_<Entry>; pass the matching define when the source uses it.
+        $def = if ($srcText -match "EntryPoint_$([regex]::Escape($entry))\b") { " `"/DEntryPoint_$entry`"" } else { "" }
+        $cmd = ('"$(RxdkBinDir)\fxc.exe" /nologo "/T{0}" "/E{1}"{2} "/Fo$(ProjectDir){3}" "$(ProjectDir){4}"' -f $target, $entry, $def, $outRel, $srcRel)
+        $steps += @{ Cmd = $cmd; In = $srcRel; Out = $outRel; MkDir = "Media\Shaders" }
     }
     return $steps
 }
 
-function New-Vcxproj($name, $guid, $confType, $cpps, $hdrs, $includeDirs, $catLibs, $projRefs, $preBuild) {
+# Content filter folders, keyed by file extension. Mirrors the stock XDK sample
+# .vcxproj.filters (same names + GUIDs) so Solution Explorer groups shaders, scenes,
+# effects and resources into folders. .cpp/.h intentionally have no filter (they sit at
+# the project root, exactly as the stock projects show them). Grouping is by extension.
+$script:ContentFilters = [ordered]@{
+    'Resources'      = @{ Guid = '2E00634B-153A-41dd-AEE5-5C755D13C053'; Ext = @('rdf') }
+    'FXLite Effects' = @{ Guid = '66FFA51C-CC80-4755-AC3B-50320EED7A38'; Ext = @('fx') }
+    'Shaders'        = @{ Guid = '1008237E-1E09-477c-92C2-F7C0517BFE4C'; Ext = @('hlsl') }
+    'Scene Files'    = @{ Guid = '96ED41EC-44C0-4015-A89B-6399385FD891'; Ext = @('xatg', 'pmem') }
+}
+# extension -> filter name
+$script:ExtToFilter = @{}
+foreach ($fn in $script:ContentFilters.Keys) {
+    foreach ($e in $script:ContentFilters[$fn].Ext) { $script:ExtToFilter[$e] = $fn }
+}
+$script:ContentBuildDirs = @('Debug', 'Release', 'Profile', 'Profile_FastCap', 'CodeAnalysis', 'Release_LTCG', '.vs')
+
+# Collect a sample's content files (shaders/scenes/effects/resources) as project items
+# so they appear in Solution Explorer. Returns @{ Rel; Filter } sorted, excluding build
+# output trees. .xvu/.xpu/.xpr/.fxobj compiled artifacts don't match (not source exts).
+function Get-ContentItems([string]$dir) {
+    $items = @()
+    $baseP = (Resolve-Path -LiteralPath $dir).Path
+    foreach ($f in (Get-ChildItem -LiteralPath $dir -Recurse -File -ErrorAction SilentlyContinue)) {
+        $ext = $f.Extension.TrimStart('.').ToLower()
+        if (-not $script:ExtToFilter.ContainsKey($ext)) { continue }
+        $rel = $f.FullName.Substring($baseP.Length).TrimStart([IO.Path]::DirectorySeparatorChar).Replace('/', '\')
+        $seg = $rel.Split('\')
+        if ($seg.Length -gt 1 -and ($script:ContentBuildDirs -contains $seg[0])) { continue }
+        $items += @{ Rel = $rel; Filter = $script:ExtToFilter[$ext] }
+    }
+    return , (@($items) | Sort-Object { $_.Filter }, { $_.Rel })
+}
+
+# Emit a .vcxproj.filters: define the content filter folders that are actually used and
+# map each content item into its folder. Returns $null when there is no content.
+function New-Filters($content) {
+    if (-not $content -or @($content).Count -eq 0) { return $null }
+    $used = @($content | ForEach-Object { $_.Filter } | Sort-Object -Unique)
+    $o = New-Object System.Collections.Generic.List[string]
+    $o.Add('<?xml version="1.0" encoding="utf-8"?>')
+    $o.Add('<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">')
+    $o.Add('  <ItemGroup>')
+    foreach ($fn in $script:ContentFilters.Keys) {
+        if ($used -notcontains $fn) { continue }
+        $def = $script:ContentFilters[$fn]
+        $o.Add("    <Filter Include=`"$(ConvertTo-Xml $fn)`">")
+        $o.Add("      <UniqueIdentifier>{$($def.Guid)}</UniqueIdentifier>")
+        $o.Add("      <Extensions>$($def.Ext -join ';')</Extensions>")
+        $o.Add('    </Filter>')
+    }
+    $o.Add('  </ItemGroup>')
+    $o.Add('  <ItemGroup>')
+    foreach ($it in $content) {
+        $o.Add("    <None Include=`"$(ConvertTo-Xml $it.Rel)`">")
+        $o.Add("      <Filter>$(ConvertTo-Xml $it.Filter)</Filter>")
+        $o.Add('    </None>')
+    }
+    $o.Add('  </ItemGroup>')
+    $o.Add('</Project>')
+    return ($o -join "`r`n") + "`r`n"
+}
+
+function New-Vcxproj($name, $guid, $confType, $cpps, $hdrs, $includeDirs, $catLibs, $projRefs, $preBuild, $content) {
     $isApp = ($confType -eq "Application")
     $o = New-Object System.Collections.Generic.List[string]
     $o.Add('<?xml version="1.0" encoding="utf-8"?>')
@@ -434,6 +531,14 @@ function New-Vcxproj($name, $guid, $confType, $cpps, $hdrs, $includeDirs, $catLi
         foreach ($x in $hdrs) { $o.Add("    <ClInclude Include=`"$(ConvertTo-Xml $x)`" />") }
         $o.Add('  </ItemGroup>')
     }
+    # Content files (shaders/scenes/effects/resources) as visible, non-compiled items;
+    # the .vcxproj.filters groups them by extension. Shaders still compile via the
+    # generated targets above / their inputs, so these are display-only (None).
+    if ($content -and @($content).Count -gt 0) {
+        $o.Add('  <ItemGroup>')
+        foreach ($it in $content) { $o.Add("    <None Include=`"$(ConvertTo-Xml $it.Rel)`" />") }
+        $o.Add('  </ItemGroup>')
+    }
     if ($projRefs) {
         $o.Add('  <ItemGroup>')
         foreach ($p in $projRefs) {
@@ -495,6 +600,71 @@ function Write-Generated([string]$path, [string]$text) {
     [IO.File]::WriteAllText($path, $text, $Utf8NoBom)
 }
 
+# Locate a sample's stock XDK project (prefer the VS2010 variant). $area/$name mirror
+# the repo layout, which clones the official Source\Samples tree.
+function Get-StockVcxproj([string]$area, [string]$name) {
+    $d = Join-Path (Join-Path $XdkSamplesRoot $area) $name
+    if (-not (Test-Path -LiteralPath $d -PathType Container)) { return $null }
+    $ps = @(Get-ChildItem -LiteralPath $d -Filter '*.vcxproj' -File -ErrorAction SilentlyContinue)
+    if ($ps.Count -eq 0) { return $null }
+    $p = $ps | Where-Object { $_.Name -match '2010\.vcxproj$' } | Select-Object -First 1
+    if (-not $p) { $p = $ps | Select-Object -First 1 }
+    return $p.FullName
+}
+
+# Upgrade a stock XDK application .vcxproj to RXDK-360 in place: inject the clang toolset,
+# repoint the ATG framework reference at our Common, fully-qualify the host content tools
+# (bin\win32 is not on the toolset PATH), redirect content outputs to the deployed
+# $(ProjectDir)Media, drop shader debug-listing artifacts we don't ship, and MakeDir the
+# content output dirs (CustomBuild's fxc/bundler/copy will not create them). Everything
+# else - configs, CustomBuild items, ..\..\Media\ references, filters - stays as authored.
+function ConvertTo-RxdkVcxproj([string]$raw, [string]$toCommon, [string]$commonGuid, [string]$guid, $spaStep) {
+    $inject = "`r`n<PlatformToolset>$Toolset</PlatformToolset>`r`n<RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>`r`n<RxdkClangLibs>`$(MSBuildProjectDirectory)\$toCommon\`$(Configuration)\$CommonName.lib</RxdkClangLibs>"
+    $raw = $raw -replace '(<ConfigurationType>Application</ConfigurationType>)', ('$1' + $inject)
+    # Drop the stock OutDir/RemoteRoot/CodeAnalysis group (RXDK platform provides these).
+    $raw = $raw -replace '(?s)<PropertyGroup>\s*<_ProjectFileVersion>.*?</PropertyGroup>', ''
+    # Use our deterministic project GUID so the generated .sln matches.
+    $raw = $raw -replace '(?s)(<ProjectGuid>)\{[^}]*\}(</ProjectGuid>)', ('${1}{' + $guid + '}${2}')
+    # Repoint the ATG framework project reference at our Common (keep the stock's relative
+    # prefix, which already matches this sample's depth).
+    $raw = $raw -replace 'AtgFramework2010\.vcxproj', "$CommonName.vcxproj"
+    $raw = $raw -replace '\{91d208a6-9936-47fd-9659-67205c3eb0ab\}', ('{' + $commonGuid + '}')
+    # Content tools + output dir + strip shader debug/listing flags. RXDK host tools
+    # (fxc/bundler/spac) live in bin\win32, which is not on the toolset PATH.
+    $raw = $raw -replace '(?i)\bfxc\.exe\b', '__RXFXC__'
+    $raw = $raw -replace '(?i)\bfxc\b', '__RXFXC__'
+    $raw = $raw -replace '(?i)\bbundler(\.exe)?\b', '__RXBND__'
+    $raw = $raw -replace '(?i)\bspac2(\.exe)?\b', '__RXSPAC2__'
+    $raw = $raw -replace '(?i)\bspac(\.exe)?\b', '__RXSPAC__'
+    $raw = $raw.Replace('__RXFXC__', '"$(RxdkBinDir)\fxc.exe"').Replace('__RXBND__', '"$(RxdkBinDir)\Bundler.exe"').Replace('__RXSPAC2__', '"$(RxdkBinDir)\spac2.exe"').Replace('__RXSPAC__', '"$(RxdkBinDir)\spac.exe"')
+    $raw = $raw -replace '\$\(OutDir\)', '$(ProjectDir)'
+    $raw = $raw -replace '\s/XZi\b', ''
+    $raw = $raw -replace '\s/Zi\b', ''
+    $raw = $raw -replace '\s/XFd"[^"]*"', ''
+    $raw = $raw -replace '\s/Fc\s+"[^"]*"', ''
+    # Pre-create content output directories.
+    $dirs = @{}
+    foreach ($m in [regex]::Matches($raw, '\$\(ProjectDir\)\\?([^"<]*?)\\[^\\"<]*?(?=")')) {
+        $d = $m.Groups[1].Value.Trim('\'); if ($d) { $dirs['$(ProjectDir)' + $d] = $true }
+    }
+    $targets = ""
+    if ($dirs.Count -gt 0) {
+        $mk = ($dirs.Keys | Sort-Object | ForEach-Object { '    <MakeDir Directories="' + $_ + '" />' }) -join "`r`n"
+        $targets += "  <Target Name=`"RxdkMediaDirs`" BeforeTargets=`"CustomBuild`">`r`n$mk`r`n  </Target>`r`n"
+    }
+    # The "Xbox 360" platform does not run PreBuildEvent; if the sample needs a .spa.h
+    # (spac from its .gameconfig) AND the stock project didn't already build it via a
+    # CustomBuild item, wire it as a real target before compilation.
+    if ($spaStep -and $raw -notmatch '(?i)\.gameconfig') {
+        $targets += "  <Target Name=`"RxdkSpa`" BeforeTargets=`"ClCompile`" Inputs=`"`$(ProjectDir)$(ConvertTo-Xml $spaStep.In)`" Outputs=`"`$(ProjectDir)$(ConvertTo-Xml $spaStep.Out)`">`r`n"
+        $targets += "    <Exec Command=`"$(ConvertTo-Xml $spaStep.Cmd)`" />`r`n  </Target>`r`n"
+    }
+    if ($targets) {
+        $raw = $raw -replace '(<Import Project="\$\(VCTargetsPath\)\\Microsoft\.Cpp\.targets" />)', ($targets + '  $1')
+    }
+    return $raw
+}
+
 # ---- main ------------------------------------------------------------------
 
 $rootFull = (Resolve-Path -LiteralPath $Root).Path
@@ -507,7 +677,7 @@ $commonGuid = Get-StableGuid $CommonName
 # 1) Common ATG static library (all configs, no link set, no pre-build).
 $cs = Get-Sources $commonDir
 Write-Generated (Join-Path $commonDir "$CommonName.vcxproj") `
-    (New-Vcxproj $CommonName $commonGuid "StaticLibrary" $cs.cpps $cs.hdrs '$(ProjectDir)' $null $null $null)
+    (New-Vcxproj $CommonName $commonGuid "StaticLibrary" $cs.cpps $cs.hdrs '$(ProjectDir)' $null $null $null $null)
 
 # 2) One project + solution per sample.
 $made = 0
@@ -525,14 +695,32 @@ foreach ($area in (Get-ChildItem -LiteralPath $rootFull -Directory | Sort-Object
         $name = $sample.Name
         $guid = Get-StableGuid ($name + "|" + (Join-Path $area.Name $name))
         $toCommon = Get-RelPath $sample.FullName $commonDir
-        $catLibs = Get-CategoryLibs $blob
-        $pre = @()
         $spa = Get-SpaStep $sample.FullName $blob
-        if ($spa) { $pre += $spa }
-        $pre += Get-ShaderSteps $sample.FullName $blob
-        $ref = @{ Path = "$toCommon\$CommonName.vcxproj"; Guid = $commonGuid }
-        Write-Generated (Join-Path $sample.FullName "$name.vcxproj") `
-            (New-Vcxproj $name $guid "Application" $src.cpps $src.hdrs $toCommon $catLibs @($ref) $pre)
+        $vcxPath = Join-Path $sample.FullName "$name.vcxproj"
+        $filtersPath = Join-Path $sample.FullName "$name.vcxproj.filters"
+
+        $stock = Get-StockVcxproj $area.Name $name
+        if ($stock) {
+            # Preferred path: upgrade the authoritative stock project in place, keeping its
+            # complete CustomBuild content build + filters + shared ..\..\Media\ references.
+            $vtext = ConvertTo-RxdkVcxproj (Get-Content -LiteralPath $stock -Raw) $toCommon $commonGuid $guid $spa
+            Write-Generated $vcxPath $vtext
+            $sf = "$stock.filters"
+            if (Test-Path -LiteralPath $sf) { Write-Generated $filtersPath (Get-Content -LiteralPath $sf -Raw) }
+            else { Remove-Generated $filtersPath }
+        } else {
+            # Fallback (custom samples with no stock XDK project): synthesize from source.
+            $catLibs = Get-CategoryLibs $blob
+            $pre = @()
+            if ($spa) { $pre += $spa }
+            $pre += Get-ShaderSteps $sample.FullName $blob
+            $ref = @{ Path = "$toCommon\$CommonName.vcxproj"; Guid = $commonGuid }
+            $content = Get-ContentItems $sample.FullName
+            Write-Generated $vcxPath `
+                (New-Vcxproj $name $guid "Application" $src.cpps $src.hdrs $toCommon $catLibs @($ref) $pre $content)
+            $filters = New-Filters $content
+            if ($filters) { Write-Generated $filtersPath $filters } else { Remove-Generated $filtersPath }
+        }
         Write-Generated (Join-Path $sample.FullName "$name.sln") `
             (New-Sln $name $guid $toCommon $commonGuid)
         $made++

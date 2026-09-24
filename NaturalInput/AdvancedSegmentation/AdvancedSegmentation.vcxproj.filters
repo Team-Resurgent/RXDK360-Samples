@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\AdvancedSegmentation.cpp" />      
+      <ClCompile Include=".\CatmullRomColorSpline.cpp" />      
+      <CLInclude Include=".\CatmullRomColorSpline.h" />      
+      <ClCompile Include=".\SegmentationProcessingProxy.cpp" />      
+      <CLInclude Include=".\SegmentationProcessingProxy.h" />      
+      <CLInclude Include=".\DepthValue.h" />      
+      <CLInclude Include=".\RGBAValue.h" />      
+
+
+      <ClCompile Include=".\BinaryMap.cpp" />      
+      <CLInclude Include=".\BinaryMap.h" />      
+      <ClCompile Include=".\ColorMap.cpp" />      
+      <CLInclude Include=".\ColorMap.h" />      
+      <ClCompile Include=".\CumulativeMovingAverageBuffer.cpp" />      
+      <CLInclude Include=".\CumulativeMovingAverageBuffer.h" />      
+      <ClCompile Include=".\DepthMap.cpp" />      
+      <CLInclude Include=".\DepthMap.h" />      
+      <ClCompile Include=".\IntensityMap.cpp" />      
+      <CLInclude Include=".\IntensityMap.h" />      
+      <ClCompile Include=".\FastBinaryMap.cpp" />      
+      <CLInclude Include=".\FastBinaryMap.h" />      
+      <ClCompile Include=".\FastColorMap.cpp" />      
+      <CLInclude Include=".\FastColorMap.h" />      
+      <ClCompile Include=".\FastCumulativeMovingAverageBuffer.cpp" />      
+      <CLInclude Include=".\FastCumulativeMovingAverageBuffer.h" />      
+      <ClCompile Include=".\FastDepthMap.cpp" />      
+      <CLInclude Include=".\FastDepthMap.h" />      
+      <ClCompile Include=".\FastIntensityMap.cpp" />      
+      <CLInclude Include=".\FastIntensityMap.h" />      
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Xlast Project Files">
+<UniqueIdentifier>{487F174B-1119-460e-A98A-EE55576D8CD5}</UniqueIdentifier>
+<Extensions>xlast</Extensions>
+</Filter>
+<Filter Include="Other Files">
+<UniqueIdentifier>{C4157322-3826-4b5e-8A32-FB479F195D98}</UniqueIdentifier>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+    <ClCompile Include=".\App.cpp" />
+    <CLInclude Include=".\App.h" />
+    <CLInclude Include=".\AppXuiControl.h" />
+    <ClCompile Include=".\AppXuiModule.cpp" />
+    <CLInclude Include=".\AppXuiModule.h" />
+    <ClCompile Include=".\AppXuiRectControl.cpp" />
+    <CLInclude Include=".\AppXuiRectControl.h" />
+    <ClCompile Include=".\AppXuiScene.cpp" />
+    <CLInclude Include=".\AppXuiScene.h" />
+    <ClCompile Include=".\AppXuiTextControl.cpp" />
+    <CLInclude Include=".\AppXuiTextControl.h" />
+    <CLInclude Include=".\ArcadeSample.spa.h" />
+    <CLInclude Include=".\Constants.h" />
+    <ClCompile Include=".\GameConnectScene.cpp" />
+    <CLInclude Include=".\GameConnectScene.h" />
+    <ClCompile Include=".\GameEndScene.cpp" />
+    <CLInclude Include=".\GameEndScene.h" />
+    <ClCompile Include=".\GameListScene.cpp" />
+    <CLInclude Include=".\GameListScene.h" />
+    <ClCompile Include=".\GameLobbyScene.cpp" />
+    <CLInclude Include=".\GameLobbyScene.h" />
+    <ClCompile Include=".\GameOptionsScene.cpp" />
+    <CLInclude Include=".\GameOptionsScene.h" />
+    <ClCompile Include=".\GamePlayScene.cpp" />
+    <CLInclude Include=".\GamePlayScene.h" />
+    <CLInclude Include=".\GamerPics.h" />
+    <ClCompile Include=".\GameStartScene.cpp" />
+    <CLInclude Include=".\GameStartScene.h" />
+    <ClCompile Include=".\GameTypeScene.cpp" />
+    <CLInclude Include=".\GameTypeScene.h" />
+    <ClCompile Include=".\HelpOptionsScene.cpp" />
+    <CLInclude Include=".\HelpOptionsScene.h" />
+    <CLInclude Include=".\Leaderboards.h" />
+    <ClCompile Include=".\LeaderboardScene.cpp" />
+    <CLInclude Include=".\LeaderboardScene.h" />
+    <ClCompile Include=".\MainMenuScene.cpp" />
+    <CLInclude Include=".\MainMenuScene.h" />
+    <CLInclude Include=".\NetMsg.h" />
+    <ClCompile Include=".\Player.cpp" />
+    <CLInclude Include=".\Player.h" />
+    <ClCompile Include=".\QuickMatchScene.cpp" />
+    <CLInclude Include=".\QuickMatchScene.h" />
+    <ClCompile Include=".\stdafx.cpp" />
+    <CLInclude Include=".\stdafx.h" />
+    <CLInclude Include=".\Utils.h" />
+    <ClCompile Include=".\XAGamerPics.cpp" />
+    <CLInclude Include=".\XAGamerPics.h" />
+    <CLInclude Include=".\XALeaderboards.h" />
+    <ClCompile Include=".\XuiArena.cpp" />
+    <CLInclude Include=".\XuiArena.h" />
+    <ClCompile Include=".\XuiBall.cpp" />
+    <CLInclude Include=".\XuiBall.h" />
+    <ClCompile Include=".\XuiCountdown.cpp" />
+    <CLInclude Include=".\XuiCountdown.h" />
+    <ClCompile Include=".\XuiPaddle.cpp" />
+    <CLInclude Include=".\XuiPaddle.h" />
+    <ClCompile Include=".\XuiScore.cpp" />
+    <CLInclude Include=".\XuiScore.h" />
+    <ClCompile Include=".\XuiScoreboard.cpp" />
+    <CLInclude Include=".\XuiScoreboard.h" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="LiveFiles\ArcadeSample.xlast">
+<Filter>Xlast Project Files</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="Content\UI\skin.xui">
+<Filter>Other Files</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

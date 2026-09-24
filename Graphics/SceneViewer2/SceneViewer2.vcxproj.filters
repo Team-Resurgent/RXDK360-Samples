@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="FXLite Effects">
+<UniqueIdentifier>{66FFA51C-CC80-4755-AC3B-50320EED7A38}</UniqueIdentifier>
+<Extensions>fx</Extensions>
+</Filter>
+<Filter Include="FXLite Effects\Effect Include Files">
+<UniqueIdentifier>{ECEC194A-42AF-4cfb-B443-BAA1B90ECA46}</UniqueIdentifier>
+<Extensions>inc</Extensions>
+</Filter>
+<Filter Include="XUI Package Files">
+<UniqueIdentifier>{19AC8FC7-BD6B-442b-9588-CD503225A5A4}</UniqueIdentifier>
+<Extensions>xui;bmp</Extensions>
+</Filter>
+<Filter Include="Scene Files">
+<UniqueIdentifier>{96ED41EC-44C0-4015-A89B-6399385FD891}</UniqueIdentifier>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\AnimationPlayback.cpp" />
+      <CLInclude Include=".\AnimationPlayback.h" />
+      <ClCompile Include=".\Benchmark.cpp" />
+      <CLInclude Include=".\Benchmark.h" />
+      <ClCompile Include=".\DefaultRender.cpp" />
+      <ClCompile Include=".\DeferredRender.cpp" />
+      <ClCompile Include=".\FileDialog.cpp" />
+      <CLInclude Include=".\FileDialog.h" />
+      <ClCompile Include=".\ObjectTweak.cpp" />
+      <CLInclude Include=".\ObjectTweak.h" />
+      <ClCompile Include=".\ParameterPool.cpp" />
+      <CLInclude Include=".\ParameterPool.h" />
+      <ClCompile Include=".\PassPerLightRender.cpp" />
+      <ClCompile Include=".\Render.cpp" />
+      <ClCompile Include=".\SceneLoad.cpp" />
+      <ClCompile Include=".\SceneViewer2.cpp" />
+      <CLInclude Include=".\SceneViewer2.h" />
+      <ClCompile Include=".\SettingsUI.cpp" />
+      <CLInclude Include=".\SettingsUI.h" />
+      <ClCompile Include=".\UIRender.cpp" />
+      <ClCompile Include=".\Update.cpp" />
+      <ClCompile Include=".\Visibility.cpp" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include=".\SettingsUI.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Fonts\SegoeUI_24.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Fonts\SegoeUI_16_Outline.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Effects\SimpleShaders.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Effects\PostEffects.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Effects\UberShader_Final.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Effects\PassPerLight.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Effects\Deferred.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Effects\UberShader_Library.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+<None Include="..\..\Media\Effects\ShadowMaps.inc">
+<Filter>FXLite Effects\Effect Include Files</Filter>
+</None>
+<None Include="..\..\Media\Effects\Lighting.inc">
+<Filter>FXLite Effects\Effect Include Files</Filter>
+</None>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\media\scenes\SkinnedCharacter.xatg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\SkinnedCharacter.pmem">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\SkinnedCharacter.xpr">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\ConditionalRendering.xatg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\ConditionalRendering.pmem">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\ConditionalRendering.xpr">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\MultiDeviceRender.xatg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\MultiDeviceRender.pmem">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\MultiDeviceRender.xpr">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\city-final.xatg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\city-final.pmem">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\city-final.xpr">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\media\xui\sceneviewer_skin_default.xui">
+<Filter>XUI Package Files</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

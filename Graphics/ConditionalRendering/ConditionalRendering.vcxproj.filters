@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="FXLite Effects">
+<UniqueIdentifier>{66FFA51C-CC80-4755-AC3B-50320EED7A38}</UniqueIdentifier>
+<Extensions>fx</Extensions>
+</Filter>
+<Filter Include="FXLite Effects\Effect Include Files">
+<UniqueIdentifier>{ECEC194A-42AF-4cfb-B443-BAA1B90ECA46}</UniqueIdentifier>
+<Extensions>inc</Extensions>
+</Filter>
+<Filter Include="Scene Files">
+<UniqueIdentifier>{96ED41EC-44C0-4015-A89B-6399385FD891}</UniqueIdentifier>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\ConditionalRendering.cpp" />
+      <ClCompile Include=".\ParameterPool.cpp" />
+      <CLInclude Include=".\ParameterPool.h" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Effects\SimpleShaders.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Effects\UberShader_Final.fx">
+<Filter>FXLite Effects</Filter>
+</CustomBuild>
+<None Include="..\..\Media\Effects\ShadowMaps.inc">
+<Filter>FXLite Effects\Effect Include Files</Filter>
+</None>
+<None Include="..\..\Media\Effects\Lighting.inc">
+<Filter>FXLite Effects\Effect Include Files</Filter>
+</None>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\media\scenes\SkinnedCharacter.xatg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\SkinnedCharacter.pmem">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\SkinnedCharacter.xpr">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\ConditionalRendering.xatg">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\ConditionalRendering.pmem">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\media\scenes\ConditionalRendering.xpr">
+<Filter>Scene Files</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

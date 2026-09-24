@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="Shaders">
+<UniqueIdentifier>{1008237E-1E09-477c-92C2-F7C0517BFE4C}</UniqueIdentifier>
+<Extensions>hlsl</Extensions>
+</Filter>
+<Filter Include="Sounds">
+<UniqueIdentifier>{C6AC64E1-1959-4cb3-8304-25AA64072BA9}</UniqueIdentifier>
+<Extensions>wav;wma</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\Audio.cpp" />
+      <CLInclude Include=".\Audio.h" />
+      <ClCompile Include=".\XAudio2Sound3D.cpp" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Sounds\Heli.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\DockingMono.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\EngineStartMono.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\MaleDialog1.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\MiningMono.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\MusicMono.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Sounds\Dolphin4.wav">
+<Filter>Sounds</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Shaders\CommonShaders.hlsl">
+<Filter>Shaders</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="DataFiles">
+<UniqueIdentifier>{355A49F7-3F66-4fb8-B751-BF50546E49C8}</UniqueIdentifier>
+<Extensions>bmp;tga;ttf</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include=".\EndianSwapping.cpp" />
+      <ClCompile Include=".\EndianSwitch.cpp" />
+      <CLInclude Include=".\EndianSwitch.h" />
+      <ClCompile Include=".\ZipFile.cpp" />
+      <CLInclude Include=".\ZipFile.h" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\DataFiles\EndianSwappingData.zip">
+<Filter>DataFiles</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>

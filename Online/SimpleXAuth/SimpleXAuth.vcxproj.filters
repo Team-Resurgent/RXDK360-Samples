@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resources">
+<UniqueIdentifier>{2E00634B-153A-41dd-AEE5-5C755D13C053}</UniqueIdentifier>
+<Extensions>rdf</Extensions>
+</Filter>
+<Filter Include="Xlast Project Files">
+<UniqueIdentifier>{487F174B-1119-460e-A98A-EE55576D8CD5}</UniqueIdentifier>
+<Extensions>xlast</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include="SimpleXAuth.cpp" />
+      <CLInclude Include="SimpleXAuth.spa.h" />
+  </ItemGroup>
+<ItemGroup>
+<CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Fonts\Arial_12.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+<CustomBuild Include="..\..\Media\Help\Help.rdf">
+<Filter>Resources</Filter>
+</CustomBuild>
+</ItemGroup>
+<ItemGroup>
+<CustomBuild Include="SimpleXAuth.gameconfig">
+<Filter>Xlast Project Files</Filter>
+</CustomBuild>
+</ItemGroup>
+</Project>
