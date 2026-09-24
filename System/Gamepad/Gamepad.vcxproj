@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -382,43 +382,43 @@
 <ItemGroup>
 <CustomBuild Include=".\Resource.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Resource.xpr"</Command>
+<Outputs>$(OutDir)Media\Resource.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Fonts\Arial_12.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_12.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_12.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_12.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_12.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Meshes\Gamepad.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\CommonShaders.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenspaceVS /DEntryPoint_ScreenspaceVS /Fo"$(ProjectDir)Media\Shaders\Screenspace.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenspaceTexcoordVS /DEntryPoint_ScreenspaceTexcoordVS /Fo"$(ProjectDir)Media\Shaders\ScreenspaceTexcoord.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EConstantColorPS /DEntryPoint_ConstantColorPS /Fo"$(ProjectDir)Media\Shaders\ConstantColor.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ETexturePS /DEntryPoint_TexturePS /Fo"$(ProjectDir)Media\Shaders\Texture.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenspaceVS /DEntryPoint_ScreenspaceVS /Fo"$(OutDir)Media\Shaders\Screenspace.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenspaceTexcoordVS /DEntryPoint_ScreenspaceTexcoordVS /Fo"$(OutDir)Media\Shaders\ScreenspaceTexcoord.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EConstantColorPS /DEntryPoint_ConstantColorPS /Fo"$(OutDir)Media\Shaders\ConstantColor.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ETexturePS /DEntryPoint_TexturePS /Fo"$(OutDir)Media\Shaders\Texture.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\Screenspace.xvu;$(ProjectDir)Media\Shaders\ScreenspaceTexcoord.xvu;$(ProjectDir)Media\Shaders\ConstantColor.xpu;$(ProjectDir)Media\Shaders\Texture.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\Screenspace.xvu;$(OutDir)Media\Shaders\ScreenspaceTexcoord.xvu;$(OutDir)Media\Shaders\ConstantColor.xpu;$(OutDir)Media\Shaders\Texture.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Shaders\Gamepad.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EGamepadVS /DEntryPoint_GamepadVS /Fo"$(ProjectDir)Media\Shaders\Gamepad.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EGamepadPS /DEntryPoint_GamepadPS /Fo"$(ProjectDir)Media\Shaders\Gamepad.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EGamepadVS /DEntryPoint_GamepadVS /Fo"$(OutDir)Media\Shaders\Gamepad.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EGamepadPS /DEntryPoint_GamepadPS /Fo"$(OutDir)Media\Shaders\Gamepad.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\Gamepad.xvu;$(ProjectDir)Media\Shaders\Gamepad.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\Gamepad.xvu;$(OutDir)Media\Shaders\Gamepad.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -428,10 +428,10 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Meshes" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Meshes" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

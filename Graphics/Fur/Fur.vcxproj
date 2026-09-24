@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -387,28 +387,28 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\Fur.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ESkinVS /DEntryPoint_SkinVS /Fo"$(ProjectDir)Media\Shaders\SkinVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EFurVS /DEntryPoint_FurVS /Fo"$(ProjectDir)Media\Shaders\FurVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EUpdateOffsetMapVS /DEntryPoint_UpdateOffsetMapVS /Fo"$(ProjectDir)Media\Shaders\UpdateOffsetMapVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShowTextureVS /DEntryPoint_ShowTextureVS /Fo"$(ProjectDir)Media\Shaders\ShowTextureVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESkinPS /DEntryPoint_SkinPS /Fo"$(ProjectDir)Media\Shaders\SkinPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFurPS /DEntryPoint_FurPS /Fo"$(ProjectDir)Media\Shaders\FurPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EUpdateOffsetMapPS /DEntryPoint_UpdateOffsetMapPS /Fo"$(ProjectDir)Media\Shaders\UpdateOffsetMapPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShowTexturePS /DEntryPoint_ShowTexturePS /Fo"$(ProjectDir)Media\Shaders\ShowTexturePS.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ESkinVS /DEntryPoint_SkinVS /Fo"$(OutDir)Media\Shaders\SkinVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EFurVS /DEntryPoint_FurVS /Fo"$(OutDir)Media\Shaders\FurVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EUpdateOffsetMapVS /DEntryPoint_UpdateOffsetMapVS /Fo"$(OutDir)Media\Shaders\UpdateOffsetMapVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShowTextureVS /DEntryPoint_ShowTextureVS /Fo"$(OutDir)Media\Shaders\ShowTextureVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESkinPS /DEntryPoint_SkinPS /Fo"$(OutDir)Media\Shaders\SkinPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFurPS /DEntryPoint_FurPS /Fo"$(OutDir)Media\Shaders\FurPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EUpdateOffsetMapPS /DEntryPoint_UpdateOffsetMapPS /Fo"$(OutDir)Media\Shaders\UpdateOffsetMapPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShowTexturePS /DEntryPoint_ShowTexturePS /Fo"$(OutDir)Media\Shaders\ShowTexturePS.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\SkinVS.xvu;$(ProjectDir)Media\Shaders\FurVS.xvu;$(ProjectDir)Media\Shaders\UpdateOffsetMapVS.xvu;$(ProjectDir)Media\Shaders\ShowTextureVS.xvu;$(ProjectDir)Media\Shaders\SkinPS.xpu;$(ProjectDir)Media\Shaders\FurPS.xpu;$(ProjectDir)Media\Shaders\UpdateOffsetMapPS.xpu;$(ProjectDir)Media\Shaders\ShowTexturePS.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\SkinVS.xvu;$(OutDir)Media\Shaders\FurVS.xvu;$(OutDir)Media\Shaders\UpdateOffsetMapVS.xvu;$(OutDir)Media\Shaders\ShowTextureVS.xvu;$(OutDir)Media\Shaders\SkinPS.xpu;$(OutDir)Media\Shaders\FurPS.xpu;$(OutDir)Media\Shaders\UpdateOffsetMapPS.xpu;$(OutDir)Media\Shaders\ShowTexturePS.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -418,9 +418,9 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

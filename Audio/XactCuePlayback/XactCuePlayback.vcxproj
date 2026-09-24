@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -380,122 +380,122 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Sounds\Stone4.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\Stone1.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\Stone2.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\Stone3.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\owl2.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\owl3.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\coyote1.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\coyote2.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\coyote3.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\cricket1.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\cricket2.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\cricket3.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\crickets.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\katydid1.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\katydid2.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\owl1.wav">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\shot04.aif">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\shot01.aif">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\shot02.aif">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Sounds\shot03.aif">
 <Message>Copy sound %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Sounds\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Sounds\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Sounds\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="XactSounds.xap">
-<Command>xactbld3 /XBOX360 /F /L "%(FullPath)" "$(ProjectDir)Media\sounds"</Command>
+<Command>xactbld3 /XBOX360 /F /L "%(FullPath)" "$(OutDir)Media\sounds"</Command>
 <Message>Build XACT project %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\sounds\%(Filename).xsb;$(ProjectDir)Media\sounds\%(Filename).xwb</Outputs>
+<Outputs>$(OutDir)Media\sounds\%(Filename).xsb;$(OutDir)Media\sounds\%(Filename).xwb</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -505,10 +505,10 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Sounds" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Sounds" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

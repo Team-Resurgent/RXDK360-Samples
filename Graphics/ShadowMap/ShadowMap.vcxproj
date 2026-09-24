@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -381,70 +381,70 @@
 <ItemGroup>
 <CustomBuild Include=".\Resource.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Resource.xpr"</Command>
+<Outputs>$(OutDir)Media\Resource.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Meshes\ChessBishop.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Meshes\ChessBoard.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Meshes\ChessKing.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Meshes\ChessKnight.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Meshes\ChessPawn.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Meshes\ChessQueen.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Meshes\ChessRook.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\ShadowMap.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EWriteDepthVS /DEntryPoint_WriteDepthVS /Fo"$(ProjectDir)Media\Shaders\WriteDepthVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EDownsampleDepthVS /DEntryPoint_DownsampleDepthVS /Fo"$(ProjectDir)Media\Shaders\DownsampleDepthVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownsampleDepthPS /DEntryPoint_DownsampleDepthPS /Fo"$(ProjectDir)Media\Shaders\DownsampleDepthPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ELightWithShadowsVS /DEntryPoint_LightWithShadowsVS /Fo"$(ProjectDir)Media\Shaders\LightWithShadowsVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightWithShadowsBilinearPS /DEntryPoint_LightWithShadowsBilinearPS /Fo"$(ProjectDir)Media\Shaders\LightWithShadowsBilinearPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightWithShadowsPointPS /DEntryPoint_LightWithShadowsPointPS /Fo"$(ProjectDir)Media\Shaders\LightWithShadowsPointPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightWithShadowsRotatedPoissonPS /DEntryPoint_LightWithShadowsRotatedPoissonPS /Fo"$(ProjectDir)Media\Shaders\LightWithShadowsRotatedPoissonPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightWithShadowsStratifiedPS /DEntryPoint_LightWithShadowsStratifiedPS /Fo"$(ProjectDir)Media\Shaders\LightWithShadowsStratifiedPS.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EWriteDepthVS /DEntryPoint_WriteDepthVS /Fo"$(OutDir)Media\Shaders\WriteDepthVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EDownsampleDepthVS /DEntryPoint_DownsampleDepthVS /Fo"$(OutDir)Media\Shaders\DownsampleDepthVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownsampleDepthPS /DEntryPoint_DownsampleDepthPS /Fo"$(OutDir)Media\Shaders\DownsampleDepthPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ELightWithShadowsVS /DEntryPoint_LightWithShadowsVS /Fo"$(OutDir)Media\Shaders\LightWithShadowsVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightWithShadowsBilinearPS /DEntryPoint_LightWithShadowsBilinearPS /Fo"$(OutDir)Media\Shaders\LightWithShadowsBilinearPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightWithShadowsPointPS /DEntryPoint_LightWithShadowsPointPS /Fo"$(OutDir)Media\Shaders\LightWithShadowsPointPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightWithShadowsRotatedPoissonPS /DEntryPoint_LightWithShadowsRotatedPoissonPS /Fo"$(OutDir)Media\Shaders\LightWithShadowsRotatedPoissonPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightWithShadowsStratifiedPS /DEntryPoint_LightWithShadowsStratifiedPS /Fo"$(OutDir)Media\Shaders\LightWithShadowsStratifiedPS.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\WriteDepthVS.xvu;$(ProjectDir)Media\Shaders\DownsampleDepthVS.xvu;$(ProjectDir)Media\Shaders\DownsampleDepthPS.xpu;$(ProjectDir)Media\Shaders\LightWithShadowsVS.xvu;$(ProjectDir)Media\Shaders\LightWithShadowsBilinearPS.xpu;$(ProjectDir)Media\Shaders\LightWithShadowsPointPS.xpu;$(ProjectDir)Media\Shaders\LightWithShadowsRotatedPoissonPS.xpu;$(ProjectDir)Media\Shaders\LightWithShadowsStratifiedPS.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\WriteDepthVS.xvu;$(OutDir)Media\Shaders\DownsampleDepthVS.xvu;$(OutDir)Media\Shaders\DownsampleDepthPS.xpu;$(OutDir)Media\Shaders\LightWithShadowsVS.xvu;$(OutDir)Media\Shaders\LightWithShadowsBilinearPS.xpu;$(OutDir)Media\Shaders\LightWithShadowsPointPS.xpu;$(OutDir)Media\Shaders\LightWithShadowsRotatedPoissonPS.xpu;$(OutDir)Media\Shaders\LightWithShadowsStratifiedPS.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -454,11 +454,11 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Meshes" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Meshes" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -388,77 +388,77 @@
 <ItemGroup>
 <CustomBuild Include=".\Resource.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Resource.xpr"</Command>
+<Outputs>$(OutDir)Media\Resource.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Meshes\Hebe.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Textures\LightShafts_NoiseVolume.dds">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\LightShafts_OverlayQuad.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EOverlayMainVS /DEntryPoint_OverlayMainVS /Fo"$(ProjectDir)Media\Shaders\OverlayMainVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadowBlurPS /DEntryPoint_ShadowBlurPS /Fo"$(ProjectDir)Media\Shaders\ShadowBlurPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECompositeFilteredFogPS /DEntryPoint_CompositeFilteredFogPS /Fo"$(ProjectDir)Media\Shaders\CompositeFilteredFogPS.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EOverlayMainVS /DEntryPoint_OverlayMainVS /Fo"$(OutDir)Media\Shaders\OverlayMainVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadowBlurPS /DEntryPoint_ShadowBlurPS /Fo"$(OutDir)Media\Shaders\ShadowBlurPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECompositeFilteredFogPS /DEntryPoint_CompositeFilteredFogPS /Fo"$(OutDir)Media\Shaders\CompositeFilteredFogPS.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\OverlayMainVS.xvu;$(ProjectDir)Media\Shaders\ShadowBlurPS.xpu;$(ProjectDir)Media\Shaders\CompositeFilteredFogPS.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\OverlayMainVS.xvu;$(OutDir)Media\Shaders\ShadowBlurPS.xpu;$(OutDir)Media\Shaders\CompositeFilteredFogPS.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Shaders\LightShafts_SpotLight.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ESpotlightFrustumVS /DEntryPoint_SpotlightFrustumVS /Fo"$(ProjectDir)Media\Shaders\SpotlightFrustumVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ESpotlightFrustumFrontVS /DEntryPoint_SpotlightFrustumFrontVS /Fo"$(ProjectDir)Media\Shaders\SpotlightFrustumFrontVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ESpotlightWireFrustumVS /DEntryPoint_SpotlightWireFrustumVS /Fo"$(ProjectDir)Media\Shaders\SpotlightWireFrustumVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESpotlightFrustumPS /DEntryPoint_SpotlightFrustumPS /Fo"$(ProjectDir)Media\Shaders\SpotlightFrustumPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESpotlightFrustumFrontPS /DEntryPoint_SpotlightFrustumFrontPS /Fo"$(ProjectDir)Media\Shaders\SpotlightFrustumFrontPS.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ESpotlightFrustumVS /DEntryPoint_SpotlightFrustumVS /Fo"$(OutDir)Media\Shaders\SpotlightFrustumVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ESpotlightFrustumFrontVS /DEntryPoint_SpotlightFrustumFrontVS /Fo"$(OutDir)Media\Shaders\SpotlightFrustumFrontVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ESpotlightWireFrustumVS /DEntryPoint_SpotlightWireFrustumVS /Fo"$(OutDir)Media\Shaders\SpotlightWireFrustumVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESpotlightFrustumPS /DEntryPoint_SpotlightFrustumPS /Fo"$(OutDir)Media\Shaders\SpotlightFrustumPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESpotlightFrustumFrontPS /DEntryPoint_SpotlightFrustumFrontPS /Fo"$(OutDir)Media\Shaders\SpotlightFrustumFrontPS.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\SpotlightFrustumVS.xvu;$(ProjectDir)Media\Shaders\SpotlightFrustumFrontVS.xvu;$(ProjectDir)Media\Shaders\SpotlightWireFrustumVS.xvu;$(ProjectDir)Media\Shaders\SpotlightFrustumPS.xpu;$(ProjectDir)Media\Shaders\SpotlightFrustumFrontPS.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\SpotlightFrustumVS.xvu;$(OutDir)Media\Shaders\SpotlightFrustumFrontVS.xvu;$(OutDir)Media\Shaders\SpotlightWireFrustumVS.xvu;$(OutDir)Media\Shaders\SpotlightFrustumPS.xpu;$(OutDir)Media\Shaders\SpotlightFrustumFrontPS.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Shaders\LightShafts_Backdrop.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EBackdropMainVS /DEntryPoint_BackdropMainVS /Fo"$(ProjectDir)Media\Shaders\BackdropMainVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EBackdropDepthVS /DEntryPoint_BackdropDepthVS /Fo"$(ProjectDir)Media\Shaders\BackdropDepthVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EBackdropAmbientOnlyVS /DEntryPoint_BackdropAmbientOnlyVS /Fo"$(ProjectDir)Media\Shaders\BackdropAmbientOnlyVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBackdropNoiseShadowPS /DEntryPoint_BackdropNoiseShadowPS /Fo"$(ProjectDir)Media\Shaders\BackdropNoiseShadowPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBackdropAmbientOnlyPS /DEntryPoint_BackdropAmbientOnlyPS /Fo"$(ProjectDir)Media\Shaders\BackdropAmbientOnlyPS.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EBackdropMainVS /DEntryPoint_BackdropMainVS /Fo"$(OutDir)Media\Shaders\BackdropMainVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EBackdropDepthVS /DEntryPoint_BackdropDepthVS /Fo"$(OutDir)Media\Shaders\BackdropDepthVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EBackdropAmbientOnlyVS /DEntryPoint_BackdropAmbientOnlyVS /Fo"$(OutDir)Media\Shaders\BackdropAmbientOnlyVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBackdropNoiseShadowPS /DEntryPoint_BackdropNoiseShadowPS /Fo"$(OutDir)Media\Shaders\BackdropNoiseShadowPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBackdropAmbientOnlyPS /DEntryPoint_BackdropAmbientOnlyPS /Fo"$(OutDir)Media\Shaders\BackdropAmbientOnlyPS.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\BackdropMainVS.xvu;$(ProjectDir)Media\Shaders\BackdropDepthVS.xvu;$(ProjectDir)Media\Shaders\BackdropAmbientOnlyVS.xvu;$(ProjectDir)Media\Shaders\BackdropNoiseShadowPS.xpu;$(ProjectDir)Media\Shaders\BackdropAmbientOnlyPS.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\BackdropMainVS.xvu;$(OutDir)Media\Shaders\BackdropDepthVS.xvu;$(OutDir)Media\Shaders\BackdropAmbientOnlyVS.xvu;$(OutDir)Media\Shaders\BackdropNoiseShadowPS.xpu;$(OutDir)Media\Shaders\BackdropAmbientOnlyPS.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Shaders\LightShafts_Object.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EObjectMainVS /DEntryPoint_ObjectMainVS /Fo"$(ProjectDir)Media\Shaders\ObjectMainVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EObjectDepthVS /DEntryPoint_ObjectDepthVS /Fo"$(ProjectDir)Media\Shaders\ObjectDepthVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EObjectNoiseShadowPS /DEntryPoint_ObjectNoiseShadowPS /Fo"$(ProjectDir)Media\Shaders\ObjectNoiseShadowPS.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EObjectMainVS /DEntryPoint_ObjectMainVS /Fo"$(OutDir)Media\Shaders\ObjectMainVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EObjectDepthVS /DEntryPoint_ObjectDepthVS /Fo"$(OutDir)Media\Shaders\ObjectDepthVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EObjectNoiseShadowPS /DEntryPoint_ObjectNoiseShadowPS /Fo"$(OutDir)Media\Shaders\ObjectNoiseShadowPS.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\ObjectMainVS.xvu;$(ProjectDir)Media\Shaders\ObjectDepthVS.xvu;$(ProjectDir)Media\Shaders\ObjectNoiseShadowPS.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\ObjectMainVS.xvu;$(OutDir)Media\Shaders\ObjectDepthVS.xvu;$(OutDir)Media\Shaders\ObjectNoiseShadowPS.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Shaders\LightShafts_VolVizShells.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EVolVizShellsMainVS /DEntryPoint_VolVizShellsMainVS /Fo"$(ProjectDir)Media\Shaders\VolVizShellsMainVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EVolVizShellsNoiseShadowPS /DEntryPoint_VolVizShellsNoiseShadowPS /Fo"$(ProjectDir)Media\Shaders\VolVizShellsNoiseShadowPS.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EVolVizShellsMainVS /DEntryPoint_VolVizShellsMainVS /Fo"$(OutDir)Media\Shaders\VolVizShellsMainVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EVolVizShellsNoiseShadowPS /DEntryPoint_VolVizShellsNoiseShadowPS /Fo"$(OutDir)Media\Shaders\VolVizShellsNoiseShadowPS.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\VolVizShellsMainVS.xvu;$(ProjectDir)Media\Shaders\VolVizShellsNoiseShadowPS.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\VolVizShellsMainVS.xvu;$(OutDir)Media\Shaders\VolVizShellsNoiseShadowPS.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -468,12 +468,12 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Meshes" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
-    <MakeDir Directories="$(ProjectDir)Media\Textures" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Meshes" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media\Textures" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

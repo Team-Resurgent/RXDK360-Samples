@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -385,42 +385,42 @@
 <ItemGroup>
 <CustomBuild Include=".\Resource.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Resource.xpr"</Command>
+<Outputs>$(OutDir)Media\Resource.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\FastUntile.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ECopyTextureVS /DEntryPoint_CopyTextureVS /Fo"$(ProjectDir)Media\Shaders\CopyTexture.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECopyTexturePS /DEntryPoint_CopyTexturePS /Fo"$(ProjectDir)Media\Shaders\CopyTexture.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBitwiseCompareTexturePS /DEntryPoint_BitwiseCompareTexturePS /Fo"$(ProjectDir)Media\Shaders\BitwiseCompareTexture.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EUntileMemexportTexelPS /DEntryPoint_UntileMemexportTexelPS /Fo"$(ProjectDir)Media\Shaders\UntileMemexportTexel.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=16 /Dg_iMemExportBytes=16 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(ProjectDir)Media\Shaders\UntileMemexportTransaction128bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=8 /Dg_iMemExportBytes=8 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(ProjectDir)Media\Shaders\UntileMemexportTransaction64bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=4 /Dg_iMemExportBytes=4 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(ProjectDir)Media\Shaders\UntileMemexportTransaction32bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=2 /Dg_iMemExportBytes=2 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(ProjectDir)Media\Shaders\UntileMemexportTransaction16bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=1 /Dg_iMemExportBytes=1 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(ProjectDir)Media\Shaders\UntileMemexportTransaction8bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=4 /Dg_iMemExportBytes=8 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(ProjectDir)Media\Shaders\UntileMemexportPacked32bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=2 /Dg_iMemExportBytes=8 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(ProjectDir)Media\Shaders\UntileMemexportPacked16bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=1 /Dg_iMemExportBytes=4 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(ProjectDir)Media\Shaders\UntileMemexportPacked8bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iPixelsPerTexel=2 /Dg_fRepeatBlockWidth=32 /Dg_fRepeatBlockHeight=32 /EUntileResolvePS /DEntryPoint_UntileResolvePS /Fo"$(ProjectDir)Media\Shaders\UntileResolve128bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iPixelsPerTexel=1 /Dg_fRepeatBlockWidth=32 /Dg_fRepeatBlockHeight=32 /EUntileResolvePS /DEntryPoint_UntileResolvePS /Fo"$(ProjectDir)Media\Shaders\UntileResolve64bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iPixelsPerTexel=1 /Dg_fRepeatBlockWidth=32 /Dg_fRepeatBlockHeight=32 /EUntileResolvePS /DEntryPoint_UntileResolvePS /Fo"$(ProjectDir)Media\Shaders\UntileResolve32bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iPixelsPerTexel=1 /Dg_fRepeatBlockWidth=64 /Dg_fRepeatBlockHeight=32 /EUntileResolvePS /DEntryPoint_UntileResolvePS /Fo"$(ProjectDir)Media\Shaders\UntileResolve16bpp.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iPixelsPerTexel=1 /Dg_fRepeatBlockWidth=128 /Dg_fRepeatBlockHeight=32 /EUntileResolvePS /DEntryPoint_UntileResolvePS /Fo"$(ProjectDir)Media\Shaders\UntileResolve8bpp.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ECopyTextureVS /DEntryPoint_CopyTextureVS /Fo"$(OutDir)Media\Shaders\CopyTexture.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECopyTexturePS /DEntryPoint_CopyTexturePS /Fo"$(OutDir)Media\Shaders\CopyTexture.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBitwiseCompareTexturePS /DEntryPoint_BitwiseCompareTexturePS /Fo"$(OutDir)Media\Shaders\BitwiseCompareTexture.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EUntileMemexportTexelPS /DEntryPoint_UntileMemexportTexelPS /Fo"$(OutDir)Media\Shaders\UntileMemexportTexel.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=16 /Dg_iMemExportBytes=16 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(OutDir)Media\Shaders\UntileMemexportTransaction128bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=8 /Dg_iMemExportBytes=8 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(OutDir)Media\Shaders\UntileMemexportTransaction64bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=4 /Dg_iMemExportBytes=4 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(OutDir)Media\Shaders\UntileMemexportTransaction32bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=2 /Dg_iMemExportBytes=2 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(OutDir)Media\Shaders\UntileMemexportTransaction16bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=1 /Dg_iMemExportBytes=1 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(OutDir)Media\Shaders\UntileMemexportTransaction8bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=4 /Dg_iMemExportBytes=8 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(OutDir)Media\Shaders\UntileMemexportPacked32bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=2 /Dg_iMemExportBytes=8 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(OutDir)Media\Shaders\UntileMemexportPacked16bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iFetchBytes=1 /Dg_iMemExportBytes=4 /EUntileMemexportTransactionPS /DEntryPoint_UntileMemexportTransactionPS /Fo"$(OutDir)Media\Shaders\UntileMemexportPacked8bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iPixelsPerTexel=2 /Dg_fRepeatBlockWidth=32 /Dg_fRepeatBlockHeight=32 /EUntileResolvePS /DEntryPoint_UntileResolvePS /Fo"$(OutDir)Media\Shaders\UntileResolve128bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iPixelsPerTexel=1 /Dg_fRepeatBlockWidth=32 /Dg_fRepeatBlockHeight=32 /EUntileResolvePS /DEntryPoint_UntileResolvePS /Fo"$(OutDir)Media\Shaders\UntileResolve64bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iPixelsPerTexel=1 /Dg_fRepeatBlockWidth=32 /Dg_fRepeatBlockHeight=32 /EUntileResolvePS /DEntryPoint_UntileResolvePS /Fo"$(OutDir)Media\Shaders\UntileResolve32bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iPixelsPerTexel=1 /Dg_fRepeatBlockWidth=64 /Dg_fRepeatBlockHeight=32 /EUntileResolvePS /DEntryPoint_UntileResolvePS /Fo"$(OutDir)Media\Shaders\UntileResolve16bpp.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iPixelsPerTexel=1 /Dg_fRepeatBlockWidth=128 /Dg_fRepeatBlockHeight=32 /EUntileResolvePS /DEntryPoint_UntileResolvePS /Fo"$(OutDir)Media\Shaders\UntileResolve8bpp.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\CopyTexture.xvu;$(ProjectDir)Media\Shaders\CopyTexture.xpu;$(ProjectDir)Media\Shaders\BitwiseCompareTexture.xpu;$(ProjectDir)Media\Shaders\UntileMemexportTexel.xpu;$(ProjectDir)Media\Shaders\UntileMemexportTransaction128bpp.xpu;$(ProjectDir)Media\Shaders\UntileMemexportTransaction64bpp.xpu;$(ProjectDir)Media\Shaders\UntileMemexportTransaction32bpp.xpu;$(ProjectDir)Media\Shaders\UntileMemexportTransaction16bpp.xpu;$(ProjectDir)Media\Shaders\UntileMemexportTransaction8bpp.xpu;$(ProjectDir)Media\Shaders\UntileMemexportPacked32bpp.xpu;$(ProjectDir)Media\Shaders\UntileMemexportPacked16bpp.xpu;$(ProjectDir)Media\Shaders\UntileMemexportPacked8bpp.xpu;$(ProjectDir)Media\Shaders\UntileResolve128bpp.xpu;$(ProjectDir)Media\Shaders\UntileResolve64bpp.xpu;$(ProjectDir)Media\Shaders\UntileResolve32bpp.xpu;$(ProjectDir)Media\Shaders\UntileResolve16bpp.xpu;$(ProjectDir)Media\Shaders\UntileResolve8bpp.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\CopyTexture.xvu;$(OutDir)Media\Shaders\CopyTexture.xpu;$(OutDir)Media\Shaders\BitwiseCompareTexture.xpu;$(OutDir)Media\Shaders\UntileMemexportTexel.xpu;$(OutDir)Media\Shaders\UntileMemexportTransaction128bpp.xpu;$(OutDir)Media\Shaders\UntileMemexportTransaction64bpp.xpu;$(OutDir)Media\Shaders\UntileMemexportTransaction32bpp.xpu;$(OutDir)Media\Shaders\UntileMemexportTransaction16bpp.xpu;$(OutDir)Media\Shaders\UntileMemexportTransaction8bpp.xpu;$(OutDir)Media\Shaders\UntileMemexportPacked32bpp.xpu;$(OutDir)Media\Shaders\UntileMemexportPacked16bpp.xpu;$(OutDir)Media\Shaders\UntileMemexportPacked8bpp.xpu;$(OutDir)Media\Shaders\UntileResolve128bpp.xpu;$(OutDir)Media\Shaders\UntileResolve64bpp.xpu;$(OutDir)Media\Shaders\UntileResolve32bpp.xpu;$(OutDir)Media\Shaders\UntileResolve16bpp.xpu;$(OutDir)Media\Shaders\UntileResolve8bpp.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -430,10 +430,10 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

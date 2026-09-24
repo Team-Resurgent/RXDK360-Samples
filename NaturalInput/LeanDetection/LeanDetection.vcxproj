@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -384,42 +384,42 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\Resource.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Resource.xpr"</Command>
+<Outputs>$(OutDir)Media\Resource.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Textures\Target.png">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Textures\sponza_01_stub_jpg.tga">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\media\scenes\headtrackScene.xatg">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\media\scenes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\media\scenes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\media\scenes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\media\scenes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\media\scenes\headtrackScene.pmem">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\media\scenes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\media\scenes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\media\scenes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\media\scenes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -429,11 +429,11 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)media\scenes" />
-    <MakeDir Directories="$(ProjectDir)Media\Textures" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)media\scenes" />
+    <MakeDir Directories="$(OutDir)Media\Textures" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -380,29 +380,29 @@
 <ItemGroup>
 <CustomBuild Include="..\..\media\xui\xarialuni.ttf">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\media\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\media\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\media\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\media\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\media\textures\XuiEffect_Texture.png">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\media\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\media\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\media\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\media\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\XuiEffect.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeVertex /DEntryPoint_ShadeVertex /Fo"$(ProjectDir)Media\Shaders\ShadeXuiEffectVertex.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadePixel /DEntryPoint_ShadePixel /Fo"$(ProjectDir)Media\Shaders\ShadeXuiEffectPixel.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeVertex /DEntryPoint_ShadeVertex /Fo"$(OutDir)Media\Shaders\ShadeXuiEffectVertex.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadePixel /DEntryPoint_ShadePixel /Fo"$(OutDir)Media\Shaders\ShadeXuiEffectPixel.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\ShadeXuiEffectVertex.xvu;$(ProjectDir)Media\Shaders\ShadeXuiEffectPixel.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\ShadeXuiEffectVertex.xvu;$(OutDir)Media\Shaders\ShadeXuiEffectPixel.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\media\xui\simple_scene_skin.xui">
-<Command>xuipkg /nologo /d /a "$(ProjectDir)\media\xuieffect.xzp" ..\..\Media\xui\xuieffect_main.xui ..\..\media\xui\simple_scene_skin.xui</Command>
+<Command>xuipkg /nologo /d /a "$(OutDir)\media\xuieffect.xzp" ..\..\Media\xui\xuieffect_main.xui ..\..\media\xui\simple_scene_skin.xui</Command>
 <Message>Build XUI project files %(FullPath)</Message>
-<Outputs>$(ProjectDir)\media\xuieffect.xzp</Outputs>
+<Outputs>$(OutDir)\media\xuieffect.xzp</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -412,8 +412,8 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)media" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)media" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

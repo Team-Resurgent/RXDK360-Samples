@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -382,64 +382,64 @@
 <ItemGroup>
 <CustomBuild Include=".\Resource.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Resource.xpr"</Command>
+<Outputs>$(OutDir)Media\Resource.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Meshes\Room1.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Meshes\Sphere0.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\PostProcess.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESampleLumInitialPS /DEntryPoint_SampleLumInitialPS /Fo"$(ProjectDir)Media\Shaders\SampleLumInitial.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESampleLumFinalPS /DEntryPoint_SampleLumFinalPS /Fo"$(ProjectDir)Media\Shaders\SampleLumFinal.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECalculateAdaptedLumPS /DEntryPoint_CalculateAdaptedLumPS /Fo"$(ProjectDir)Media\Shaders\CalculateAdaptedLum.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownScale4x4PS /DEntryPoint_DownScale4x4PS /Fo"$(ProjectDir)Media\Shaders\DownScale4x4.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownScale2x2PS /DEntryPoint_DownScale2x2PS /Fo"$(ProjectDir)Media\Shaders\DownScale2x2.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBrightPassFilterPS /DEntryPoint_BrightPassFilterPS /Fo"$(ProjectDir)Media\Shaders\BrightPassFilter.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EGaussBlur5x5PS /DEntryPoint_GaussBlur5x5PS /Fo"$(ProjectDir)Media\Shaders\GaussBlur5x5.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBloomPS /DEntryPoint_BloomPS /Fo"$(ProjectDir)Media\Shaders\Bloom.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EStarPS /DEntryPoint_StarPS /Fo"$(ProjectDir)Media\Shaders\Star.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_1PS /DEntryPoint_MergeTextures_1PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_1.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_2PS /DEntryPoint_MergeTextures_2PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_2.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_3PS /DEntryPoint_MergeTextures_3PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_3.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_4PS /DEntryPoint_MergeTextures_4PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_4.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_5PS /DEntryPoint_MergeTextures_5PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_5.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_6PS /DEntryPoint_MergeTextures_6PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_6.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_7PS /DEntryPoint_MergeTextures_7PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_7.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_8PS /DEntryPoint_MergeTextures_8PS /Fo"$(ProjectDir)Media\Shaders\MergeTextures_8.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(OutDir)Media\Shaders\ScreenSpaceShader.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESampleLumInitialPS /DEntryPoint_SampleLumInitialPS /Fo"$(OutDir)Media\Shaders\SampleLumInitial.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESampleLumFinalPS /DEntryPoint_SampleLumFinalPS /Fo"$(OutDir)Media\Shaders\SampleLumFinal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECalculateAdaptedLumPS /DEntryPoint_CalculateAdaptedLumPS /Fo"$(OutDir)Media\Shaders\CalculateAdaptedLum.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownScale4x4PS /DEntryPoint_DownScale4x4PS /Fo"$(OutDir)Media\Shaders\DownScale4x4.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownScale2x2PS /DEntryPoint_DownScale2x2PS /Fo"$(OutDir)Media\Shaders\DownScale2x2.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBrightPassFilterPS /DEntryPoint_BrightPassFilterPS /Fo"$(OutDir)Media\Shaders\BrightPassFilter.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EGaussBlur5x5PS /DEntryPoint_GaussBlur5x5PS /Fo"$(OutDir)Media\Shaders\GaussBlur5x5.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBloomPS /DEntryPoint_BloomPS /Fo"$(OutDir)Media\Shaders\Bloom.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EStarPS /DEntryPoint_StarPS /Fo"$(OutDir)Media\Shaders\Star.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_1PS /DEntryPoint_MergeTextures_1PS /Fo"$(OutDir)Media\Shaders\MergeTextures_1.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_2PS /DEntryPoint_MergeTextures_2PS /Fo"$(OutDir)Media\Shaders\MergeTextures_2.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_3PS /DEntryPoint_MergeTextures_3PS /Fo"$(OutDir)Media\Shaders\MergeTextures_3.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_4PS /DEntryPoint_MergeTextures_4PS /Fo"$(OutDir)Media\Shaders\MergeTextures_4.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_5PS /DEntryPoint_MergeTextures_5PS /Fo"$(OutDir)Media\Shaders\MergeTextures_5.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_6PS /DEntryPoint_MergeTextures_6PS /Fo"$(OutDir)Media\Shaders\MergeTextures_6.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_7PS /DEntryPoint_MergeTextures_7PS /Fo"$(OutDir)Media\Shaders\MergeTextures_7.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EMergeTextures_8PS /DEntryPoint_MergeTextures_8PS /Fo"$(OutDir)Media\Shaders\MergeTextures_8.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu;$(ProjectDir)Media\Shaders\SampleLumInitial.xpu;$(ProjectDir)Media\Shaders\SampleLumFinal.xpu;$(ProjectDir)Media\Shaders\CalculateAdaptedLum.xpu;$(ProjectDir)Media\Shaders\DownScale4x4.xpu;$(ProjectDir)Media\Shaders\DownScale2x2.xpu;$(ProjectDir)Media\Shaders\BrightPassFilter.xpu;$(ProjectDir)Media\Shaders\GaussBlur5x5.xpu;$(ProjectDir)Media\Shaders\Bloom.xpu;$(ProjectDir)Media\Shaders\Star.xpu;$(ProjectDir)Media\Shaders\MergeTextures_1.xpu;$(ProjectDir)Media\Shaders\MergeTextures_2.xpu;$(ProjectDir)Media\Shaders\MergeTextures_3.xpu;$(ProjectDir)Media\Shaders\MergeTextures_4.xpu;$(ProjectDir)Media\Shaders\MergeTextures_5.xpu;$(ProjectDir)Media\Shaders\MergeTextures_6.xpu;$(ProjectDir)Media\Shaders\MergeTextures_7.xpu;$(ProjectDir)Media\Shaders\MergeTextures_8.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\ScreenSpaceShader.xvu;$(OutDir)Media\Shaders\SampleLumInitial.xpu;$(OutDir)Media\Shaders\SampleLumFinal.xpu;$(OutDir)Media\Shaders\CalculateAdaptedLum.xpu;$(OutDir)Media\Shaders\DownScale4x4.xpu;$(OutDir)Media\Shaders\DownScale2x2.xpu;$(OutDir)Media\Shaders\BrightPassFilter.xpu;$(OutDir)Media\Shaders\GaussBlur5x5.xpu;$(OutDir)Media\Shaders\Bloom.xpu;$(OutDir)Media\Shaders\Star.xpu;$(OutDir)Media\Shaders\MergeTextures_1.xpu;$(OutDir)Media\Shaders\MergeTextures_2.xpu;$(OutDir)Media\Shaders\MergeTextures_3.xpu;$(OutDir)Media\Shaders\MergeTextures_4.xpu;$(OutDir)Media\Shaders\MergeTextures_5.xpu;$(OutDir)Media\Shaders\MergeTextures_6.xpu;$(OutDir)Media\Shaders\MergeTextures_7.xpu;$(OutDir)Media\Shaders\MergeTextures_8.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Shaders\HDRLighting.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ETransformSceneVS /DEntryPoint_TransformSceneVS /Fo"$(ProjectDir)Media\Shaders\TransformScene.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EPointLightPS /DEntryPoint_PointLightPS /Fo"$(ProjectDir)Media\Shaders\PointLight.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightSpherePS /DEntryPoint_LightSpherePS /Fo"$(ProjectDir)Media\Shaders\LightSphere.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFinalScenePassPS /DEntryPoint_FinalScenePassPS /Fo"$(ProjectDir)Media\Shaders\FinalScenePass.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ETransformSceneVS /DEntryPoint_TransformSceneVS /Fo"$(OutDir)Media\Shaders\TransformScene.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EPointLightPS /DEntryPoint_PointLightPS /Fo"$(OutDir)Media\Shaders\PointLight.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ELightSpherePS /DEntryPoint_LightSpherePS /Fo"$(OutDir)Media\Shaders\LightSphere.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFinalScenePassPS /DEntryPoint_FinalScenePassPS /Fo"$(OutDir)Media\Shaders\FinalScenePass.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\TransformScene.xvu;$(ProjectDir)Media\Shaders\PointLight.xpu;$(ProjectDir)Media\Shaders\LightSphere.xpu;$(ProjectDir)Media\Shaders\FinalScenePass.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\TransformScene.xvu;$(OutDir)Media\Shaders\PointLight.xpu;$(OutDir)Media\Shaders\LightSphere.xpu;$(OutDir)Media\Shaders\FinalScenePass.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -449,11 +449,11 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Meshes" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Meshes" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

@@ -136,12 +136,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex-dev.xml</ConfigurationFile>
-<AdditionalSections>58410843="$(ProjectDir)spa.bin"</AdditionalSections>
+<AdditionalSections>58410843="$(OutDir)spa.bin"</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(ProjectDir)\ArcadeSample.xzp</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(OutDir)\ArcadeSample.xzp</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -177,12 +177,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex-dev.xml</ConfigurationFile>
-<AdditionalSections>58410843="$(ProjectDir)spa.bin"</AdditionalSections>
+<AdditionalSections>58410843="$(OutDir)spa.bin"</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(ProjectDir)\ArcadeSample.xzp</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(OutDir)\ArcadeSample.xzp</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -225,12 +225,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex-dev.xml</ConfigurationFile>
-<AdditionalSections>58410843="$(ProjectDir)spa.bin"</AdditionalSections>
+<AdditionalSections>58410843="$(OutDir)spa.bin"</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(ProjectDir)\ArcadeSample.xzp</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(OutDir)\ArcadeSample.xzp</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -272,12 +272,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex-dev.xml</ConfigurationFile>
-<AdditionalSections>58410843="$(ProjectDir)spa.bin"</AdditionalSections>
+<AdditionalSections>58410843="$(OutDir)spa.bin"</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(ProjectDir)\ArcadeSample.xzp</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(OutDir)\ArcadeSample.xzp</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -318,12 +318,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex-dev.xml</ConfigurationFile>
-<AdditionalSections>58410843="$(ProjectDir)spa.bin"</AdditionalSections>
+<AdditionalSections>58410843="$(OutDir)spa.bin"</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(ProjectDir)\ArcadeSample.xzp</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(OutDir)\ArcadeSample.xzp</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -366,12 +366,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex-dev.xml</ConfigurationFile>
-<AdditionalSections>58410843="$(ProjectDir)spa.bin"</AdditionalSections>
+<AdditionalSections>58410843="$(OutDir)spa.bin"</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(ProjectDir)\ArcadeSample.xzp</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)=$(OutDir)\ArcadeSample.xzp</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -441,15 +441,15 @@
 <ItemGroup>
 <CustomBuild Include="LiveFiles\ArcadeSample.xlast">
 <Message>Build SPA file from %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\spac.exe" -o "$(ProjectDir)spa.bin" -h "ArcadeSample.spa.h" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)spa.bin</Outputs>
+<Command>"$(RxdkBinDir)\spac.exe" -o "$(OutDir)spa.bin" -h "ArcadeSample.spa.h" "%(FullPath)"</Command>
+<Outputs>$(OutDir)spa.bin</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="Content\UI\skin.xui">
 <Message>Building XUI package</Message>
-<Command>BuildXuiPkg.cmd "$(ProjectDir)$(ProjectDir)\"</Command>
-<Outputs>$(ProjectDir)ArcadeSample.xzp</Outputs>
+<Command>BuildXuiPkg.cmd "$(ProjectDir)$(OutDir)\"</Command>
+<Outputs>$(OutDir)ArcadeSample.xzp</Outputs>
 <AdditionalInputs>%(Directory)QuickMatchScene.xui;%(Directory)GameConnectScene.xui;%(Directory)GameListScene.xui;%(Directory)GameTypeScene.xui;%(Directory)GameStartScene.xui;%(Directory)GameEndScene.xui;%(Directory)GameLobbyScene.xui;%(Directory)GameOptionsScene.xui;%(Directory)GamePlayScene.xui;%(Directory)HelpOptionsScene.xui;%(Directory)LeaderboardScene.xui;%(Directory)MainMenuScene.xui;%(Directory)skin.xui;%(Directory)xarialuni.ttf;%(Directory)A.png;%(Directory)B.png;%(Directory)mute.png;%(Directory)notready.png;%(Directory)ping0.png;%(Directory)ping1.png;%(Directory)ping2.png;%(Directory)ping3.png;%(Directory)ping4.png;%(Directory)ready.png;%(Directory)voice0.png;%(Directory)voice1.png;%(Directory)voice2.png;%(Directory)X.png;%(Directory)Y.png;%(Directory)de-de\loc.resx;%(Directory)en-us\loc.resx;%(Directory)es-es\loc.resx;%(Directory)fr-fr\loc.resx;%(Directory)it-it\loc.resx;%(Directory)ja-jp\loc.resx;%(Directory)ko-kr\loc.resx;%(Directory)zh-cht\loc.resx</AdditionalInputs>
 </CustomBuild>
 </ItemGroup>
@@ -459,9 +459,6 @@
 <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
 </ProjectReference>
 </ItemGroup>
-  <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)$(ProjectDir)" />
-  </Target>
   <Target Name="RxdkSpa" BeforeTargets="ClCompile" Inputs="$(ProjectDir)LiveFiles\ArcadeSample.xlast" Outputs="$(ProjectDir)ArcadeSample.spa.h">
     <Exec Command="&quot;$(RxdkBinDir)\spac.exe&quot; -nologo -forceoverwrite -h &quot;$(ProjectDir)ArcadeSample.spa.h&quot; -o &quot;$(ProjectDir)ArcadeSample.spa&quot; &quot;$(ProjectDir)LiveFiles\ArcadeSample.xlast&quot;" />
   </Target>

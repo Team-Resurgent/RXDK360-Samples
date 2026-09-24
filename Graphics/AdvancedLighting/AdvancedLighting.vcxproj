@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -387,97 +387,97 @@
 <ItemGroup>
 <CustomBuild Include=".\Resource.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Resource.xpr"</Command>
+<Outputs>$(OutDir)Media\Resource.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Effects\SimpleShaders.fx">
 <Message>Build FXLite Effect %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Effects\%(Filename).fxobj</Outputs>
-<Command Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Outputs>$(OutDir)Media\Effects\%(Filename).fxobj</Outputs>
+<Command Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\media\scenes\SkyDome.xatg">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\media\scenes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\media\scenes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\media\scenes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\media\scenes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\media\scenes\SkyDome.pmem">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\media\scenes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\media\scenes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\media\scenes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\media\scenes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\media\scenes\SponzaAtrium.xatg">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\media\scenes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\media\scenes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\media\scenes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\media\scenes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\media\scenes\SponzaAtrium.pmem">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\media\scenes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\media\scenes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\media\scenes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\media\scenes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include=".\AdvancedLighting.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EDepthOnlyVS /DEntryPoint_DepthOnlyVS /Fo"$(ProjectDir)Media\Shaders\DepthOnly.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EGenerateSmallRSMTexturesPS /DEntryPoint_GenerateSmallRSMTexturesPS /Fo"$(ProjectDir)Media\Shaders\GenerateSmallRSMTextures.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EImportanceSamplingPS /DEntryPoint_ImportanceSamplingPS /Fo"$(ProjectDir)Media\Shaders\ImportanceSampling.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EReflectiveShadowMapPS /DEntryPoint_ReflectiveShadowMapPS /Fo"$(ProjectDir)Media\Shaders\ReflectiveShadowMap.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EReflectiveShadowMapVS /DEntryPoint_ReflectiveShadowMapVS /Fo"$(ProjectDir)Media\Shaders\ReflectiveShadowMap.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EReflectiveShadowMapDebugPS /DEntryPoint_ReflectiveShadowMapDebugPS /Fo"$(ProjectDir)Media\Shaders\ReflectiveShadowMapDebug.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneIndirectPerPixelPS /DEntryPoint_ShadeSceneIndirectPerPixelPS /Fo"$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerPixel.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneIndirectPerPixelDebugPS /DEntryPoint_ShadeSceneIndirectPerPixelDebugPS /Fo"$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerPixelDebug.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneIndirectPerVertexPS /DEntryPoint_ShadeSceneIndirectPerVertexPS /Fo"$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertex.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeSceneIndirectPerVertexVS /DEntryPoint_ShadeSceneIndirectPerVertexVS /Fo"$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertex.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneIndirectPerVertexDebugPS /DEntryPoint_ShadeSceneIndirectPerVertexDebugPS /Fo"$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertexDebug.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeSceneIndirectPerVtxSelfOccludeVS /DEntryPoint_ShadeSceneIndirectPerVtxSelfOccludeVS /Fo"$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVtxSelfOcclude.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeScenePerPixelPS /DEntryPoint_ShadeScenePerPixelPS /Fo"$(ProjectDir)Media\Shaders\ShadeScenePerPixel.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeScenePerPixelVS /DEntryPoint_ShadeScenePerPixelVS /Fo"$(ProjectDir)Media\Shaders\ShadeScenePerPixel.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeScenePerPixelDebugPS /DEntryPoint_ShadeScenePerPixelDebugPS /Fo"$(ProjectDir)Media\Shaders\ShadeScenePerPixelDebug.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeScenePerVertexPS /DEntryPoint_ShadeScenePerVertexPS /Fo"$(ProjectDir)Media\Shaders\ShadeScenePerVertex.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeScenePerVertexVS /DEntryPoint_ShadeScenePerVertexVS /Fo"$(ProjectDir)Media\Shaders\ShadeScenePerVertex.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeScenePerVertexDebugPS /DEntryPoint_ShadeScenePerVertexDebugPS /Fo"$(ProjectDir)Media\Shaders\ShadeScenePerVertexDebug.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneShadowedPS /DEntryPoint_ShadeSceneShadowedPS /Fo"$(ProjectDir)Media\Shaders\ShadeSceneShadowed.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeSceneShadowedVS /DEntryPoint_ShadeSceneShadowedVS /Fo"$(ProjectDir)Media\Shaders\ShadeSceneShadowed.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneShadowedDebugPS /DEntryPoint_ShadeSceneShadowedDebugPS /Fo"$(ProjectDir)Media\Shaders\ShadeSceneShadowedDebug.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSkyPS /DEntryPoint_ShadeSkyPS /Fo"$(ProjectDir)Media\Shaders\ShadeSky.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeSkyVS /DEntryPoint_ShadeSkyVS /Fo"$(ProjectDir)Media\Shaders\ShadeSky.xvu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EDepthOnlyVS /DEntryPoint_DepthOnlyVS /Fo"$(OutDir)Media\Shaders\DepthOnly.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EGenerateSmallRSMTexturesPS /DEntryPoint_GenerateSmallRSMTexturesPS /Fo"$(OutDir)Media\Shaders\GenerateSmallRSMTextures.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EImportanceSamplingPS /DEntryPoint_ImportanceSamplingPS /Fo"$(OutDir)Media\Shaders\ImportanceSampling.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EReflectiveShadowMapPS /DEntryPoint_ReflectiveShadowMapPS /Fo"$(OutDir)Media\Shaders\ReflectiveShadowMap.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EReflectiveShadowMapVS /DEntryPoint_ReflectiveShadowMapVS /Fo"$(OutDir)Media\Shaders\ReflectiveShadowMap.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EReflectiveShadowMapDebugPS /DEntryPoint_ReflectiveShadowMapDebugPS /Fo"$(OutDir)Media\Shaders\ReflectiveShadowMapDebug.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneIndirectPerPixelPS /DEntryPoint_ShadeSceneIndirectPerPixelPS /Fo"$(OutDir)Media\Shaders\ShadeSceneIndirectPerPixel.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneIndirectPerPixelDebugPS /DEntryPoint_ShadeSceneIndirectPerPixelDebugPS /Fo"$(OutDir)Media\Shaders\ShadeSceneIndirectPerPixelDebug.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneIndirectPerVertexPS /DEntryPoint_ShadeSceneIndirectPerVertexPS /Fo"$(OutDir)Media\Shaders\ShadeSceneIndirectPerVertex.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeSceneIndirectPerVertexVS /DEntryPoint_ShadeSceneIndirectPerVertexVS /Fo"$(OutDir)Media\Shaders\ShadeSceneIndirectPerVertex.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneIndirectPerVertexDebugPS /DEntryPoint_ShadeSceneIndirectPerVertexDebugPS /Fo"$(OutDir)Media\Shaders\ShadeSceneIndirectPerVertexDebug.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeSceneIndirectPerVtxSelfOccludeVS /DEntryPoint_ShadeSceneIndirectPerVtxSelfOccludeVS /Fo"$(OutDir)Media\Shaders\ShadeSceneIndirectPerVtxSelfOcclude.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeScenePerPixelPS /DEntryPoint_ShadeScenePerPixelPS /Fo"$(OutDir)Media\Shaders\ShadeScenePerPixel.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeScenePerPixelVS /DEntryPoint_ShadeScenePerPixelVS /Fo"$(OutDir)Media\Shaders\ShadeScenePerPixel.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeScenePerPixelDebugPS /DEntryPoint_ShadeScenePerPixelDebugPS /Fo"$(OutDir)Media\Shaders\ShadeScenePerPixelDebug.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeScenePerVertexPS /DEntryPoint_ShadeScenePerVertexPS /Fo"$(OutDir)Media\Shaders\ShadeScenePerVertex.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeScenePerVertexVS /DEntryPoint_ShadeScenePerVertexVS /Fo"$(OutDir)Media\Shaders\ShadeScenePerVertex.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeScenePerVertexDebugPS /DEntryPoint_ShadeScenePerVertexDebugPS /Fo"$(OutDir)Media\Shaders\ShadeScenePerVertexDebug.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneShadowedPS /DEntryPoint_ShadeSceneShadowedPS /Fo"$(OutDir)Media\Shaders\ShadeSceneShadowed.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeSceneShadowedVS /DEntryPoint_ShadeSceneShadowedVS /Fo"$(OutDir)Media\Shaders\ShadeSceneShadowed.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSceneShadowedDebugPS /DEntryPoint_ShadeSceneShadowedDebugPS /Fo"$(OutDir)Media\Shaders\ShadeSceneShadowedDebug.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShadeSkyPS /DEntryPoint_ShadeSkyPS /Fo"$(OutDir)Media\Shaders\ShadeSky.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EShadeSkyVS /DEntryPoint_ShadeSkyVS /Fo"$(OutDir)Media\Shaders\ShadeSky.xvu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\DepthOnly.xvu;$(ProjectDir)Media\Shaders\GenerateSmallRSMTextures.xpu;$(ProjectDir)Media\Shaders\ImportanceSampling.xpu;$(ProjectDir)Media\Shaders\ReflectiveShadowMap.xpu;$(ProjectDir)Media\Shaders\ReflectiveShadowMap.xvu;$(ProjectDir)Media\Shaders\ReflectiveShadowMapDebug.xpu;$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerPixel.xpu;$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerPixelDebug.xpu;$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertex.xpu;$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertex.xvu;$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVertexDebug.xpu;$(ProjectDir)Media\Shaders\ShadeSceneIndirectPerVtxSelfOcclude.xvu;$(ProjectDir)Media\Shaders\ShadeScenePerPixel.xpu;$(ProjectDir)Media\Shaders\ShadeScenePerPixel.xvu;$(ProjectDir)Media\Shaders\ShadeScenePerPixelDebug.xpu;$(ProjectDir)Media\Shaders\ShadeScenePerVertex.xpu;$(ProjectDir)Media\Shaders\ShadeScenePerVertex.xvu;$(ProjectDir)Media\Shaders\ShadeScenePerVertexDebug.xpu;$(ProjectDir)Media\Shaders\ShadeSceneShadowed.xpu;$(ProjectDir)Media\Shaders\ShadeSceneShadowed.xvu;$(ProjectDir)Media\Shaders\ShadeSceneShadowedDebug.xpu;$(ProjectDir)Media\Shaders\ShadeSky.xpu;$(ProjectDir)Media\Shaders\ShadeSky.xvu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\DepthOnly.xvu;$(OutDir)Media\Shaders\GenerateSmallRSMTextures.xpu;$(OutDir)Media\Shaders\ImportanceSampling.xpu;$(OutDir)Media\Shaders\ReflectiveShadowMap.xpu;$(OutDir)Media\Shaders\ReflectiveShadowMap.xvu;$(OutDir)Media\Shaders\ReflectiveShadowMapDebug.xpu;$(OutDir)Media\Shaders\ShadeSceneIndirectPerPixel.xpu;$(OutDir)Media\Shaders\ShadeSceneIndirectPerPixelDebug.xpu;$(OutDir)Media\Shaders\ShadeSceneIndirectPerVertex.xpu;$(OutDir)Media\Shaders\ShadeSceneIndirectPerVertex.xvu;$(OutDir)Media\Shaders\ShadeSceneIndirectPerVertexDebug.xpu;$(OutDir)Media\Shaders\ShadeSceneIndirectPerVtxSelfOcclude.xvu;$(OutDir)Media\Shaders\ShadeScenePerPixel.xpu;$(OutDir)Media\Shaders\ShadeScenePerPixel.xvu;$(OutDir)Media\Shaders\ShadeScenePerPixelDebug.xpu;$(OutDir)Media\Shaders\ShadeScenePerVertex.xpu;$(OutDir)Media\Shaders\ShadeScenePerVertex.xvu;$(OutDir)Media\Shaders\ShadeScenePerVertexDebug.xpu;$(OutDir)Media\Shaders\ShadeSceneShadowed.xpu;$(OutDir)Media\Shaders\ShadeSceneShadowed.xvu;$(OutDir)Media\Shaders\ShadeSceneShadowedDebug.xpu;$(OutDir)Media\Shaders\ShadeSky.xpu;$(OutDir)Media\Shaders\ShadeSky.xvu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Shaders\PostProcess.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECopyTexturePS /DEntryPoint_CopyTexturePS /Fo"$(ProjectDir)Media\Shaders\CopyTexture.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(OutDir)Media\Shaders\ScreenSpaceShader.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECopyTexturePS /DEntryPoint_CopyTexturePS /Fo"$(OutDir)Media\Shaders\CopyTexture.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu;$(ProjectDir)Media\Shaders\CopyTexture.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\ScreenSpaceShader.xvu;$(OutDir)Media\Shaders\CopyTexture.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Shaders\VarianceShadowMaps.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECopyDepthToVariancePS /DEntryPoint_CopyDepthToVariancePS /Fo"$(ProjectDir)Media\Shaders\CopyDepthToVariance.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EHorizontalBlurDepthToVariancePS /DEntryPoint_HorizontalBlurDepthToVariancePS /Fo"$(ProjectDir)Media\Shaders\HorizontalBlurDepthToVariance.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EVerticalBlurDepthToVariancePS /DEntryPoint_VerticalBlurDepthToVariancePS /Fo"$(ProjectDir)Media\Shaders\VerticalBlurDepthToVariance.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECopyDepthToVariancePS /DEntryPoint_CopyDepthToVariancePS /Fo"$(OutDir)Media\Shaders\CopyDepthToVariance.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EHorizontalBlurDepthToVariancePS /DEntryPoint_HorizontalBlurDepthToVariancePS /Fo"$(OutDir)Media\Shaders\HorizontalBlurDepthToVariance.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EVerticalBlurDepthToVariancePS /DEntryPoint_VerticalBlurDepthToVariancePS /Fo"$(OutDir)Media\Shaders\VerticalBlurDepthToVariance.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\CopyDepthToVariance.xpu;$(ProjectDir)Media\Shaders\HorizontalBlurDepthToVariance.xpu;$(ProjectDir)Media\Shaders\VerticalBlurDepthToVariance.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\CopyDepthToVariance.xpu;$(OutDir)Media\Shaders\HorizontalBlurDepthToVariance.xpu;$(OutDir)Media\Shaders\VerticalBlurDepthToVariance.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -487,12 +487,12 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Effects" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)media\scenes" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Effects" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)media\scenes" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

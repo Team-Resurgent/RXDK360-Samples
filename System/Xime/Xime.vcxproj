@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -380,20 +380,20 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\media\xui\xarialuni.ttf">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\media\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\media\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\media\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\media\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -402,22 +402,22 @@
 <Command>"%XEDK%\bin\win32\make100"  "%(FullPath)"
 IF NOT ERRORLEVEL 0  echo error in %(FullPath) &amp;&amp; exit ERRORLEVEL
 
-"%XEDK%\bin\win32\jpimedic2xe" "%(FileName).dic" "$(ProjectDir)media\%(FileName).dic"
+"%XEDK%\bin\win32\jpimedic2xe" "%(FileName).dic" "$(OutDir)media\%(FileName).dic"
 IF NOT ERRORLEVEL 0  echo error in %(FullPath) &amp;&amp; exit ERRORLEVEL
 
-imagexex /out:"$(ProjectDir)media\%(FileName).xex" /section:"titledic="$(ProjectDir)media\%(FileName).dic",RO" /baseaddr:0x82c00000
+imagexex /out:"$(OutDir)media\%(FileName).xex" /section:"titledic="$(OutDir)media\%(FileName).dic",RO" /baseaddr:0x82c00000
 IF NOT ERRORLEVEL 0  echo error in %(FullPath) &amp;&amp; exit ERRORLEVEL
 
-echo User title dictionary created: "$(ProjectDir)media\%(FileName).xex"
+echo User title dictionary created: "$(OutDir)media\%(FileName).xex"
 </Command>
-<Outputs>$(ProjectDir)\Media\XimeJPTitleDictionary.dic</Outputs>
+<Outputs>$(OutDir)\Media\XimeJPTitleDictionary.dic</Outputs>
 <AdditionalInputs></AdditionalInputs>
 </CustomBuild>
 <CustomBuild Include="XimeJPUserWord.xml">
 <Message>Copy user registered word XML file</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)media\%(Filename)%(Extension)"
+<Command>copy "%(FullPath)" "$(OutDir)media\%(Filename)%(Extension)"
 </Command>
-<Outputs>$(ProjectDir)media\%(Filename)%(Extension)</Outputs>
+<Outputs>$(OutDir)media\%(Filename)%(Extension)</Outputs>
 <AdditionalInputs></AdditionalInputs>
 </CustomBuild>
 </ItemGroup>
@@ -428,9 +428,9 @@ echo User title dictionary created: "$(ProjectDir)media\%(FileName).xex"
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)media" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)media" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

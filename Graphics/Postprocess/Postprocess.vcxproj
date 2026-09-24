@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -380,41 +380,41 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\Resource.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Resource.xpr"</Command>
+<Outputs>$(OutDir)Media\Resource.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\PostProcess.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECopyTexturePS /DEntryPoint_CopyTexturePS /Fo"$(ProjectDir)Media\Shaders\CopyTexture.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /DFILTERABLE /EDownScale4x4PS /DEntryPoint_DownScale4x4PS /Fo"$(ProjectDir)Media\Shaders\DownScale4x4.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(OutDir)Media\Shaders\ScreenSpaceShader.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECopyTexturePS /DEntryPoint_CopyTexturePS /Fo"$(OutDir)Media\Shaders\CopyTexture.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /DFILTERABLE /EDownScale4x4PS /DEntryPoint_DownScale4x4PS /Fo"$(OutDir)Media\Shaders\DownScale4x4.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu;$(ProjectDir)Media\Shaders\CopyTexture.xpu;$(ProjectDir)Media\Shaders\DownScale4x4.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\ScreenSpaceShader.xvu;$(OutDir)Media\Shaders\CopyTexture.xpu;$(OutDir)Media\Shaders\DownScale4x4.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Shaders\PostProcessTest.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur4x4NaiveHorizontalPS /DEntryPoint_Blur4x4NaiveHorizontalPS /Fo"$(ProjectDir)Media\Shaders\Blur4x4NaiveHorizontal.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur4x4NaiveVerticalPS /DEntryPoint_Blur4x4NaiveVerticalPS /Fo"$(ProjectDir)Media\Shaders\Blur4x4NaiveVertical.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur4x4TunedPS /DEntryPoint_Blur4x4TunedPS /Fo"$(ProjectDir)Media\Shaders\Blur4x4Tuned.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur4x4IdealPS /DEntryPoint_Blur4x4IdealPS /Fo"$(ProjectDir)Media\Shaders\Blur4x4Ideal.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur5x5NaiveHorizontalPS /DEntryPoint_Blur5x5NaiveHorizontalPS /Fo"$(ProjectDir)Media\Shaders\Blur5x5NaiveHorizontal.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur5x5NaiveVerticalPS /DEntryPoint_Blur5x5NaiveVerticalPS /Fo"$(ProjectDir)Media\Shaders\Blur5x5NaiveVertical.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur5x5TunedPS /DEntryPoint_Blur5x5TunedPS /Fo"$(ProjectDir)Media\Shaders\Blur5x5Tuned.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur5x5IdealPS /DEntryPoint_Blur5x5IdealPS /Fo"$(ProjectDir)Media\Shaders\Blur5x5Ideal.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur4x4NaiveHorizontalPS /DEntryPoint_Blur4x4NaiveHorizontalPS /Fo"$(OutDir)Media\Shaders\Blur4x4NaiveHorizontal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur4x4NaiveVerticalPS /DEntryPoint_Blur4x4NaiveVerticalPS /Fo"$(OutDir)Media\Shaders\Blur4x4NaiveVertical.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur4x4TunedPS /DEntryPoint_Blur4x4TunedPS /Fo"$(OutDir)Media\Shaders\Blur4x4Tuned.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur4x4IdealPS /DEntryPoint_Blur4x4IdealPS /Fo"$(OutDir)Media\Shaders\Blur4x4Ideal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur5x5NaiveHorizontalPS /DEntryPoint_Blur5x5NaiveHorizontalPS /Fo"$(OutDir)Media\Shaders\Blur5x5NaiveHorizontal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur5x5NaiveVerticalPS /DEntryPoint_Blur5x5NaiveVerticalPS /Fo"$(OutDir)Media\Shaders\Blur5x5NaiveVertical.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur5x5TunedPS /DEntryPoint_Blur5x5TunedPS /Fo"$(OutDir)Media\Shaders\Blur5x5Tuned.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EBlur5x5IdealPS /DEntryPoint_Blur5x5IdealPS /Fo"$(OutDir)Media\Shaders\Blur5x5Ideal.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\Blur4x4NaiveHorizontal.xpu;$(ProjectDir)Media\Shaders\Blur4x4NaiveVertical.xpu;$(ProjectDir)Media\Shaders\Blur4x4Tuned.xpu;$(ProjectDir)Media\Shaders\Blur4x4Ideal.xpu;$(ProjectDir)Media\Shaders\Blur5x5NaiveHorizontal.xpu;$(ProjectDir)Media\Shaders\Blur5x5NaiveVertical.xpu;$(ProjectDir)Media\Shaders\Blur5x5Tuned.xpu;$(ProjectDir)Media\Shaders\Blur5x5Ideal.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\Blur4x4NaiveHorizontal.xpu;$(OutDir)Media\Shaders\Blur4x4NaiveVertical.xpu;$(OutDir)Media\Shaders\Blur4x4Tuned.xpu;$(OutDir)Media\Shaders\Blur4x4Ideal.xpu;$(OutDir)Media\Shaders\Blur5x5NaiveHorizontal.xpu;$(OutDir)Media\Shaders\Blur5x5NaiveVertical.xpu;$(OutDir)Media\Shaders\Blur5x5Tuned.xpu;$(OutDir)Media\Shaders\Blur5x5Ideal.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -424,10 +424,10 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

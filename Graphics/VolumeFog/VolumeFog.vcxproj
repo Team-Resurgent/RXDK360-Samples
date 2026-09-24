@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -380,91 +380,91 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\Resource.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Resource.xpr"</Command>
+<Outputs>$(OutDir)Media\Resource.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Meshes\SkyBox.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Meshes\VolFogFog.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Meshes\VolFogTerrain.xbg">
 <Message>Copy mesh %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Meshes\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Meshes\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Meshes\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Textures\SkyBoxXN.bmp">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Textures\SkyBoxXP.bmp">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Textures\SkyBoxYN.bmp">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Textures\SkyBoxYP.bmp">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Textures\SkyBoxZN.bmp">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Textures\SkyBoxZP.bmp">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Textures\TreeBark.bmp">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Textures\VolGroun.bmp">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\VolumeFog.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EComputeFogValuePS /DEntryPoint_ComputeFogValuePS /Fo"$(ProjectDir)Media\Shaders\ComputeFogValuePS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EDepthOutputVS /DEntryPoint_DepthOutputVS /Fo"$(ProjectDir)Media\Shaders\DepthOutputVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDepthOutputPS /DEntryPoint_DepthOutputPS /Fo"$(ProjectDir)Media\Shaders\DepthOutputPS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDiffuseTexModulatePS /DEntryPoint_DiffuseTexModulatePS /Fo"$(ProjectDir)Media\Shaders\DiffuseTexModulatePS.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ELitDiffuse1TexVS /DEntryPoint_LitDiffuse1TexVS /Fo"$(ProjectDir)Media\Shaders\LitDiffuse1TexVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ESkyBoxVS /DEntryPoint_SkyBoxVS /Fo"$(ProjectDir)Media\Shaders\SkyBoxVS.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EPassThruPosTexVS /DEntryPoint_PassThruPosTexVS /Fo"$(ProjectDir)Media\Shaders\PassThruPosTexVS.xvu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EComputeFogValuePS /DEntryPoint_ComputeFogValuePS /Fo"$(OutDir)Media\Shaders\ComputeFogValuePS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EDepthOutputVS /DEntryPoint_DepthOutputVS /Fo"$(OutDir)Media\Shaders\DepthOutputVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDepthOutputPS /DEntryPoint_DepthOutputPS /Fo"$(OutDir)Media\Shaders\DepthOutputPS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDiffuseTexModulatePS /DEntryPoint_DiffuseTexModulatePS /Fo"$(OutDir)Media\Shaders\DiffuseTexModulatePS.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ELitDiffuse1TexVS /DEntryPoint_LitDiffuse1TexVS /Fo"$(OutDir)Media\Shaders\LitDiffuse1TexVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /ESkyBoxVS /DEntryPoint_SkyBoxVS /Fo"$(OutDir)Media\Shaders\SkyBoxVS.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EPassThruPosTexVS /DEntryPoint_PassThruPosTexVS /Fo"$(OutDir)Media\Shaders\PassThruPosTexVS.xvu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\ComputeFogValuePS.xpu;$(ProjectDir)Media\Shaders\DepthOutputVS.xvu;$(ProjectDir)Media\Shaders\DepthOutputPS.xpu;$(ProjectDir)Media\Shaders\DiffuseTexModulatePS.xpu;$(ProjectDir)Media\Shaders\LitDiffuse1TexVS.xvu;$(ProjectDir)Media\Shaders\SkyBoxVS.xvu;$(ProjectDir)Media\Shaders\PassThruPosTexVS.xvu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\ComputeFogValuePS.xpu;$(OutDir)Media\Shaders\DepthOutputVS.xvu;$(OutDir)Media\Shaders\DepthOutputPS.xpu;$(OutDir)Media\Shaders\DiffuseTexModulatePS.xpu;$(OutDir)Media\Shaders\LitDiffuse1TexVS.xvu;$(OutDir)Media\Shaders\SkyBoxVS.xvu;$(OutDir)Media\Shaders\PassThruPosTexVS.xvu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -474,12 +474,12 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Meshes" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
-    <MakeDir Directories="$(ProjectDir)Media\Textures" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Meshes" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media\Textures" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

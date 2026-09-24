@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -380,57 +380,57 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\DepthVisualizer.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESolidColorPS /DEntryPoint_SolidColorPS /Fo"$(ProjectDir)Media\Shaders\SolidColor.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDepthThumbnailPS /DEntryPoint_DepthThumbnailPS /Fo"$(ProjectDir)Media\Shaders\DepthThumbnail.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECopySignedToBiasPS /DEntryPoint_CopySignedToBiasPS /Fo"$(ProjectDir)Media\Shaders\CopySignedToBias.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=0.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(ProjectDir)Media\Shaders\DirectionalBlurDepthHorizontal.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=0.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(ProjectDir)Media\Shaders\DirectionalBlurDepthVertical.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=-1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(ProjectDir)Media\Shaders\DirectionalBlurDepthDiagonalNW.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(ProjectDir)Media\Shaders\DirectionalBlurDepthDiagonalSW.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=0.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(ProjectDir)Media\Shaders\BilateralFilterDepth1DHorizontal.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=0.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(ProjectDir)Media\Shaders\BilateralFilterDepth1DVertical.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=-1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(ProjectDir)Media\Shaders\BilateralFilterDepth1DDiagonalNW.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(ProjectDir)Media\Shaders\BilateralFilterDepth1DDiagonalSW.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EBilateralFilter2DPS /DEntryPoint_BilateralFilter2DPS /Fo"$(ProjectDir)Media\Shaders\BilateralFilterDepth2D.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=0.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(ProjectDir)Media\Shaders\DirectionalBlurNormalHorizontal.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=0.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(ProjectDir)Media\Shaders\DirectionalBlurNormalVertical.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=-1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(ProjectDir)Media\Shaders\DirectionalBlurNormalDiagonalNW.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(ProjectDir)Media\Shaders\DirectionalBlurNormalDiagonalSW.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=0.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(ProjectDir)Media\Shaders\BilateralFilterNormal1DHorizontal.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=0.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(ProjectDir)Media\Shaders\BilateralFilterNormal1DVertical.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=-1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(ProjectDir)Media\Shaders\BilateralFilterNormal1DDiagonalNW.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(ProjectDir)Media\Shaders\BilateralFilterNormal1DDiagonalSW.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iHalfWidth=1 /Dg_iNumChannels=3 /Dg_bSigned=true /EBilateralFilter2DPS /DEntryPoint_BilateralFilter2DPS /Fo"$(ProjectDir)Media\Shaders\BilateralFilterNormal2D.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EIRShadowGenerateVS /DEntryPoint_IRShadowGenerateVS /Fo"$(ProjectDir)Media\Shaders\IRShadowGenerate.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EIRShadowApplyPS /DEntryPoint_IRShadowApplyPS /Fo"$(ProjectDir)Media\Shaders\IRShadowApply.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_bHolesOrIslands=true /EDownfillSmallHolesPS /DEntryPoint_DownfillSmallHolesPS /Fo"$(ProjectDir)Media\Shaders\DownfillSmallHoles.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_bHolesOrIslands=true /EUpfillSmallHolesPS /DEntryPoint_UpfillSmallHolesPS /Fo"$(ProjectDir)Media\Shaders\UpfillSmallHoles.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_bHolesOrIslands=false /EDownfillSmallHolesPS /DEntryPoint_DownfillSmallHolesPS /Fo"$(ProjectDir)Media\Shaders\DownfillSmallIslands.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_bHolesOrIslands=false /EUpfillSmallHolesPS /DEntryPoint_UpfillSmallHolesPS /Fo"$(ProjectDir)Media\Shaders\UpfillSmallIslands.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownsampleDepthPS /DEntryPoint_DownsampleDepthPS /Fo"$(ProjectDir)Media\Shaders\DownsampleDepth.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShiftDepthPS /DEntryPoint_ShiftDepthPS /Fo"$(ProjectDir)Media\Shaders\ShiftDepth.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EUpfillDepthPS /DEntryPoint_UpfillDepthPS /Fo"$(ProjectDir)Media\Shaders\UpfillDepth.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownsampleNormalPS /DEntryPoint_DownsampleNormalPS /Fo"$(ProjectDir)Media\Shaders\DownsampleNormal.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDepthToNormalPS /DEntryPoint_DepthToNormalPS /Fo"$(ProjectDir)Media\Shaders\DepthToNormal.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDepthMapVisualizePS /DEntryPoint_DepthMapVisualizePS /Fo"$(ProjectDir)Media\Shaders\DepthMapVisualize.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESyntheticPlanePS /DEntryPoint_SyntheticPlanePS /Fo"$(ProjectDir)Media\Shaders\SyntheticPlane.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(OutDir)Media\Shaders\ScreenSpaceShader.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESolidColorPS /DEntryPoint_SolidColorPS /Fo"$(OutDir)Media\Shaders\SolidColor.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDepthThumbnailPS /DEntryPoint_DepthThumbnailPS /Fo"$(OutDir)Media\Shaders\DepthThumbnail.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ECopySignedToBiasPS /DEntryPoint_CopySignedToBiasPS /Fo"$(OutDir)Media\Shaders\CopySignedToBias.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=0.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(OutDir)Media\Shaders\DirectionalBlurDepthHorizontal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=0.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(OutDir)Media\Shaders\DirectionalBlurDepthVertical.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=-1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(OutDir)Media\Shaders\DirectionalBlurDepthDiagonalNW.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(OutDir)Media\Shaders\DirectionalBlurDepthDiagonalSW.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=0.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(OutDir)Media\Shaders\BilateralFilterDepth1DHorizontal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=0.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(OutDir)Media\Shaders\BilateralFilterDepth1DVertical.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=-1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(OutDir)Media\Shaders\BilateralFilterDepth1DDiagonalNW.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(OutDir)Media\Shaders\BilateralFilterDepth1DDiagonalSW.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iHalfWidth=2 /Dg_iNumChannels=1 /Dg_bSigned=false /EBilateralFilter2DPS /DEntryPoint_BilateralFilter2DPS /Fo"$(OutDir)Media\Shaders\BilateralFilterDepth2D.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=0.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(OutDir)Media\Shaders\DirectionalBlurNormalHorizontal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=0.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(OutDir)Media\Shaders\DirectionalBlurNormalVertical.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=-1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(OutDir)Media\Shaders\DirectionalBlurNormalDiagonalNW.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EDirectionalBlurPS /DEntryPoint_DirectionalBlurPS /Fo"$(OutDir)Media\Shaders\DirectionalBlurNormalDiagonalSW.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=0.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(OutDir)Media\Shaders\BilateralFilterNormal1DHorizontal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=0.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(OutDir)Media\Shaders\BilateralFilterNormal1DVertical.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=-1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(OutDir)Media\Shaders\BilateralFilterNormal1DDiagonalNW.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_fOffsetX=1.0f /Dg_fOffsetY=1.0f /Dg_iHalfWidth=2 /Dg_iNumChannels=3 /Dg_bSigned=true /EBilateralFilter1DPS /DEntryPoint_BilateralFilter1DPS /Fo"$(OutDir)Media\Shaders\BilateralFilterNormal1DDiagonalSW.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_iHalfWidth=1 /Dg_iNumChannels=3 /Dg_bSigned=true /EBilateralFilter2DPS /DEntryPoint_BilateralFilter2DPS /Fo"$(OutDir)Media\Shaders\BilateralFilterNormal2D.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EIRShadowGenerateVS /DEntryPoint_IRShadowGenerateVS /Fo"$(OutDir)Media\Shaders\IRShadowGenerate.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EIRShadowApplyPS /DEntryPoint_IRShadowApplyPS /Fo"$(OutDir)Media\Shaders\IRShadowApply.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_bHolesOrIslands=true /EDownfillSmallHolesPS /DEntryPoint_DownfillSmallHolesPS /Fo"$(OutDir)Media\Shaders\DownfillSmallHoles.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_bHolesOrIslands=true /EUpfillSmallHolesPS /DEntryPoint_UpfillSmallHolesPS /Fo"$(OutDir)Media\Shaders\UpfillSmallHoles.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_bHolesOrIslands=false /EDownfillSmallHolesPS /DEntryPoint_DownfillSmallHolesPS /Fo"$(OutDir)Media\Shaders\DownfillSmallIslands.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Dg_bHolesOrIslands=false /EUpfillSmallHolesPS /DEntryPoint_UpfillSmallHolesPS /Fo"$(OutDir)Media\Shaders\UpfillSmallIslands.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownsampleDepthPS /DEntryPoint_DownsampleDepthPS /Fo"$(OutDir)Media\Shaders\DownsampleDepth.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EShiftDepthPS /DEntryPoint_ShiftDepthPS /Fo"$(OutDir)Media\Shaders\ShiftDepth.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EUpfillDepthPS /DEntryPoint_UpfillDepthPS /Fo"$(OutDir)Media\Shaders\UpfillDepth.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDownsampleNormalPS /DEntryPoint_DownsampleNormalPS /Fo"$(OutDir)Media\Shaders\DownsampleNormal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDepthToNormalPS /DEntryPoint_DepthToNormalPS /Fo"$(OutDir)Media\Shaders\DepthToNormal.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDepthMapVisualizePS /DEntryPoint_DepthMapVisualizePS /Fo"$(OutDir)Media\Shaders\DepthMapVisualize.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /ESyntheticPlanePS /DEntryPoint_SyntheticPlanePS /Fo"$(OutDir)Media\Shaders\SyntheticPlane.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu;$(ProjectDir)Media\Shaders\SolidColor.xpu;$(ProjectDir)Media\Shaders\DepthThumbnail.xpu;$(ProjectDir)Media\Shaders\CopySignedToBias.xpu;$(ProjectDir)Media\Shaders\DirectionalBlurDepthHorizontal.xpu;$(ProjectDir)Media\Shaders\DirectionalBlurDepthVertical.xpu;$(ProjectDir)Media\Shaders\DirectionalBlurDepthDiagonalNW.xpu;$(ProjectDir)Media\Shaders\DirectionalBlurDepthDiagonalSW.xpu;$(ProjectDir)Media\Shaders\BilateralFilterDepth1DHorizontal.xpu;$(ProjectDir)Media\Shaders\BilateralFilterDepth1DVertical.xpu;$(ProjectDir)Media\Shaders\BilateralFilterDepth1DDiagonalNW.xpu;$(ProjectDir)Media\Shaders\BilateralFilterDepth1DDiagonalSW.xpu;$(ProjectDir)Media\Shaders\BilateralFilterDepth2D.xpu;$(ProjectDir)Media\Shaders\DirectionalBlurNormalHorizontal.xpu;$(ProjectDir)Media\Shaders\DirectionalBlurNormalVertical.xpu;$(ProjectDir)Media\Shaders\DirectionalBlurNormalDiagonalNW.xpu;$(ProjectDir)Media\Shaders\DirectionalBlurNormalDiagonalSW.xpu;$(ProjectDir)Media\Shaders\BilateralFilterNormal1DHorizontal.xpu;$(ProjectDir)Media\Shaders\BilateralFilterNormal1DVertical.xpu;$(ProjectDir)Media\Shaders\BilateralFilterNormal1DDiagonalNW.xpu;$(ProjectDir)Media\Shaders\BilateralFilterNormal1DDiagonalSW.xpu;$(ProjectDir)Media\Shaders\BilateralFilterNormal2D.xpu;$(ProjectDir)Media\Shaders\IRShadowGenerate.xvu;$(ProjectDir)Media\Shaders\IRShadowApply.xpu;$(ProjectDir)Media\Shaders\DownfillSmallHoles.xpu;$(ProjectDir)Media\Shaders\UpfillSmallHoles.xpu;$(ProjectDir)Media\Shaders\DownfillSmallIslands.xpu;$(ProjectDir)Media\Shaders\UpfillSmallIslands.xpu;$(ProjectDir)Media\Shaders\DownsampleDepth.xpu;$(ProjectDir)Media\Shaders\ShiftDepth.xpu;$(ProjectDir)Media\Shaders\UpfillDepth.xpu;$(ProjectDir)Media\Shaders\DownsampleNormal.xpu;$(ProjectDir)Media\Shaders\DepthToNormal.xpu;$(ProjectDir)Media\Shaders\DepthMapVisualize.xpu;$(ProjectDir)Media\Shaders\SyntheticPlane.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\ScreenSpaceShader.xvu;$(OutDir)Media\Shaders\SolidColor.xpu;$(OutDir)Media\Shaders\DepthThumbnail.xpu;$(OutDir)Media\Shaders\CopySignedToBias.xpu;$(OutDir)Media\Shaders\DirectionalBlurDepthHorizontal.xpu;$(OutDir)Media\Shaders\DirectionalBlurDepthVertical.xpu;$(OutDir)Media\Shaders\DirectionalBlurDepthDiagonalNW.xpu;$(OutDir)Media\Shaders\DirectionalBlurDepthDiagonalSW.xpu;$(OutDir)Media\Shaders\BilateralFilterDepth1DHorizontal.xpu;$(OutDir)Media\Shaders\BilateralFilterDepth1DVertical.xpu;$(OutDir)Media\Shaders\BilateralFilterDepth1DDiagonalNW.xpu;$(OutDir)Media\Shaders\BilateralFilterDepth1DDiagonalSW.xpu;$(OutDir)Media\Shaders\BilateralFilterDepth2D.xpu;$(OutDir)Media\Shaders\DirectionalBlurNormalHorizontal.xpu;$(OutDir)Media\Shaders\DirectionalBlurNormalVertical.xpu;$(OutDir)Media\Shaders\DirectionalBlurNormalDiagonalNW.xpu;$(OutDir)Media\Shaders\DirectionalBlurNormalDiagonalSW.xpu;$(OutDir)Media\Shaders\BilateralFilterNormal1DHorizontal.xpu;$(OutDir)Media\Shaders\BilateralFilterNormal1DVertical.xpu;$(OutDir)Media\Shaders\BilateralFilterNormal1DDiagonalNW.xpu;$(OutDir)Media\Shaders\BilateralFilterNormal1DDiagonalSW.xpu;$(OutDir)Media\Shaders\BilateralFilterNormal2D.xpu;$(OutDir)Media\Shaders\IRShadowGenerate.xvu;$(OutDir)Media\Shaders\IRShadowApply.xpu;$(OutDir)Media\Shaders\DownfillSmallHoles.xpu;$(OutDir)Media\Shaders\UpfillSmallHoles.xpu;$(OutDir)Media\Shaders\DownfillSmallIslands.xpu;$(OutDir)Media\Shaders\UpfillSmallIslands.xpu;$(OutDir)Media\Shaders\DownsampleDepth.xpu;$(OutDir)Media\Shaders\ShiftDepth.xpu;$(OutDir)Media\Shaders\UpfillDepth.xpu;$(OutDir)Media\Shaders\DownsampleNormal.xpu;$(OutDir)Media\Shaders\DepthToNormal.xpu;$(OutDir)Media\Shaders\DepthMapVisualize.xpu;$(OutDir)Media\Shaders\SyntheticPlane.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -440,9 +440,9 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

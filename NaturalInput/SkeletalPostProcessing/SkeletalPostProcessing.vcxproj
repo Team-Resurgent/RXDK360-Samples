@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -393,92 +393,92 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\Resource.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Resource.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Resource.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Resource.xpr"</Command>
+<Outputs>$(OutDir)Media\Resource.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Effects\SimpleShaders.fx">
 <Message>Build FXLite Effect %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Effects\%(Filename).fxobj</Outputs>
-<Command Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Outputs>$(OutDir)Media\Effects\%(Filename).fxobj</Outputs>
+<Command Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="Shaders\body_vs.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /Emain /DEntryPoint_main /Fo"$(ProjectDir)Media\Shaders\body_vs.xvu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /Emain /DEntryPoint_main /Fo"$(OutDir)Media\Shaders\body_vs.xvu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\body_vs.xvu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\body_vs.xvu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="Shaders\body_opaque_ps.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(ProjectDir)Media\Shaders\body_opaque_ps.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(OutDir)Media\Shaders\body_opaque_ps.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\body_opaque_ps.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\body_opaque_ps.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="Shaders\body_transparent_ps.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(ProjectDir)Media\Shaders\body_transparent_ps.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(OutDir)Media\Shaders\body_transparent_ps.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\body_transparent_ps.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\body_transparent_ps.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="Shaders\head_opaque_vs.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /Emain /DEntryPoint_main /Fo"$(ProjectDir)Media\Shaders\head_opaque_vs.xvu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /Emain /DEntryPoint_main /Fo"$(OutDir)Media\Shaders\head_opaque_vs.xvu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\head_opaque_vs.xvu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\head_opaque_vs.xvu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="Shaders\head_opaque_ps.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(ProjectDir)Media\Shaders\head_opaque_ps.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(OutDir)Media\Shaders\head_opaque_ps.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\head_opaque_ps.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\head_opaque_ps.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="Shaders\body_shiny_opaque_ps.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(ProjectDir)Media\Shaders\body_shiny_opaque_ps.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(OutDir)Media\Shaders\body_shiny_opaque_ps.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\body_shiny_opaque_ps.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\body_shiny_opaque_ps.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="Shaders\body_shiny_transparent_ps.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(ProjectDir)Media\Shaders\body_shiny_transparent_ps.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(OutDir)Media\Shaders\body_shiny_transparent_ps.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\body_shiny_transparent_ps.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\body_shiny_transparent_ps.xpu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="Shaders\body_shiny_vs.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /Emain /DEntryPoint_main /Fo"$(ProjectDir)Media\Shaders\body_shiny_vs.xvu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /Emain /DEntryPoint_main /Fo"$(OutDir)Media\Shaders\body_shiny_vs.xvu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\body_shiny_vs.xvu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\body_shiny_vs.xvu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="Shaders\background_vs.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /Emain /DEntryPoint_main /Fo"$(ProjectDir)Media\Shaders\background_vs.xvu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /Emain /DEntryPoint_main /Fo"$(OutDir)Media\Shaders\background_vs.xvu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\background_vs.xvu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\background_vs.xvu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="Shaders\background_ps.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(ProjectDir)Media\Shaders\background_ps.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /Emain /DEntryPoint_main /Fo"$(OutDir)Media\Shaders\background_ps.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\background_ps.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\background_ps.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -488,11 +488,11 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media" />
-    <MakeDir Directories="$(ProjectDir)Media\Effects" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media" />
+    <MakeDir Directories="$(OutDir)Media\Effects" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

@@ -136,12 +136,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFFF0057=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFFF0057=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -177,12 +177,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFFF0057=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFFF0057=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -225,12 +225,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFFF0057=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFFF0057=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -272,12 +272,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFFF0057=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFFF0057=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -318,12 +318,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFFF0057=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFFF0057=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -366,12 +366,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFFF0057=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFFF0057=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -391,25 +391,25 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_12.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_12.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_12.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_12.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_12.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="XRNMSample.gameconfig">
 <Message>Build SPA file from %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\spac.exe" -o "$(ProjectDir)spa.bin" -h "XRNMSample.spa.h" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)spa.bin</Outputs>
+<Command>"$(RxdkBinDir)\spac.exe" -o "$(OutDir)spa.bin" -h "XRNMSample.spa.h" "%(FullPath)"</Command>
+<Outputs>$(OutDir)spa.bin</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -419,8 +419,8 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

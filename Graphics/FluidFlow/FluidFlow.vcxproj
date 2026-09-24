@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -382,40 +382,40 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\PostProcess.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenSpaceShaderVS /DEntryPoint_ScreenSpaceShaderVS /Fo"$(OutDir)Media\Shaders\ScreenSpaceShader.xvu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\ScreenSpaceShader.xvu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\ScreenSpaceShader.xvu;</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Shaders\FluidFlow.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EParticleRenderVS /DEntryPoint_ParticleRenderVS /Fo"$(ProjectDir)Media\Shaders\ParticleRender.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EParticleRepelRenderVS /DEntryPoint_ParticleRepelRenderVS /Fo"$(ProjectDir)Media\Shaders\ParticleRepelRender.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EParticleInitPS /DEntryPoint_ParticleInitPS /Fo"$(ProjectDir)Media\Shaders\ParticleInit.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EParticleAdvectPS /DEntryPoint_ParticleAdvectPS /Fo"$(ProjectDir)Media\Shaders\ParticleAdvect.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EParticleRepelPS /DEntryPoint_ParticleRepelPS /Fo"$(ProjectDir)Media\Shaders\ParticleRepel.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EParticleRepelRenderPS /DEntryPoint_ParticleRepelRenderPS /Fo"$(ProjectDir)Media\Shaders\ParticleRepelRender.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EParticleRenderPS /DEntryPoint_ParticleRenderPS /Fo"$(ProjectDir)Media\Shaders\ParticleRender.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowAddImpulsePS /DEntryPoint_FlowAddImpulsePS /Fo"$(ProjectDir)Media\Shaders\FlowAddImpulse.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowAdvectPS /DEntryPoint_FlowAdvectPS /Fo"$(ProjectDir)Media\Shaders\FlowAdvect.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowBCStripPS /DEntryPoint_FlowBCStripPS /Fo"$(ProjectDir)Media\Shaders\FlowBCStrip.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowDivergencePS /DEntryPoint_FlowDivergencePS /Fo"$(ProjectDir)Media\Shaders\FlowDivergence.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowJacobiPS /DEntryPoint_FlowJacobiPS /Fo"$(ProjectDir)Media\Shaders\FlowJacobi.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowSubtractGradientPS /DEntryPoint_FlowSubtractGradientPS /Fo"$(ProjectDir)Media\Shaders\FlowSubtractGradient.xpu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowDisplayPS /DEntryPoint_FlowDisplayPS /Fo"$(ProjectDir)Media\Shaders\FlowDisplay.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EParticleRenderVS /DEntryPoint_ParticleRenderVS /Fo"$(OutDir)Media\Shaders\ParticleRender.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EParticleRepelRenderVS /DEntryPoint_ParticleRepelRenderVS /Fo"$(OutDir)Media\Shaders\ParticleRepelRender.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EParticleInitPS /DEntryPoint_ParticleInitPS /Fo"$(OutDir)Media\Shaders\ParticleInit.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EParticleAdvectPS /DEntryPoint_ParticleAdvectPS /Fo"$(OutDir)Media\Shaders\ParticleAdvect.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EParticleRepelPS /DEntryPoint_ParticleRepelPS /Fo"$(OutDir)Media\Shaders\ParticleRepel.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EParticleRepelRenderPS /DEntryPoint_ParticleRepelRenderPS /Fo"$(OutDir)Media\Shaders\ParticleRepelRender.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EParticleRenderPS /DEntryPoint_ParticleRenderPS /Fo"$(OutDir)Media\Shaders\ParticleRender.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowAddImpulsePS /DEntryPoint_FlowAddImpulsePS /Fo"$(OutDir)Media\Shaders\FlowAddImpulse.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowAdvectPS /DEntryPoint_FlowAdvectPS /Fo"$(OutDir)Media\Shaders\FlowAdvect.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowBCStripPS /DEntryPoint_FlowBCStripPS /Fo"$(OutDir)Media\Shaders\FlowBCStrip.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowDivergencePS /DEntryPoint_FlowDivergencePS /Fo"$(OutDir)Media\Shaders\FlowDivergence.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowJacobiPS /DEntryPoint_FlowJacobiPS /Fo"$(OutDir)Media\Shaders\FlowJacobi.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowSubtractGradientPS /DEntryPoint_FlowSubtractGradientPS /Fo"$(OutDir)Media\Shaders\FlowSubtractGradient.xpu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EFlowDisplayPS /DEntryPoint_FlowDisplayPS /Fo"$(OutDir)Media\Shaders\FlowDisplay.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\ParticleRender.xvu;$(ProjectDir)Media\Shaders\ParticleRepelRender.xvu;$(ProjectDir)Media\Shaders\ParticleInit.xpu;$(ProjectDir)Media\Shaders\ParticleAdvect.xpu;$(ProjectDir)Media\Shaders\ParticleRepel.xpu;$(ProjectDir)Media\Shaders\ParticleRepelRender.xpu;$(ProjectDir)Media\Shaders\ParticleRender.xpu;$(ProjectDir)Media\Shaders\FlowAddImpulse.xpu;$(ProjectDir)Media\Shaders\FlowAdvect.xpu;$(ProjectDir)Media\Shaders\FlowBCStrip.xpu;$(ProjectDir)Media\Shaders\FlowDivergence.xpu;$(ProjectDir)Media\Shaders\FlowJacobi.xpu;$(ProjectDir)Media\Shaders\FlowSubtractGradient.xpu;$(ProjectDir)Media\Shaders\FlowDisplay.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\ParticleRender.xvu;$(OutDir)Media\Shaders\ParticleRepelRender.xvu;$(OutDir)Media\Shaders\ParticleInit.xpu;$(OutDir)Media\Shaders\ParticleAdvect.xpu;$(OutDir)Media\Shaders\ParticleRepel.xpu;$(OutDir)Media\Shaders\ParticleRepelRender.xpu;$(OutDir)Media\Shaders\ParticleRender.xpu;$(OutDir)Media\Shaders\FlowAddImpulse.xpu;$(OutDir)Media\Shaders\FlowAdvect.xpu;$(OutDir)Media\Shaders\FlowBCStrip.xpu;$(OutDir)Media\Shaders\FlowDivergence.xpu;$(OutDir)Media\Shaders\FlowJacobi.xpu;$(OutDir)Media\Shaders\FlowSubtractGradient.xpu;$(OutDir)Media\Shaders\FlowDisplay.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -425,9 +425,9 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

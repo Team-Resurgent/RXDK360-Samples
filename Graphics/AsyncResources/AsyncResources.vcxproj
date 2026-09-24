@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -182,7 +182,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -230,7 +230,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -277,7 +277,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -323,7 +323,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -371,7 +371,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -383,42 +383,42 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Textures\customvfetch-particles.dds">
 <Message>Copy texture %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)Media\Textures\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)Media\Textures\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)Media\Textures\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)Media\Textures\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Effects\SimpleShaders.fx">
 <Message>Build FXLite Effect %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Effects\%(Filename).fxobj</Outputs>
-<Command Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Outputs>$(OutDir)Media\Effects\%(Filename).fxobj</Outputs>
+<Command Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Effects\Billboard.fx">
 <Message>Build FXLite Effect %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Effects\%(Filename).fxobj</Outputs>
-<Command Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(ProjectDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Outputs>$(OutDir)Media\Effects\%(Filename).fxobj</Outputs>
+<Command Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
+<Command Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">"$(RxdkBinDir)\fxc.exe" /nologo /Tfxl_3_0 /Fo"$(OutDir)Media\Effects\%(Filename).fxobj" "%(FullPath)"</Command>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -428,10 +428,10 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media\Effects" />
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Textures" />
+    <MakeDir Directories="$(OutDir)Media\Effects" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Textures" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

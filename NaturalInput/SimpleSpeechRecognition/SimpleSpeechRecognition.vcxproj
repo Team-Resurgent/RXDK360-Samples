@@ -141,7 +141,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
   $(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1033;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1036;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1040;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1041;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1046;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2055;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2057;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2058;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3079;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3081;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3082;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3084;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp4108</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
@@ -183,7 +183,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
   $(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1033;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1036;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1040;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1041;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1046;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2055;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2057;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2058;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3079;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3081;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3082;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3084;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp4108</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
@@ -232,7 +232,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
   $(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1033;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1036;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1040;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1041;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1046;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2055;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2057;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2058;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3079;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3081;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3082;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3084;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp4108</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
@@ -280,7 +280,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
   $(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1033;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1036;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1040;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1041;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1046;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2055;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2057;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2058;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3079;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3081;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3082;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3084;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp4108</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
@@ -327,7 +327,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
   $(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1033;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1036;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1040;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1041;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1046;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2055;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2057;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2058;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3079;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3081;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3082;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3084;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp4108</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
@@ -376,7 +376,7 @@
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;$(RemoteRoot)=$(XEDK)\Redist\xbox\NaturalInput\Databases;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;
   $(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1031;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1033;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1036;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1040;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1041;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp1046;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2055;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2057;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp2058;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3079;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3081;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3082;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp3084;$(RemoteRoot)=$(XEDK)\redist\xbox\NaturalInput\speech\nuisp4108</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
@@ -388,226 +388,226 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Arial_16_Speech.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Arial_16_Speech.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Arial_16_Speech.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Arial_16_Speech.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Arial_16_Speech.xpr</Outputs>
 </CustomBuild>
 <CustomBuild Include="..\..\Media\Help\Help.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Help\Help.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Help\Help.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Help\Help.xpr"</Command>
+<Outputs>$(OutDir)Media\Help\Help.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include=".\medieval_en_gb.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_en_gb.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_en_gb.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_en_gb.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_en_gb.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_en_us.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_en_us.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_en_us.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_en_us.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_en_us.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_es_mx.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_es_mx.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_es_mx.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_es_mx.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_es_mx.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_fr_ca.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_fr_ca.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_fr_ca.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_fr_ca.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_fr_ca.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_fr_ch.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_fr_ch.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_fr_ch.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_fr_ch.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_fr_ch.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_ja_jp.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_ja_jp.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_ja_jp.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_ja_jp.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_ja_jp.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_en_au.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_en_au.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_en_au.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_en_au.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_en_au.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_de_at.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_de_at.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_de_at.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_de_at.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_de_at.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_de_ch.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_de_ch.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_de_ch.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_de_ch.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_de_ch.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_de_de.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_de_de.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_de_de.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_de_de.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_de_de.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_es_es.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_es_es.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_es_es.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_es_es.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_es_es.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_fr_fr.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_fr_fr.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_fr_fr.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_fr_fr.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_fr_fr.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_it_it.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_it_it.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_it_it.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_it_it.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_it_it.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\medieval_pt_br.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\medieval_pt_br.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\medieval_pt_br.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\medieval_pt_br.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\medieval_pt_br.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\phonetic_alphabet_en_us.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\phonetic_alphabet_en_us.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\phonetic_alphabet_en_us.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\phonetic_alphabet_en_us.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\phonetic_alphabet_en_us.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\yes_no_en_gb.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\yes_no_en_gb.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\yes_no_en_gb.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\yes_no_en_gb.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\yes_no_en_gb.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\yes_no_en_us.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\yes_no_en_us.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\yes_no_en_us.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\yes_no_en_us.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\yes_no_en_us.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\yes_no_es_mx.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\yes_no_es_mx.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\yes_no_es_mx.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\yes_no_es_mx.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\yes_no_es_mx.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\yes_no_fr_ca.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\yes_no_fr_ca.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\yes_no_fr_ca.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\yes_no_fr_ca.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\yes_no_fr_ca.cfg</Outputs>
 </CustomBuild>
 <CustomBuild Include=".\yes_no_ja_jp.grxml">
 <Message>Compiling NuiSpeech grammar file  %(FullPath)</Message>
-<Command>xbpg /g "$(ProjectDir)\Media\Grammars\yes_no_ja_jp.cfg" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\yes_no_ja_jp.cfg</Outputs>
+<Command>xbpg /g "$(OutDir)\Media\Grammars\yes_no_ja_jp.cfg" "%(FullPath)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\yes_no_ja_jp.cfg</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="medieval_en_gb.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_en_us.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_es_mx.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_fr_ca.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_fr_ch.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_ja_jp.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_en_au.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_es_es.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_de_at.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_de_ch.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_de_de.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_fr_fr.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_it_it.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="medieval_pt_br.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="phonetic_alphabet_en_us.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="yes_no_en_gb.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="yes_no_en_us.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="yes_no_es_mx.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="yes_no_fr_ca.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 <CustomBuild Include="yes_no_ja_jp.grtxt">
 <Message>Copy file %(FullPath)</Message>
-<Command>copy "%(FullPath)" "$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
-<Outputs>$(ProjectDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
+<Command>copy "%(FullPath)" "$(OutDir)\Media\Grammars\%(Filename)%(Extension)"</Command>
+<Outputs>$(OutDir)\Media\Grammars\%(Filename)%(Extension)</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Shaders\CommonShaders.hlsl">
-<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenspaceDiffuseVS /DEntryPoint_ScreenspaceDiffuseVS /Fo"$(ProjectDir)Media\Shaders\ScreenspaceDiffuse.xvu"
-"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDiffusePS /DEntryPoint_DiffusePS /Fo"$(ProjectDir)Media\Shaders\Diffuse.xpu"
+<Command>"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tvs_3_0 /EScreenspaceDiffuseVS /DEntryPoint_ScreenspaceDiffuseVS /Fo"$(OutDir)Media\Shaders\ScreenspaceDiffuse.xvu"
+"$(RxdkBinDir)\fxc.exe" "%(FullPath)" /nologo /Tps_3_0 /EDiffusePS /DEntryPoint_DiffusePS /Fo"$(OutDir)Media\Shaders\Diffuse.xpu"
 </Command>
 <Message>Compile shaders in %(FullPath)</Message>
-<Outputs>$(ProjectDir)Media\Shaders\ScreenspaceDiffuse.xvu;$(ProjectDir)Media\Shaders\Diffuse.xpu;</Outputs>
+<Outputs>$(OutDir)Media\Shaders\ScreenspaceDiffuse.xvu;$(OutDir)Media\Shaders\Diffuse.xpu;</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -617,10 +617,10 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
-    <MakeDir Directories="$(ProjectDir)Media\Grammars" />
-    <MakeDir Directories="$(ProjectDir)Media\Help" />
-    <MakeDir Directories="$(ProjectDir)Media\Shaders" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Grammars" />
+    <MakeDir Directories="$(OutDir)Media\Help" />
+    <MakeDir Directories="$(OutDir)Media\Shaders" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />

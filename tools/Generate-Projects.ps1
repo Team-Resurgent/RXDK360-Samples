@@ -615,9 +615,10 @@ function Get-StockVcxproj([string]$area, [string]$name) {
 # Upgrade a stock XDK application .vcxproj to RXDK-360 in place: inject the clang toolset,
 # repoint the ATG framework reference at our Common, fully-qualify the host content tools
 # (bin\win32 is not on the toolset PATH), redirect content outputs to the deployed
-# $(ProjectDir)Media, drop shader debug-listing artifacts we don't ship, and MakeDir the
-# content output dirs (CustomBuild's fxc/bundler/copy will not create them). Everything
-# else - configs, CustomBuild items, ..\..\Media\ references, filters - stays as authored.
+# the stock $(OutDir)Media outputs (deploy ships $(OutDir)media), drop shader debug-listing
+# artifacts we don't ship, and MakeDir the content output dirs (CustomBuild's fxc/bundler/
+# copy will not create them). Everything else - configs, CustomBuild items, ..\..\Media\
+# references, filters - stays as authored.
 function ConvertTo-RxdkVcxproj([string]$raw, [string]$toCommon, [string]$commonGuid, [string]$guid, $spaStep) {
     $inject = "`r`n<PlatformToolset>$Toolset</PlatformToolset>`r`n<RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>`r`n<RxdkClangLibs>`$(MSBuildProjectDirectory)\$toCommon\`$(Configuration)\$CommonName.lib</RxdkClangLibs>"
     $raw = $raw -replace '(<ConfigurationType>Application</ConfigurationType>)', ('$1' + $inject)
@@ -637,15 +638,17 @@ function ConvertTo-RxdkVcxproj([string]$raw, [string]$toCommon, [string]$commonG
     $raw = $raw -replace '(?i)\bspac2(\.exe)?\b', '__RXSPAC2__'
     $raw = $raw -replace '(?i)\bspac(\.exe)?\b', '__RXSPAC__'
     $raw = $raw.Replace('__RXFXC__', '"$(RxdkBinDir)\fxc.exe"').Replace('__RXBND__', '"$(RxdkBinDir)\Bundler.exe"').Replace('__RXSPAC2__', '"$(RxdkBinDir)\spac2.exe"').Replace('__RXSPAC__', '"$(RxdkBinDir)\spac.exe"')
-    $raw = $raw -replace '\$\(OutDir\)', '$(ProjectDir)'
+    # Keep the stock $(OutDir)Media\ outputs (deploy ships $(OutDir)media), so the content
+    # SOURCE (self-contained under the sample's Media\) stays distinct from build output --
+    # e.g. the scene-copy source != dest. Only strip shader debug-listing artifacts.
     $raw = $raw -replace '\s/XZi\b', ''
     $raw = $raw -replace '\s/Zi\b', ''
     $raw = $raw -replace '\s/XFd"[^"]*"', ''
     $raw = $raw -replace '\s/Fc\s+"[^"]*"', ''
-    # Pre-create content output directories.
+    # Pre-create $(OutDir) content output directories (CustomBuild fxc/bundler/copy won't).
     $dirs = @{}
-    foreach ($m in [regex]::Matches($raw, '\$\(ProjectDir\)\\?([^"<]*?)\\[^\\"<]*?(?=")')) {
-        $d = $m.Groups[1].Value.Trim('\'); if ($d) { $dirs['$(ProjectDir)' + $d] = $true }
+    foreach ($m in [regex]::Matches($raw, '\$\(OutDir\)\\?([^"<]*?)\\[^\\"<]*?(?=")')) {
+        $d = $m.Groups[1].Value.Trim('\'); if ($d) { $dirs['$(OutDir)' + $d] = $true }
     }
     $targets = ""
     if ($dirs.Count -gt 0) {

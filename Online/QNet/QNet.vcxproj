@@ -136,12 +136,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFED7300=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFED7300=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CodeAnalysis|Xbox 360'">
@@ -177,12 +177,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFED7300=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFED7300=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Xbox 360'">
@@ -225,12 +225,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFED7300=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFED7300=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile_FastCap|Xbox 360'">
@@ -272,12 +272,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFED7300=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFED7300=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
@@ -318,12 +318,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFED7300=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFED7300=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
@@ -366,12 +366,12 @@
 </PostBuildEvent>
 <ImageXex>
 <ConfigurationFile>xex.xml</ConfigurationFile>
-<AdditionalSections>FFED7300=$(ProjectDir)\spa.bin</AdditionalSections>
+<AdditionalSections>FFED7300=$(OutDir)\spa.bin</AdditionalSections>
 </ImageXex>
 <Deploy>
 <DeploymentType>EmulateDvd</DeploymentType>
 <DvdEmulationType>ZeroSeekTimes</DvdEmulationType>
-<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(ProjectDir)media;</DeploymentFiles>
+<DeploymentFiles>$(RemoteRoot)=$(ImagePath);$(RemoteRoot)\media=$(OutDir)media;</DeploymentFiles>
 </Deploy>
 </ItemDefinitionGroup>
 <ItemGroup>
@@ -382,15 +382,15 @@
 <ItemGroup>
 <CustomBuild Include="..\..\Media\Fonts\Courier_New_11.rdf">
 <Message>Create a bundled resource file from  %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(ProjectDir)Media\Fonts\Courier_New_11.xpr"</Command>
-<Outputs>$(ProjectDir)Media\Fonts\Courier_New_11.xpr</Outputs>
+<Command>"$(RxdkBinDir)\Bundler.exe" "%(FullPath)" -o "$(OutDir)Media\Fonts\Courier_New_11.xpr"</Command>
+<Outputs>$(OutDir)Media\Fonts\Courier_New_11.xpr</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
 <CustomBuild Include="QNet.xlast">
 <Message>Build SPA file from %(FullPath)</Message>
-<Command>"$(RxdkBinDir)\spac.exe" -o "$(ProjectDir)spa.bin" -h "QNet.spa.h" "%(FullPath)"</Command>
-<Outputs>$(ProjectDir)spa.bin</Outputs>
+<Command>"$(RxdkBinDir)\spac.exe" -o "$(OutDir)spa.bin" -h "QNet.spa.h" "%(FullPath)"</Command>
+<Outputs>$(OutDir)spa.bin</Outputs>
 </CustomBuild>
 </ItemGroup>
 <ItemGroup>
@@ -400,7 +400,7 @@
 </ProjectReference>
 </ItemGroup>
   <Target Name="RxdkMediaDirs" BeforeTargets="CustomBuild">
-    <MakeDir Directories="$(ProjectDir)Media\Fonts" />
+    <MakeDir Directories="$(OutDir)Media\Fonts" />
   </Target>
   <Target Name="RxdkSpa" BeforeTargets="ClCompile" Inputs="$(ProjectDir)qnet.xlast" Outputs="$(ProjectDir)QNet.spa.h">
     <Exec Command="&quot;$(RxdkBinDir)\spac.exe&quot; -nologo -forceoverwrite -h &quot;$(ProjectDir)QNet.spa.h&quot; -o &quot;$(ProjectDir)qnet.spa&quot; &quot;$(ProjectDir)qnet.xlast&quot;" />
