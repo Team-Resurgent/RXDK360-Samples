@@ -327,11 +327,17 @@ function Get-ShaderSteps([string]$dir, [string]$blob) {
             $key = "$shName.$ext"; if ($seen.ContainsKey($key)) { continue }; $seen[$key] = $true
             $suffix = if ($ext -eq "xvu") { "VS" } else { "PS" }
             $target = if ($ext -eq "xvu") { "vs_3_0" } else { "ps_3_0" }
-            $entry = "$shName$suffix"
-            $srcHlsl = $null
+            # Find the entry point in a sample .hlsl. The load path gives the name
+            # case-insensitively (filename ReflectiveShadowmap -> ReflectiveShadowmapVS)
+            # but fxc /E is case-SENSITIVE, so capture the function's ACTUAL spelling
+            # (e.g. ReflectiveShadowMapVS) from the source and pass that.
+            $srcHlsl = $null; $entry = "$shName$suffix"
             foreach ($h in $hlsls) {
                 $hc = ""; try { $hc = Get-Content -LiteralPath $h.FullName -Raw } catch {}
-                if ($hc -match "\b$([regex]::Escape($entry))\s*\(") { $srcHlsl = $h; break }
+                # Require a return-type token before the name so we match the function
+                # DEFINITION (e.g. "float4 ReflectiveShadowMapDebugPS(") and never a
+                # "// Name: ReflectiveShadowmapDebugPS()" comment, whose casing differs.
+                if ($hc -match "\b[A-Za-z_][A-Za-z0-9_]*\s+($([regex]::Escape($shName))$suffix)\s*\(") { $srcHlsl = $h; $entry = $matches[1]; break }
             }
             if (-not $srcHlsl) { continue }
             $baseP = (Resolve-Path -LiteralPath $dir).Path

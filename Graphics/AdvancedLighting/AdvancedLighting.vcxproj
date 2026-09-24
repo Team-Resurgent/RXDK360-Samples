@@ -228,17 +228,17 @@
   <Target Name="RxdkGen19" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ReflectiveShadowmap.xvu">
     <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ReflectiveShadowmap.xvu" />
     <MakeDir Directories="$(ProjectDir)Media\Shaders" />
-    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; &quot;/EReflectiveShadowmapVS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ReflectiveShadowmap.xvu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tvs_3_0&quot; &quot;/EReflectiveShadowMapVS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ReflectiveShadowmap.xvu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
   </Target>
   <Target Name="RxdkGen20" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ReflectiveShadowmap.xpu">
     <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ReflectiveShadowmap.xpu" />
     <MakeDir Directories="$(ProjectDir)Media\Shaders" />
-    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EReflectiveShadowmapPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ReflectiveShadowmap.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EReflectiveShadowMapPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ReflectiveShadowmap.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
   </Target>
   <Target Name="RxdkGen21" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ReflectiveShadowmapDebug.xpu">
     <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ReflectiveShadowmapDebug.xpu" />
     <MakeDir Directories="$(ProjectDir)Media\Shaders" />
-    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EReflectiveShadowmapDebugPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ReflectiveShadowmapDebug.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
+    <Exec Command="&quot;$(RxdkBinDir)\fxc.exe&quot; /nologo &quot;/Tps_3_0&quot; &quot;/EReflectiveShadowMapDebugPS&quot; &quot;/Fo$(ProjectDir)Media\Shaders\ReflectiveShadowmapDebug.xpu&quot; &quot;$(ProjectDir)AdvancedLighting.hlsl&quot;" />
   </Target>
   <Target Name="RxdkGen22" BeforeTargets="ClCompile" Inputs="$(ProjectDir)AdvancedLighting.hlsl" Outputs="$(ProjectDir)Media\Shaders\ImportanceSampling.xpu">
     <Message Importance="high" Text="RXDK-360: generating Media\Shaders\ImportanceSampling.xpu" />
