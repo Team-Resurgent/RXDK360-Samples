@@ -149,7 +149,7 @@ foreach ($x in $xexes) {
     # Detect that and retry (after settling the kit) rather than mis-recording NOSTART.
     $wedged = $false
     $log = ""
-    for ($try = 0; $try -lt 3; $try++) {
+    for ($try = 0; $try -lt 2; $try++) {   # one retry: handles a transient post-fault reboot; a hard hang then aborts
         $job = Start-Job -ScriptBlock {
             param($xbdm, $c, $xex, $ls)
             $env:RXDK_LISTEN = "$ls"
