@@ -9,6 +9,7 @@
 #include <xtl.h>
 #include <xui.h>
 #include <xuiapp.h>
+#include "RxdkXuiModule.h"
 #include <d3d9.h>
 
 #include "AtgMediaLocator.h"
@@ -91,7 +92,7 @@ UINT                g_DisplayWidth;
 //--------------------------------------------------------------------------------------
 // Xui module declaration
 //--------------------------------------------------------------------------------------
-class CXuiKeyboardModule : public CXuiModule
+class CXuiKeyboardModule : public CRxdkXuiModule
 {
 protected:
     virtual HRESULT RegisterXuiClasses();

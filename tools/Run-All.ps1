@@ -42,12 +42,24 @@ $ErrorActionPreference = "Stop"
 $Xbdm = "D:\Git\RXDK-360\vs20xx\debugger\Rxdk.Xbox360.Xbdm\bin\Release\net10.0-windows\win-x86\Rxdk.Xbox360.Xbdm.exe"
 if (-not (Test-Path $Xbdm)) { throw "Xbdm CLI not found: $Xbdm" }
 
+# The default shared/NoRegister connect reuses a stale name cache and fails
+# (XBDM_CANNOTCONNECT) after a reboot or IP change; RXDK_XBDM_REGISTER=1 re-resolves
+# the name. Set it for every xbdm call (debuglaunch/reboot), including the launch jobs.
+$env:RXDK_XBDM_REGISTER = "1"
+
 $rootFull = (Resolve-Path -LiteralPath $Root).Path
 if (-not $ReportPath) { $ReportPath = Join-Path $rootFull "run-report.txt" }
 $reportDir = [IO.Path]::GetDirectoryName($ReportPath)
 $onlySet = if ($Only) { @($Only.Split(",") | ForEach-Object { $_.Trim() }) } else { $null }
 
-function Test-KitUp { param($c) return ((& $Xbdm info $c 2>&1 | Out-String) -match "connected:") }
+# The Xbdm `info` verb ignores its arg and uses a connect path that does not honour
+# RXDK_XBDM_REGISTER, so it mis-reports CANNOTCONNECT. Probe the xbdm control port
+# (730) directly -- open means the kit's debug service is up.
+function Test-KitUp {
+    param($c)
+    try { $t = New-Object Net.Sockets.TcpClient; $t.Connect($c, 730); $ok = $t.Connected; $t.Close(); return $ok }
+    catch { return $false }
+}
 
 function Reset-Kit {
     param($c, $secs = 180)
@@ -78,6 +90,7 @@ foreach ($x in $xexes) {
     $job = Start-Job -ScriptBlock {
         param($xbdm, $c, $xex, $ls)
         $env:RXDK_LISTEN = "$ls"
+        $env:RXDK_XBDM_REGISTER = "1"
         & $xbdm debuglaunch $c $xex 2>&1
     } -ArgumentList $Xbdm, $Console, $x.FullName, $ListenSeconds
 
@@ -86,26 +99,49 @@ foreach ($x in $xexes) {
     else { Stop-Job $job; $log = "LAUNCH TIMEOUT (kit wedged?)"; $wedged = $true }
     Remove-Job $job -Force -ErrorAction SilentlyContinue
 
-    $rendering = $log -match "\[RXDK\] rendering"
+    $passed    = $log -match "\[RXDK\] pass"          # sustained RXDK_PASS_FRAMES frames (ATG loop samples)
+    $rendering = $log -match "\[RXDK\] rendering"      # drew a frame, but faulted/hung before the threshold
     $initdone  = $log -match "\[RXDK\] initialized"
     $entered   = $log -match "\[RXDK\] entered"
     $fm = [regex]::Match($log, "exception addr=0x[0-9A-Fa-f]+ thread=0x[0-9A-Fa-f]+ code=0x[0-9A-Fa-f]+")
     $fault = if ($fm.Success) { $fm.Value } else { "" }
+    # Samples that run to completion and return from main() (console/System samples)
+    # don't loop, so they emit no frame marker -- but the CRT already logs their exit
+    # code: "[XAPI RETURN VALUE] N". 0 = ran clean; non-zero = it failed (e.g. an asset
+    # load failed and it exit()ed) -- exactly the case we want to catch, not call ok.
+    $xm = [regex]::Match($log, "\[XAPI RETURN VALUE\]\s+(-?\d+)")
+    $exitCode = if ($xm.Success) { [int]$xm.Groups[1].Value } else { $null }
+    # Many System/non-ATG samples do their work then WAIT FOR A CONTROLLER BUTTON to
+    # exit (no auto-return) and don't use the ATG render loop -- so no frame marker and
+    # no exit code. But the launch log shows the title image loaded, and it survived the
+    # whole listen window without a fault. That's a real "it ran without crashing"
+    # signal: classify it ALIVE (ran; correctness needs an eyeball), distinct from a
+    # title that never launched (NOSTART) or crashed (FAIL(fault)).
+    $loaded = $log -match ("module\s+" + [regex]::Escape($name) + "\.xex")
 
     $status =
-        if ($rendering) { "PASS" }
+        if ($passed) { "PASS" }                                   # sustained render (ATG/XUI)
+        elseif ($null -ne $exitCode -and $exitCode -eq 0) { "PASS(exit)" }   # ran to completion, returned 0
+        elseif ($null -ne $exitCode) { "FAIL(exit=$exitCode)" }   # returned non-zero (e.g. asset load failed)
+        elseif ($fault) { "FAIL(fault)" }                         # CPU exception / bugcheck
+        elseif ($rendering) { "RENDER(partial)" }                 # drew a frame then hung before the threshold
+        elseif ($initdone) { "INIT(no-frame)" }                   # ATG: initialized, never rendered
+        elseif ($entered) { "FAIL(init)" }                        # ATG: entered, Initialize() failed
         elseif ($wedged) { "NOSTART(timeout)" }
-        elseif ($initdone) { "INIT(no-frame)" }
-        elseif ($entered) { "FAIL(init)" }
-        else { "NOSTART" }
+        elseif ($loaded) { "ALIVE" }                              # launched, ran the window, no fault (e.g. waits for input)
+        else { "NOSTART" }                                        # never launched
+    if (-not $fault -and $null -ne $exitCode -and $exitCode -ne 0) { $fault = "exit=$exitCode" }
 
     $results += [pscustomobject]@{ Name = $name; Status = $status; Detail = $fault }
     Write-Host ("{0} {1}" -f $status, $fault)
 
     Set-Content -LiteralPath (Join-Path $reportDir ("runlog_" + $name + ".txt")) -Value $log -Encoding UTF8
 
-    # Reboot before the next sample after anything that could have left the kit dirty.
-    if ($status -ne "PASS" -or $wedged) { Reset-Kit $Console | Out-Null }
+    # ATG samples loop forever, so the next debuglaunch title-reboots over the
+    # running one -- a fast warm reboot, no clean exit needed. Only cold-boot (slow)
+    # when the kit is actually wedged: a faulting title can bugcheck it, so the next
+    # title-reboot would fail. Probe the control port; cold reboot only if it's down.
+    if ($wedged -or -not (Test-KitUp $Console)) { Reset-Kit $Console | Out-Null }
 }
 
 $pass = @($results | Where-Object { $_.Status -eq "PASS" }).Count

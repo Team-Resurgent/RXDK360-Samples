@@ -10,6 +10,7 @@
 #include <xtl.h>
 #include <xui.h>
 #include <xuiapp.h>
+#include "RxdkXuiModule.h"
 #include <AtgMediaLocator.h>
 #include <AtgUtil.h>
 
@@ -174,7 +175,7 @@ public:
 // Main XUI host class. It is responsible for registering scene classes and provide
 // basic initialization, scene loading and rendering capability.
 //--------------------------------------------------------------------------------------
-class CMyApp : public CXuiModule
+class CMyApp : public CRxdkXuiModule
 {
 protected:
     // Override RegisterXuiClasses so that CMyApp can register classes.

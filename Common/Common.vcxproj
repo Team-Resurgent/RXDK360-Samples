@@ -160,6 +160,7 @@
     <ClCompile Include="AtgXime.cpp" />
     <ClCompile Include="AtgXmlParser.cpp" />
     <ClCompile Include="AtgXmlWriter.cpp" />
+    <ClCompile Include="RxdkSweep.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="XTLOnPC.cpp" />
   </ItemGroup>
@@ -218,6 +219,8 @@
     <ClInclude Include="AtgXime.h" />
     <ClInclude Include="AtgXmlParser.h" />
     <ClInclude Include="AtgXmlWriter.h" />
+    <ClInclude Include="RxdkSweep.h" />
+    <ClInclude Include="RxdkXuiModule.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="XTLOnPC.h" />
   </ItemGroup>

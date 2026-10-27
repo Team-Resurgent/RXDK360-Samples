@@ -9,6 +9,7 @@
 #include "stdafx.h"
 #include "AtgApp.h"
 #include "AtgUtil.h"
+#include "RxdkSweep.h"
 
 // RXDK-360 sample lifecycle logging: uniform [RXDK] markers in the ATG app base
 // class so an automated kit sweep can tell an app that launched, initialized and
@@ -89,7 +90,10 @@ VOID Application::Run()
     }
     DbgPrint( "[RXDK] initialized\n" );
 
-    // Run the game loop
+    // Run the game loop. ATG samples loop forever, so an automated kit sweep judges a
+    // sample by how far it gets: RxdkSweepFrame() emits "[RXDK] rendering" on the first
+    // frame and "[RXDK] pass" once it has sustained enough frames without faulting or
+    // hanging. The sweep then reboots into the next title (no clean exit needed).
     for(; ; )
     {
         // Update the scene
@@ -98,9 +102,7 @@ VOID Application::Run()
         // Render the scene
         Render();
 
-        // Once the first frame has been drawn without faulting, the app is "up".
-        static bool s_rxdkFirstFrame = true;
-        if( s_rxdkFirstFrame ) { s_rxdkFirstFrame = false; DbgPrint( "[RXDK] rendering\n" ); }
+        ATG::RxdkSweepFrame();
     }
 }
 

@@ -19,6 +19,7 @@
 #include <winsockx.h>
 #include <xonline.h>
 #include <xuiapp.h>
+#include "RxdkSweep.h"
 #include <AtgApp.h>
 #include <AtgFont.h>
 #include <AtgInput.h>
@@ -1002,6 +1003,7 @@ HRESULT RenderUI( IDirect3DDevice9* pDevice, UINT uWidth, UINT uHeight )
 void CAquaticaUIApp::RunFrame()
 {
     CXuiModule::RunFrame();
+    ATG::RxdkSweepFrame();
 }
 
 

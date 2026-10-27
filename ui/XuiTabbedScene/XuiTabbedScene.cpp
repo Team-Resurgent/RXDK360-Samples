@@ -9,6 +9,7 @@
 #include <xtl.h>
 #include <xui.h>
 #include <xuiapp.h>
+#include "RxdkSweep.h"
 #include "AtgMediaLocator.h"
 
 
@@ -1186,6 +1187,7 @@ void CMyApp::RunFrame()
 {
     m_waitlist.ProcessWaitHandles();
     CXuiModule::RunFrame();
+    ATG::RxdkSweepFrame();
 }
 
 

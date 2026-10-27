@@ -19,6 +19,7 @@
 #include <winsockx.h>
 #include <xonline.h>
 #include <xuiapp.h>
+#include "RxdkSweep.h"
 #include <AtgApp.h>
 #include <AtgFont.h>
 #include <AtgInput.h>
@@ -894,6 +895,7 @@ void CDolphinUIApp::RunFrame()
         }
     }
     CXuiModule::RunFrame();
+    ATG::RxdkSweepFrame();
 }
 
 
