@@ -125,7 +125,7 @@
 </ClCompile>
 <Link>
 <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
-<AdditionalDependencies>xmcored.lib;xaudiod2.lib;xhv2.lib;d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xapilibd.lib;xaudiod2.lib;x3daudiod.lib;xmcored.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<AdditionalDependencies>xhvd2.lib;xmcored.lib;xaudiod2.lib;xhv2.lib;d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xapilibd.lib;xaudiod2.lib;x3daudiod.lib;xmcored.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
 <GenerateDebugInformation>true</GenerateDebugInformation>
 </Link>
 <PreBuildEvent>
@@ -166,7 +166,7 @@
 </ClCompile>
 <Link>
 <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
-<AdditionalDependencies>xmcored.lib;xaudiod2.lib;xhv2.lib;d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xapilibd.lib;xaudiod2.lib;x3daudiod.lib;xmcored.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<AdditionalDependencies>xhvd2.lib;xmcored.lib;xaudiod2.lib;xhv2.lib;d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xapilibd.lib;xaudiod2.lib;x3daudiod.lib;xmcored.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
 <GenerateDebugInformation>true</GenerateDebugInformation>
 </Link>
 <PreBuildEvent>

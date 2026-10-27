@@ -619,7 +619,30 @@ function Get-StockVcxproj([string]$area, [string]$name) {
 # artifacts we don't ship, and MakeDir the content output dirs (CustomBuild's fxc/bundler/
 # copy will not create them). Everything else - configs, CustomBuild items, ..\..\Media\
 # references, filters - stays as authored.
-function ConvertTo-RxdkVcxproj([string]$raw, [string]$toCommon, [string]$commonGuid, [string]$guid, $spaStep) {
+function ConvertTo-RxdkVcxproj([string]$raw, [string]$toCommon, [string]$commonGuid, [string]$guid, $spaStep, [string[]]$catLibs) {
+    # Clang/lld-ELF does not honour MSVC's #pragma comment(lib, "x"), so a stock
+    # sample that pulls an import lib via that pragma (e.g. Profiling ->
+    # tracerecording) links fine under cl/link but fails here with an undefined
+    # symbol. Merge the token-derived category libs (Get-CategoryLibs, which maps
+    # those same headers/APIs) into every config's AdditionalDependencies, using
+    # that config's lib variant (debug 'd' suffix / ltcg). Dedup against what the
+    # stock project already lists. The fallback (non-stock) path already does this.
+    if ($catLibs -and $catLibs.Count -gt 0) {
+        $rx = '(?s)(?<pre><ItemDefinitionGroup\s+Condition="''\$\(Configuration\)\|\$\(Platform\)''==''(?<cfg>[^|]+)\|[^'']+''"\s*>.*?<AdditionalDependencies>)(?<deps>.*?)(?<post></AdditionalDependencies>)'
+        $raw = [regex]::Replace($raw, $rx, {
+            param($m)
+            $cfg = $m.Groups['cfg'].Value
+            $variant = switch -regex ($cfg) { 'LTCG' { 'ltcg' } '^(Debug|CodeAnalysis)$' { 'debug' } default { 'plain' } }
+            $deps = $m.Groups['deps'].Value
+            $add = @()
+            foreach ($lib in $catLibs) {
+                $v = ConvertTo-Variant $lib $variant
+                if ($deps -notmatch ('(?i)(^|[;>])' + [regex]::Escape($v) + '([;<]|$)')) { $add += $v }
+            }
+            if ($add.Count -eq 0) { return $m.Value }
+            return $m.Groups['pre'].Value + (($add -join ';') + ';' + $deps) + $m.Groups['post'].Value
+        })
+    }
     $inject = "`r`n<PlatformToolset>$Toolset</PlatformToolset>`r`n<RxdkClangXdkHeaders>true</RxdkClangXdkHeaders>`r`n<RxdkClangLibs>`$(MSBuildProjectDirectory)\$toCommon\`$(Configuration)\$CommonName.lib</RxdkClangLibs>"
     $raw = $raw -replace '(<ConfigurationType>Application</ConfigurationType>)', ('$1' + $inject)
     # Drop the stock OutDir/RemoteRoot/CodeAnalysis group (RXDK platform provides these).
@@ -706,7 +729,7 @@ foreach ($area in (Get-ChildItem -LiteralPath $rootFull -Directory | Sort-Object
         if ($stock) {
             # Preferred path: upgrade the authoritative stock project in place, keeping its
             # complete CustomBuild content build + filters + shared ..\..\Media\ references.
-            $vtext = ConvertTo-RxdkVcxproj (Get-Content -LiteralPath $stock -Raw) $toCommon $commonGuid $guid $spa
+            $vtext = ConvertTo-RxdkVcxproj (Get-Content -LiteralPath $stock -Raw) $toCommon $commonGuid $guid $spa (Get-CategoryLibs $blob)
             Write-Generated $vcxPath $vtext
             $sf = "$stock.filters"
             if (Test-Path -LiteralPath $sf) { Write-Generated $filtersPath (Get-Content -LiteralPath $sf -Raw) }

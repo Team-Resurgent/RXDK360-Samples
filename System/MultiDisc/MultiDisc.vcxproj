@@ -210,7 +210,7 @@
 </ClCompile>
 <Link>
 <AdditionalOptions>/ignore:4089  %(AdditionalOptions)</AdditionalOptions>
-<AdditionalDependencies>multidiscd.lib;d3d9i.lib;d3dx9i.lib;xgraphics.lib;xapilibi.lib;xaudio2.lib;x3daudioi.lib;xmcorei.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<AdditionalDependencies>multidisc.lib;multidiscd.lib;d3d9i.lib;d3dx9i.lib;xgraphics.lib;xapilibi.lib;xaudio2.lib;x3daudioi.lib;xmcorei.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
 <IgnoreSpecificDefaultLibraries>xapilib.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
 <GenerateDebugInformation>true</GenerateDebugInformation>
 <OptimizeReferences>true</OptimizeReferences>
@@ -258,7 +258,7 @@
 </ClCompile>
 <Link>
 <AdditionalOptions>/ignore:4089  %(AdditionalOptions)</AdditionalOptions>
-<AdditionalDependencies>multidiscd.lib;d3d9i.lib;d3dx9i.lib;xgraphics.lib;xapilibi.lib;xaudio2.lib;x3daudioi.lib;xmcorei.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<AdditionalDependencies>multidisc.lib;multidiscd.lib;d3d9i.lib;d3dx9i.lib;xgraphics.lib;xapilibi.lib;xaudio2.lib;x3daudioi.lib;xmcorei.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
 <GenerateDebugInformation>true</GenerateDebugInformation>
 <OptimizeReferences>true</OptimizeReferences>
 <EnableCOMDATFolding>false</EnableCOMDATFolding>

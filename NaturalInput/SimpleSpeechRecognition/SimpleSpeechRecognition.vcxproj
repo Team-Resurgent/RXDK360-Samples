@@ -125,7 +125,7 @@
 </ClCompile>
 <Link>
 <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
-<AdditionalDependencies>xactd3.lib;xmcored.lib;xaudiod2.lib;STd.lib;nuiapid.lib;nuispeechd.lib;nuiaudiod.lib;xhvd2.lib;xmicd.lib;d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xapilibd.lib;xaudiod2.lib;x3daudiod.lib;xmcored.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<AdditionalDependencies>nuihandlesd.lib;xinput2d.lib;xactd3.lib;xmcored.lib;xaudiod2.lib;STd.lib;nuiapid.lib;nuispeechd.lib;nuiaudiod.lib;xhvd2.lib;xmicd.lib;d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xapilibd.lib;xaudiod2.lib;x3daudiod.lib;xmcored.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
 <GenerateDebugInformation>true</GenerateDebugInformation>
 </Link>
 <PreBuildEvent>
@@ -167,7 +167,7 @@
 </ClCompile>
 <Link>
 <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
-<AdditionalDependencies>xactd3.lib;xmcored.lib;xaudiod2.lib;STd.lib;nuiapid.lib;nuispeechd.lib;nuiaudiod.lib;xhvd2.lib;xmicd.lib;d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xapilibd.lib;xaudiod2.lib;x3daudiod.lib;xmcored.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<AdditionalDependencies>nuihandlesd.lib;xinput2d.lib;xactd3.lib;xmcored.lib;xaudiod2.lib;STd.lib;nuiapid.lib;nuispeechd.lib;nuiaudiod.lib;xhvd2.lib;xmicd.lib;d3d9d.lib;d3dx9d.lib;xgraphicsd.lib;xapilibd.lib;xaudiod2.lib;x3daudiod.lib;xmcored.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
 <GenerateDebugInformation>true</GenerateDebugInformation>
 </Link>
 <PreBuildEvent>
@@ -212,7 +212,7 @@
 </ClCompile>
 <Link>
 <AdditionalOptions>/ignore:4089  %(AdditionalOptions)</AdditionalOptions>
-<AdditionalDependencies>xact3i.lib;xmcore.lib;xaudio2.lib;ST.lib;nuiapi.lib;nuispeech.lib;nuiaudio.lib;xhv2.lib;xmic.lib;d3d9i.lib;d3dx9i.lib;xgraphics.lib;xapilibi.lib;xaudio2.lib;x3daudioi.lib;xmcorei.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<AdditionalDependencies>nuihandles.lib;xinput2.lib;xact3i.lib;xmcore.lib;xaudio2.lib;ST.lib;nuiapi.lib;nuispeech.lib;nuiaudio.lib;xhv2.lib;xmic.lib;d3d9i.lib;d3dx9i.lib;xgraphics.lib;xapilibi.lib;xaudio2.lib;x3daudioi.lib;xmcorei.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
 <IgnoreSpecificDefaultLibraries>xapilib.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
 <GenerateDebugInformation>true</GenerateDebugInformation>
 <OptimizeReferences>true</OptimizeReferences>
@@ -261,7 +261,7 @@
 </ClCompile>
 <Link>
 <AdditionalOptions>/ignore:4089  %(AdditionalOptions)</AdditionalOptions>
-<AdditionalDependencies>xact3i.lib;xmcore.lib;xaudio2.lib;ST.lib;nuiapi.lib;nuispeech.lib;nuiaudio.lib;xhv2.lib;xmic.lib;d3d9i.lib;d3dx9i.lib;xgraphics.lib;xapilibi.lib;xaudio2.lib;x3daudioi.lib;xmcorei.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<AdditionalDependencies>nuihandles.lib;xinput2.lib;xact3i.lib;xmcore.lib;xaudio2.lib;ST.lib;nuiapi.lib;nuispeech.lib;nuiaudio.lib;xhv2.lib;xmic.lib;d3d9i.lib;d3dx9i.lib;xgraphics.lib;xapilibi.lib;xaudio2.lib;x3daudioi.lib;xmcorei.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
 <GenerateDebugInformation>true</GenerateDebugInformation>
 <OptimizeReferences>true</OptimizeReferences>
 <EnableCOMDATFolding>false</EnableCOMDATFolding>
@@ -308,7 +308,7 @@
 </ClCompile>
 <Link>
 <AdditionalOptions>/ignore:4089  %(AdditionalOptions)</AdditionalOptions>
-<AdditionalDependencies>xact3.lib;xmcore.lib;xaudio2.lib;ST.lib;nuiapi.lib;nuispeech.lib;nuiaudio.lib;xhv2.lib;xmic.lib;d3d9.lib;d3dx9.lib;xgraphics.lib;xapilib.lib;xaudio2.lib;x3daudio.lib;xmcore.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<AdditionalDependencies>nuihandles.lib;xinput2.lib;xact3.lib;xmcore.lib;xaudio2.lib;ST.lib;nuiapi.lib;nuispeech.lib;nuiaudio.lib;xhv2.lib;xmic.lib;d3d9.lib;d3dx9.lib;xgraphics.lib;xapilib.lib;xaudio2.lib;x3daudio.lib;xmcore.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
 <GenerateDebugInformation>true</GenerateDebugInformation>
 <OptimizeReferences>true</OptimizeReferences>
 <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -356,7 +356,7 @@
 </ClCompile>
 <Link>
 <AdditionalOptions>/ignore:4089  %(AdditionalOptions)</AdditionalOptions>
-<AdditionalDependencies>xact3.lib;xmcore.lib;xaudio2.lib;ST.lib;nuiapi.lib;nuispeech.lib;nuiaudio.lib;xhv2.lib;xmic.lib;d3d9ltcg.lib;d3dx9.lib;xgraphics.lib;xapilib.lib;xaudio2.lib;x3daudioltcg.lib;xmcoreltcg.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+<AdditionalDependencies>nuihandles.lib;stltcg.lib;xinput2.lib;xact3.lib;xmcore.lib;xaudio2.lib;ST.lib;nuiapi.lib;nuispeech.lib;nuiaudio.lib;xhv2.lib;xmic.lib;d3d9ltcg.lib;d3dx9.lib;xgraphics.lib;xapilib.lib;xaudio2.lib;x3daudioltcg.lib;xmcoreltcg.lib;xboxkrnl.lib;xbdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
 <GenerateDebugInformation>true</GenerateDebugInformation>
 <OptimizeReferences>true</OptimizeReferences>
 <EnableCOMDATFolding>true</EnableCOMDATFolding>
