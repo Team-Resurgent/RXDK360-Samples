@@ -34,7 +34,8 @@ param(
     [string]$Only = "",
     [string]$ReportPath = "",
     [int]$ListenSeconds = 30,
-    [int]$LaunchTimeout = 150
+    [int]$LaunchTimeout = 150,
+    [switch]$Resume   # keep samples already marked PASS* in an existing ReportPath; re-run the rest
 )
 Set-StrictMode -Version 2.0
 $ErrorActionPreference = "Stop"
@@ -69,6 +70,25 @@ function Reset-Kit {
     return $false
 }
 
+# Write the grouped pass/fail report. Called after every sample (so an interrupted
+# multi-hour run still leaves a usable report and can be -Resume'd) and at the end.
+function Write-Report {
+    param($res, $path, $console, $config)
+    $pass = @($res | Where-Object { $_.Status -like "PASS*" }).Count
+    $sb = New-Object System.Text.StringBuilder
+    [void]$sb.AppendLine("RXDK-360 sample RUN report  (console $console, config $config)")
+    [void]$sb.AppendLine("total $($res.Count)  pass $pass  other $($res.Count - $pass)")
+    [void]$sb.AppendLine("")
+    foreach ($grp in ($res | Group-Object Status | Sort-Object Name)) {
+        [void]$sb.AppendLine("== $($grp.Name) ($($grp.Count)) ==")
+        foreach ($r in ($grp.Group | Sort-Object Name)) {
+            [void]$sb.AppendLine(("{0,-34} {1}" -f $r.Name, $r.Detail))
+        }
+        [void]$sb.AppendLine("")
+    }
+    Set-Content -LiteralPath $path -Value $sb.ToString() -Encoding UTF8
+}
+
 # Every built .xex for the requested config (its parent dir is named for the config).
 # -Filter *.xex also matches "Foo.xex.unsigned" (a Windows filter quirk), so pin the
 # extension to exactly .xex -- those unsigned artifacts are not loadable titles.
@@ -78,8 +98,23 @@ $xexes = @(Get-ChildItem -LiteralPath $rootFull -Recurse -Filter *.xex -ErrorAct
     Where-Object { -not $onlySet -or $onlySet -contains $_.BaseName } |
     Sort-Object BaseName)
 
-Write-Host "Run sweep: $($xexes.Count) sample(s)  config=$Config  console=$Console  listen=${ListenSeconds}s"
 $results = @()
+# -Resume: carry forward samples already marked PASS* in an existing report and don't
+# re-run them (a prior run's confirmed passes are trustworthy). Everything else -- and
+# anything not yet in the report -- is (re-)run.
+if ($Resume -and (Test-Path -LiteralPath $ReportPath)) {
+    $cur = ""
+    $keep = @{}
+    foreach ($line in (Get-Content -LiteralPath $ReportPath)) {
+        if ($line -match "^== (.+?) \(\d+\) ==") { $cur = $matches[1]; continue }
+        if ($cur -like "PASS*" -and $line -match "^(\S+)\s") { $keep[$matches[1]] = $cur }
+    }
+    foreach ($nm in $keep.Keys) { $results += [pscustomobject]@{ Name = $nm; Status = $keep[$nm]; Detail = "(prior run)" } }
+    $xexes = @($xexes | Where-Object { -not $keep.ContainsKey($_.BaseName) })
+    Write-Host "resume: keeping $($keep.Count) prior PASS; re-running $($xexes.Count)"
+}
+
+Write-Host "Run sweep: $($xexes.Count) sample(s)  config=$Config  console=$Console  listen=${ListenSeconds}s"
 $n = 0
 foreach ($x in $xexes) {
     $n++
@@ -153,6 +188,7 @@ foreach ($x in $xexes) {
     Write-Host ("{0} {1}" -f $status, $fault)
 
     Set-Content -LiteralPath (Join-Path $reportDir ("runlog_" + $name + ".txt")) -Value $log -Encoding UTF8
+    Write-Report $results $ReportPath $Console $Config   # incremental: survive interruption / enable -Resume
 
     # ATG samples loop forever, so the next debuglaunch title-reboots over the
     # running one -- a fast warm reboot, no clean exit needed. Only cold-boot (slow)
@@ -161,17 +197,6 @@ foreach ($x in $xexes) {
     if ($wedged -or $fault -or -not (Test-KitUp $Console)) { Reset-Kit $Console | Out-Null }
 }
 
-$pass = @($results | Where-Object { $_.Status -eq "PASS" }).Count
-$sb = New-Object System.Text.StringBuilder
-[void]$sb.AppendLine("RXDK-360 sample RUN report  (console $Console, config $Config)")
-[void]$sb.AppendLine("total $($results.Count)  pass $pass  other $($results.Count - $pass)")
-[void]$sb.AppendLine("")
-foreach ($grp in ($results | Group-Object Status | Sort-Object Name)) {
-    [void]$sb.AppendLine("== $($grp.Name) ($($grp.Count)) ==")
-    foreach ($r in ($grp.Group | Sort-Object Name)) {
-        [void]$sb.AppendLine(("{0,-34} {1}" -f $r.Name, $r.Detail))
-    }
-    [void]$sb.AppendLine("")
-}
-Set-Content -LiteralPath $ReportPath -Value $sb.ToString() -Encoding UTF8
+Write-Report $results $ReportPath $Console $Config
+$pass = @($results | Where-Object { $_.Status -like "PASS*" }).Count
 Write-Host "report -> $ReportPath  (pass $pass / $($results.Count))"
