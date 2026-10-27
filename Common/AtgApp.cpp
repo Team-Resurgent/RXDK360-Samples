@@ -10,6 +10,12 @@
 #include "AtgApp.h"
 #include "AtgUtil.h"
 
+// RXDK-360 sample lifecycle logging: uniform [RXDK] markers in the ATG app base
+// class so an automated kit sweep can tell an app that launched, initialized and
+// started rendering from one that faulted earlier. Emitted via DbgPrint so they
+// land in the debug-string channel on both retail and debug builds.
+extern "C" int DbgPrint( const char*, ... );
+
 // Ignore warning about "unused" pD3D variable
 #pragma warning( disable: 4189 )
 
@@ -56,6 +62,7 @@ DWORD Application::m_dwDeviceCreationFlags = 0;
 VOID Application::Run()
 {
     HRESULT hr;
+    DbgPrint( "[RXDK] entered\n" );
 
     // Create Direct3D
     LPDIRECT3D9 pD3D = Direct3DCreate9( D3D_SDK_VERSION );
@@ -80,6 +87,7 @@ VOID Application::Run()
         ATG_PrintError( "Call to Initialize() failed!\n" );
         DebugBreak();
     }
+    DbgPrint( "[RXDK] initialized\n" );
 
     // Run the game loop
     for(; ; )
@@ -89,6 +97,10 @@ VOID Application::Run()
 
         // Render the scene
         Render();
+
+        // Once the first frame has been drawn without faulting, the app is "up".
+        static bool s_rxdkFirstFrame = true;
+        if( s_rxdkFirstFrame ) { s_rxdkFirstFrame = false; DbgPrint( "[RXDK] rendering\n" ); }
     }
 }
 

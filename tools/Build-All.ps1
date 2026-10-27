@@ -106,7 +106,10 @@ foreach ($cfg in $configList) {
         foreach ($line in ($out -split "`r?`n")) {
             if ($line -match "error " -and $line -notmatch "xbecopy|Could not connect|X1001") { $err = $line; break }
         }
-        $ok = Test-Path $info.Xex
+        # Pass if the build produced any .xex in the config output dir. Keying off a
+        # fixed "<project>.xex" misses samples whose TargetName differs from the
+        # project name (e.g. EdgeBasedAntiAliasing -> EdgeBasedAA.xex).
+        $ok = @(Get-ChildItem -LiteralPath $info.XexDir -Filter *.xex -ErrorAction SilentlyContinue).Count -gt 0
         if ($ok) { $script:pass++; $tag = "PASS" } else { $tag = "FAIL" }
         $script:results.Add([pscustomobject]@{ Name = $info.Name; Config = $cfg; Ok = $ok; Error = "$err".Trim() })
         Write-Host ("[{0,4}/{1}] {2}  {3}  {4}" -f $script:done, $total, $tag, $cfg, $info.Name)
@@ -118,8 +121,10 @@ foreach ($cfg in $configList) {
             $s = $queue.Dequeue()
             $name = [IO.Path]::GetFileNameWithoutExtension($s.Name)
             $dir = Split-Path $s.FullName -Parent
-            $xex = Join-Path (Join-Path $dir $cfg) "$name.xex"
-            if (Test-Path $xex) { Remove-Item -LiteralPath $xex -ErrorAction SilentlyContinue }
+            # Clear every stale .xex in the config dir so a missing output forces the
+            # link to re-run and the pass check (any *.xex) can't see a prior build.
+            $xexDir = Join-Path $dir $cfg
+            if (Test-Path $xexDir) { Get-ChildItem -LiteralPath $xexDir -Filter *.xex -ErrorAction SilentlyContinue | Remove-Item -Force -ErrorAction SilentlyContinue }
             $log = Join-Path $tmpDir ($name + "_" + $cfg + ".log")
             # Build the sample's .vcxproj directly with BuildProjectReferences=false:
             # the shared Common was already built once above, so the parallel sample
@@ -132,7 +137,7 @@ foreach ($cfg in $configList) {
             $args = @(('"' + $proj + '"'), "/p:Configuration=$cfg", "/p:BuildProjectReferences=false") + $common
             $p = Start-Process -FilePath $msb -ArgumentList $args -NoNewWindow -PassThru `
                 -RedirectStandardOutput $log -RedirectStandardError ($log + ".err")
-            $active[$p.Id] = [pscustomobject]@{ Proc = $p; Name = $name; Xex = $xex; Log = $log }
+            $active[$p.Id] = [pscustomobject]@{ Proc = $p; Name = $name; XexDir = $xexDir; Log = $log }
         }
         Start-Sleep -Milliseconds 150
         foreach ($id in @($active.Keys)) {
