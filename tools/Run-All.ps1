@@ -89,6 +89,21 @@ function Write-Report {
     Set-Content -LiteralPath $path -Value $sb.ToString() -Encoding UTF8
 }
 
+# A hard kit wedge (debug monitor won't reopen its reverse socket, title never reaches
+# entry) can't be cleared by a cold reboot -- it needs a physical power-cycle. Rather
+# than churn (or infinitely re-wedge on the same title), mark the culprit WEDGED, save
+# the report, and exit so the user can power-cycle and re-run with -Resume. WEDGED is
+# skipped on -Resume, so the sweep steps PAST the offending sample instead of looping.
+function Stop-Wedged {
+    param($res, $path, $console, $config, $culprit)
+    Write-Report $res $path $console $config
+    Write-Host ""
+    Write-Host "*** KIT WEDGED on '$culprit' -- marked WEDGED (skipped on -Resume)."
+    Write-Host "*** Power-cycle the kit, then re-run the SAME command with -Resume to continue."
+    Write-Host "*** $($res.Count) result(s) saved to $path"
+    exit 3
+}
+
 # Every built .xex for the requested config (its parent dir is named for the config).
 # -Filter *.xex also matches "Foo.xex.unsigned" (a Windows filter quirk), so pin the
 # extension to exactly .xex -- those unsigned artifacts are not loadable titles.
@@ -107,7 +122,9 @@ if ($Resume -and (Test-Path -LiteralPath $ReportPath)) {
     $keep = @{}
     foreach ($line in (Get-Content -LiteralPath $ReportPath)) {
         if ($line -match "^== (.+?) \(\d+\) ==") { $cur = $matches[1]; continue }
-        if ($cur -like "PASS*" -and $line -match "^(\S+)\s") { $keep[$matches[1]] = $cur }
+        # Keep confirmed passes AND samples already marked WEDGED (re-running a WEDGED
+        # title would just wedge the kit again), re-run everything else.
+        if (($cur -like "PASS*" -or $cur -eq "WEDGED") -and $line -match "^(\S+)\s") { $keep[$matches[1]] = $cur }
     }
     foreach ($nm in $keep.Keys) { $results += [pscustomobject]@{ Name = $nm; Status = $keep[$nm]; Detail = "(prior run)" } }
     $xexes = @($xexes | Where-Object { -not $keep.ContainsKey($_.BaseName) })
@@ -121,7 +138,9 @@ foreach ($x in $xexes) {
     $name = $x.BaseName
     Write-Host ("[{0}/{1}] {2} ... " -f $n, $xexes.Count, $name) -NoNewline
 
-    if (-not (Test-KitUp $Console)) { Reset-Kit $Console | Out-Null }
+    if (-not (Test-KitUp $Console)) {
+        if (-not (Reset-Kit $Console)) { Stop-Wedged $results $ReportPath $Console $Config $name }
+    }
 
     # Run debuglaunch inside a job so a hung/wedged launch hits a hard timeout instead
     # of stalling the whole sweep. The preceding title can bugcheck and reboot the kit,
@@ -151,7 +170,16 @@ foreach ($x in $xexes) {
             -or $log -match "exec state=[34]")
         if (-not $notReady) { break }
         Write-Host "(kit not ready, retrying) " -NoNewline
-        Reset-Kit $Console | Out-Null
+        if (-not (Reset-Kit $Console)) {
+            $results += [pscustomobject]@{ Name = $name; Status = "WEDGED"; Detail = "kit did not come back up" }
+            Stop-Wedged $results $ReportPath $Console $Config $name
+        }
+    }
+    # Retries exhausted and the kit still never reached this title's entry: this launch
+    # is wedging the kit. Mark it WEDGED and stop so the user can power-cycle + resume.
+    if ($notReady) {
+        $results += [pscustomobject]@{ Name = $name; Status = "WEDGED"; Detail = "never reached title entry after retries" }
+        Stop-Wedged $results $ReportPath $Console $Config $name
     }
 
     $passed    = $log -match "\[RXDK\] pass"          # sustained RXDK_PASS_FRAMES frames (ATG loop samples)
@@ -201,7 +229,12 @@ foreach ($x in $xexes) {
     # running one -- a fast warm reboot, no clean exit needed. Only cold-boot (slow)
     # when the kit is actually wedged: a faulting title can bugcheck it, so the next
     # title-reboot would fail. Probe the control port; cold reboot only if it's down.
-    if ($wedged -or $fault -or -not (Test-KitUp $Console)) { Reset-Kit $Console | Out-Null }
+    if ($wedged -or $fault -or -not (Test-KitUp $Console)) {
+        if (-not (Reset-Kit $Console)) {
+            $results[-1].Status = "WEDGED"; $results[-1].Detail = "kit unrecoverable after run"
+            Stop-Wedged $results $ReportPath $Console $Config $name
+        }
+    }
 }
 
 Write-Report $results $ReportPath $Console $Config
