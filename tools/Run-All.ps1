@@ -115,6 +115,7 @@ function Stop-Wedged {
 # extension to exactly .xex -- those unsigned artifacts are not loadable titles.
 $xexes = @(Get-ChildItem -LiteralPath $rootFull -Recurse -Filter *.xex -ErrorAction SilentlyContinue |
     Where-Object { $_.Extension -eq ".xex" } |
+    Where-Object { $_.Name -notmatch "(?i)\.unsigned\." } |   # unsigned pack intermediates (<name>.xex.unsigned.xex) won't launch
     Where-Object { $_.Directory.Name -eq $Config } |
     Where-Object { -not $onlySet -or $onlySet -contains $_.BaseName } |
     Sort-Object BaseName)
