@@ -70,7 +70,10 @@ function Reset-Kit {
 }
 
 # Every built .xex for the requested config (its parent dir is named for the config).
+# -Filter *.xex also matches "Foo.xex.unsigned" (a Windows filter quirk), so pin the
+# extension to exactly .xex -- those unsigned artifacts are not loadable titles.
 $xexes = @(Get-ChildItem -LiteralPath $rootFull -Recurse -Filter *.xex -ErrorAction SilentlyContinue |
+    Where-Object { $_.Extension -eq ".xex" } |
     Where-Object { $_.Directory.Name -eq $Config } |
     Where-Object { -not $onlySet -or $onlySet -contains $_.BaseName } |
     Sort-Object BaseName)
@@ -85,19 +88,29 @@ foreach ($x in $xexes) {
 
     if (-not (Test-KitUp $Console)) { Reset-Kit $Console | Out-Null }
 
-    # Run debuglaunch inside a job so a hung/wedged launch hits a hard timeout
-    # instead of stalling the whole sweep.
-    $job = Start-Job -ScriptBlock {
-        param($xbdm, $c, $xex, $ls)
-        $env:RXDK_LISTEN = "$ls"
-        $env:RXDK_XBDM_REGISTER = "1"
-        & $xbdm debuglaunch $c $xex 2>&1
-    } -ArgumentList $Xbdm, $Console, $x.FullName, $ListenSeconds
-
+    # Run debuglaunch inside a job so a hung/wedged launch hits a hard timeout instead
+    # of stalling the whole sweep. The preceding title can bugcheck and reboot the kit,
+    # so a launch may hit a box that isn't up yet: it comes back near-empty with
+    # "waiting for debugger connection" / "DVD Emulator Not Running" and no modload.
+    # Detect that and retry (after settling the kit) rather than mis-recording NOSTART.
     $wedged = $false
-    if (Wait-Job $job -Timeout $LaunchTimeout) { $log = (Receive-Job $job) -join "`n" }
-    else { Stop-Job $job; $log = "LAUNCH TIMEOUT (kit wedged?)"; $wedged = $true }
-    Remove-Job $job -Force -ErrorAction SilentlyContinue
+    $log = ""
+    for ($try = 0; $try -lt 3; $try++) {
+        $job = Start-Job -ScriptBlock {
+            param($xbdm, $c, $xex, $ls)
+            $env:RXDK_LISTEN = "$ls"
+            $env:RXDK_XBDM_REGISTER = "1"
+            & $xbdm debuglaunch $c $xex 2>&1
+        } -ArgumentList $Xbdm, $Console, $x.FullName, $ListenSeconds
+        if (Wait-Job $job -Timeout $LaunchTimeout) { $log = (Receive-Job $job) -join "`n"; $wedged = $false }
+        else { Stop-Job $job; $log = "LAUNCH TIMEOUT (kit wedged?)"; $wedged = $true }
+        Remove-Job $job -Force -ErrorAction SilentlyContinue
+        # A launch into a still-rebooting kit: retry after waiting for it to come up.
+        $notReady = ($log -match "waiting for debugger connection" -or $log -match "DVD Emulator Not Running" -or $log -match "exec state=3")
+        if (-not $notReady) { break }
+        Write-Host "(kit not ready, retrying) " -NoNewline
+        Reset-Kit $Console | Out-Null
+    }
 
     $passed    = $log -match "\[RXDK\] pass"          # sustained RXDK_PASS_FRAMES frames (ATG loop samples)
     $rendering = $log -match "\[RXDK\] rendering"      # drew a frame, but faulted/hung before the threshold
@@ -117,7 +130,11 @@ foreach ($x in $xexes) {
     # whole listen window without a fault. That's a real "it ran without crashing"
     # signal: classify it ALIVE (ran; correctness needs an eyeball), distinct from a
     # title that never launched (NOSTART) or crashed (FAIL(fault)).
-    $loaded = $log -match ("module\s+" + [regex]::Escape($name) + "\.xex")
+    # A title announces its load as "notify modload name=<n>.xex" / "Loaded EXE <n>.xex"
+    # while running; the "module <n>.xex base=" table only prints if it stops at an init
+    # break. Match any of them (a sample that loads, runs and returns to the dashboard
+    # never stops, so only the modload/Loaded form appears) -> it's ALIVE, not NOSTART.
+    $loaded = $log -match ("(?:module\s+|modload name=|Loaded EXE\s+)" + [regex]::Escape($name) + "\.xex")
 
     $status =
         if ($passed) { "PASS" }                                   # sustained render (ATG/XUI)
@@ -141,7 +158,7 @@ foreach ($x in $xexes) {
     # running one -- a fast warm reboot, no clean exit needed. Only cold-boot (slow)
     # when the kit is actually wedged: a faulting title can bugcheck it, so the next
     # title-reboot would fail. Probe the control port; cold reboot only if it's down.
-    if ($wedged -or -not (Test-KitUp $Console)) { Reset-Kit $Console | Out-Null }
+    if ($wedged -or $fault -or -not (Test-KitUp $Console)) { Reset-Kit $Console | Out-Null }
 }
 
 $pass = @($results | Where-Object { $_.Status -eq "PASS" }).Count
