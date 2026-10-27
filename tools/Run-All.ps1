@@ -140,8 +140,15 @@ foreach ($x in $xexes) {
         if (Wait-Job $job -Timeout $LaunchTimeout) { $log = (Receive-Job $job) -join "`n"; $wedged = $false }
         else { Stop-Job $job; $log = "LAUNCH TIMEOUT (kit wedged?)"; $wedged = $true }
         Remove-Job $job -Force -ErrorAction SilentlyContinue
-        # A launch into a still-rebooting kit: retry after waiting for it to come up.
-        $notReady = ($log -match "waiting for debugger connection" -or $log -match "DVD Emulator Not Running" -or $log -match "exec state=3")
+        # A launch into a still-rebooting kit: it never reaches the title's entry.
+        # Signatures: an early-boot banner (bootanim unload / DVD-emulator / VD page
+        # restriction), "waiting for debugger connection", or debuglaunch timing out
+        # on the initial break with the kit still in a boot/pending exec state (3/4).
+        # Retry after settling, rather than mis-recording NOSTART. (A truly dead kit
+        # stays not-ready across retries -> it records NOSTART and the sweep moves on.)
+        $notReady = ($log -match "waiting for debugger connection" -or $log -match "DVD Emulator Not Running" `
+            -or $log -match "bootanim\.xex" -or $log -match "timed out waiting for .* initial break" `
+            -or $log -match "exec state=[34]")
         if (-not $notReady) { break }
         Write-Host "(kit not ready, retrying) " -NoNewline
         Reset-Kit $Console | Out-Null
