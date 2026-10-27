@@ -446,6 +446,9 @@
     <MakeDir Directories="$(OutDir)media" />
     <MakeDir Directories="$(OutDir)Media\Fonts" />
   </Target>
+  <Target Name="RxdkPreBuild" BeforeTargets="CustomBuild;ClCompile">
+    <Exec Command="GenerateFiles.bat" WorkingDirectory="$(ProjectDir)" />
+  </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />
 </Project>

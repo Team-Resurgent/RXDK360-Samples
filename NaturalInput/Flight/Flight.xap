@@ -448,7 +448,7 @@ Wave Bank
     Wave
     {
         Name = Crash;
-        File = Media\Sounds\Crash.wav;
+        File = ..\..\Media\Sounds\Crash.wav;
         Build Settings Last Modified Low = 1714755718;
         Build Settings Last Modified High = 30004000;
         Compression Preset Name = CompressionSettings;
@@ -472,7 +472,7 @@ Wave Bank
     Wave
     {
         Name = PlaneLoop1;
-        File = Media\Sounds\PlaneLoop1.wav;
+        File = ..\..\Media\Sounds\PlaneLoop1.wav;
         Build Settings Last Modified Low = 1715205718;
         Build Settings Last Modified High = 30004000;
         Compression Preset Name = CompressionSettings;
@@ -496,7 +496,7 @@ Wave Bank
     Wave
     {
         Name = RingFail;
-        File = Media\Sounds\RingFail.wav;
+        File = ..\..\Media\Sounds\RingFail.wav;
         Build Settings Last Modified Low = 1715215718;
         Build Settings Last Modified High = 30004000;
         Compression Preset Name = CompressionSettings;
@@ -520,7 +520,7 @@ Wave Bank
     Wave
     {
         Name = RingPass;
-        File = Media\Sounds\RingPass.wav;
+        File = ..\..\Media\Sounds\RingPass.wav;
         Build Settings Last Modified Low = 1715225718;
         Build Settings Last Modified High = 30004000;
         Compression Preset Name = CompressionSettings;

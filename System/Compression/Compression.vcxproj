@@ -401,6 +401,9 @@
     <MakeDir Directories="$(OutDir)media" />
     <MakeDir Directories="$(OutDir)Media\Fonts" />
   </Target>
+  <Target Name="RxdkPreBuild" BeforeTargets="CustomBuild;ClCompile">
+    <Exec Command="xbcompress.exe /y /z:32 /w:32 /p:32 .\Compression.cpp .\Compression.lzx" WorkingDirectory="$(ProjectDir)" />
+  </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 <ImportGroup Label="ExtensionTargets" />
 </Project>

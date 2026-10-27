@@ -37,6 +37,15 @@ param(
 Set-StrictMode -Version 2.0
 $ErrorActionPreference = "Stop"
 
+# Stock sample custom-build steps invoke sibling helper scripts (BuildXuiPkg.cmd,
+# ResXSplitAllLocales.cmd, ...) by bare name, relying on cmd.exe searching the
+# current directory -- the normal dev/VS default. Some shells set
+# NoDefaultCurrentDirectoryInExePath=1 (which blocks that), so clear it for the
+# child builds. Each sample is also built with its project dir as the working
+# directory (below), matching how VS / the .sln build invokes MSBuild, so
+# cwd-relative commands like "xbcompress .\Foo.cpp" resolve.
+Remove-Item Env:\NoDefaultCurrentDirectoryInExePath -ErrorAction SilentlyContinue
+
 $AllConfigs = @("CodeAnalysis", "Debug", "Profile", "Profile_FastCap", "Release", "Release_LTCG")
 $configList = @(if ($Configs -eq "All") { $AllConfigs } else { $Configs.Split(",") | ForEach-Object { $_.Trim() } })
 if ($Parallel -le 0) {
@@ -135,7 +144,10 @@ foreach ($cfg in $configList) {
             $vcx = Join-Path $dir "$name.vcxproj"
             $proj = if (Test-Path $vcx) { $vcx } else { $s.FullName }
             $args = @(('"' + $proj + '"'), "/p:Configuration=$cfg", "/p:BuildProjectReferences=false") + $common
+            # Run each build with the project dir as the working directory, as VS /
+            # the .sln do, so cwd-relative custom-build commands resolve.
             $p = Start-Process -FilePath $msb -ArgumentList $args -NoNewWindow -PassThru `
+                -WorkingDirectory $dir `
                 -RedirectStandardOutput $log -RedirectStandardError ($log + ".err")
             $active[$p.Id] = [pscustomobject]@{ Proc = $p; Name = $name; XexDir = $xexDir; Log = $log }
         }

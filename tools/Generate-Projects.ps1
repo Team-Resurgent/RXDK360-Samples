@@ -668,6 +668,11 @@ function ConvertTo-RxdkVcxproj([string]$raw, [string]$toCommon, [string]$commonG
     $raw = $raw -replace '\s/Zi\b', ''
     $raw = $raw -replace '\s/XFd"[^"]*"', ''
     $raw = $raw -replace '\s/Fc\s+"[^"]*"', ''
+    # A quoted path ending in a backslash escapes its own closing quote in cmd
+    # ("...\Release\\"), so a tool (ArcadeSample's BuildXuiPkg.cmd -> xuipkg) gets
+    # a malformed arg and prepends cwd, doubling the path. $(ImageDir) is the same
+    # output dir, absolute and with no trailing separator.
+    $raw = $raw.Replace('"$(ProjectDir)$(OutDir)\"', '"$(ImageDir)"')
     # Pre-create $(OutDir) content output directories (CustomBuild fxc/bundler/copy won't).
     $dirs = @{}
     foreach ($m in [regex]::Matches($raw, '\$\(OutDir\)\\?([^"<]*?)\\[^\\"<]*?(?=")')) {
@@ -684,6 +689,17 @@ function ConvertTo-RxdkVcxproj([string]$raw, [string]$toCommon, [string]$commonG
     if ($spaStep -and $raw -notmatch '(?i)\.gameconfig') {
         $targets += "  <Target Name=`"RxdkSpa`" BeforeTargets=`"ClCompile`" Inputs=`"`$(ProjectDir)$(ConvertTo-Xml $spaStep.In)`" Outputs=`"`$(ProjectDir)$(ConvertTo-Xml $spaStep.Out)`">`r`n"
         $targets += "    <Exec Command=`"$(ConvertTo-Xml $spaStep.Cmd)`" />`r`n  </Target>`r`n"
+    }
+    # The platform also ignores a stock <PreBuildEvent> (e.g. GameDiscCaching's
+    # GenerateFiles.bat, which creates its test_file*.bin). Run the first non-empty
+    # one as a real target, in the project dir, before compilation.
+    $pbe = [regex]::Match($raw, '(?s)<PreBuildEvent>\s*<Command>(.*?)</Command>')
+    if ($pbe.Success -and $pbe.Groups[1].Value.Trim()) {
+        $pbeCmd = $pbe.Groups[1].Value.Trim()
+        # Before CustomBuild too: a prebuild often produces files the content copy
+        # steps consume (GameDiscCaching's test_file*.bin).
+        $targets += "  <Target Name=`"RxdkPreBuild`" BeforeTargets=`"CustomBuild;ClCompile`">`r`n"
+        $targets += "    <Exec Command=`"$pbeCmd`" WorkingDirectory=`"`$(ProjectDir)`" />`r`n  </Target>`r`n"
     }
     if ($targets) {
         $raw = $raw -replace '(<Import Project="\$\(VCTargetsPath\)\\Microsoft\.Cpp\.targets" />)', ($targets + '  $1')
