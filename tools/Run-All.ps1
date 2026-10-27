@@ -130,9 +130,10 @@ if ($Resume -and (Test-Path -LiteralPath $ReportPath)) {
     $keep = @{}
     foreach ($line in (Get-Content -LiteralPath $ReportPath)) {
         if ($line -match "^== (.+?) \(\d+\) ==") { $cur = $matches[1]; continue }
-        # Keep confirmed passes AND samples already marked WEDGED (re-running a WEDGED
-        # title would just wedge the kit again), re-run everything else.
-        if (($cur -like "PASS*" -or $cur -eq "WEDGED") -and $line -match "^(\S+)\s") { $keep[$matches[1]] = $cur }
+        # Keep confirmed passes, samples already marked WEDGED (re-running one would
+        # just wedge the kit again), and SKIP* (deliberately quarantined, e.g. the
+        # Kinect/NUI samples that need a sensor this kit doesn't have). Re-run the rest.
+        if (($cur -like "PASS*" -or $cur -eq "WEDGED" -or $cur -like "SKIP*") -and $line -match "^(\S+)\s") { $keep[$matches[1]] = $cur }
     }
     foreach ($nm in $keep.Keys) { $results += [pscustomobject]@{ Name = $nm; Status = $keep[$nm]; Detail = "(prior run)" } }
     $xexes = @($xexes | Where-Object { -not $keep.ContainsKey($_.BaseName) })
