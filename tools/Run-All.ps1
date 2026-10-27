@@ -58,8 +58,16 @@ $onlySet = if ($Only) { @($Only.Split(",") | ForEach-Object { $_.Trim() }) } els
 # (730) directly -- open means the kit's debug service is up.
 function Test-KitUp {
     param($c)
-    try { $t = New-Object Net.Sockets.TcpClient; $t.Connect($c, 730); $ok = $t.Connected; $t.Close(); return $ok }
+    # Reachable on the xbdm control port AND past the boot animation. Port 730 opens
+    # early in boot (it's open even when the kit is hung at the 360 logo), so a bare
+    # port check reports a logo-hung kit as "up" and the sweep launches into a box that
+    # can't run titles. Require bootanim.xex to be gone (shell/title has loaded).
+    try { $t = New-Object Net.Sockets.TcpClient; $t.Connect($c, 730); $up = $t.Connected; $t.Close() }
     catch { return $false }
+    if (-not $up) { return $false }
+    $mods = (& $Xbdm threads $c 2>&1 | Out-String)
+    if ($mods -notmatch "connected:") { return $false }
+    return ($mods -notmatch "bootanim\.xex")
 }
 
 function Reset-Kit {
