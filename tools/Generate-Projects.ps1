@@ -668,6 +668,13 @@ function ConvertTo-RxdkVcxproj([string]$raw, [string]$toCommon, [string]$commonG
     $raw = $raw -replace '\s/Zi\b', ''
     $raw = $raw -replace '\s/XFd"[^"]*"', ''
     $raw = $raw -replace '\s/Fc\s+"[^"]*"', ''
+    # The clang toolset does not use MSVC precompiled headers (no /Yc/Yu); stdafx.h
+    # is just a normal include. A stock <PrecompiledHeader>Create/Use</> (only
+    # ArcadeSample ships one) makes a VC target batch %(PrecompiledHeaderFile) that
+    # the item doesn't define -> MSB4096. Strip the PCH metadata so the sample
+    # compiles as ordinary TUs like every other sample.
+    $raw = $raw -replace '\s*<PrecompiledHeaderFile>[^<]*</PrecompiledHeaderFile>', ''
+    $raw = $raw -replace '\s*<PrecompiledHeader>[^<]*</PrecompiledHeader>', ''
     # A quoted path ending in a backslash escapes its own closing quote in cmd
     # ("...\Release\\"), so a tool (ArcadeSample's BuildXuiPkg.cmd -> xuipkg) gets
     # a malformed arg and prepends cwd, doubling the path. $(ImageDir) is the same

@@ -418,7 +418,6 @@
     <ClCompile Include=".\QuickMatchScene.cpp" />
     <CLInclude Include=".\QuickMatchScene.h" />
     <ClCompile Include=".\stdafx.cpp">
-<PrecompiledHeader>Create</PrecompiledHeader>
 </ClCompile>
     <CLInclude Include=".\stdafx.h" />
     <CLInclude Include=".\Utils.h" />
