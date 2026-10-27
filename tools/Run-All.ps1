@@ -58,16 +58,14 @@ $onlySet = if ($Only) { @($Only.Split(",") | ForEach-Object { $_.Trim() }) } els
 # (730) directly -- open means the kit's debug service is up.
 function Test-KitUp {
     param($c)
-    # Reachable on the xbdm control port AND past the boot animation. Port 730 opens
-    # early in boot (it's open even when the kit is hung at the 360 logo), so a bare
-    # port check reports a logo-hung kit as "up" and the sweep launches into a box that
-    # can't run titles. Require bootanim.xex to be gone (shell/title has loaded).
-    try { $t = New-Object Net.Sockets.TcpClient; $t.Connect($c, 730); $up = $t.Connected; $t.Close() }
+    # Lightweight reachability check only -- a bare TCP connect to the xbdm control
+    # port. Do NOT open a full xbdm (threads) connection here: this runs before every
+    # launch, and an extra xbdm connection per sample triggers the kit's
+    # EnsurePersistentSockets reverse-connection wedge. A logo-hung kit (port open but
+    # can't run titles) is caught instead by the launch itself timing out at the title's
+    # initial break, which the retry/WEDGED path handles.
+    try { $t = New-Object Net.Sockets.TcpClient; $t.Connect($c, 730); $ok = $t.Connected; $t.Close(); return $ok }
     catch { return $false }
-    if (-not $up) { return $false }
-    $mods = (& $Xbdm threads $c 2>&1 | Out-String)
-    if ($mods -notmatch "connected:") { return $false }
-    return ($mods -notmatch "bootanim\.xex")
 }
 
 function Reset-Kit {
@@ -168,15 +166,14 @@ foreach ($x in $xexes) {
         if (Wait-Job $job -Timeout $LaunchTimeout) { $log = (Receive-Job $job) -join "`n"; $wedged = $false }
         else { Stop-Job $job; $log = "LAUNCH TIMEOUT (kit wedged?)"; $wedged = $true }
         Remove-Job $job -Force -ErrorAction SilentlyContinue
-        # A launch into a still-rebooting kit: it never reaches the title's entry.
-        # Signatures: an early-boot banner (bootanim unload / DVD-emulator / VD page
-        # restriction), "waiting for debugger connection", or debuglaunch timing out
-        # on the initial break with the kit still in a boot/pending exec state (3/4).
-        # Retry after settling, rather than mis-recording NOSTART. (A truly dead kit
-        # stays not-ready across retries -> it records NOSTART and the sweep moves on.)
-        $notReady = ($log -match "waiting for debugger connection" -or $log -match "DVD Emulator Not Running" `
-            -or $log -match "bootanim\.xex" -or $log -match "timed out waiting for .* initial break" `
-            -or $log -match "exec state=[34]")
+        # Retry only when the title never reached its entry AND the kit shows a boot /
+        # reverse-connection problem (a launch into a still-rebooting kit). "exec state"
+        # transitions and bootanim appear in EVERY launch's reboot phase, so they are
+        # not failure signals on their own -- gate on the title not being reached.
+        $reached = ($log -match "initial break" -or $log -match "\[RXDK\]" -or $log -match "modload name=" `
+            -or $log -match "\[XAPI RETURN VALUE\]" -or $log -match "module\s+\S+\.xex\s+base=")
+        $notReady = (-not $reached) -and ($wedged -or $log -match "timed out waiting for .* initial break" `
+            -or $log -match "waiting for debugger connection" -or $log -match "DVD Emulator Not Running")
         if (-not $notReady) { break }
         Write-Host "(kit not ready, retrying) " -NoNewline
         if (-not (Reset-Kit $Console)) {
