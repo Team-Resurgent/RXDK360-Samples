@@ -110,6 +110,22 @@ function Stop-Wedged {
     exit 3
 }
 
+# A sample that faults reboots the kit, and the debug reverse connection often does
+# NOT recover -- every launch after it reaches "pending" (exec state 4) but never the
+# title's entry, so they pile up as bogus NOSTARTs. Detect that run and stop, so the
+# NOSTARTs are not recorded as real results: the user power-cycles + re-adds the
+# console in Neighborhood, then -Resume re-runs them (NOSTART is not kept on resume).
+function Stop-ConnDead {
+    param($res, $path, $console, $config, $n)
+    Write-Report $res $path $console $config
+    Write-Host ""
+    Write-Host "*** DEBUG CONNECTION LIKELY DEAD ($n samples in a row never reached entry)."
+    Write-Host "*** A prior fault rebooted the kit and the reverse connection did not recover."
+    Write-Host "*** Power-cycle the kit + remove/re-add it in Neighborhood, then re-run with -Resume."
+    Write-Host "*** (those NOSTART samples are not kept -- they re-run on resume.)"
+    exit 4
+}
+
 # Every built .xex for the requested config (its parent dir is named for the config).
 # -Filter *.xex also matches "Foo.xex.unsigned" (a Windows filter quirk), so pin the
 # extension to exactly .xex -- those unsigned artifacts are not loadable titles.
@@ -141,6 +157,7 @@ if ($Resume -and (Test-Path -LiteralPath $ReportPath)) {
 
 Write-Host "Run sweep: $($xexes.Count) sample(s)  config=$Config  console=$Console  listen=${ListenSeconds}s"
 $n = 0
+$consecNostart = 0
 foreach ($x in $xexes) {
     $n++
     $name = $x.BaseName
@@ -231,6 +248,12 @@ foreach ($x in $xexes) {
 
     Set-Content -LiteralPath (Join-Path $reportDir ("runlog_" + $name + ".txt")) -Value $log -Encoding UTF8
     Write-Report $results $ReportPath $Console $Config   # incremental: survive interruption / enable -Resume
+
+    # Two NOSTARTs in a row == the reverse connection died (a prior fault rebooted the
+    # kit and it never came back for the debugger). Stop cleanly for recovery rather
+    # than scribbling bogus NOSTARTs over the rest of the catalog.
+    if ($status -like "NOSTART*") { $consecNostart++ } else { $consecNostart = 0 }
+    if ($consecNostart -ge 2) { Stop-ConnDead $results $ReportPath $Console $Config $consecNostart }
 
     # ATG samples loop forever, so the next debuglaunch title-reboots over the
     # running one -- a fast warm reboot, no clean exit needed. Only cold-boot (slow)
